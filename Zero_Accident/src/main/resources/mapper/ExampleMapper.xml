@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smhrd.web.mapper.ExampleMapper">
+<!-- com.smhrd.web.mapper에서 만든 함수 이름과 매칭 -->
+	<select id="ExampleFunction1">
+		SELECT *
+		FROM
+		Example_Table;
+	</select>
+</mapper>
