@@ -1,9 +1,21 @@
 @charset "UTF-8";
 
+body {
+  display: flex;
+  justify-content: center;  /* 가로 가운데 정렬 */
+  align-items: center;      /* 세로 가운데 정렬 */
+  min-height: 100vh;        /* 브라우저 세로 전체 높이 사용 */
+  margin: 0;
+  background-color: #ffffff; /* 필요 시 배경색 */
+}
+
 .container {
     width: 440px;
     height: 956px;
     position: relative;
+    display: flex;
+  	justify-content: center; /* 가로 중앙 정렬 */
+  	align-items: center;    /* 세로 중앙 정렬 */
     border-radius: 50px;
     background-color: #44444e;
     height: 956px;
@@ -13,6 +25,8 @@
     font-size: 14px;
     color: #b8cfce;
     font-family: 'NanumSquare Neo OTF';
+    
+  	
 }
 .status-bar {
     position: absolute;
@@ -347,7 +361,8 @@ input[type="password"] {
 }
 
 input::placeholder {
-    color: #B8CFCE; 
+    color: #B8CFCE;
+    font-size: 17px; 
   }
   
 
@@ -460,8 +475,9 @@ input::placeholder {
     left: calc(50% - 133px);
     width: 276px;
     display: flex;
+    justify-content: center;      /* 가로 가운데 정렬 */
     align-items: center;
-    gap: 61px;
+    gap: 12px;
 }
 .div9 {
     width: 70px;
@@ -469,11 +485,16 @@ input::placeholder {
     align-items: center;
     justify-content: center;
 }
+/* 구분선 */
 .bar-icon {
     height: 15px;
-    width: 0px;
-    border-color: #B8CFCE;
+    width: 0;                     /* 세로선의 너비 */
+    border-width: 1px;            /* 선 두께 */
+    border-style: solid;          /* 선 스타일 */
+    border-color: #B8CFCE;        /* 선 색상 */
+    margin: 0 12px;               /* 텍스트와의 간격 */
 }
+
 .div10 {
     width: 84px;
     display: flex;
@@ -547,6 +568,16 @@ button {
     width: 100%;
     height: 1px;
     background: #B8CFCE;
-    margin: 30px 0 20px 0;
+    margin: -20px 40px -700px 40px;
   }
+  
+  /* 모든 입력창의 글씨 크기를 키움 */
+input[type="text"],
+input[type="password"] {
+  font-size: 17px;     /* 글씨 크기 */
+  color: #ffffff;      /* 입력 글씨 색상 (선택) */
+}
+
+
+  
 

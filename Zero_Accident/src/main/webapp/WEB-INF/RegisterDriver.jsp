@@ -11,11 +11,6 @@
   	<meta charset="utf-8">
   	<meta name="viewport" content="initial-scale=1, width=device-width">
   	
-  	<link rel="stylesheet"  href="./index.css" />
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=[object Object]&display=swap" />
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=[object Object]&display=swap" />
-  	
-  	
   	<!-- 웹 폰트 url(나눔 스퀘어 네오) -->
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 
@@ -32,6 +27,7 @@
           					<div class="hours">:</div>
           					<div class="hours">41</div>
         				</div>
+        				<!-- 위치 아이콘 -->
         				<img class="location-arrow-icon" alt="">
         				
       			</div>
@@ -175,15 +171,11 @@
 		  	<!-- name="driverBirthdate" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->
 		  	<div class="input-parent">
 		    	<input 
-			    	type="text" 
+			    	type="date" 
 			    	id="birthdate" 
 			    	name="driverBirthdate" 
-			    	placeholder="YYMMDD" 
-			    	maxlength="6" 
 			    	required
 		    	>
-		    	
-		    	<span class="frame-child">-</span>
 		    	
 		    	<!-- 성별 입력란 -->
 		    	<!-- name="driverGender" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->
@@ -195,15 +187,6 @@
 			    	required
 		    	>
 		    	
-		    	<div class="dots">
-			      <span class="dots-child">*</span>
-			      <span class="dots-child">*</span>
-			      <span class="dots-child">*</span>
-			      <span class="dots-child">*</span>
-			      <span class="dots-child">*</span>
-			      <span class="dots-child">*</span>
-			      <span class="dots-child">*</span>
-		    	</div>
 		  	</div>
 
   			<!-- 근무지역 입력란 -->

@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<!-- 웹 폰트 url(나눔 스퀘어 네오) -->
+	<!-- 웹 폰트 url(나눔 스퀘어 네오) -->
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 
     <!-- style.css 파일의 스타일을 적용하겠다. -->
@@ -18,7 +18,8 @@
 	
 </head>
 <body>
-	<!-- 아이폰 프레임 -->
+
+<!--===============================    헤더     ======================================== -->
   	<div class="container">
 		<!-- 상단 상태바 -->
     	<div class="status-bar">
@@ -30,20 +31,21 @@
           			<div class="hours">41</div>
         		</div>
 					<!-- 위치 아이콘 -->
-        			<img src="Location_arrow.svg" class="location_arrow">
+					<!-- 이미지 사용 시 절대 경로로 작성 필요!(static부터 시작) -->
+        			<img src="/image/Location_arrow.svg" class="location_arrow">
       		</div>
       		<div class="icons">
 				<!-- 신호 바 -->
         		<div class="cellular_signal">
-          			<img src="Cellular_Signal.svg">
+          			<img src="/image/Cellular_Signal.svg">
         		</div>
 				<!-- 와이파이 -->
         		<div class="wifi">
-                    <img src="Wifi.svg">        					
+                    <img src="/image/Wifi.svg">        					
         		</div>
 				<!-- 배터리 -->
         		<div class="battery">
-          			<img src="Battery.svg">		
+          			<img src="/image/Battery.svg">		
         		</div>
       		</div>
     	</div>
@@ -73,13 +75,15 @@
 			</div>
 		</div>
 
+<!-- ================================   로그인 창   ===================================== -->
+		
 		<!-- 운전자 로그인 텍스트 -->
 		<div class="title">
 			<div class="title_text">운전자 로그인</div>
 		</div>
 
 
-		<!-- =============== 로그인 폼 =============== -->
+		<!-- 로그인 폼 -->
 		
 		<!-- 로그인 데이터를 서버로 전송하겠다. -->
         <!-- action: 데이터 전달 위치, 로그인 데이터를 처리할 URL을 지정 -->
@@ -125,7 +129,7 @@
 				<div class="logindriverjsp-checkbox">
 					<div class="checkbox2">
 						<div class="check">
-							<img src="Check.svg">	
+							<img src="/image/Check.svg">	
 						</div>
 					</div>
 					<div class="div6">아이디/비밀번호 저장하기</div>
@@ -143,7 +147,7 @@
 				<b class="b">아이디 찾기</b>
 			</div>
 
-			<!-- 구분선(안 나타남)-->
+			<!-- 구분선 -->
 			<div class="bar-icon"></div>
 			
 			<div class="div10">
@@ -151,7 +155,9 @@
 			</div>
 		</div>
 
-		<!-- 구분선(안 나타남) -->
+<!-- ===============================  회원가입 버튼  ======================================-->
+
+		<!-- 구분선 -->
 		<div class="divider-line"></div>
     	
 		<!-- 회원가입하기 버튼 -->
