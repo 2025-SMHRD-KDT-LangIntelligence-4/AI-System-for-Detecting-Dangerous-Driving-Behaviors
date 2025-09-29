@@ -160,34 +160,43 @@
 	  			required
   			>
 
-  			<!-- 생년월일 / 성별(주민번호 앞 7자리) 입력란 -->
-		  	<!-- name="driverBirthdate", name="driverGender" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->
-		  	<div class="b6">
-		    	<p class="accident">생년월일 / 성별</p>
-		    	<p class="accident">(주민번호 앞 7자리를 입력해주세요.)</p>
-		  	</div>
-		  
-		  	<!-- 생년월일 입력란 -->
-		  	<!-- name="driverBirthdate" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->
-		  	<div class="input-parent">
-		    	<input 
-			    	type="date" 
-			    	id="birthdate" 
-			    	name="driverBirthdate" 
-			    	required
-		    	>
-		    	
-		    	<!-- 성별 입력란 -->
-		    	<!-- name="driverGender" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->
-		    	<input 
-			    	type="text" 
-			    	id="gender" 
-			    	name="driverGender" 
-			    	maxlength="1" 
-			    	required
-		    	>
-		    	
-		  	</div>
+  			<!-- 생년월일 -->
+<label for="birthdate" class="b6">생년월일</label>
+<input 
+    type="text" 
+    id="birthdate" 
+    name="driverBirthdate" 
+    placeholder="YYYYMMDD" 
+    pattern="[0-9]{8}" 
+    required
+>
+
+<!-- 성별 -->
+<label for="gender" class="b6">성별</label>
+<div class="input-parent">
+  <label class="input6">
+    <input 
+      type="radio" 
+      id="male" 
+      name="driverGender" 
+      value="M" 
+      required
+    >
+    <span class="b8">남성</span>
+  </label>
+  
+  <label class="input6">
+    <input 
+      type="radio" 
+      id="female" 
+      name="driverGender" 
+      value="F" 
+      required
+    >
+    <span class="b8">여성</span>
+  </label>
+</div>
+  			
 
   			<!-- 근무지역 입력란 -->
 		  	<!-- name="driverRegion" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->
