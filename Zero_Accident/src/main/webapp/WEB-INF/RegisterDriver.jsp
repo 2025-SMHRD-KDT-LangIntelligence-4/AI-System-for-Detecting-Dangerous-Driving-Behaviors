@@ -11,11 +11,6 @@
   	<meta charset="utf-8">
   	<meta name="viewport" content="initial-scale=1, width=device-width">
   	
-  	<link rel="stylesheet"  href="./index.css" />
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=[object Object]&display=swap" />
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=[object Object]&display=swap" />
-  	
-  	
   	<!-- 웹 폰트 url(나눔 스퀘어 네오) -->
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 
@@ -32,6 +27,7 @@
           					<div class="hours">:</div>
           					<div class="hours">41</div>
         				</div>
+        				<!-- 위치 아이콘 -->
         				<img class="location-arrow-icon" alt="">
         				
       			</div>
@@ -164,47 +160,43 @@
 	  			required
   			>
 
-  			<!-- 생년월일 / 성별(주민번호 앞 7자리) 입력란 -->
-		  	<!-- name="driverBirthdate", name="driverGender" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->
-		  	<div class="b6">
-		    	<p class="accident">생년월일 / 성별</p>
-		    	<p class="accident">(주민번호 앞 7자리를 입력해주세요.)</p>
-		  	</div>
-		  
-		  	<!-- 생년월일 입력란 -->
-		  	<!-- name="driverBirthdate" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->
-		  	<div class="input-parent">
-		    	<input 
-			    	type="text" 
-			    	id="birthdate" 
-			    	name="driverBirthdate" 
-			    	placeholder="YYMMDD" 
-			    	maxlength="6" 
-			    	required
-		    	>
-		    	
-		    	<span class="frame-child">-</span>
-		    	
-		    	<!-- 성별 입력란 -->
-		    	<!-- name="driverGender" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->
-		    	<input 
-			    	type="text" 
-			    	id="gender" 
-			    	name="driverGender" 
-			    	maxlength="1" 
-			    	required
-		    	>
-		    	
-		    	<div class="dots">
-			      <span class="dots-child">*</span>
-			      <span class="dots-child">*</span>
-			      <span class="dots-child">*</span>
-			      <span class="dots-child">*</span>
-			      <span class="dots-child">*</span>
-			      <span class="dots-child">*</span>
-			      <span class="dots-child">*</span>
-		    	</div>
-		  	</div>
+  			<!-- 생년월일 -->
+<label for="birthdate" class="b6">생년월일</label>
+<input 
+    type="text" 
+    id="birthdate" 
+    name="driverBirthdate" 
+    placeholder="YYYYMMDD" 
+    pattern="[0-9]{8}" 
+    required
+>
+
+<!-- 성별 -->
+<label for="gender" class="b6">성별</label>
+<div class="input-parent">
+  <label class="input6">
+    <input 
+      type="radio" 
+      id="male" 
+      name="driverGender" 
+      value="M" 
+      required
+    >
+    <span class="b8">남성</span>
+  </label>
+  
+  <label class="input6">
+    <input 
+      type="radio" 
+      id="female" 
+      name="driverGender" 
+      value="F" 
+      required
+    >
+    <span class="b8">여성</span>
+  </label>
+</div>
+  			
 
   			<!-- 근무지역 입력란 -->
 		  	<!-- name="driverRegion" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->

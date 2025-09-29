@@ -63,18 +63,18 @@
     </style>
 </head>
 
-<!--  회원가입시 메시지 띄울창  
+<!-- 회원가입시 메시지 띄울창 -->  
 <c:if test="${not empty msg}">
     <script>
         alert('${msg}');
     </script>
 </c:if>
--->
+
 
 <body>
     <div class="container">
         <h2>회원가입</h2>
-        <form action="${cpath}/RegisterDriver2우빈" method="post">
+        <form action="${cpath}/RegisterDriver우빈" method="post">
             <!-- 아이디 -->
             <label for="userId">아이디</label>
             <div class="row">

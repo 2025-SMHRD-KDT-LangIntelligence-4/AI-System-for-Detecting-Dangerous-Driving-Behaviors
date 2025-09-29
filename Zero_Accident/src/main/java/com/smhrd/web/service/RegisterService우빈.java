@@ -4,14 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.smhrd.web.entity.Driver우빈;
 import com.smhrd.web.mapper.RegisterMapper우빈;
 
-import lombok.RequiredArgsConstructor;
-
 @Service
-@RequiredArgsConstructor // 생성자 자동 주입
 public class RegisterService우빈 {
 	
     @Autowired
@@ -19,5 +17,11 @@ public class RegisterService우빈 {
     public void 회원가입확인메서드(Driver우빈 driver) {
     	// 아이디 중복 확인 로직 등 작성
     	mapper.회원가입DB와연결메서드(driver);
+    }
+    
+    @PostMapping("DriverIdDuplicate")
+    public void drvierIdDuplicate() {
+    	
+    	return;
     }
 }
