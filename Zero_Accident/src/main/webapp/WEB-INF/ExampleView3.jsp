@@ -11,6 +11,7 @@
 <body>
 	<h1>DB연결 확인하는 페이지</h1>
 	
+	
 	<c:forEach var="d" items ="${선물꾸러미}">
 		<h3>${d.exampleName}</h3>
 	</c:forEach>
