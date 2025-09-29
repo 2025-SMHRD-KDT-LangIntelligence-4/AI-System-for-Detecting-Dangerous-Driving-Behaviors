@@ -11,16 +11,17 @@ import com.smhrd.web.entity.ExampleEntity;
 import com.smhrd.web.service.ExampleService;
 
 @Controller
-public class ExampleController {
-	
+public class ExampleController3 {
 	@Autowired
-	private ExampleService service;
+	private ExampleService exampleService;
 	
-	@GetMapping("/ExampleView")
-	public String ExampleView(Model model) {
-		List<ExampleEntity> ExampleDBList = service.getExampleDBList();
-		model.addAttribute("선물꾸러미", ExampleDBList);
-		return "ExampleView";
+	@GetMapping("/ExampleView3")
+	public String A(Model 철수) {
+		List<ExampleEntity> ExampleDBList = exampleService.getExampleDBList();
+		철수.addAttribute("선물꾸러미", ExampleDBList);
+		return "ExampleView3";
 	}
 
+	
+	
 }

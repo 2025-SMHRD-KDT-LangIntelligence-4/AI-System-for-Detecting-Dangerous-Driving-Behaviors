@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+
+<mapper namespace="com.smhrd.web.mapper.ExampleMapper2">
+<!--  com.smhrd.web.mapper.ExampleMapper2 인터페이스와 매핑된다. -->
+
+	<select id="CheckDBConnection"  resultType="com.smhrd.web.entity.ExampleEntity">
+	<!-- select 태그: SQL의 SELECT문을 실행할 때 사용한다. insert문이라면 insert id=""로 시작하면 된다.-->
+	<!-- id="CheckDBConnection": id값은 Mapper 인터페이스의 메서드 이름과 반드시 동일해야 한다. -->
+	<!-- resultType: 조회 결과를 ExampleEntity 객체 형식으로 반환하겠다 -->
+	
+		SELECT *
+		FROM
+		Example_Table;
+		<!-- SQL 쿼리문을 작성하면 된다.  -->
+	</select>
+	
+</mapper>
