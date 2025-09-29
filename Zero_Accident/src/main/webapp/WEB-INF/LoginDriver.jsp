@@ -162,7 +162,7 @@
     	
 		<!-- 회원가입하기 버튼 -->
 		 <!-- 회원가입 성공 시 메인 페이지로 이동 -->
-		<button type="button" class="btn_join">
+		<button type="button" class="btn_join" onclick="location.href='/RegisterDriver'">
 			<span class="join_text">회원가입 하기</span>
 		</button>
 
