@@ -19,7 +19,7 @@ public class ExampleController {
 	@GetMapping("/ExampleView")
 	public String ExampleView(Model model) {
 		List<ExampleEntity> ExampleDBList = service.getExampleDBList();
-		model.addAttribute("선물꾸러미", ExampleDBList);
+		model.addAttribute("ExampleDBList", ExampleDBList);
 		return "ExampleView";
 	}
 
