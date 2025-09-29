@@ -23,10 +23,10 @@ public class RegisterController우빈{
 		return "RegisterDriver우빈";
 	}
 	
-	@PostMapping("/RegisterDriver2우빈")
-	public String RegisterDriver2우빈(Driver우빈 driver) {
+	@PostMapping("/RegisterDriver우빈")
+	public String RegisterDriver우빈(Driver우빈 driver, RedirectAttributes rttr) {
 		service.회원가입확인메서드(driver);
-		// redirectAttributes.addFlashAttribute("msg", "회원가입이 완료되었습니다");
+		rttr.addFlashAttribute("msg", "회원가입이 완료되었습니다");
 		return "redirect:/RegisterDriver우빈";
 	}
 }

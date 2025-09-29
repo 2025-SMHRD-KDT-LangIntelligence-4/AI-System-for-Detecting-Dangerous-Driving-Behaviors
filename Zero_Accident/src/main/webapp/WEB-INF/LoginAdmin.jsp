@@ -3,16 +3,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 </head>
 <body>
-	<h1>시작 페이지</h1>
-	<button onclick="location.href='/LoginAdmin'">저는 관리자예요</button>
-	<button onclick="location.href='/LoginDriver'">저는 운전자예요</button>
+	<h1>관리자 로그인 페이지</h1>
+	<button onclick="location.href='/RegisterAdmin'">회원가입</button>
 </body>
 </html>
