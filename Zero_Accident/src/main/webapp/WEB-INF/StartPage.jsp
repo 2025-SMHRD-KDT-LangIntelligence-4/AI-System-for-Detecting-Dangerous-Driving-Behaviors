@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<c:set var="cpath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +11,7 @@
 </head>
 <body>
 	<h1>시작 페이지</h1>
-	<button onclick="location.href='/ExampleView'">DB연결테스트</button>
+	
+	<button onclick="location.href='/ExampleView'">우빈</button>
 </body>
 </html>

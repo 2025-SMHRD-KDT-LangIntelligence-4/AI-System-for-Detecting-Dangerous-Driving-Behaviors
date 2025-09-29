@@ -14,11 +14,11 @@ import com.smhrd.web.service.ExampleService;
 public class ExampleController {
 	
 	@Autowired
-	private ExampleService exampleService;
+	private ExampleService service;
 	
 	@GetMapping("/ExampleView")
 	public String ExampleView(Model model) {
-		List<ExampleEntity> ExampleDBList = exampleService.getExampleDBList();
+		List<ExampleEntity> ExampleDBList = service.getExampleDBList();
 		model.addAttribute("ExampleDBList", ExampleDBList);
 		return "ExampleView";
 	}
