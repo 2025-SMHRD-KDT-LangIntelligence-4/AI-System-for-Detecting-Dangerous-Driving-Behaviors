@@ -43,4 +43,10 @@ public class MainController{
 	public String RegisterDriver() {
 		return "RegisterDriver";
 	}
+	
+	// 관리자 메인 화면
+		@GetMapping("/MainAdmin")
+		public String MainAdmin() {
+			return "MainAdmin";
+		}
 }
