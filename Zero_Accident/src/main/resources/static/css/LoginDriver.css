@@ -365,6 +365,15 @@ input::placeholder {
     font-size: 17px; 
   }
   
+.close .icon {
+  width: 24px;     /* 원하는 크기 */
+  height: 24px;    /* 비율 유지하려면 height 생략 가능 */
+  cursor: pointer; /* 마우스 커서 포인터로 변경 */
+  position: absolute;
+  top: 80px;     /* 위쪽 여백 */
+  left: 375px;
+}
+  
 
 .div5 {
     position: absolute;

@@ -61,11 +61,20 @@
           			<span class="span">0</span>
           			<span class="a">A</span>
         		</div>
-        		<img src="Rectangle 212.svg" class="logo_deco_2">	
-        		<img src="Rectangle 212.svg" class="logo_deco_3">	
+        		<img src="/image/Rectangle 212.svg" class="logo_deco_2">	
+        		<img src="/image/Rectangle 212.svg" class="logo_deco_3">	
       		</div>
     	</div>
+		
+		<!-- 화면 닫음 버튼 -->
+		<!-- 클릭 시 첫 시작 페이지(StartPage.jsp)로 이동 -->
+		<div class="close">
+  			<a href="/StartPage">
+    			<img class="icon" src="/image/exit.svg" alt="닫기">
+  			</a>
+		</div>
 
+		
 		<!-- Zer0-Accident 텍스트 로고 -->	
 		<div class="logo_2">
 			<div class="zer0-accident">
@@ -174,5 +183,5 @@
 		</div>
   	</div>
 
-	</body>
+</body>
 </html>
