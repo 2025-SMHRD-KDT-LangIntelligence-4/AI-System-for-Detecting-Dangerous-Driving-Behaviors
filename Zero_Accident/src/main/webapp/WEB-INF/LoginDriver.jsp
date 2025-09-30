@@ -69,7 +69,7 @@
 		<!-- 화면 닫음 버튼 -->
 		<!-- 클릭 시 첫 시작 페이지(StartPage.jsp)로 이동 -->
 		<div class="close">
-  			<a href="/StartPage">
+  			<a href="/StartPage" class="chevron-left">
     			<img class="icon" src="/image/exit.svg" alt="닫기">
   			</a>
 		</div>
