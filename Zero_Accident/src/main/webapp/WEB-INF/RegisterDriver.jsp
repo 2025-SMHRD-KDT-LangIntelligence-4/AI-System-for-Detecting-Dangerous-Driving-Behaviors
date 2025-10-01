@@ -143,11 +143,11 @@
 				  	<div class="registerdriverjsp-input">
 				  
 				  		<!-- 비밀번호 확인란 -->
-		  				<!-- name="driverPwd" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->				  		
+		  				<!-- name="driverPwdCheck" : 서버로 전송될 필드 이름  -->				  		
 					    <input 
 					      type="password" 
 					      id="password_confirm" 
-					      name="driverPwd" 
+					      name="driverPwdCheck" 
 					      class="div7" 
 					      placeholder="동일한 비밀번호를 입력해주세요." 
 					      required 

@@ -95,7 +95,7 @@
 	            
 	            <!-- 로그인 버튼 -->
 				<!-- 로그인 성공 시 MainAdmin.jsp로 이동-->
-	       		<button type="submit" class="loginadminjsp-button" onclick="location.href = '/MainAdmin'">
+	       		<button type="submit" class="loginadminjsp-button">
 				  <span class="div2">로그인</span>
 				</button>      			
 	      			
@@ -118,9 +118,9 @@
       		
       		<!-- 회원가입하기 버튼 -->
 			<!-- RegisterAdmin.jsp로 이동 -->
-   			<div class="button">
-     			<div class="div2">회원가입 하기</div>
-   			</div>
+   			<button type="button" class="button" onclick="location.href='/RegisterAdmin'">
+     			<span class="div2">회원가입 하기</span>
+   			</button>
       			
     	</div>
     	
