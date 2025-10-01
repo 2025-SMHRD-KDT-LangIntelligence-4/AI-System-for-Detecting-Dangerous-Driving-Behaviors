@@ -22,5 +22,6 @@ import lombok.NoArgsConstructor;
 		private String receiveYn;
 		
 		private int deepIdx;
+		
 	}
 
