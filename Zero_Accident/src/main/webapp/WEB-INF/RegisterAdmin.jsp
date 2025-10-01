@@ -68,7 +68,7 @@
 		  <!-- 회원가입 데이터를 서버로 전송하겠다. -->
 	      <!-- action: 데이터 전달 위치, 로그인 데이터를 처리할 URL을 지정 -->
 	      <!-- method: 데이터 전달 방식(get-보안x/post-보안o) -->		  
-		  <form action="#" method="post" class="parent">
+		  <form action="/LoginAdmin" method="post" class="parent">
 		
 			  	<!-- 아이디 -->
 			  	<div class="div2">
@@ -161,6 +161,7 @@
 <!-- ===============================  회원가입 버튼  ======================================-->
 		
 			    <!-- 회원가입 버튼 -->
+			    <!-- 회원가입 버튼 클릭 시 로그인 페이지로 이동 -->
 			    <div class="button">
 			      <button type="submit" class="registeradminjsp-join">회원가입 하기</button>
 			    </div>

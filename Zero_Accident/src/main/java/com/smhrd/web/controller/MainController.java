@@ -26,11 +26,23 @@ public class MainController{
 		return "LoginAdmin"; // 화면에 띄워줄 view.jsp 이름
 	}
 	
+	// 관리자 로그인 화면
+//	@PostMapping("/LoginAdmin") // 주소창에 뭘 적으면 갈까요?
+//	public String LoginAdmin() { // 내가 지을 메서드 별명
+//		return "LoginAdmin"; // 화면에 띄워줄 view.jsp 이름
+//	}
+	
 	// 운전자 로그인 화면
 	@GetMapping("/LoginDriver")
 	public String LoginDriver() {
 		return "LoginDriver";
 	}
+	
+	// 운전자 로그인 화면
+//	@PostMapping("/LoginDriver")
+//	public String LoginDriver() {
+//		return "LoginDriver";
+//	}
 	
 	// 관리자 회원가입 화면
 	@GetMapping("/RegisterAdmin")
