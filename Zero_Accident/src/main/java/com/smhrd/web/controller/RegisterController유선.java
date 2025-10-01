@@ -11,19 +11,18 @@ import com.smhrd.web.entity.ExampleEntity;
 import com.smhrd.web.service.ExampleService;
 
 @Controller
-public class ExampleController {
+public class RegisterController유선 {
 	
 	@Autowired
 	private ExampleService service;
 	
-	@GetMapping("/ExampleView")
-	public String ExampleView(Model model) {
-		List<ExampleEntity> ExampleDBList = service.getExampleDBList();
-		model.addAttribute("ExampleDBList", ExampleDBList);
-		return "ExampleView";
+	@GetMapping("/RegisterDriver유선")
+	public String 유선회원가입() {
+
+		return "RegisterDriver유선";
 	}
 
-   
+
 	
 
 }
