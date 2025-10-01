@@ -21,6 +21,13 @@
 
 <!--===============================    헤더     ======================================== -->
   	
+  	<!-- 뒤로가기 버튼 -->
+  	<!-- 클릭 시 StartPage.jsp로 이동 -->
+  	<button type="button" class="arrow-back" onclick="location.href='/StartPage'">
+  		<img class="icon" src="/image/arrow_back.svg" alt="뒤로가기">
+	</button>
+
+
   	<div class="loginadminjsp">
   		<!-- 로고 -->	
     	<div class="div">
