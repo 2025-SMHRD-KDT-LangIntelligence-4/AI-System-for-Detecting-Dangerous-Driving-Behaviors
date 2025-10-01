@@ -22,6 +22,5 @@ import lombok.NoArgsConstructor;
 		private LocalDateTime createdAt;
 		
 		private int logIdx;
-		
 	}
 

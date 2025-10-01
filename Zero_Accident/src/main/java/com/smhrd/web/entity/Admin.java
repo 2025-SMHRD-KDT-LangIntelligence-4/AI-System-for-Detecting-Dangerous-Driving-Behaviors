@@ -22,6 +22,5 @@ import lombok.NoArgsConstructor;
 		private String adminContact;
 		private LocalDateTime JoinedAt;
 		
-		
 	}
 
