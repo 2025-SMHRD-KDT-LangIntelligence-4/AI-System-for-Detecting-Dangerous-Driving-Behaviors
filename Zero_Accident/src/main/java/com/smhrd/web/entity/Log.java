@@ -1,10 +1,12 @@
 package com.smhrd.web.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,8 +19,10 @@ import lombok.NoArgsConstructor;
 	public class Log {
 		private int logIdx;
 		private String eventType;
-		private int lat;
-		private int lon;
+		//@Column(precision = 17, scale = 14, nullable = false)
+	    private BigDecimal lat;
+		//@Column(precision = 17, scale = 14, nullable = false)
+	    private BigDecimal lon;
 		private String eventLevel;
 		private String eventDesc;
 		private String eventImg1;

@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class RegisterController우빈{
+public class RegisterController{
 	
 	private final RegisterService service;
 	
@@ -31,7 +31,7 @@ public class RegisterController우빈{
 		return "RegisterDriver우빈";
 	}
 	
-	// AJAX 중복확인 API
+	// 운전자 AJAX 중복확인 API
 	@ResponseBody
 	@PostMapping("/api/driver/check-id")
 	public Map<String, Object> checkId(@RequestParam String driverId) {
@@ -42,7 +42,7 @@ public class RegisterController우빈{
 		return res;
 	}
 	
-	// 회원가입 처리
+	// 운전자 회원가입 처리
 	@PostMapping("registerDriver")
 		public String registerDriver(Driver driver, RedirectAttributes rttr) {
 			try {
@@ -53,7 +53,7 @@ public class RegisterController우빈{
 				rttr.addFlashAttribute("msg", "이미 사용 중인 아이디입니다.");
 				return "redirect:/RegisterDriver우빈";
 			} catch (Exception e) {
-				rttr.addFlashAttribute("msg", "오류가 발생습니다. 잠시 후 다시 시도해주세요.");
+				rttr.addFlashAttribute("msg", "오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
 				return "redirect:/RegisterDriver우빈";	
 			}
 		}

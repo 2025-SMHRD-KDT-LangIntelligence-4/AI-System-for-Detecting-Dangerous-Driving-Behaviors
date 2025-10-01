@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 		private String adminPwd;
 		private String adminName;
 		private String adminContact;
-		private LocalDateTime JoinedAt;
+		private LocalDateTime joinedAt;
 		
 	}
 
