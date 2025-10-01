@@ -11,6 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>치킨 피자 짜장면</h1>
+	<h1>로그인 성공!</h1>
+	<h1>메인페이지 이동됨</h1>
 </body>
 </html>

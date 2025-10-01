@@ -11,18 +11,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>DB연결 확인하는 페이지</h1>
-	
-	
-
-	<h3>${ExampleDBList[0].exampleName}</h3>
-	<h3>${ExampleDBList[0].examplePrice}</h3>
-	<h3>${ExampleDBList[0].exampleQuantity}</h3>
-	 
-   	<!--
-   	<c:forEach var="d" items="${ExampleDBList}">
-       	<h3>${d.exampleId} / ${d.exampleName} / ${d.examplePrice} / ${d.exampleQuantity}</h3>
-   	</c:forEach>
-   	-->
+	<h1>관리자 회원가입 페이지</h1>
 </body>
 </html>

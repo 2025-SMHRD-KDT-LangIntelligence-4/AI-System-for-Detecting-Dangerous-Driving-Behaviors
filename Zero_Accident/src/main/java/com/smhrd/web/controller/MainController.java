@@ -15,7 +15,7 @@ public class MainController{
 	MainMapper mapper;
 	
 	// 가장 첫 화면 : 관리자 or 운전자 선택
-	@GetMapping("/") 
+	@GetMapping("/StartPage") 
 	public String StartPage() {
 		return "StartPage";
 	}
@@ -43,4 +43,10 @@ public class MainController{
 	public String RegisterDriver() {
 		return "RegisterDriver";
 	}
+	
+	// 관리자 메인 화면
+		@GetMapping("/MainAdmin")
+		public String MainAdmin() {
+			return "MainAdmin";
+		}
 }
