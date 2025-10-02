@@ -68,7 +68,7 @@
 		  <!-- 회원가입 데이터를 서버로 전송하겠다. -->
 	      <!-- action: 데이터 전달 위치, 로그인 데이터를 처리할 URL을 지정 -->
 	      <!-- method: 데이터 전달 방식(get-보안x/post-보안o) -->		  
-		  <form action="/LoginAdmin" method="post" class="parent">
+		  <form action="/RegisterAdmin" method="post" class="parent" onsubmit="return validateForm()">
 		
 			  	<!-- 아이디 -->
 			  	<div class="div2">
@@ -88,10 +88,12 @@
 						    >
 						    
 						    <!-- 중복확인 버튼 -->    
-					    	<button type="button" class="registerdriverjsp-b">중복확인</button>
+					    	<button type="button" class="registerdriverjsp-b" onclick="checkAdminId()">중복확인</button>
 				  	</div>
+				  	
+				  	<!-- 우빈:중복확인메시지 -->
+				  	<span id="idMsg" class="msg"></span>
 			  	</div>
-
 		
 			    <!-- 비밀번호 -->
 			    <div class="div7">						    	
@@ -106,7 +108,10 @@
 				        class="registeradminjsp-input" 
 				        placeholder="영문, 숫자, 특수문자를 포함한 8~16자" 
 				        required
+				        oninput="checkPwd()"
 				      >
+				      <!-- 우빈:중복확인메시지 -->
+					  <span id="pwdMsg" class="msg"></span>
 			    </div>
 		
 			    <!-- 비밀번호 확인 -->
@@ -118,13 +123,15 @@
 				      <input 
 				        type="password" 
 				        id="adminPwCheck" 
-				        name="driverPwdCheck" 
+				        name="adminPwdCheck" 
 				        class="input2" 
 				        placeholder="동일한 비밀번호를 입력해주세요." 
 				        required
+				        oninput="checkPwd()"
 				      >
 			    </div>
-		
+
+			    
 			    <!-- 이름 -->
 			    <div class="div7">
 			    	  <label for="adminName" class="div4">이름</label>
@@ -152,10 +159,11 @@
 				        id="adminContact" 
 				        name="adminContact" 
 				        class="registeradminjsp-input" 
-				        placeholder="숫자만 입력해주세요." 
-				        pattern="[0-9]{10,11}" 
+				        placeholder="01099509536" 
+				        pattern="[0-9]{11}" 
 				        required
 				      >
+				      
 			    </div>
 
 <!-- ===============================  회원가입 버튼  ======================================-->
@@ -168,7 +176,6 @@
 		
 		  </form>
 		</div>
-
 		  
 		</div>
 
@@ -183,6 +190,74 @@
   	
   	
 
+<script>
+	let idChecked = false; // 전역변수: 중복확인 완료 여부
 	
+	function checkAdminId() {
+	    const adminId = document.getElementById("adminId").value.trim();
+	    const msg = document.getElementById("idMsg");
+	
+	    if (adminId === "") {
+	        msg.textContent = "아이디를 입력해주세요.";
+	        msg.style.color = "red";
+	        idChecked = false;
+	        return;
+	    }
+	
+	    fetch("/api/driver/checkAdminId", {
+	        method: "POST",
+	        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+	        body: "adminId=" + encodeURIComponent(adminId)
+	    })
+	    .then(res => res.json())
+	    .then(data => {
+	        if (data.duplicate) {
+	            msg.textContent = "이미 사용 중인 아이디입니다";
+	            msg.style.color = "red";
+	            idChecked = false;
+	        } else {
+	            msg.textContent = "사용 가능한 아이디입니다";
+	            msg.style.color = "green";
+	            idChecked = true;
+	        }
+	    });
+	}
+
+	function validateForm() {
+	    if (!idChecked) {
+	        alert("아이디 중복확인을 해주세요!");
+	        return false; // 제출 차단
+	    }
+	    return checkPwd(); // 비밀번호 검증도 통과해야 제출 가능
+	}
+	
+	function checkPwd() {
+	    const pw = document.getElementById("adminPwd").value;
+	    const pwCheck = document.getElementById("adminPwCheck").value;
+	    const msg = document.getElementById("pwdMsg");
+
+	    if (pwCheck.length === 0) {
+	        msg.textContent = ""; // 비어있으면 메시지 지우기
+	        return false; // 0자리면 false
+	    }
+
+	    if (pw !== pwCheck) {
+	        msg.textContent = "비밀번호가 일치하지 않습니다";
+	        msg.style.color = "red";
+	        return false // 일치하지 않으면 false
+	    } else {
+	        msg.textContent = "비밀번호가 일치합니다";
+	        msg.style.color = "green";
+	        return true; // 일치하면 true
+	    }
+	}
+	
+	document.getElementById("adminId").addEventListener("input", function() {
+	    idChecked = false;
+	    document.getElementById("idMsg").textContent = "아이디 중복확인을 해주세요.";
+	    document.getElementById("idMsg").style.color = "orange";
+	});
+</script>
+
 </body>
 </html>

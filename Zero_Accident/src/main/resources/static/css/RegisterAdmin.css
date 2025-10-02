@@ -351,6 +351,7 @@ input:-webkit-autofill:focus {
   	text-align: left;
   	font-size: 18px;
 }
+
 .div11 {
   	align-self: stretch;
   	display: flex;
@@ -359,6 +360,7 @@ input:-webkit-autofill:focus {
   	gap: 0px;
   	text-align: left;
 }
+
 .input2 {
   	width: 488px;
   	border-radius: 8.79px;
@@ -447,6 +449,26 @@ input:-webkit-autofill:focus {
   	left: 61px;
   	width: 60px;
   	height: 60px;
+}
+
+/* 우빈:아이디중복확인, 비밀번호확인 메시지 위치 수정하는 css */
+#idMsg {
+  position: absolute;
+  top: 15.7%;
+  left: 28.5%;
+  font-size: 14px;
+  margin-top: 3px;
+  color: #aaa;
+  white-space: nowrap;
+}
+#pwdMsg {
+  position: absolute;
+  top: 57.7%;
+  left: 28.5%;
+  font-size: 14px;
+  margin-top: 3px;
+  color: #aaa;
+  white-space: nowrap;
 }
 
 
