@@ -29,7 +29,7 @@ public class RegisterController{
 //--------------------------------------------------------------------------------------------
 	// 관리자 ID 중복확인
 	@ResponseBody
-	@PostMapping("/api/driver/checkAdminId")
+	@PostMapping("/checkAdminId")
 	public Map<String, Object> checkAdminId(@RequestParam String adminId) {
 		boolean available = service.isAvailableAdminId(adminId);
 		Map<String, Object> res = new HashMap<>();
@@ -56,7 +56,7 @@ public class RegisterController{
 //--------------------------------------------------------------------------------------------
 	// 운전자 ID 중복확인
 	@ResponseBody
-	@PostMapping("/api/driver/checkDriverId")
+	@PostMapping("/checkDriverId")
 	public Map<String, Object> checkDriverId(@RequestParam String driverId) {
 		boolean available = service.isAvailableDriverId(driverId);
 		Map<String, Object> res = new HashMap<>();

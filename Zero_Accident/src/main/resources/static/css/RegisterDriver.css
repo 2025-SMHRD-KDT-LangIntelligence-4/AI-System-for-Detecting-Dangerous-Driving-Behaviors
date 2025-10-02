@@ -674,4 +674,22 @@ input:-webkit-autofill:focus {
   	padding: 26px 0px;
   	box-sizing: border-box;
 }
-
+/* 우빈:아이디중복확인, 비밀번호확인 메시지 위치 수정하는 css */
+#idMsg {
+  position: absolute;
+  top: 10.3%;
+  left: 25%;
+  font-size: 14px;
+  margin-top: 3px;
+  color: #aaa;
+  white-space: nowrap;
+}
+#pwdMsg {
+  position: absolute;
+  top: 36.3%;
+  left: 25%;
+  font-size: 14px;
+  margin-top: 3px;
+  color: #aaa;
+  white-space: nowrap;
+}

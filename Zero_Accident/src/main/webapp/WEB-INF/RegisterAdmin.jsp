@@ -68,7 +68,7 @@
 		  <!-- 회원가입 데이터를 서버로 전송하겠다. -->
 	      <!-- action: 데이터 전달 위치, 로그인 데이터를 처리할 URL을 지정 -->
 	      <!-- method: 데이터 전달 방식(get-보안x/post-보안o) -->		  
-		  <form action="/RegisterAdmin" method="post" class="parent" onsubmit="return validateForm()">
+		  <form action="${cpath}/RegisterAdmin" method="post" class="parent" onsubmit="return validateForm()">
 		
 			  	<!-- 아이디 -->
 			  	<div class="div2">
@@ -161,6 +161,7 @@
 				        class="registeradminjsp-input" 
 				        placeholder="01099509536" 
 				        pattern="[0-9]{11}" 
+				        maxlength="11" 
 				        required
 				      >
 				      
@@ -204,7 +205,7 @@
 	        return;
 	    }
 	
-	    fetch("/api/driver/checkAdminId", {
+	    fetch("${cpath}/checkAdminId", {
 	        method: "POST",
 	        headers: { "Content-Type": "application/x-www-form-urlencoded" },
 	        body: "adminId=" + encodeURIComponent(adminId)
@@ -257,6 +258,7 @@
 	    document.getElementById("idMsg").textContent = "아이디 중복확인을 해주세요.";
 	    document.getElementById("idMsg").style.color = "orange";
 	});
+	
 </script>
 
 </body>
