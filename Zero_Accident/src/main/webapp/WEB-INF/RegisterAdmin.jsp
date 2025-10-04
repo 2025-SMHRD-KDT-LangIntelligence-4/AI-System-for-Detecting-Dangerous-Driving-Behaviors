@@ -159,7 +159,7 @@
 				        id="adminContact" 
 				        name="adminContact" 
 				        class="registeradminjsp-input" 
-				        placeholder="01099509536" 
+				        placeholder="ex) 01012345678" 
 				        pattern="[0-9]{11}" 
 				        maxlength="11" 
 				        required
@@ -200,7 +200,7 @@
 	
 	    if (adminId === "") {
 	        msg.textContent = "아이디를 입력해주세요.";
-	        msg.style.color = "red";
+	        msg.style.color = "#D07B7B";
 	        idChecked = false;
 	        return;
 	    }
@@ -213,12 +213,12 @@
 	    .then(res => res.json())
 	    .then(data => {
 	        if (data.duplicate) {
-	            msg.textContent = "이미 사용 중인 아이디입니다";
-	            msg.style.color = "red";
+	            msg.textContent = "이미 사용 중인 아이디입니다.";
+	            msg.style.color = "#D07B7B";
 	            idChecked = false;
 	        } else {
-	            msg.textContent = "사용 가능한 아이디입니다";
-	            msg.style.color = "green";
+	            msg.textContent = "사용 가능한 아이디입니다.";
+	            msg.style.color = "#7F8CAA";
 	            idChecked = true;
 	        }
 	    });
@@ -243,12 +243,12 @@
 	    }
 
 	    if (pw !== pwCheck) {
-	        msg.textContent = "비밀번호가 일치하지 않습니다";
-	        msg.style.color = "red";
+	        msg.textContent = "비밀번호가 일치하지 않습니다.";
+	        msg.style.color = "#D07B7B";
 	        return false // 일치하지 않으면 false
 	    } else {
-	        msg.textContent = "비밀번호가 일치합니다";
-	        msg.style.color = "green";
+	        msg.textContent = "비밀번호가 일치합니다.";
+	        msg.style.color = "#7F8CAA";
 	        return true; // 일치하면 true
 	    }
 	}
@@ -256,7 +256,7 @@
 	document.getElementById("adminId").addEventListener("input", function() {
 	    idChecked = false;
 	    document.getElementById("idMsg").textContent = "아이디 중복확인을 해주세요.";
-	    document.getElementById("idMsg").style.color = "orange";
+	    document.getElementById("idMsg").style.color = "#B8CFCE";
 	});
 	
 </script>

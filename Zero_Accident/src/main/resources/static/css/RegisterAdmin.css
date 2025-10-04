@@ -222,6 +222,7 @@ input[type="tel"] {
   	align-items: center;
   	justify-content: space-between;
   	gap: 0px;
+  	margin-bottom : 8px;
 }
 .div3 {
   	display: flex;
@@ -335,6 +336,7 @@ input:-webkit-autofill:focus {
   	align-items: center;
   	justify-content: space-between;
   	gap: 0px;
+  	margin-bottom : 8px;
 }
 .registeradminjsp-input {
   	width: 488px;
@@ -359,6 +361,7 @@ input:-webkit-autofill:focus {
   	justify-content: space-between;
   	gap: 0px;
   	text-align: left;
+  	margin-bottom : 8px;
 }
 
 .input2 {
@@ -390,7 +393,7 @@ input:-webkit-autofill:focus {
 }
 .button {
   position: absolute;
-  top: 475px;
+  top: 490px;
   left: calc(50% - 338px);
   border-radius: 10.84px;
   background-color: #eaefef;
@@ -454,7 +457,7 @@ input:-webkit-autofill:focus {
 /* 우빈:아이디중복확인, 비밀번호확인 메시지 위치 수정하는 css */
 #idMsg {
   position: absolute;
-  top: 15.7%;
+  top: 15%;
   left: 28.5%;
   font-size: 14px;
   margin-top: 3px;
@@ -463,7 +466,7 @@ input:-webkit-autofill:focus {
 }
 #pwdMsg {
   position: absolute;
-  top: 57.7%;
+  top: 57%;
   left: 28.5%;
   font-size: 14px;
   margin-top: 3px;
