@@ -105,7 +105,7 @@
 		<!-- 로그인 데이터를 서버로 전송하겠다. -->
         <!-- action: 데이터 전달 위치, 로그인 데이터를 처리할 URL을 지정 -->
         <!-- method: 데이터 전달 방식(get-보안x/post-보안o) -->
-        <form action="#" method="post">
+        <form action="${cpath}/LoginDriver" method="post">
 
             <!-- 아이디 입력란 -->
             <!-- name="driverId" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->

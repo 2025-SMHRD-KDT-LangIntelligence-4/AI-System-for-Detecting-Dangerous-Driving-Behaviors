@@ -5,11 +5,16 @@
   
 <mapper namespace="com.smhrd.web.mapper.LoginMapper">
 
-<select id="findById" parameterType="string" resultType="com.smhrd.web.entity.Admin">
+<select id="findByAdminId" parameterType="string" resultType="com.smhrd.web.entity.Admin">
     SELECT admin_id, admin_pwd, admin_name, admin_contact
     FROM tb_admin
     WHERE admin_id = #{adminId}
 </select>
 
+<select id="findByDriverId" parameterType="string" resultType="com.smhrd.web.entity.Driver">
+    SELECT driver_id, driver_pwd, driver_name, driver_contact
+    FROM tb_driver
+    WHERE driver_id = #{driverId}
+</select>
 	
 </mapper>
