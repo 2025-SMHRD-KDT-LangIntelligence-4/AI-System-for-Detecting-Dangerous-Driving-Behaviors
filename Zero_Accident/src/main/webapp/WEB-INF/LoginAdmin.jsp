@@ -13,7 +13,7 @@
 	<!-- 웹 폰트 url(나눔 스퀘어 네오) -->
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 
-    <!-- style.css 파일의 스타일을 적용하겠다. -->
+    <!-- LoginAdmin.css 파일의 스타일을 적용하겠다. -->
    	<link rel="stylesheet"  href="/css/LoginAdmin.css" />
 	
 </head>
@@ -24,6 +24,7 @@
 	        alert("${msg}");
 	    </script>
 	</c:if>
+	
 <!--===============================    헤더     ======================================== -->
   	
   	<!-- 뒤로가기 버튼 -->

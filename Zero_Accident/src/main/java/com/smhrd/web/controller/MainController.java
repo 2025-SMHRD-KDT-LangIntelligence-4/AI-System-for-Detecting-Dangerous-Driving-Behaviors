@@ -51,9 +51,33 @@ public class MainController{
 			return "MainAdmin";
 		}
 	
-	// 관리자 메인 화면
+	// 운전자 메인 화면
 		@GetMapping("/MainDriver")
 		public String MainDriver() {
 			return "MainDriver";
 		}
+		
+	// 관리자 - 운전자 관리 페이지
+		@GetMapping("/ButtonAdmin2")
+		public String ButtonAdmin2() {
+			return "ButtonAdmin2";
+		}
+		
+	// 관리자 - 전체 로그 조회 페이지
+		@GetMapping("/ButtonAdmin3")
+		public String ButtonAdmin3() {
+			return "ButtonAdmin3";
+		}
+				
+	// 관리자 - 실시간 블랙박스 모니터링 페이지
+		@GetMapping("/ButtonAdmin4")
+		public String ButtonAdmin4() {
+			return "ButtonAdmin4";
+			}
+		
+	// 관리자 정보 관리 페이지
+		@GetMapping("/ButtonAdmin5")
+		public String ButtonAdmin5() {
+			return "ButtonAdmin5";
+			}	
 }
