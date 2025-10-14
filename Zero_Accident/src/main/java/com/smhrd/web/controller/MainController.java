@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.smhrd.web.mapper.MainMapper;
+import com.smhrd.web.service.LogService;
 
 @Controller
 public class MainController{
@@ -45,11 +46,20 @@ public class MainController{
 		return "RegisterDriver";
 	}
 	
-	// 관리자 메인 화면
-		@GetMapping("/MainAdmin")
-		public String MainAdmin() {
-			return "MainAdmin";
-		}
+	private final LogService logService;
+
+    @Autowired
+    public  MainController(LogService logService) {
+        this.logService = logService;
+    }
+    
+    @GetMapping("/MainAdmin")
+    public String MainAdmin(Model model) {
+        // tb_log의 log_idx 총 개수 조회
+        int totalCount = logService.getTotalLogCount();
+        model.addAttribute("totalCount", totalCount); // JSP에 전달
+        return "MainAdmin"; // JSP 파일명과 일치하도록 수정
+    }
 	
 	// 운전자 메인 화면
 		@GetMapping("/MainDriver")

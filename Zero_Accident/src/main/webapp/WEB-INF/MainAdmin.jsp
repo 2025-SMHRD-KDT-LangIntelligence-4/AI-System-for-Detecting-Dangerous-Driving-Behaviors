@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>\
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
@@ -152,13 +152,13 @@
  								
  								<!-- 실시간 표시로 변경 필요! -->
  								<div class="mainadminjsp-parent">
-   									<div class="div37">
-   										<span>10월 </span>
-   										<span class="span5">29</span>
-   										<span>일</span>
-   									</div>
-   									<div class="div38">수요일</div>
- 								</div>
+								    <div class="div37" id="dateDiv">
+								        <span id="monthSpan"></span>
+								        <span class="span5" id="daySpan"></span>
+								        <span>일</span>
+								    </div>
+								    <div class="div38" id="weekdayDiv"></div>
+								</div>
 						</div>
  						
  						<!-- 현재 시간 -->	
@@ -169,7 +169,7 @@
 							
 							<!-- 실시간 표시로 변경 필요! -->
 							<div class="pm-wrapper">
- 									<div class="search-here">15:19PM</div>
+ 									<div class="search-here" id="currentTime"></div>
 							</div>
 						</div>
 					</div>
@@ -787,7 +787,7 @@
    						<span class="span">총 </span>
    						
    						<!-- 일간 위험 행위 발생 횟수 : DB에서 가져오기!  -->
-   						<span class="mainadminjsp-span">43</span>
+   						<span class="mainadminjsp-span">${totalCount}</span>
    						<span class="span">건 발생</span>
  					</div>
      			</div>
@@ -921,9 +921,56 @@
    			<div class="search-here">Copyright ⓒ 2025 Zo-A Co. All rights reserved.</div>
  		</div>    	
   	</div>
- 
-  	
-  	
-
+	<script>
+	    function updateTime() {
+	        const now = new Date();
+	
+	        // 시, 분 가져오기
+	        let hours = now.getHours();
+	        let minutes = now.getMinutes();
+	        let ampm = hours >= 12 ? 'PM' : 'AM';
+	
+	        // 12시간제 변환
+	        hours = hours % 12;
+	        hours = hours ? hours : 12; // 0시 → 12시
+	
+	        // 두 자리 숫자로 표시
+	        hours = hours < 10 ? '0' + hours : hours;
+	        minutes = minutes < 10 ? '0' + minutes : minutes;
+	
+	        // 표시
+	        document.getElementById('currentTime').textContent = hours + ':' + minutes + ampm;
+	    }
+	
+	    // 페이지 로드 시 바로 실행
+	    updateTime();
+	
+	    // 1초마다 갱신
+	    setInterval(updateTime, 1000);
+	</script>
+	<script>
+	    function updateDateTime() {
+	        const now = new Date();
+	
+	        // 월, 일
+	        const month = now.getMonth() + 1; // 0~11 -> +1
+	        const day = now.getDate();
+	
+	        // 요일
+	        const weekdays = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+	        const weekday = weekdays[now.getDay()];
+	
+	        // 화면에 반영
+	        document.getElementById("monthSpan").textContent = month + "월 ";
+	        document.getElementById("daySpan").textContent = day;
+	        document.getElementById("weekdayDiv").textContent = weekday;
+	    }
+	
+	    // 페이지 로드 시 바로 실행
+	    updateDateTime();
+	
+	    // 1분마다 업데이트 (자정 넘어가면 날짜가 바뀌도록)
+	    setInterval(updateDateTime, 60000);
+	</script>
 </body>
 </html>

@@ -648,55 +648,55 @@
     	
   	</div>
   	<script>
-    function updateTime() {
-        const now = new Date();
-
-        // 시, 분 가져오기
-        let hours = now.getHours();
-        let minutes = now.getMinutes();
-        let ampm = hours >= 12 ? 'PM' : 'AM';
-
-        // 12시간제 변환
-        hours = hours % 12;
-        hours = hours ? hours : 12; // 0시 → 12시
-
-        // 두 자리 숫자로 표시
-        hours = hours < 10 ? '0' + hours : hours;
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-
-        // 표시
-        document.getElementById('currentTime').textContent = hours + ':' + minutes + ampm;
-    }
-
-    // 페이지 로드 시 바로 실행
-    updateTime();
-
-    // 1초마다 갱신
-    setInterval(updateTime, 1000);
-</script>
-<script>
-    function updateDateTime() {
-        const now = new Date();
-
-        // 월, 일
-        const month = now.getMonth() + 1; // 0~11 -> +1
-        const day = now.getDate();
-
-        // 요일
-        const weekdays = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
-        const weekday = weekdays[now.getDay()];
-
-        // 화면에 반영
-        document.getElementById("monthSpan").textContent = month + "월 ";
-        document.getElementById("daySpan").textContent = day;
-        document.getElementById("weekdayDiv").textContent = weekday;
-    }
-
-    // 페이지 로드 시 바로 실행
-    updateDateTime();
-
-    // 1분마다 업데이트 (자정 넘어가면 날짜가 바뀌도록)
-    setInterval(updateDateTime, 60000);
-</script>
+	    function updateTime() {
+	        const now = new Date();
+	
+	        // 시, 분 가져오기
+	        let hours = now.getHours();
+	        let minutes = now.getMinutes();
+	        let ampm = hours >= 12 ? 'PM' : 'AM';
+	
+	        // 12시간제 변환
+	        hours = hours % 12;
+	        hours = hours ? hours : 12; // 0시 → 12시
+	
+	        // 두 자리 숫자로 표시
+	        hours = hours < 10 ? '0' + hours : hours;
+	        minutes = minutes < 10 ? '0' + minutes : minutes;
+	
+	        // 표시
+	        document.getElementById('currentTime').textContent = hours + ':' + minutes + ampm;
+	    }
+	
+	    // 페이지 로드 시 바로 실행
+	    updateTime();
+	
+	    // 1초마다 갱신
+	    setInterval(updateTime, 1000);
+	</script>
+	<script>
+	    function updateDateTime() {
+	        const now = new Date();
+	
+	        // 월, 일
+	        const month = now.getMonth() + 1; // 0~11 -> +1
+	        const day = now.getDate();
+	
+	        // 요일
+	        const weekdays = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+	        const weekday = weekdays[now.getDay()];
+	
+	        // 화면에 반영
+	        document.getElementById("monthSpan").textContent = month + "월 ";
+	        document.getElementById("daySpan").textContent = day;
+	        document.getElementById("weekdayDiv").textContent = weekday;
+	    }
+	
+	    // 페이지 로드 시 바로 실행
+	    updateDateTime();
+	
+	    // 1분마다 업데이트 (자정 넘어가면 날짜가 바뀌도록)
+	    setInterval(updateDateTime, 60000);
+	</script>
 </body>
 </html>
