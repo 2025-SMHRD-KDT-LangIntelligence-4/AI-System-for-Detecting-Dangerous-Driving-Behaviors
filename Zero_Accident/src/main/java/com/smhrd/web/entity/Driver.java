@@ -1,5 +1,6 @@
 package com.smhrd.web.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -22,6 +23,10 @@ import lombok.NoArgsConstructor;
 		private LocalDate driverBirthdate;
 		private String driverGender;
 		private LocalDateTime createdAt;
+		//@Column(precision = 17, scale = 14, nullable = false)
+	    private BigDecimal driverLat;
+		//@Column(precision = 17, scale = 14, nullable = false)
+	    private BigDecimal driverLon;
 		
 		private int adminIdx;
 	}

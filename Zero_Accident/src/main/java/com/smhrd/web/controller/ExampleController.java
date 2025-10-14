@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.smhrd.web.entity.ExampleEntity;
 import com.smhrd.web.service.ExampleService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class ExampleController {
 	
@@ -22,5 +24,15 @@ public class ExampleController {
 		model.addAttribute("ExampleDBList", ExampleDBList);
 		return "ExampleView";
 	}
-
+	
+	@GetMapping("/MainAdmin우빈")
+	public String MainAdmin우빈() {
+		return "MainAdmin우빈";
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate(); // 세션무효화
+		return "redirect:/"; // StartPage로 리다이렉트
+	}
 }

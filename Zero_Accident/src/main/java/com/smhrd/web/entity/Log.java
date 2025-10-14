@@ -20,9 +20,9 @@ import lombok.NoArgsConstructor;
 		private int logIdx;
 		private String eventType;
 		//@Column(precision = 17, scale = 14, nullable = false)
-	    private BigDecimal lat;
+	    private BigDecimal eventLat;
 		//@Column(precision = 17, scale = 14, nullable = false)
-	    private BigDecimal lon;
+	    private BigDecimal eventLon;
 		private String eventLevel;
 		private String eventDesc;
 		private String eventImg1;
