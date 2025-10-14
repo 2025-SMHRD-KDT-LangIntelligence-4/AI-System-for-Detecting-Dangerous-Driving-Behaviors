@@ -23,7 +23,4 @@ public class ExampleController {
 		return "ExampleView";
 	}
 
-   
-	
-
 }

@@ -324,6 +324,53 @@ input[type="password"] {
   	overflow: hidden;
   	font-size: 18.84px;
 }
+
+input:focus {
+  outline: none;         /* 기본 외곽선 제거 */
+  box-shadow: none;      /* 혹시 그림자도 생기는 경우 제거 */
+  border-color: #b8cfce; /* 원하는 테두리 색상 유지 */
+}
+
+/* 크롬, 사파리 자동완성 배경색 없애기 */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #37353e inset; /* 배경을 기존 색상으로 덮기 */
+  -webkit-text-fill-color: #B8CFCE;                 /* 글씨 색상 */
+  transition: background-color 5000s ease-in-out 0s; /* 배경색 전환 트릭 */
+}
+
+/* 포커스 되었을 때도 동일하게 적용 */
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #37353e inset;
+  -webkit-text-fill-color: #B8CFCE;
+}
+
+
+.loginadminjsp-div {
+  position: absolute;
+  top: calc(50% - 380px);
+  left: calc(50% - 87px);
+  border-radius: 50.23px;
+  background-color: #37353e;
+  width: 788px;
+  height: 759px;
+  overflow: hidden;
+  font-size: 23px;
+  color: #7f8caa;
+
+  /* 애니메이션 추가 */
+  opacity: 0;
+  transform: translateX(-100px);  /* 시작 위치: 살짝 왼쪽 */
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+/* 슬라이드 인 애니메이션 */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0); /* 제자리로 */
+  }
+}
+
 .button {
   	position: absolute;
   	width: calc(100% - 83px);
@@ -345,7 +392,7 @@ input[type="password"] {
 .div2 {
   	position: relative;
   	font-weight: 700;
-  	color : #B8CFCE;
+  	color : 7F8CAA;
 }
 .div3 {
   	position: absolute;

@@ -19,6 +19,13 @@
 </head>
 <body>
 
+<!-- 회원가입 완료 메시지 띄우는 팝업 -->
+	<c:if test="${not empty msg}">
+	    <script>
+	        alert("${msg}");
+	    </script>
+	</c:if>
+	
 <!--===============================    헤더     ======================================== -->
   	
   	<div class="container">
@@ -69,7 +76,7 @@
 		<!-- 화면 닫음 버튼 -->
 		<!-- 클릭 시 첫 시작 페이지(StartPage.jsp)로 이동 -->
 		<div class="close">
-  			<a href="/StartPage" class="chevron-left">
+  			<a href="/" class="chevron-left">
     			<img class="icon" src="/image/exit.svg" alt="닫기">
   			</a>
 		</div>
@@ -98,7 +105,7 @@
 		<!-- 로그인 데이터를 서버로 전송하겠다. -->
         <!-- action: 데이터 전달 위치, 로그인 데이터를 처리할 URL을 지정 -->
         <!-- method: 데이터 전달 방식(get-보안x/post-보안o) -->
-        <form action="#" method="post">
+        <form action="${cpath}/LoginDriver" method="post">
 
             <!-- 아이디 입력란 -->
             <!-- name="driverId" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->

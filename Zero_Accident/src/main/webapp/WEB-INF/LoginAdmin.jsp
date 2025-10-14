@@ -13,17 +13,23 @@
 	<!-- 웹 폰트 url(나눔 스퀘어 네오) -->
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 
-    <!-- style.css 파일의 스타일을 적용하겠다. -->
+    <!-- LoginAdmin.css 파일의 스타일을 적용하겠다. -->
    	<link rel="stylesheet"  href="/css/LoginAdmin.css" />
 	
 </head>
 <body>
-
+<!-- 회원가입 완료 메시지 띄우는 팝업 -->
+	<c:if test="${not empty msg}">
+	    <script>
+	        alert("${msg}");
+	    </script>
+	</c:if>
+	
 <!--===============================    헤더     ======================================== -->
   	
   	<!-- 뒤로가기 버튼 -->
   	<!-- 클릭 시 StartPage.jsp로 이동 -->
-  	<button type="button" class="arrow-back" onclick="location.href='/StartPage'">
+  	<button type="button" class="arrow-back" onclick="location.href='/'">
   		<img class="icon" src="/image/arrow_back.svg" alt="뒤로가기">
 	</button>
 
@@ -66,7 +72,7 @@
 			<!-- 로그인 데이터를 서버로 전송하겠다. -->
 	        <!-- action: 데이터 전달 위치, 로그인 데이터를 처리할 URL을 지정 -->
 	        <!-- method: 데이터 전달 방식(get-보안x/post-보안o) -->
-	        <form action="#" method="post">
+	        <form action="${cpath}/LoginAdmin" method="post">
 	        
 	        	<!-- 아이디 입력란 -->
 	            <!-- name="adminId" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->
@@ -78,6 +84,7 @@
 					  name="adminId" 
 					  class="loginadminjsp-input" 
 					  placeholder="아이디" 
+					  value= "${adminId}"
 					  required
 					>                       
 	            
@@ -87,7 +94,7 @@
 					<input 
 					  type="password" 
 					  id="adminPw" 
-					  name="adminPw" 
+					  name="adminPwd" 
 					  class="input" 
 					  placeholder="비밀번호" 
 					  required
@@ -95,7 +102,7 @@
 	            
 	            <!-- 로그인 버튼 -->
 				<!-- 로그인 성공 시 MainAdmin.jsp로 이동-->
-	       		<button type="submit" class="loginadminjsp-button" onclick="location.href = '/MainAdmin'">
+	       		<button type="submit" class="loginadminjsp-button">
 				  <span class="div2">로그인</span>
 				</button>      			
 	      			
@@ -118,9 +125,9 @@
       		
       		<!-- 회원가입하기 버튼 -->
 			<!-- RegisterAdmin.jsp로 이동 -->
-   			<div class="button">
-     			<div class="div2">회원가입 하기</div>
-   			</div>
+   			<button type="button" class="button" onclick="location.href='/RegisterAdmin'">
+     			<span class="div2">회원가입 하기</span>
+   			</button>
       			
     	</div>
     	

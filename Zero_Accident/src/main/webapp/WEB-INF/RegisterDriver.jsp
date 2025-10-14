@@ -100,7 +100,7 @@
 				<!-- 회원가입 데이터를 서버로 전송하겠다. -->
 		        <!-- action: 데이터 전달 위치, 회원가입 데이터를 처리할 URL을 지정 -->
 		        <!-- method: 데이터 전달 방식(get-보안x/post-보안o) -->		  
-				<form action="#" method="post" class="div6">
+				<form action="${cpath}/RegisterDriver" method="post" class="div6" onsubmit="return validateForm()">
 				
 		   		  <!-- 아이디 -->
 				  <label for="user_id" class="b">아이디</label>
@@ -117,11 +117,15 @@
 					      placeholder="5~30자리 숫자, 영문" 
 					      required 
 					    >
+
 					    
 					    <!-- 중복확인 버튼 -->
-				    	<button type="button" class="div8 registerdriverjsp-b">중복확인</button>
+				    	<button type="button" class="div8 registerdriverjsp-b" onclick="checkDriverId()">중복확인</button>
 				  	  </div>
-				
+				  	  
+				  	<!-- 우빈:중복확인메시지 -->
+				  	<span id="idMsg" class="msg"></span>		
+				  				    				
 				  <!-- 비밀번호 -->
 				  <label for="password" class="b">비밀번호</label>
 				  	<div class="registerdriverjsp-input">
@@ -143,17 +147,20 @@
 				  	<div class="registerdriverjsp-input">
 				  
 				  		<!-- 비밀번호 확인란 -->
-		  				<!-- name="driverPwd" : 서버로 전송될 필드 이름, DB 컬럼명과 동일  -->				  		
+		  				<!-- name="driverPwdCheck" : 서버로 전송될 필드 이름  -->				  		
 					    <input 
 					      type="password" 
 					      id="password_confirm" 
-					      name="driverPwd" 
+					      name="driverPwdCheck" 
 					      class="div7" 
 					      placeholder="동일한 비밀번호를 입력해주세요." 
 					      required 
 					    >
 				  	</div>
-				
+				  	
+				  	<!-- 우빈:중복확인메시지 -->
+				  	<span id="pwdMsg" class="msg"></span>
+				  				
 				  <!-- 이름 -->
 				  <label for="name" class="b">이름</label>
 				  	<div class="registerdriverjsp-input">
@@ -196,7 +203,7 @@
 					      <input 
 						     type="radio" 
 						     name="driverGender" 
-						     value="male" 
+						     value="M" 
 						     required
 					      >
 					      <b class="b8">남성</b>
@@ -208,7 +215,7 @@
 					      <input 
 					      type="radio" 
 					      name="driverGender" 
-					      value="female"
+					      value="F"
 					      >
 					      <b class="b8">여성</b>
 				    	</label>
@@ -225,8 +232,9 @@
 					        id="phone" 
 					        name="driverContact" 
 					        class="div7" 
-					        placeholder="숫자만 입력해주세요." 
-					        pattern="[0-9]{10,11}" 
+					        placeholder="ex) 01012345678" 
+					        pattern="[0-9]{10,11}"
+					        maxlength="11"
 					        required 
 					      >
 					  </div>
@@ -245,8 +253,6 @@
 						    >
 						    
 						</div>
-				  		
-				  		
 
 <!-- ===============================  회원가입 버튼  ======================================-->
 
@@ -259,9 +265,80 @@
 				   </div>
 				   
 				</form>	
-				
-					
-				
+
+<script>
+	let idChecked = false;
+	
+	function checkDriverId() {
+	    const driverId = document.getElementById("user_id").value.trim(); // ✅ input id는 user_id
+	    const msg = document.getElementById("idMsg");
+	
+	    if (driverId === "") {
+	        msg.textContent = "아이디를 입력해주세요.";
+	        msg.style.color = "#D07B7B";
+	        idChecked = false;
+	        return;
+	    }
+	
+	    fetch("${cpath}/checkDriverId", {   // ✅ URL도 driver용
+	        method: "POST",
+	        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+	        body: "driverId=" + encodeURIComponent(driverId) // ✅ 파라미터도 driverId
+	    })
+	    .then(res => res.json())
+	    .then(data => {
+	        if (data.duplicate) {
+	            msg.textContent = "이미 사용 중인 아이디입니다.";
+	            msg.style.color = "#D07B7B";
+	            idChecked = false;
+	        } else {
+	            msg.textContent = "사용 가능한 아이디입니다.";
+	            msg.style.color = "#7F8CAA";
+	            idChecked = true;
+	        }
+	    });
+	}
+
+	function validateForm() {
+	    if (!idChecked) {
+	        alert("아이디 중복확인을 해주세요!");
+	        return false; // 제출 차단
+	    }
+	    return checkPwd(); // 비밀번호 검증도 통과해야 제출 가능
+	}
+	
+	function checkPwd() {
+	    const pw = document.getElementById("password").value; // ✅ input id = password
+	    const pwCheck = document.getElementById("password_confirm").value; // ✅ input id = password_confirm
+	    const msg = document.getElementById("pwdMsg");
+
+	    if (pwCheck.length === 0) {
+	        msg.textContent = "";
+	        return false;
+	    }
+
+	    if (pw !== pwCheck) {
+	        msg.textContent = "비밀번호가 일치하지 않습니다.";
+	        msg.style.color = "#D07B7B";
+	        return false;
+	    } else {
+	        msg.textContent = "비밀번호가 일치합니다.";
+	        msg.style.color = "#7F8CAA";
+	        return true;
+	    }
+	}
+
+	document.getElementById("password").addEventListener("input", checkPwd);
+	document.getElementById("password_confirm").addEventListener("input", checkPwd);
+	
+	document.getElementById("user_id").addEventListener("input", function() { // ✅ user_id로 수정
+	    idChecked = false;
+	    document.getElementById("idMsg").textContent = "아이디 중복확인을 해주세요.";
+	    document.getElementById("idMsg").style.color = "#B8CFCE";
+	});
+
+	
+</script>
 </body>
 
 </html>

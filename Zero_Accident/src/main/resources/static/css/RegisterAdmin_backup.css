@@ -1,0 +1,452 @@
+@charset "UTF-8";
+
+.registeradminjsp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 화면 중앙으로 이동 */
+
+  width: 100%;
+  max-width: 2002px;
+  min-width: 440px;
+
+  height: 100%;
+  max-height: 956px;
+  min-height: 800px;
+
+  background-color: #3a3a43;
+  overflow: hidden;
+
+  text-align: left;
+  font-size: 28.5px;
+  color: #7f8caa;
+  font-family: 'NanumSquare Neo OTF';
+}
+
+.button button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button  {
+  transition: transform 0.3s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.button:hover {
+  transform: translateY(-8px);  /* 위로 8px 이동 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* 더 자연스러운 그림자 */
+}
+
+
+input {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="tel"] {
+  width: 488px;
+  border-radius: 8.79px;
+  background-color: rgba(255, 255, 255, 0);
+  border: 2.5px solid #b8cfce;
+  box-sizing: border-box;
+  height: 58px;
+  padding: 0 18px;
+  font-size: 18px;
+  color: #b8cfce;
+}
+
+
+.arrow-back {
+  position: relative;
+  top: -5px;         
+  left: 19px;
+  background: none;  /* 기본 회색 배경 제거 */
+  border: none;      /* 테두리 제거 */
+  padding: 0;        /* 불필요한 여백 제거 */
+  cursor: pointer;
+  z-index: 9999;     /* 맨 위로 */
+}
+
+.arrow-back .icon {
+	
+  width: 45px;       /* 아이콘 크기 */
+  height: 45px;
+  display: block;
+}
+.div {
+  	position: absolute;
+  	top: calc(50% - 132px);
+  	left: calc(50% - 701px);
+  	width: 328.4px;
+  	height: 263px;
+  	overflow: hidden;
+}
+.zer0-accident {
+  	position: absolute;
+  	top: 208.53px;
+  	left: 6.23px;
+  	letter-spacing: -0.06em;
+  	font-weight: 300;
+}
+.child {
+  	position: absolute;
+  	top: 92.41px;
+  	left: 11.09px;
+  	background: linear-gradient(90deg, #8c8c8c, #b8cfce 50%, #7f8caa);
+  	width: 140.5px;
+  	height: 29.6px;
+}
+.z0a {
+  	position: absolute;
+  	top: 0px;
+  	left: 1px;
+  	font-size: 199.2px;
+  	letter-spacing: -0.29em;
+  	font-weight: 800;
+  	text-align: center;
+  	color: #7f8caa;
+}
+.span {
+  	color: #b8cfce;
+}
+.a {
+  	color: #ababab;
+}
+.item {
+  	position: absolute;
+  	top: 77.01px;
+  	left: 269px;
+  	width: 19.9px;
+  	height: 20.3px;
+}
+.inner {
+  	position: absolute;
+  	top: 121.36px;
+  	left: 285px;
+  	width: 19.3px;
+  	height: 20.3px;
+}
+.registeradminjsp-zer0-accident {
+  	position: absolute;
+  	top: 47px;
+  	left: 1808.45px;
+  	width: 132.5px;
+  	height: 65px;
+  	font-size: 29.31px;
+}
+
+.zer0-accident {
+  	position: absolute;
+  	top: 211px;
+  	left: 6.23px;
+  	letter-spacing: -0.06em;
+  	font-weight: 300;
+  	 font-size: 50px;
+  	 white-space: nowrap;    /* 줄바꿈 금지 */
+  	 z-index: 1000; /* 다른 요소보다 높게 */
+  	 line-height: 1.3;      /* 글자 높이 (기본은 1.2 정도) */
+}
+
+.zer0-accident {
+ 
+  height: 50px;          /* 텍스트 영역 높이 */
+  display: flex;         /* 세로 중앙 정렬을 위해 flex 사용 */
+  align-items: center;   /* 글자를 세로 가운데 */
+  color: #ffffff;
+}
+
+.zer0-accident2 {
+  	position: absolute;
+  	top: 0%;
+  	left: 0%;
+  	letter-spacing: -0.06em;
+  	font-weight: 800;
+  	background: linear-gradient(90deg, #979c9c, #b8cfce 50%, #7f8caa);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+.zer0- {
+  	margin: 0;
+  	white-space: pre-wrap;
+}
+.accident {
+  	margin: 0;
+}
+.copyright {
+  	position: absolute;
+  	bottom: 30px;
+  	left: calc(50% - 174px);
+  	width: 347px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	font-size: 14.92px;
+  	color: #b8cfce;
+}
+.copyright-2025 {
+  	position: relative;
+}
+.registeradminjsp-div {
+  	position: absolute;
+  	top: calc(50% - 380px);
+  	left: calc(50% - 87px);
+  	border-radius: 50.23px;
+  	background-color: #37353e;
+  	width: 788px;
+  	height: 759px;
+  	overflow: hidden;
+  	font-size: 23px;
+  	color: #7f8caa;
+}
+
+
+.parent {
+  	position: absolute;
+  	top: 155px;
+  	left: 56px;
+  	width: 676px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	gap: 23px;
+  	text-align: right;
+  	color: #b8cfce;
+}
+.div2 {
+  	align-self: stretch;
+  	height: 58px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-between;
+  	gap: 0px;
+}
+.div3 {
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+.div4 {
+  	width: 137px;
+  	position: relative;
+  	font-weight: 800;
+  	display: inline-block;
+  	flex-shrink: 0;
+}
+.input {
+  	width: 488px;
+  	border-radius: 8.79px;
+  	background-color: rgba(255, 255, 255, 0);
+  	border: 2.5px solid #b8cfce;
+  	box-sizing: border-box;
+  	height: 58px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-between;
+  	padding: 26px 18px;
+  	gap: 0px;
+  	text-align: left;
+  	font-size: 18px;
+}
+.div5 {
+  	position: relative;
+  	font-weight: 300;
+}
+.div6 {
+  	width: 72.5px;
+  	position: relative;
+  	border-radius: 5.33px;
+  	background-color: #eaefef;
+  	height: 32px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+  	font-size: 13.33px;
+  	color: #7f8caa;
+}
+
+.input--with-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+}
+
+.input--with-button input {
+  width: 100%;
+  padding: 0 80px 0 1px;   /* 왼쪽 12px, 오른쪽 버튼 때문에 80px 확보 */
+  box-sizing: border-box;
+  border: none;
+}
+
+.input--with-button .registerdriverjsp-b {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 30px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #eaefef;
+  color: #7f8caa;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+input::placeholder {
+  color: #B8CFCE;   /* 원하는 색상 코드 */
+  font-weight: 100; /* 필요하면 굵기 조절 */
+  opacity: 0.5;  /* 글자 색을 더 연하게 */
+}
+
+input:focus {
+  outline: none;         /* 기본 외곽선 제거 */
+  box-shadow: none;      /* 혹시 그림자도 생기는 경우 제거 */
+  border-color: #b8cfce; /* 원하는 테두리 색상 유지 */
+}
+
+/* 크롬, 사파리 자동완성 배경색 없애기 */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #37353e inset; /* 배경을 기존 색상으로 덮기 */
+  -webkit-text-fill-color: #B8CFCE;                 /* 글씨 색상 */
+  transition: background-color 5000s ease-in-out 0s; /* 배경색 전환 트릭 */
+}
+
+/* 포커스 되었을 때도 동일하게 적용 */
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #37353e inset;
+  -webkit-text-fill-color: #B8CFCE;
+}
+
+
+.b {
+  	position: absolute;
+  	top: calc(50% - 7.47px);
+  	left: calc(50% - 25.58px);
+}
+.div7 {
+  	align-self: stretch;
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-between;
+  	gap: 0px;
+}
+.registeradminjsp-input {
+  	width: 488px;
+  	border-radius: 8.79px;
+  	background-color: rgba(255, 255, 255, 0);
+  	border: 2.5px solid #b8cfce;
+  	box-sizing: border-box;
+  	height: 58px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+  	display: flex;
+  	align-items: center;
+  	padding: 26px 18px;
+  	text-align: left;
+  	font-size: 18px;
+}
+.div11 {
+  	align-self: stretch;
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-between;
+  	gap: 0px;
+  	text-align: left;
+}
+.input2 {
+  	width: 488px;
+  	border-radius: 8.79px;
+  	background-color: rgba(255, 255, 255, 0);
+  	border: 2.5px solid #b8cfce;
+  	box-sizing: border-box;
+  	height: 58px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+  	display: flex;
+  	align-items: center;
+  	padding: 26px 18px;
+  	font-size: 18px;
+}
+.join {
+  	position: absolute;
+  	top: 41.44px;
+  	left: calc(50% - 37.23px);
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	font-size: 30.14px;
+}
+.registeradminjsp-join {
+  	position: relative;
+  	font-weight: 800;
+}
+.button {
+  position: absolute;
+  top: 475px;
+  left: calc(50% - 338px);
+  border-radius: 10.84px;
+  background-color: #eaefef;
+  width: 676px;
+  height: 74px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  /* 텍스트 크기와 굵기 */
+  font-size: 24.67px;
+  font-weight: 800;
+  color: #7f8caa;   /* 글자색 (원래 스타일에 맞게 조정 가능) */
+  cursor: pointer;
+}
+
+.button button {
+  background: none;   /* 버튼 자체 배경 제거 (부모 div 배경 사용) */
+  border: none;       /* 테두리 제거 */
+  font: inherit;      /* 부모 폰트 스타일 상속 */
+  color: inherit;
+  cursor: pointer;
+}
+
+.registeradminjsp-div {
+  position: absolute;
+  top: calc(50% - 380px);
+  left: calc(50% - 87px);
+  border-radius: 50.23px;
+  background-color: #37353e;
+  width: 788px;
+  height: 759px;
+  overflow: hidden;
+  font-size: 23px;
+  color: #7f8caa;
+
+  /* 애니메이션 추가 */
+  opacity: 0;
+  transform: translateX(-100px);  /* 시작 위치: 살짝 왼쪽 */
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+/* 슬라이드 인 애니메이션 */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0); /* 제자리로 */
+  }
+}
+
+.icon {
+  	position: absolute;
+  	top: 47px;
+  	left: 61px;
+  	width: 60px;
+  	height: 60px;
+}
+
+

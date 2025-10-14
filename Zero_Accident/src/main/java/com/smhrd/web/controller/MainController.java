@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.smhrd.web.mapper.MainMapper;
 
@@ -15,7 +16,7 @@ public class MainController{
 	MainMapper mapper;
 	
 	// 가장 첫 화면 : 관리자 or 운전자 선택
-	@GetMapping("/StartPage") 
+	@GetMapping("/") 
 	public String StartPage() {
 		return "StartPage";
 	}
@@ -49,4 +50,34 @@ public class MainController{
 		public String MainAdmin() {
 			return "MainAdmin";
 		}
+	
+	// 운전자 메인 화면
+		@GetMapping("/MainDriver")
+		public String MainDriver() {
+			return "MainDriver";
+		}
+		
+	// 관리자 - 운전자 관리 페이지
+		@GetMapping("/ButtonAdmin2")
+		public String ButtonAdmin2() {
+			return "ButtonAdmin2";
+		}
+		
+	// 관리자 - 전체 로그 조회 페이지
+		@GetMapping("/ButtonAdmin3")
+		public String ButtonAdmin3() {
+			return "ButtonAdmin3";
+		}
+				
+	// 관리자 - 실시간 블랙박스 모니터링 페이지
+		@GetMapping("/ButtonAdmin4")
+		public String ButtonAdmin4() {
+			return "ButtonAdmin4";
+			}
+		
+	// 관리자 정보 관리 페이지
+		@GetMapping("/ButtonAdmin5")
+		public String ButtonAdmin5() {
+			return "ButtonAdmin5";
+			}	
 }

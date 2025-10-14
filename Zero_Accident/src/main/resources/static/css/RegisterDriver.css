@@ -50,8 +50,8 @@
   color: #44444E;
   font-weight: bold;
   border-radius: 8.79px;
-  border: 1px solid #7F8CAA;
-}
+  border: 2px solid #B8CFCE;
+  }
 
 .input6 {
   user-select: none;   /* 텍스트 드래그 방지 */
@@ -559,9 +559,23 @@ body {
   	font-size: 12.5px;
   	color: #7f8caa;
 }
+
+/* 크롬, 사파리 자동완성 배경색 없애기 */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #37353e inset; /* 배경을 기존 색상으로 덮기 */
+  -webkit-text-fill-color: #B8CFCE;                 /* 글씨 색상 */
+  transition: background-color 5000s ease-in-out 0s; /* 배경색 전환 트릭 */
+}
+
+/* 포커스 되었을 때도 동일하게 적용 */
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #37353e inset;
+  -webkit-text-fill-color: #B8CFCE;
+}
+
 .registerdriverjsp-b {
   	position: absolute;
-  	top: calc(50% - 400px);
+  	top: calc(50% - 393px);
   	left: calc(50% - -95px);
 }
 .registerdriverjsp-input {
@@ -573,6 +587,7 @@ body {
   	display: flex;
   	align-items: center;
   	padding: 15px;
+  	
 }
 .b6 {
   	align-self: stretch;
@@ -660,4 +675,22 @@ body {
   	padding: 26px 0px;
   	box-sizing: border-box;
 }
-
+/* 우빈:아이디중복확인, 비밀번호확인 메시지 위치 수정하는 css */
+#idMsg {
+  position: absolute;
+  top: 10.3%;
+  right: 0;
+  font-size: 14px;
+  margin-top: 5px;
+  color: #aaa;
+  white-space: nowrap;
+}
+#pwdMsg {
+  position: absolute;
+  top: 36.3%;
+  right: 0;
+  font-size: 14px;
+  margin-top: 3px;
+  color: #aaa;
+  white-space: nowrap;
+}

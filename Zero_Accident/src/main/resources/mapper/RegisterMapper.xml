@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.smhrd.web.mapper.RegisterMapper">
+
+	<!-- 관리자 ID 중복 확인 -->
+	<select id="countByAdminId" parameterType="String" resultType="int">
+	    SELECT COUNT(*)
+	    FROM tb_admin
+	    WHERE admin_id = #{adminId}
+	</select>
+
+	<!-- 관리자 회원가입 정보 DB에 입력 -->
+	<insert id="registerAdmin"  parameterType="com.smhrd.web.entity.Admin">
+		INSERT INTO tb_admin 
+        (admin_id, admin_pwd, admin_name, admin_contact)
+        VALUES 
+        (#{adminId}, #{adminPwd}, #{adminName}, #{adminContact})
+	</insert>
+	
+	<!-- 운전자 ID 중복 확인 -->
+	<select id="countByDriverId"  parameterType="String" resultType="int">
+		SELECT COUNT(*)
+		FROM tb_driver
+		WHERE driver_id = #{driverId}
+	</select>
+	
+	<!-- 운전자 회원가입 정보 DB에 입력 -->
+	<insert id="registerDriver"  parameterType="com.smhrd.web.entity.Driver">
+		INSERT INTO tb_driver 
+        (driver_id, driver_pwd, driver_name, driver_region, driver_contact, driver_birthdate, driver_gender)
+        VALUES 
+        (#{driverId}, #{driverPwd}, #{driverName}, #{driverRegion}, #{driverContact}, #{driverBirthdate}, #{driverGender})
+	</insert>
+	
+</mapper>
