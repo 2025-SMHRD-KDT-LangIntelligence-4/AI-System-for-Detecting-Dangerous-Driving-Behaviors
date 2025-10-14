@@ -1,0 +1,27 @@
+<!-- src/main/resources/mapper/DriverMapper.xml -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.web.mapper.DriverMapper">
+
+    <select id="findAllWithCoords">
+        SELECT
+            driver_idx, driver_id, driver_pwd, driver_name, driver_region,
+            driver_contact, driver_birthdate, driver_gender, created_at,
+            driver_lat, driver_lon, display_addr, admin_idx
+        FROM tb_driver
+        WHERE driver_lat IS NOT NULL
+          AND driver_lon IS NOT NULL
+        ORDER BY COALESCE(created_at, '1970-01-01') DESC
+    </select>
+
+    <select id="findByIdx" parameterType="int">
+        SELECT
+            driver_idx, driver_id, driver_pwd, driver_name, driver_region,
+            driver_contact, driver_birthdate, driver_gender, created_at,
+            driver_lat, driver_lon, display_addr, admin_idx
+        FROM tb_driver
+        WHERE driver_idx = #{driverIdx}
+        LIMIT 1
+    </select>
+
+</mapper>
