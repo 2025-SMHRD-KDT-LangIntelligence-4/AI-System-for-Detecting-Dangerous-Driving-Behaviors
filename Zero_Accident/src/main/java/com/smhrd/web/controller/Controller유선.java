@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.smhrd.web.mapper.MainMapper;
-import com.smhrd.web.service.RegisterService유선;
+import com.smhrd.web.service.Service유선;
 
 @Controller
-public class MainController유선{
+public class Controller유선{
 	@Autowired
 	MainMapper mapper;
 
-		private final RegisterService유선 registerservice유선;
+		private final Service유선 registerservice유선;
 		
-		public MainController유선(RegisterService유선 registerservice유선) {
+		public Controller유선(Service유선 registerservice유선) {
 			this.registerservice유선 = registerservice유선;
 		}
 		

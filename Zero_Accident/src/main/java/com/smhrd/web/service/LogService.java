@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smhrd.web.entity.Log솔민;
+import com.smhrd.web.entity.Log;
 import com.smhrd.web.mapper.LogMapper;
 
 import lombok.RequiredArgsConstructor;

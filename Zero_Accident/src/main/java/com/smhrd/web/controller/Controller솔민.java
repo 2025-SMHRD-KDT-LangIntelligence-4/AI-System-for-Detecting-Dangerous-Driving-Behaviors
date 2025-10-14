@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.smhrd.web.service.LogService;
 
 @Controller
-public class RegisterController솔민 {
+public class Controller솔민 {
     @GetMapping("/RegisterDriver솔민")
     public String RegisterDriver솔민() {
         return "RegisterDriver솔민";

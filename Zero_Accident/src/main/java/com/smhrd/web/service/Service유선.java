@@ -7,16 +7,16 @@ import org.springframework.stereotype.Service;
 
 import com.smhrd.web.entity.ExampleEntity;
 import com.smhrd.web.mapper.ExampleMapper;
-import com.smhrd.web.mapper.RegisterMapper유선;
+import com.smhrd.web.mapper.Mapper유선;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
-public class RegisterService유선 {
+public class Service유선 {
 
-    private final RegisterMapper유선 registerMapper유선;
+    private final Mapper유선 registerMapper유선;
 
-    public RegisterService유선(RegisterMapper유선 registerMapper유선) {
+    public Service유선(Mapper유선 registerMapper유선) {
         this.registerMapper유선 = registerMapper유선;
     }
 
