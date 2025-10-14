@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-// 롬복이라는 라이브러리 기능인데, getter, setter 만들고 또 알아서 연결해주는 등의 기능이다.
 
 	public class Driver {
 		private int driverIdx;
@@ -28,6 +27,8 @@ import lombok.NoArgsConstructor;
 		//@Column(precision = 17, scale = 14, nullable = false)
 	    private BigDecimal driverLon;
 		
+	    private String displayAddr;
+	    
 		private int adminIdx;
 	}
 
