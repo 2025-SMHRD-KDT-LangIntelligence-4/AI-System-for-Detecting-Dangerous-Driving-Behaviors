@@ -103,7 +103,7 @@
    			<div class="div101">
    			
    				<!-- 로그아웃 버튼 -->
-   				<!-- 로그아웃 시 ???.jsp로 이동 -->
+   				<!-- 로그아웃 시 StartPage.jsp or LoginAdmin.jsp로 이동 -->
    				<button type="button" class="logOut" onclick="location.href='#'">
      				<img class="icon5" src="/image/Log-out.svg">
      			</button>
@@ -219,12 +219,12 @@
    							
    							<!-- 실시간 표시로 변경 필요! -->
    							<div class="parent17">
- 								<div class="div91">
-   									<span>10월 </span>
-   									<span class="span2">29</span>
+ 								<div class="div91" id="dateDiv">
+   									<span id="monthSpan"></span>
+   									<span class="span2" id="daySpan"></span>
    									<span>일</span>
  								</div>
- 								<div class="div92">수요일</div>
+ 								<div class="div92" id="weekdayDiv"></div>
    							</div>
    						</div>
    						
@@ -236,7 +236,7 @@
  							
  							<!-- 실시간 표시로 변경 필요! -->
  							<div class="pm-wrapper">
-   								<div class="b">15:19PM</div>
+   								<div class="b" id="currentTime"></div>
  							</div>
    						</div>
  					</div>
@@ -326,8 +326,12 @@
      					 					
  						<div class="avatar-parent">
  						
- 							<!-- 운전자 증명사진 : DB에서 불러오기! -->							
-   							<img class="avatar-icon" src="/image/driver1.png">  							 							
+ 							<!-- 운전자 증명사진 -->							
+   							<div class="avatar-icon">
+   								<!-- image 삽입 공간 : DB에서 이미지 url 가져오기! -->
+   								<img class="avatar-img" src="/image/driver1.png">  								
+   							</div> 
+   							 							 							
    							<div class="s021">
    							  							
    								<!-- 운전자 이름 : DB에서 driverName값 가져오기! -->  								
@@ -358,23 +362,23 @@
    									
    									<!-- 실제 운전자 세부 정보 -->
    									<div class="container">
-     										<b class="b4">
-     										
-     											<!-- 운전자 연락처 : DB에서 driverContact값 가져오기! -->  	
-       											<p class="p">010-3908-9546</p>
-       											<!-- 운전자 생년월일 : DB에서 driverBirthdate값 가져오기! -->
-       											<p class="p">1989-08-09</p>
-       											<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
-       											<p class="p">전남 순천</p>
-       											<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
-       											<p class="p">강우희</p>
-       											<!-- 운전자 차량번호 : DB에서 carNumber값 가져오기! -->
-       											<p class="p">16사 4268</p>
-       											<!-- 등록 일자 : DB에서 createdAt값 가져오기! -->
-       											<p class="p">2023-12-02</p>
-       											<!-- 총 위험 행위 건수 : DB에서 조회하기! -->
-       											<p class="p">0건</p>
-     										</b>
+ 										<b class="b4">
+ 										
+ 											<!-- 운전자 연락처 : DB에서 driverContact값 가져오기! -->  	
+   											<p class="p">010-3908-9546</p>
+   											<!-- 운전자 생년월일 : DB에서 driverBirthdate값 가져오기! -->
+   											<p class="p">1989-08-09</p>
+   											<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
+   											<p class="p">전남 순천</p>
+   											<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
+   											<p class="p">강우희</p>
+   											<!-- 운전자 차량번호 : DB에서 carNumber값 가져오기! -->
+   											<p class="p">16사 4268</p>
+   											<!-- 등록 일자 : DB에서 createdAt값 가져오기! -->
+   											<p class="p">2023-12-02</p>
+   											<!-- 총 위험 행위 건수 : DB에서 조회하기! -->
+   											<p class="p">0건</p>
+ 										</b>
    									</div>
    									
  								</div>
@@ -383,7 +387,7 @@
    							<!-- 정보 수정하기 버튼 -->
    							<!-- 클릭 시 정보 수정 페이지로 이동(미정) -->  							
    							<button type="button" class="div16" onclick="location.href='#'">
-     								<b class="b5">정보 수정하기</b>
+   								<b class="b5">정보 수정하기</b>
    							</button>
    							  							
  						</div>
@@ -401,771 +405,624 @@
    							<!-- 운행 시 '운행'으로 표시 -->
    							<!-- 미운행 시 '미운행'으로 표시 -->
    							<div class="s021">운행</div>
-     					</div>    					
-     					
+     					</div>    					     					
      					
    						<div class="avatar-parent">
- 							<img class="avatar-icon" alt="">
+   						
+   							<!-- 운전자 증명사진 : DB에서 불러오기! -->							 							
+ 							<div class="avatar-icon">
+ 								<!-- image 삽입 공간 : DB에서 이미지 url 가져오기! -->
+   								<img class="avatar-img" src="/image/driver2.png"> 
+ 							</div>
  							
  							<div class="s021">
+ 							
+ 								<!-- 운전자 이름 : DB에서 driverName값 가져오기! --> 
    								<p class="p">김태진</p>
+   								
+   								<!-- 운전자 고유 ID : DB에서 driverIdx값 가져오기! --> 
    								<p class="buttonadmin2jsp-s021">(s053)</p>
  							</div>
    						</div>
+     					
+     					<!-- 운전자 세부 정보 -->	
+ 						<div class="parent">
+   							<div class="div15">
+ 								<div class="title-parent">
+ 								
+ 									<!-- 카테고리 -->
+   									<div class="title">
+ 										<b class="b3">
+   											<p class="p">연락처</p>
+   											<p class="p">생년 월일</p>
+   											<p class="p">근무 지역</p>
+   											<p class="p">관리자</p>
+   											<p class="p">차량 번호 </p>
+   											<p class="p">등록 일자 </p>
+   											<p class="p">총 위험 행위 건수</p>
+ 										</b>
+   									</div>
+   									
+   									<!-- 실제 운전자 세부 정보 -->
+   									<div class="container">
+ 										<b class="b4">
+ 										
+ 											<!-- 운전자 연락처 : DB에서 driverContact값 가져오기! -->  
+   											<p class="p">010-8435-7136</p>
+   											<!-- 운전자 생년월일 : DB에서 driverBirthdate값 가져오기! -->
+   											<p class="p">1980-01-01</p>
+   											<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
+   											<p class="p">서울 강남</p>
+   											<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
+   											<p class="p">심우빈</p>
+   											<!-- 운전자 차량번호 : DB에서 carNumber값 가져오기! -->
+   											<p class="p">32사 9876</p>
+   											<!-- 등록 일자 : DB에서 createdAt값 가져오기! -->
+   											<p class="p">2023-03-15</p>
+   											<!-- 총 위험 행위 건수 : DB에서 조회하기! -->
+   											<p class="p">2건</p>
+ 										</b>
+   									</div>
+ 								</div>
+   							</div>
+   							
+   							<!-- 정보 수정하기 버튼 -->
+   							<!-- 클릭 시 정보 수정 페이지로 이동(미정) --> 
+   							<button type="button" class="div16" onclick="location.href='#'">
+   								<b class="b5">정보 수정하기</b>
+   							</button>
+ 						</div>												
+   					</div>
+   					
+   					<!-- 운전자 3 -->
+   					<div class="div13">						
+   						<div class="radio-button-unchecked-parent">
+   						
+   							<!-- 운전자 선택 버튼 -->
+   							<!-- 클릭 시 아이콘 변경됨 -->
+   							<img class="radio-button-unchecked-icon" src="/image/select.svg">
+   							
+   							<!-- 운행 유무 표시 -->
+   							<!-- 운행 시 '운행'으로 표시 -->
+   							<!-- 미운행 시 '미운행'으로 표시 -->
+   							<div class="s021">미운행</div>
+     					</div>
+   						
+   						
+ 						<div class="avatar-parent">
+ 						
+ 							<!-- 운전자 증명사진 : DB에서 불러오기! -->
+   							<div class="avatar-icon">
+   								<!-- image 삽입 공간 : DB에서 이미지 url 가져오기! -->
+   								<img class="avatar-img" src="/image/driver3.png">  
+							</div> 
+   							
+   							<div class="s021">
+   							
+   								<!-- 운전자 이름 : DB에서 driverName값 가져오기! --> 
+   								<p class="p">박지영</p>
+   								
+   								<!-- 운전자 고유 ID : DB에서 driverIdx값 가져오기! -->
+   								<p class="buttonadmin2jsp-s021">(s031)</p>
+   							</div>
+ 						</div>
+     						    						   						
+     					<!-- 운전자 세부 정보 -->
+ 						<div class="parent">
+   							<div class="div15">
+ 								<div class="title-parent">
+ 								
+ 									<!-- 카테고리 -->
+   									<div class="title">
+ 										<b class="b3">
+   											<p class="p">연락처</p>
+   											<p class="p">생년 월일</p>
+   											<p class="p">근무 지역</p>
+   											<p class="p">관리자</p>
+   											<p class="p">차량 번호 </p>
+   											<p class="p">등록 일자 </p>
+   											<p class="p">총 위험 행위 건수</p>
+ 										</b>
+   									</div>
+   									
+   									<!-- 실제 운전자 세부 정보 -->
+   									<div class="container">
+ 										<b class="b4">
+ 										
+ 											<!-- 운전자 연락처 : DB에서 driverContact값 가져오기! -->
+   											<p class="p">010-1234-5678</p>
+   											<!-- 운전자 생년월일 : DB에서 driverBirthdate값 가져오기! -->
+   											<p class="p">1985-05-15</p>
+   											<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
+   											<p class="p">전북 전주</p>
+   											<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
+   											<p class="p">유 선</p>
+   											<!-- 운전자 차량번호 : DB에서 carNumber값 가져오기! -->
+   											<p class="p">12가 3456</p>
+   											<!-- 등록 일자 : DB에서 createdAt값 가져오기! -->
+   											<p class="p">2025-01-20</p>
+   											<!-- 총 위험 행위 건수 : DB에서 조회하기! -->
+   											<p class="p">3건</p>
+ 										</b>
+   									</div>
+ 								</div>
+   							</div>
+   							
+   							<!-- 정보 수정하기 버튼 -->
+   							<!-- 클릭 시 정보 수정 페이지로 이동(미정) -->  
+   							<button type="button" class="div16" onclick="location.href='#'">
+   								<b class="b5">정보 수정하기</b>
+   							</button>
+ 						</div>
+   					</div>
+   					
+   					<!-- 운전자 4 -->
+   					<div class="div13"> 						
+	   					<div class="radio-button-unchecked-group">
+	   						
+							<!-- 운전자 선택 버튼 -->
+   							<!-- 클릭 시 아이콘 변경됨 -->
+   							<img class="radio-button-unchecked-icon" src="/image/select.svg">
+   							
+   							<!-- 운행 유무 표시 -->
+   							<!-- 운행 시 '운행'으로 표시 -->
+   							<!-- 미운행 시 '미운행'으로 표시 -->
+   							<div class="s021">운행</div>
+	     				</div>
+	     					     				
+ 						<div class="avatar-parent">
+ 							
+   							<!-- 운전자 증명사진 : DB에서 불러오기! -->							
+   							<div class="avatar-icon">
+   								<!-- image 삽입 공간 : DB에서 이미지 url 가져오기! -->
+   								<img class="avatar-img" src="/image/driver4.png">  
+   							</div> 
+   							
+   							<div class="s021">
+   							
+   								<!-- 운전자 이름 : DB에서 driverName값 가져오기! -->
+   								<p class="p">조현민</p>
+   								
+   								<!-- 운전자 고유 ID : DB에서 driverIdx값 가져오기! --> 
+   								<p class="buttonadmin2jsp-s021">(s007)</p>
+   							</div>
+ 						</div>
+     					
+     					<!-- 운전자 세부 정보 -->	
+ 						<div class="parent">
+   							<div class="div15">
+ 								<div class="title-parent">
+ 									
+ 									<!-- 카테고리 -->
+   									<div class="title">
+ 										<b class="b3">
+   											<p class="p">연락처</p>
+   											<p class="p">생년 월일</p>
+   											<p class="p">근무 지역</p>
+   											<p class="p">관리자</p>
+   											<p class="p">차량 번호 </p>
+   											<p class="p">등록 일자 </p>
+   											<p class="p">총 위험 행위 건수</p>
+ 										</b>
+   									</div>
+   									
+   									<!-- 실제 운전자 세부 정보 -->
+   									<div class="container">
+ 										<b class="b4">
+ 										
+ 											<!-- 운전자 연락처 : DB에서 driverContact값 가져오기! -->
+   											<p class="p">010-5821-7345</p>
+   											<!-- 운전자 생년월일 : DB에서 driverBirthdate값 가져오기! -->
+   											<p class="p">1978-05-12</p>
+   											<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
+   											<p class="p">서울 강서</p>
+   											<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
+   											<p class="p">심우빈</p>
+   											<!-- 운전자 차량번호 : DB에서 carNumber값 가져오기! -->
+   											<p class="p">12아 1842</p>
+   											<!-- 등록 일자 : DB에서 createdAt값 가져오기! -->
+   											<p class="p">2024-11-27</p>
+   											<!-- 총 위험 행위 건수 : DB에서 조회하기! -->
+   											<p class="p"> 1건</p>
+ 										</b>
+   									</div>
+ 								</div>
+   							</div>
+   							
+   							<!-- 정보 수정하기 버튼 -->
+   							<!-- 클릭 시 정보 수정 페이지로 이동(미정) -->  							
+   							<button type="button" class="div16" onclick="location.href='#'">
+   								<b class="b5">정보 수정하기</b>
+   							</button>
+ 						</div>
+   					</div>
+   					
+   					<!-- 운전자 5 -->
+   					<div class="div13">						
+   						<div class="radio-button-unchecked-group">
+   						
+   							<!-- 운전자 선택 버튼 -->
+   							<!-- 클릭 시 아이콘 변경됨 -->
+   							<img class="radio-button-unchecked-icon" src="/image/select.svg">
+   							
+   							<!-- 운행 유무 표시 -->
+   							<!-- 운행 시 '운행'으로 표시 -->
+   							<!-- 미운행 시 '미운행'으로 표시 -->
+   							<div class="s021">운행</div>
+     					</div>
      						
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-8435-7136</p>
-               											<p class="p">1980-01-01</p>
-               											<p class="p">서울 강남</p>
-               											<p class="p">심우빈</p>
-               											<p class="p">32사 9876</p>
-               											<p class="p">2023-03-15</p>
-               											<p class="p">2건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
+ 						<div class="avatar-parent">
+ 						
+   							<!-- 운전자 증명사진 : DB에서 불러오기! -->							
+   							<div class="avatar-icon">
+   								<!-- image 삽입 공간 : DB에서 이미지 url 가져오기! -->
+   								<img class="avatar-img" src="/image/driver5.png">
+   							</div> 
+   							
+   							<div class="s021">
+   							
+   								<!-- 운전자 이름 : DB에서 driverName값 가져오기! -->
+   								<p class="p">최은정</p>
+   								
+   								<!-- 운전자 고유 ID : DB에서 driverIdx값 가져오기! -->
+   								<p class="buttonadmin2jsp-s021">(s092)</p>
+   							</div>
+ 						</div>
+     						
+     					<!-- 운전자 세부 정보 -->	
+ 						<div class="parent">
+   							<div class="div15">
+ 								<div class="title-parent">
+ 								
+ 									<!-- 카테고리 -->
+   									<div class="title">
+ 										<b class="b3">
+   											<p class="p">연락처</p>
+   											<p class="p">생년 월일</p>
+   											<p class="p">근무 지역</p>
+   											<p class="p">관리자</p>
+   											<p class="p">차량 번호 </p>
+   											<p class="p">등록 일자 </p>
+   											<p class="p">총 위험 행위 건수</p>
+ 										</b>
+   									</div>
+   									
+   									<!-- 실제 운전자 세부 정보 -->
+   									<div class="container">
+										<b class="b4">
+											<!-- 운전자 연락처 : DB에서 driverContact값 가져오기! -->
+  											<p class="p">010-2934-5582</p>
+  											<!-- 운전자 생년월일 : DB에서 driverBirthdate값 가져오기! -->
+  											<p class="p">1985-02-03</p>
+  											<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
+  											<p class="p">경기 고양</p>
+  											<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
+  											<p class="p">심우빈</p>
+  											<!-- 운전자 차량번호 : DB에서 carNumber값 가져오기! -->
+  											<p class="p">37바 9021</p>
+  											<!-- 등록 일자 : DB에서 createdAt값 가져오기! -->
+  											<p class="p">2024-01-15</p>
+  											<!-- 총 위험 행위 건수 : DB에서 조회하기! -->
+  											<p class="p">0건</p>
+										</b>
+   									</div>
+ 								</div>
+   							</div>
+   							
+   							<!-- 정보 수정하기 버튼 -->
+   							<!-- 클릭 시 정보 수정 페이지로 이동(미정) -->  							
+   							<button type="button" class="div16" onclick="location.href='#'">
+   								<b class="b5">정보 수정하기</b>
+   							</button>
+ 						</div>
    					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">박지영</p>
-         								<p class="buttonadmin2jsp-s021">(s031)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-parent">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">미운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-1234-5678</p>
-               											<p class="p">1985-05-15</p>
-               											<p class="p">전북 전주</p>
-               											<p class="p">유 선</p>
-               											<p class="p">12가 3456</p>
-               											<p class="p">2025-01-20</p>
-               											<p class="p">3건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
+   					
+   					<!-- 운전자 6 -->
+   					<div class="div13"> 					
+   						<div class="radio-button-unchecked-parent">
+       						
+       						<!-- 운전자 선택 버튼 -->
+   							<!-- 클릭 시 아이콘 변경됨 -->
+   							<img class="radio-button-unchecked-icon" src="/image/select.svg">
+   							
+   							<!-- 운행 유무 표시 -->
+   							<!-- 운행 시 '운행'으로 표시 -->
+   							<!-- 미운행 시 '미운행'으로 표시 -->
+   							<div class="s021">미운행</div>
+     					</div>
+     						
+     						
+ 						<div class="avatar-parent">
+ 						
+   							<!-- 운전자 증명사진 : DB에서 불러오기! -->							
+   							<div class="avatar-icon">
+   								<!-- image 삽입 공간 : DB에서 이미지 url 가져오기! -->
+   								<img class="avatar-img" src="/image/driver6.png">  
+   							</div>
+   							
+   							<div class="s021">
+   							
+   								<!-- 운전자 이름 : DB에서 driverName값 가져오기! --> 
+   								<p class="p">이성호</p>
+   								
+   								<!-- 운전자 고유 ID : DB에서 driverIdx값 가져오기! -->
+   								<p class="buttonadmin2jsp-s021">(s045)</p>
+   							</div>
+ 						</div>
+ 						
+     					<!-- 운전자 세부 정보 -->
+ 						<div class="parent">
+   							<div class="div15">
+ 								<div class="title-parent">
+ 									
+ 									<!-- 카테고리 -->
+   									<div class="title">
+ 										<b class="b3">
+   											<p class="p">연락처</p>
+   											<p class="p">생년 월일</p>
+   											<p class="p">근무 지역</p>
+   											<p class="p">관리자</p>
+   											<p class="p">차량 번호 </p>
+   											<p class="p">등록 일자 </p>
+   											<p class="p">총 위험 행위 건수</p>
+ 										</b>
+   									</div>
+   									
+   									<!-- 실제 운전자 세부 정보 -->
+   									<div class="container">
+ 										<b class="b4">
+ 										
+ 											<!-- 운전자 연락처 : DB에서 driverContact값 가져오기! --> 
+   											<p class="p">010-8472-1190</p>
+   											<!-- 운전자 생년월일 : DB에서 driverBirthdate값 가져오기! -->
+   											<p class="p">1992-09-26</p>
+   											<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
+   											<p class="p">부산 해운대</p>
+   											<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
+   											<p class="p">이솔민</p>
+   											<!-- 운전자 차량번호 : DB에서 carNumber값 가져오기! -->
+   											<p class="p">68사 7710</p>
+   											<!-- 등록 일자 : DB에서 createdAt값 가져오기! -->
+   											<p class="p">2024-03-02</p>
+   											<!-- 총 위험 행위 건수 : DB에서 조회하기! -->
+   											<p class="p">2건</p>
+ 										</b>
+   									</div>
+ 								</div>
+   							</div>
+   							
+   							<!-- 정보 수정하기 버튼 -->
+   							<!-- 클릭 시 정보 수정 페이지로 이동(미정) -->  							
+   							<button type="button" class="div16" onclick="location.href='#'">
+   								<b class="b5">정보 수정하기</b>
+   							</button>		
+ 						</div>
    					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">조현민</p>
-         								<p class="buttonadmin2jsp-s021">(s007)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-group">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-5821-73451978-05-12</p>
-               											<p class="p">서울 강서</p>
-               											<p class="p">심우빈</p>
-               											<p class="p">12아 1842 2024-11-27</p>
-               											<p class="p"> 1건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
+   					
+   					<!-- 운전자 7 -->
+   					<div class="div13">  					
+   						<div class="radio-button-unchecked-parent">
+   							
+   							<!-- 운전자 선택 버튼 -->
+   							<!-- 클릭 시 아이콘 변경됨 -->
+   							<img class="radio-button-unchecked-icon" src="/image/select.svg">
+   							
+   							<!-- 운행 유무 표시 -->
+   							<!-- 운행 시 '운행'으로 표시 -->
+   							<!-- 미운행 시 '미운행'으로 표시 -->
+   							<div class="s021">미운행</div>
+     					</div>
+     						    						
+ 						<div class="avatar-parent">
+ 							
+ 							<!-- 운전자 증명사진 : DB에서 불러오기! -->							
+   							<div class="avatar-icon">
+   								<!-- image 삽입 공간 : DB에서 이미지 url 가져오기! -->
+   								<img class="avatar-img" src="/image/driver7.png">  								
+   							</div> 
+   							  							
+   							<div class="s021">
+   								
+   								<!-- 운전자 이름 : DB에서 driverName값 가져오기! -->
+   								<p class="p">이정훈</p>
+   								
+   								<!-- 운전자 고유 ID : DB에서 driverIdx값 가져오기! -->
+   								<p class="buttonadmin2jsp-s021">(s102)</p>
+   							</div>
+ 						</div>
+     					
+     					<!-- 운전자 세부 정보 -->	
+ 						<div class="parent">
+   							<div class="div15">
+ 								<div class="title-parent">
+ 									
+ 									<!-- 카테고리 -->
+   									<div class="title">
+ 										<b class="b3">
+   											<p class="p">연락처</p>
+   											<p class="p">생년 월일</p>
+   											<p class="p">근무 지역</p>
+   											<p class="p">관리자</p>
+   											<p class="p">차량 번호 </p>
+   											<p class="p">등록 일자 </p>
+   											<p class="p">총 위험 행위 건수</p>
+ 										</b>
+   									</div>
+   									
+   									<!-- 실제 운전자 세부 정보 -->
+   									<div class="container">
+ 										<b class="b4">
+ 										
+ 											<!-- 운전자 연락처 : DB에서 driverContact값 가져오기! -->
+   											<p class="p">010-9164-2335</p>
+   											<!-- 운전자 생년월일 : DB에서 driverBirthdate값 가져오기! -->
+   											<p class="p">1989-12-19</p>
+   											<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
+   											<p class="p">대구 수성</p>
+   											<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
+   											<p class="p">이솔민</p>
+   											<!-- 운전자 차량번호 : DB에서 carNumber값 가져오기! -->
+   											<p class="p">54자 2554</p>
+   											<!-- 등록 일자 : DB에서 createdAt값 가져오기! -->
+   											<p class="p">2024-02-08</p>
+   											<!-- 총 위험 행위 건수 : DB에서 조회하기! -->
+   											<p class="p">0건</p>
+ 										</b>
+   									</div>
+ 								</div>
+   							</div>
+   							
+   							<!-- 정보 수정하기 버튼 -->
+   							<!-- 클릭 시 정보 수정 페이지로 이동(미정) -->  							
+   							<button type="button" class="div16" onclick="location.href='#'">
+   								<b class="b5">정보 수정하기</b>
+   							</button>
+ 						</div>
    					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">최은정</p>
-         								<p class="buttonadmin2jsp-s021">(s092)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-group">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-2934-55821985-02-03</p>
-               											<p class="p">경기 고양</p>
-               											<p class="p">심우빈</p>
-               											<p class="p">37바 9021 2024-01-15</p>
-               											<p class="p">0건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
-   					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">이성호</p>
-         								<p class="buttonadmin2jsp-s021">(s045)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-parent">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">미운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-8472-1190</p>
-               											<p class="p">1992-09-26</p>
-               											<p class="p">부산 해운대</p>
-               											<p class="p">이솔민</p>
-               											<p class="p">68사 7710 2024-03-02</p>
-               											<p class="p">2건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
-   					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">이정훈</p>
-         								<p class="buttonadmin2jsp-s021">(s102)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-parent">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">미운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-9164-23351989-12-19</p>
-               											<p class="p">대구 수성</p>
-               											<p class="p">이솔민</p>
-               											<p class="p">54자 2554 2024-02-08</p>
-               											<p class="p">0건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
-   					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">오민석</p>
-         								<p class="buttonadmin2jsp-s021">(s088)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-parent">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">미운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-7459-3011</p>
-               											<p class="p">1975-06-07</p>
-               											<p class="p">전남 여수</p>
-               											<p class="p">강우희</p>
-               											<p class="p">17아 4862 2023-12-11</p>
-               											<p class="p">3건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
-   					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">윤지수</p>
-         								<p class="buttonadmin2jsp-s021">(s028)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-group">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-6520-48921983-03-22</p>
-               											<p class="p">충남 천안</p>
-               											<p class="p">서예빛</p>
-               											<p class="p">33바 7285 2024-01-05</p>
-               											<p class="p">1건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
-   					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">이정수</p>
-         								<p class="buttonadmin2jsp-s021">(s067)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-parent">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">미운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-9321-57881970-11-04</p>
-               											<p class="p">경기 수원</p>
-               											<p class="p">심우빈</p>
-               											<p class="p">41사 1998 2023-12-30</p>
-               											<p class="p">0건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
-   					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">박영호</p>
-         								<p class="buttonadmin2jsp-s021">(s036)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-group">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-2854-93711967-07-14</p>
-               											<p class="p">강원 원주</p>
-               											<p class="p">심우빈</p>
-               											<p class="p">25자 3507 2024-02-17</p>
-               											<p class="p">2건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
-   					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">김철수</p>
-         								<p class="buttonadmin2jsp-s021">(s135)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-parent">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">미운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-4932-68891979-10-09</p>
-               											<p class="p">전북 익산</p>
-               											<p class="p">유 선</p>
-               											<p class="p">64아 2095 2023-11-05</p>
-               											<p class="p">4건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
-   					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">최명식</p>
-         								<p class="buttonadmin2jsp-s021">(s072)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-group">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-7195-8413</p>
-               											<p class="p">1978-01-29</p>
-               											<p class="p">경남 창원</p>
-               											<p class="p">서예빛</p>
-               											<p class="p">29바 4376 2025-03-11</p>
-               											<p class="p">4건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
-   					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">정기현</p>
-         								<p class="buttonadmin2jsp-s021">(s044)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-group">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-3921-74451975-04-13</p>
-               											<p class="p">서울 강북</p>
-               											<p class="p">심우빈</p>
-               											<p class="p">15아 2834 2023-12-11</p>
-               											<p class="p">1건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
-   					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">오태식</p>
-         								<p class="buttonadmin2jsp-s021">(s016)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-group">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-5123-88921969-09-07</p>
-               											<p class="p">부산 남구</p>
-               											<p class="p">이솔민</p>
-               											<p class="p">38바 7146 2024-01-08</p>
-               											<p class="p">2건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
-   					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">조성우</p>
-         								<p class="buttonadmin2jsp-s021">(s090)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-group">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-9452-31901985-06-30</p>
-               											<p class="p">전북 익산</p>
-               											<p class="p">유 선</p>
-               											<p class="p">23아 4708 2023-11-30</p>
-               											<p class="p">2건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
-   					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">한도윤</p>
-         								<p class="buttonadmin2jsp-s021">(s108)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-parent">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">미운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-3768-5411</p>
-               											<p class="p">1977-10-12</p>
-               											<p class="p">광주 북구</p>
-               											<p class="p">강우희</p>
-               											<p class="p">18아 5632 2024-02-14</p>
-               											<p class="p">2건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
-   					</div>
-   					<div class="div13">
-     						<div class="avatar-parent">
-       							<img class="avatar-icon" alt="">
-       							
-       							<div class="s021">
-         								<p class="p">유재만</p>
-         								<p class="buttonadmin2jsp-s021">(s070)</p>
-       							</div>
-     						</div>
-     						<div class="radio-button-unchecked-group">
-       							<img class="radio-button-unchecked-icon" alt="">
-       							
-       							<div class="s021">운행</div>
-     						</div>
-     						<div class="parent">
-       							<div class="div15">
-         								<div class="title-parent">
-           									<div class="title">
-             										<b class="b3">
-               											<p class="p">연락처</p>
-               											<p class="p">생년 월일</p>
-               											<p class="p">근무 지역</p>
-               											<p class="p">관리자</p>
-               											<p class="p">차량 번호 </p>
-               											<p class="p">등록 일자 </p>
-               											<p class="p">총 위험 행위 건수</p>
-             										</b>
-           									</div>
-           									<div class="container">
-             										<b class="b4">
-               											<p class="p">010-5534-90711973-08-14</p>
-               											<p class="p">경기 평택</p>
-               											<p class="p">심우빈</p>
-               											<p class="p">52바 6925 2024-01-22</p>
-               											<p class="p">3건</p>
-             										</b>
-           									</div>
-         								</div>
-       							</div>
-       							<div class="div16">
-         								<b class="b5">정보 수정하기</b>
-       							</div>
-     						</div>
-   					</div>
- 				</div>
-   			</div>
+   					
+   					<!-- 운전자 8 -->
+   					<div class="div13">				
+   						<div class="radio-button-unchecked-parent">
+   						
+   							<!-- 운전자 선택 버튼 -->
+   							<!-- 클릭 시 아이콘 변경됨 -->
+   							<img class="radio-button-unchecked-icon" src="/image/select.svg">
+   							
+   							<!-- 운행 유무 표시 -->
+   							<!-- 운행 시 '운행'으로 표시 -->
+   							<!-- 미운행 시 '미운행'으로 표시 -->
+   							<div class="s021">미운행</div>
+     					</div>
+     					   					
+ 						<div class="avatar-parent">
+ 						
+ 							<!-- 운전자 증명사진 : DB에서 불러오기! -->							
+   							<div class="avatar-icon">
+   								<!-- image 삽입 공간 : DB에서 이미지 url 가져오기! -->
+   								<img class="avatar-img" src="/image/driver8.png">  
+   							</div> 
+   							  								
+   							<div class="s021">
+   							
+   								<!-- 운전자 이름 : DB에서 driverName값 가져오기! -->
+   								<p class="p">오민석</p>
+   								
+   								<!-- 운전자 고유 ID : DB에서 driverIdx값 가져오기! --> 
+   								<p class="buttonadmin2jsp-s021">(s088)</p>
+   							</div>
+ 						</div>
+     					
+     					<!-- 운전자 세부 정보 -->	
+ 						<div class="parent">
+   							<div class="div15">
+ 								<div class="title-parent">
+ 									
+ 									<!-- 카테고리 -->
+   									<div class="title">
+ 										<b class="b3">
+   											<p class="p">연락처</p>
+   											<p class="p">생년 월일</p>
+   											<p class="p">근무 지역</p>
+   											<p class="p">관리자</p>
+   											<p class="p">차량 번호 </p>
+   											<p class="p">등록 일자 </p>
+   											<p class="p">총 위험 행위 건수</p>
+ 										</b>
+   									</div>
+   									
+   									<!-- 실제 운전자 세부 정보 -->
+   									<div class="container">
+ 										<b class="b4">
+ 										
+ 											<!-- 운전자 연락처 : DB에서 driverContact값 가져오기! --> 
+   											<p class="p">010-7459-3011</p>
+   											<!-- 운전자 생년월일 : DB에서 driverBirthdate값 가져오기! -->
+   											<p class="p">1975-06-07</p>
+   											<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
+   											<p class="p">전남 여수</p>
+   											<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
+   											<p class="p">강우희</p>
+   											<!-- 운전자 차량번호 : DB에서 carNumber값 가져오기! -->
+   											<p class="p">17아 4862</p>
+   											<!-- 등록 일자 : DB에서 createdAt값 가져오기! -->
+   											<p class="p">2023-12-11</p>
+   											<!-- 총 위험 행위 건수 : DB에서 조회하기! -->
+   											<p class="p">3건</p>
+ 										</b>
+   									</div>
+ 								</div>
+   							</div>
+   							
+   							<!-- 정보 수정하기 버튼 -->
+   							<!-- 클릭 시 정보 수정 페이지로 이동(미정) -->  							
+   							<button type="button" class="div16" onclick="location.href='#'">
+   								<b class="b5">정보 수정하기</b>
+   							</button>
+ 						</div>
+   					</div> 					
+   				</div>   					   					
+ 			</div>
+   		</div>
+   		
+   		<!-- 저작권 -->
+   		<div class="copyright">
+   			<div class="b">Copyright ⓒ 2025 Zo-A Co. All rights reserved.</div>
+    	</div>
    			
- 		</div>
-    		
-    		<div class="copyright">
-      			<div class="b">Copyright ⓒ 2025 Zo-A Co. All rights reserved.</div>
-    		</div>
-    		
-  	</div>
-  	
+ 	</div>    		   		   		
+  </div>
+  
+  <script>
+	    function updateTime() {
+	        const now = new Date();
+	
+	        // 시, 분 가져오기
+	        let hours = now.getHours();
+	        let minutes = now.getMinutes();
+	        let ampm = hours >= 12 ? 'PM' : 'AM';
+	
+	        // 12시간제 변환
+	        hours = hours % 12;
+	        hours = hours ? hours : 12; // 0시 → 12시
+	
+	        // 두 자리 숫자로 표시
+	        hours = hours < 10 ? '0' + hours : hours;
+	        minutes = minutes < 10 ? '0' + minutes : minutes;
+	
+	        // 표시
+	        document.getElementById('currentTime').textContent = hours + ':' + minutes + ampm;
+	    }
+	
+	    // 페이지 로드 시 바로 실행
+	    updateTime();
+	
+	    // 1초마다 갱신
+	    setInterval(updateTime, 1000);
+	</script>
+	<script>
+	    function updateDateTime() {
+	        const now = new Date();
+	
+	        // 월, 일
+	        const month = now.getMonth() + 1; // 0~11 -> +1
+	        const day = now.getDate();
+	
+	        // 요일
+	        const weekdays = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+	        const weekday = weekdays[now.getDay()];
+	
+	        // 화면에 반영
+	        document.getElementById("monthSpan").textContent = month + "월 ";
+	        document.getElementById("daySpan").textContent = day;
+	        document.getElementById("weekdayDiv").textContent = weekday;
+	    }
+	
+	    // 페이지 로드 시 바로 실행
+	    updateDateTime();
+	
+	    // 1분마다 업데이트 (자정 넘어가면 날짜가 바뀌도록)
+	    setInterval(updateDateTime, 60000);
+	</script>	
   	
   	
   	
