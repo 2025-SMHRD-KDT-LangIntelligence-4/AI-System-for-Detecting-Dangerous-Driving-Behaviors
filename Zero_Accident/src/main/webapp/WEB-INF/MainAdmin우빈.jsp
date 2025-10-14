@@ -384,7 +384,7 @@
           					<img class="child" alt="">
           					
           					<div class="div2">
-            						<div class="search-here">Search here...</div>
+            						<div class="search-here">이름, 차량번호, 고유번호로 검색... </div>
           					</div>
         				</div>
         				<div class="div3">
@@ -648,9 +648,6 @@
     		</div>
     	
   	</div>
- 
-  	
-  	
 
 </body>
 </html>
