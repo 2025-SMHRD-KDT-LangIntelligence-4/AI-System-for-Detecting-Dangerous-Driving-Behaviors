@@ -1,7 +1,18 @@
 @charset "UTF-8";
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;   /* 가로 중앙 */
+  align-items: center;       /* 세로 중앙 */
+  overflow: hidden;
+}
+
 .mainadminjsp {
-  	width: 1869px;
+  	width: 2002px;
   	height: 956px;
   	position: relative;
   	background-color: #44444e;
@@ -10,6 +21,7 @@
   	font-size: 13.93px;
   	color: #b8cfce;
   	font-family: 'NanumSquare Neo OTF';
+  	
 }
 .copyright {
   	position: absolute;
@@ -23,7 +35,7 @@
 .div {
   	position: absolute;
   	top: calc(50% - 421.98px);
-  	left: 188.59px;
+  	left: 255px;
   	border-radius: 11.02px;
   	background-color: #37353e;
   	width: 1615.1px;
@@ -652,6 +664,12 @@
   	box-sizing: border-box;
   	color: #fff;
 }
+
+button.wrapper10 {
+  all: unset;                 /* 브라우저 기본 스타일 제거 */
+  display: block;             /* div처럼 block으로 표시 */
+  cursor: pointer;            /* 커서 모양 변경 */
+}
 .wrapper10 {
   	height: 133.5px;
   	display: flex;
@@ -1073,7 +1091,7 @@
 .div97 {
   	position: absolute;
   	top: 56.02px;
-  	left: 65.35px;
+  	left: 131.76px;
   	border-radius: 11.02px;
   	background-color: #37353e;
   	width: 82.2px;
@@ -1190,4 +1208,7 @@
   	flex-direction: column;
   	align-items: flex-start;
 }
+
+
+
 

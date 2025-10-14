@@ -61,7 +61,7 @@ public class LoginController{
 		if (loginDriver == null) {
 			// 아이디 없음
 			rttr.addFlashAttribute("msg", "존재하지 않는 아이디입니다.");
-			rttr.addFlashAttribute("adminId", driver.getDriverId()); // ✅ 입력한 아이디 전달
+			rttr.addFlashAttribute("driverId", driver.getDriverId()); // ✅ 입력한 아이디 전달
 			return "redirect:/LoginDriver";
 		}
 		
