@@ -18,7 +18,5 @@ import lombok.NoArgsConstructor;
 		private String carNumber;
 		private String carType;
 		private LocalDateTime createdAt;
-		
-		private int driverIdx;
 	}
 

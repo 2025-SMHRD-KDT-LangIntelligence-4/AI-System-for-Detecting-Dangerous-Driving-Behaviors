@@ -20,7 +20,5 @@ import lombok.NoArgsConstructor;
 		private String alarmMsg;
 		private LocalDateTime alarmTime;
 		private String receiveYn;
-		
-		private int deepIdx;
 	}
 

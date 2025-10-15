@@ -29,9 +29,6 @@ import lombok.NoArgsConstructor;
 		private String eventImg3;
 		private String eventVideo;
 		private LocalDateTime createdAt;
-		
 		private String displayAddr;
-		
-		private int carNumber;
 	}
 

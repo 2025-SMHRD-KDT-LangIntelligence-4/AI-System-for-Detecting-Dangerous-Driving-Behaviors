@@ -26,9 +26,7 @@ import lombok.NoArgsConstructor;
 	    private BigDecimal driverLat;
 		//@Column(precision = 17, scale = 14, nullable = false)
 	    private BigDecimal driverLon;
-		
 	    private String displayAddr;
 	    
-		private int adminIdx;
 	}
 

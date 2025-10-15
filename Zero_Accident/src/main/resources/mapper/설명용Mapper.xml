@@ -4,7 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 
-<mapper namespace="com.smhrd.web.mapper.설명용Mapper2">
+<mapper namespace="com.smhrd.web.mapper.설명용Mapper">
 <!--  com.smhrd.web.mapper.ExampleMapper2 인터페이스와 매핑된다. -->
 
 	<select id="CheckDBConnection"  resultType="com.smhrd.web.entity.ExampleEntity">
