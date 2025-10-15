@@ -15,64 +15,19 @@
 
     <!-- ButtonAdmin3.css 파일의 스타일을 적용하겠다. -->
 	<link rel="stylesheet"  href="/css/ButtonAdmin3.css" />
+	<!-- Sidebar.css 파일의 스타일을 적용하겠다. -->
+	<link rel="stylesheet"  href="/css/Sidebar.css" />
 	
 </head>
 <body>
 	
-  	
+  	<!-- 전체 컨테이너 -->
   	<div class="buttonadmin3jsp">
-  	
-  	
-  			<div class="div52">
-      			<div class="div53">
-        				<div class="avatar">
-        				</div>
-        				<div class="small">
-          					<div class="small-child">
-          					</div>
-          					<div class="z0a">
-            						<span>Z</span>
-            						<span class="span2">0</span>
-            						<span class="a">A</span>
-          					</div>
-          					<img class="small-item" alt="">
-          					
-          					<img class="small-inner" alt="">
-          					
-        				</div>
-      			</div>
-      			<div class="div54">
-      			</div>
-      			<div class="div55">
-        				<div class="main">Main</div>
-        				<img class="icon2" alt="">
-        				
-        				<img class="icon3" alt="">
-        				
-        				<img class="icon2" alt="">
-        				
-        				<img class="icon3" alt="">
-        				
-        				<img class="icon3" alt="">
-        				
-      			</div>
-      			<div class="div54">
-      			</div>
-      			<div class="div57">
-        				<div class="main">Settings</div>
-        				<img class="icon3" alt="">
-        				
-        				<img class="icon2" alt="">
-        				
-      			</div>
-      			<div class="wrapper4">
-        				<img class="icon2" alt="">
-        				
-      			</div>
-    		</div>
-  	
-  	
-  	
+  		
+  		<!-- 사이드 바 -->
+  		<!-- Sidebar.jsp 파일에서 작업하기! -->
+  		<%@ include file="/WEB-INF/Sidebar.jsp" %>
+		
   	
   	
     		<div class="copyright">
