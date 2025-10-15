@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smhrd.web.entity.ExampleEntity;
-import com.smhrd.web.mapper.ExampleMapper;
 import com.smhrd.web.mapper.Mapper유선;
 
 import lombok.RequiredArgsConstructor;

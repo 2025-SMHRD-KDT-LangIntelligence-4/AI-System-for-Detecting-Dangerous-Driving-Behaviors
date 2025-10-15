@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.smhrd.web.entity.Admin;
 import com.smhrd.web.entity.Driver;
 import com.smhrd.web.entity.ExampleEntity;
-import com.smhrd.web.mapper.ExampleMapper;
 import com.smhrd.web.mapper.LoginMapper;
 
 import lombok.RequiredArgsConstructor;

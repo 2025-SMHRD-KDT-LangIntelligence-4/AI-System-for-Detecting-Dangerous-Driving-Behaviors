@@ -8,13 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.smhrd.web.entity.ExampleEntity;
-import com.smhrd.web.service.ExampleService;
+import com.smhrd.web.service.설명용Service;
 
 @Controller // 이 클래스를 컨트롤러라고 선언
-public class ExampleController2 {
+public class 설명용Controller {
 	
 	@Autowired  // 스프링이 알아서 연결해주는 어노테이션
-	private ExampleService service;
+	private 설명용Service service;
 	// 뭘 연결해? ExampleService라는 서비스와 연결하겠다. 그리고 service 라는 이름으로 가져다 쓰겠다.
 	
 	@GetMapping("/ExampleView2")
