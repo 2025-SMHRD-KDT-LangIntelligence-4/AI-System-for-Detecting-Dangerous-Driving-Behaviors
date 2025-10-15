@@ -96,10 +96,13 @@
 			</div>
 			
 			<!-- 로그아웃 버튼 -->
-  				<!-- 로그아웃 시 StartPage.jsp or LoginAdmin.jsp로 이동 -->
-  				<button type="button" class="logOut" onclick="location.href='#'">
+			<!-- 로그아웃 시 StartPage.jsp or LoginAdmin.jsp로 이동 -->
+			<form action="#" method="post">
+  				<button type="submit" class="logOut">
     				<img class="icon22" src="/image/Log-out.svg">
     			</button>
+    		</form>
+    		
 		</div>
 
 
