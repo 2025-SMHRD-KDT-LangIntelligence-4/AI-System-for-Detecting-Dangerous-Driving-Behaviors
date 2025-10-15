@@ -49,10 +49,14 @@
 			<div class="div555">
   				<div class="main">Main</div>
   				
+  				
+  				<div class="tooltip-wrapper">
   				<!-- 클릭 시 MainAdmin.jsp로 이동 -->
   				<button type="button" class="mainButton" onclick="location.href='/MainAdmin'">
   					<img class="icon22" src="/image/MainButton.svg">
   				</button>
+  				<span class="tooltip">메인 대시보드</span>
+  				</div>
   				
   				<!-- 클릭 시 ButtonAdmin2.jsp로 이동(운전자 관리 페이지) -->
   				<button type="button" class="driverInfo" onclick="location.href='/ButtonAdmin2'">

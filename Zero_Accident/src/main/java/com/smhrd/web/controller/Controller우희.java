@@ -33,4 +33,6 @@ public class Controller우희{
 			public String ButtonAdmin2_3() {
 				return "ButtonAdmin2_3";
 			}
+			
+		
 }

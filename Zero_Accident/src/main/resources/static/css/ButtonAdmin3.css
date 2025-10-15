@@ -133,7 +133,10 @@ html, body {
   	width: 701.1px;
   	height: 588.2px;
   	font-size: 13.43px;
+  
 }
+
+
 .child {
   	position: absolute;
   	top: 28.01px;
@@ -235,7 +238,7 @@ html, body {
   	letter-spacing: 0.44px;
   	line-height: 13.18px;
   	text-transform: uppercase;
-  	font-weight: 800;
+  	font-weight: 700;
 }
 .div14 {
   	position: absolute;
@@ -546,7 +549,10 @@ html, body {
   	padding: 0px 14.9px;
   	box-sizing: border-box;
   	color: #fff;
+  	
 }
+
+
 .div45 {
   	position: absolute;
   	top: 0px;
@@ -704,10 +710,10 @@ html, body {
   	width: 26.8px;
 }
 
-.div59 {
+.div5999 {
   	position: absolute;
-  	top: 357.74px;
-  	left: 586px;
+  	top: 300.74px;
+  	left: 330px;
   	height: 798.5px;
   	overflow-y: auto;
   	display: flex;
@@ -716,6 +722,20 @@ html, body {
   	gap: 9.3px;
   	font-size: 13.87px;
 }
+
+/* 스크롤 커스텀*/
+.div5999::-webkit-scrollbar {
+  width: 8px;
+}
+.div5999::-webkit-scrollbar-thumb {
+  background-color: #5f5f6e;
+  border-radius: 10px;
+}
+.div5999::-webkit-scrollbar-track {
+  background-color: #2e2e36;
+}
+
+
 .div60 {
   	width: 653px;
   	height: 47.6px;
@@ -728,6 +748,18 @@ html, body {
   	padding: 14px 20.5px;
   	box-sizing: border-box;
   	font-size: 14.87px;
+}
+
+/* 스크롤 커스텀*/
+.div60::-webkit-scrollbar {
+  width: 8px;
+}
+.div60::-webkit-scrollbar-thumb {
+  background-color: #5f5f6e;
+  border-radius: 10px;
+}
+.div60::-webkit-scrollbar-track {
+  background-color: #2e2e36;
 }
 .frame-parent9 {
   	flex: 1;

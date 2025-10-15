@@ -118,3 +118,48 @@
   	align-items: center;
   	gap: 7.3px;
 }
+
+.tooltip-wrapper {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 14px;
+}
+
+/* 툴팁 스타일 */
+.tooltip {
+	position: absolute;
+	left: 70px;                      /* 사이드바 오른쪽에 표시 */
+	background-color: #37353e;
+	color: #b8cfce;
+	font-size: 13px;
+	padding: 6px 10px;
+	border-radius: 6px;
+	white-space: nowrap;
+	opacity: 0;
+	pointer-events: none;
+	transform: translateY(-50%) scale(0.95);
+	top: 50%;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+	z-index: 999;
+}
+
+/* 마우스를 올렸을 때 툴팁 보이기 */
+.tooltip-wrapper:hover .tooltip {
+	opacity: 1;
+	transform: translateY(-50%) scale(1);
+}
+
+/* 툴팁 꼬리 (선택사항) */
+.tooltip::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: -5px;
+	transform: translateY(-50%);
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent #37353e transparent transparent;
+}
