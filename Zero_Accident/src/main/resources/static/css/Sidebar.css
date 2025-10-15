@@ -131,9 +131,10 @@
 .tooltip {
 	position: absolute;
 	left: 70px;                      /* 사이드바 오른쪽에 표시 */
-	background-color: #37353e;
-	color: #b8cfce;
+	background-color: #EAEFEF;
+	color: #7F8CAA;
 	font-size: 13px;
+	font-weight:700;
 	padding: 6px 10px;
 	border-radius: 6px;
 	white-space: nowrap;
@@ -152,7 +153,7 @@
 	transform: translateY(-50%) scale(1);
 }
 
-/* 툴팁 꼬리 (선택사항) */
+/* 툴팁 꼬리 (선택사항) 
 .tooltip::before {
 	content: "";
 	position: absolute;
@@ -163,3 +164,4 @@
 	border-style: solid;
 	border-color: transparent #37353e transparent transparent;
 }
+*/

@@ -124,17 +124,9 @@ html, body {
   	-webkit-background-clip: text;
   	-webkit-text-fill-color: transparent;
 }
-.div5 {
-  	position: absolute;
-  	top: 212.86px;
-  	left: 306.22px;
-  	border-radius: 9.9px;
-  	background-color: #44444e;
-  	width: 701.1px;
-  	height: 588.2px;
-  	font-size: 13.43px;
-  
-}
+
+
+
 
 
 .child {
@@ -710,30 +702,57 @@ html, body {
   	width: 26.8px;
 }
 
-.div5999 {
-  	position: absolute;
-  	top: 300.74px;
-  	left: 330px;
-  	height: 798.5px;
-  	overflow-y: auto;
-  	display: flex;
-  	flex-direction: column;
-  	align-items: flex-start;
-  	gap: 9.3px;
-  	font-size: 13.87px;
+
+.div5 {
+  position: absolute;
+  top: 212.86px;
+  left: 306.22px;
+  border-radius: 9.9px;
+  background-color: #44444e;
+  width: 701.1px;
+  height: 588.2px;           /* 고정 높이 유지 */
+  font-size: 13.43px;
+  padding-top: 90px;          /* ✅ 상단 여백 확보 (LOG 헤더 아래로 띄움) */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;          /* 바깥으로 넘치는 부분 숨김 */
 }
 
-/* 스크롤 커스텀*/
+/* 내부 리스트 스크롤 영역 */
+.div5999 {
+  flex: 1;
+  min-height: 0;             /* 스크롤 정상 작동용 */
+  overflow-y: auto;
+  overflow-x: hidden;         /* ✅ 가로 스크롤 제거 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9.3px;
+  font-size: 13.87px;
+  padding: 0 12px 30px 24px; /* 오른쪽/아래 여백 확보 */
+  scroll-behavior: smooth;
+}
+
+/* 스크롤 커스텀 */
 .div5999::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;                /* ✅ 스크롤바 얇게 */
 }
 .div5999::-webkit-scrollbar-thumb {
   background-color: #5f5f6e;
   border-radius: 10px;
+  min-height: 15px;          /* ✅ 스크롤 크기 줄이기 */
 }
 .div5999::-webkit-scrollbar-track {
   background-color: #2e2e36;
 }
+
+/* 파이어폭스 호환 */
+.div5999 {
+  scrollbar-width: thin;
+  scrollbar-color: #5f5f6e #2e2e36;
+}
+
+
 
 
 .div60 {

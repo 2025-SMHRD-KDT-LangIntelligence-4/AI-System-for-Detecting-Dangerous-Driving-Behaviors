@@ -336,83 +336,83 @@
  				<div class="wrapper3">
    					<div class="b">상태</div>
  				</div>
-   			</div>
    			
    			
   <!-- ============== 로그 리스트 ================ -->
-   			<div class="div5999">
-   			
-    			<!-- 반복문으로 20개의 동일한 로그 출력됨 -->
-    			<c:forEach var="i" begin="1" end="20">
-					<div class="div60">
-						<div class="frame-parent9">
-						
-							<!-- 순번 : 자동 증가 -->
-							<div class="pm-wrapper">
-								<div class="b">${i}</div>
-							</div>
+	   			<div class="div5999">
+	   			
+	    			<!-- 반복문으로 20개의 동일한 로그 출력됨 -->
+	    			<c:forEach var="i" begin="1" end="20">
+						<div class="div60">
+							<div class="frame-parent9">
 							
-							<!-- 발생 일시 : DB에서 createdAt값 가져오기! -->
-							<div class="pm-wrapper">
-								<div class="b">
-									<!-- 로그 발생 일자 -->
-									<p class="p">2025-10-29</p>
-									<!-- 로그 발생 시각 -->
-									<p class="p">15:01:33</p>
+								<!-- 순번 : 자동 증가 -->
+								<div class="pm-wrapper">
+									<div class="b">${i}</div>
 								</div>
-							</div>
-							
-							<!-- 차량 번호 : DB에서 carNumber값 가져오기! -->
-							<div class="wrapper15">
-								<div class="b">
-									<!-- 차량 번호 앞 5자리 -->
-									<p class="p">서울 72자</p>
-									<!-- 차량 번호 뒤 4자리 -->
-									<p class="p">4183</p>
+								
+								<!-- 발생 일시 : DB에서 createdAt값 가져오기! -->
+								<div class="pm-wrapper">
+									<div class="b">
+										<!-- 로그 발생 일자 -->
+										<p class="p">2025-10-29</p>
+										<!-- 로그 발생 시각 -->
+										<p class="p">15:01:33</p>
+									</div>
 								</div>
-							</div>
-							
-							<!-- 운전자 이름 : DB에서 driverName값 가져오기! -->
-							<div class="pm-wrapper">
-								<div class="b">김도훈</div>
-							</div>
-							
-							<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
-							<div class="pm-wrapper">
-								<div class="b">휴대폰 조작</div>
-							</div>
-													
-							<!-- 위험 등급 표시 아이콘 -->
-							<!-- eventLevel에 따라 색상 변경되어야 함 -->							
-							<div class="log-contents-child"></div>
-							
-							
-							<!-- 조치 상태 -->
-							<!-- 조치완료 / 조치 중 / 미조치 -->
-							<!-- 아래 코드는 '조치 중'에 해당 -->
-							<div class="pm-wrapper">
-								<div class="b">
-																	
-									<!-- 조치 방법 -->
-									<p class="p">경고 발송</p>
-									
-									<p class="p">
+								
+								<!-- 차량 번호 : DB에서 carNumber값 가져오기! -->
+								<div class="wrapper15">
+									<div class="b">
+										<!-- 차량 번호 앞 5자리 -->
+										<p class="p">서울 72자</p>
+										<!-- 차량 번호 뒤 4자리 -->
+										<p class="p">4183</p>
+									</div>
+								</div>
+								
+								<!-- 운전자 이름 : DB에서 driverName값 가져오기! -->
+								<div class="pm-wrapper">
+									<div class="b">김도훈</div>
+								</div>
+								
+								<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
+								<div class="pm-wrapper">
+									<div class="b">휴대폰 조작</div>
+								</div>
+														
+								<!-- 위험 등급 표시 아이콘 -->
+								<!-- eventLevel에 따라 색상 변경되어야 함 -->							
+								<div class="log-contents-child"></div>
+								
+								
+								<!-- 조치 상태 -->
+								<!-- 조치완료 / 조치 중 / 미조치 -->
+								<!-- 아래 코드는 '조치 중'에 해당 -->
+								<div class="pm-wrapper">
+									<div class="b">
+																		
+										<!-- 조치 방법 -->
+										<p class="p">경고 발송</p>
 										
-										<!-- 조치 횟수 -->
-										<span>1회(</span>
-										
-										<!-- 조치 유무 -->
-										<span class="span">조치중</span>
-										<span class="span4">)</span>
-									</p>
+										<p class="p">
+											
+											<!-- 조치 횟수 -->
+											<span>1회(</span>
+											
+											<!-- 조치 유무 -->
+											<span class="span">조치중</span>
+											<span class="span4">)</span>
+										</p>
+									</div>
 								</div>
+								
 							</div>
-							
 						</div>
-					</div>
-				</c:forEach>
-      			
-    		</div>
+					</c:forEach>
+	      			
+	    		</div>
+   			</div>
     		
     		
 <!--====================================  개별 상세 로그  ==================================== -->   		   			
