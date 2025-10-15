@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.smhrd.web.entity.Driver;
 import com.smhrd.web.mapper.MainMapper;
 import com.smhrd.web.service.LogService;
+import com.smhrd.web.service.MapService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,6 +19,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 
 public class MainController{
+	
+	private final LogService logService;
+	private final MapService mapService;
 	
 	// private final MainService service; 아직 메인서비스가 없음
 	
@@ -50,14 +55,20 @@ public class MainController{
 		return "RegisterDriver";
 	}
 	
-	private final LogService logService;
+
     
     @GetMapping("/MainAdmin")
     public String MainAdmin(Model model) {
-        // tb_log의 log_idx 총 개수 조회
+    	
+        // 솔민 : tb_log의 log_idx 총 개수 조회
         int totalCount = logService.getTotalLogCount();
         model.addAttribute("totalCount", totalCount); // JSP에 전달
-        return "MainAdmin"; // JSP 파일명과 일치하도록 수정
+        
+    	// 우빈 : 운전자 현재 위치 마커불러오기
+        List<Driver> drivers = mapService.getAllWithCoords();
+        model.addAttribute("drivers", drivers);
+        
+        return "MainAdmin";
     }
 	
 	// 운전자 메인 화면

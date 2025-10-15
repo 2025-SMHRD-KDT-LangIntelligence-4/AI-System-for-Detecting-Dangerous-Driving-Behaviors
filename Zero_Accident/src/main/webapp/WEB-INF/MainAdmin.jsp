@@ -17,6 +17,8 @@
    	<link rel="stylesheet"  href="/css/MainAdmin.css" />
    	<!-- Sidebar.css 파일의 스타일을 적용하겠다. -->
 	<link rel="stylesheet"  href="/css/Sidebar.css" />
+	<!-- 우빈 : 카카오 지도 SDK -->
+	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b1fc2610a3c9415f64affd1fc92ced5b&autoload=false"></script>
 
 </head>
 <body>
@@ -356,171 +358,26 @@
 <!-- ============================= 실시간 차량 위치 모니터링(지도) ==============================  -->
 
    	
-    	<div class="div81">
+    	<div class="div81"> <!-- (구)지도가 있던 공간 div -->
     	
-	    	<!-- 타이틀 -->
-	    	<b class="b7">실시간 차량 위치 모니터링</b>
-    	
-   				<div class="div82">
-   					
-   					<!-- 지도 이미지  -->
-   					<img class="pngegg-1-icon" src="/image/map.png">
-   						   						 					    					     					     					     					     					   					    				    					     					
-     					<div class="div89">
-       						<div class="div84">
-       						</div>
-     					</div>
-     					     					    					
-   						<!-- 노랑색 MapPin(강원 춘천) -->
-   						<!-- 위험 행위 발생 시 해당 위치에 나타나야함! -->
-     					<img class="icon11" src="/image/mapPin.svg">
-     					
-     					<!-- 팝업창(강원 춘천) -->
-     					<!-- 위험 행위 발생 시 해당 위치에 나타나야함! -->
-     					<div class="div94">
-     						<!-- 팝업창 하단 마름모 -->
-       						<img class="beak-icon" src="/image/Beak.svg">
-       						<!-- 팝업창 하단 마름모 외곽선 -->
-       						<img class="beak-icon" src="/image/Stroke.svg">
-       						
-       						<div class="parent5">
-         							<b class="b3">
-         							
-         								<!-- 로그 발생 시각 : DB에서 createdAt값 가져오기-->
-           								<p class="p">[11:47:32]</p>
-           								<!-- 로그 발생 위치 : DB에서 가져오기 -->
-           								<!-- 주소 컬럼 없음!(위도, 경도 컬럼만 있음) -->
-           								<p class="p">강원 춘천시 사북면 고성리 386-2</p>
-           								<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
-										<!-- eventLevel에 따라 색상 변경되어야 함 -->
-           								<p class="p9">운전대 미제어</p>
-           								
-         							</b>
-         							
-         							<!-- 위험 등급 표시 아이콘 -->
-									<!-- eventLevel에 따라 색상 변경되어야 함 -->
-         							<div class="frame-child8">
-         							</div>
-       						</div>
-     					</div>
-     					     					
-     					<!-- 노랑색 MapPin(충북 제천) -->
-     					<!-- 위험 행위 발생 시 해당 위치에 나타나야함! -->				
-     					<div class="div83">
-       						<div class="div84">       						       						       							
-       							<img class="icon9" src="/image/mapPin.svg">        							      							
-       						</div>
-     					</div>
-     					
-     					<!-- 팝업창(충북 제천) -->
-     					<!-- 위험 행위 발생 시 해당 위치에 나타나야함! -->
-     					<div class="div93">
-       						<!-- 팝업창 하단 마름모 -->
-       						<img class="beak-icon" src="/image/Beak.svg">
-       						<!-- 팝업창 하단 마름모 외곽선 -->
-       						<img class="beak-icon" src="/image/Stroke.svg">
-       						
-       						<div class="parent5">
-       							<b class="b3">
-       								
-       								<!-- 로그 발생 시각 : DB에서 createdAt값 가져오기-->
-       								<p class="p">[14:10:27]</p>
-       								<!-- 로그 발생 위치 : DB에서 가져오기 -->
-           							<!-- 주소 컬럼 없음!(위도, 경도 컬럼만 있음) -->
-       								<p class="p">충북 제천시 봉양읍 명도리 215-4</p>
-       								<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
-									<!-- eventLevel에 따라 색상 변경되어야 함 -->
-       								<p class="p9">졸음 운전</p>
-       								
-       							</b>
-       							
-       							<!-- 위험 등급 표시 아이콘 -->
-								<!-- eventLevel에 따라 색상 변경되어야 함 -->
-       							<div class="frame-child8">
-       							</div>      							
-       						</div>
-     					</div>
-     					
-     					<!-- 빨강색 MapPin(전북 전주) -->
-     					<!-- 위험 행위 발생 시 해당 위치에 나타나야함! -->
-     					<div class="div87">
-       						<div class="div84">       							       							
-       							<img class="icon9" src="/image/mapPinR.svg">        							
-       						</div>
-     					</div>
-     					
-     					<!-- 팝업창(전북 전주) -->
-     					<!-- 위험 행위 발생 시 해당 위치에 나타나야함! -->
-     					<div class="div92">
-       						<!-- 팝업창 하단 마름모 -->
-       						<img class="beak-icon" src="/image/Beak.svg">
-       						<!-- 팝업창 하단 마름모 외곽선 -->
-       						<img class="beak-icon" src="/image/Stroke.svg">
-       												
-       						<div class="parent4">	       						
-       							<b class="b4">
-       							
-       								<!-- 로그 발생 시각 : DB에서 createdAt값 가져오기-->
-       								<p class="p">[12:48:39]</p>
-       								<!-- 로그 발생 위치 : DB에서 가져오기 -->
-       							    <!-- 주소 컬럼 없음!(위도, 경도 컬럼만 있음) -->
-       								<p class="p">전북 전주시 완산구 효자동 2가 742-8</p>
-       								<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
-									<!-- eventLevel에 따라 색상 변경되어야 함 -->
-       								<p class="p12">운전자 폭행</p>
-         								
-       							</b>
-       							
-       							<!-- 위험 등급 표시 아이콘 -->
-								<!-- eventLevel에 따라 색상 변경되어야 함 -->
-       							<div class="frame-child9">
-       							</div>       							
-       						</div>
-     					</div>
-     					
-     					<!-- 노랑색 MapPin(전남 순천) -->
-     					<!-- 위험 행위 발생 시 해당 위치에 나타나야함! -->
-     					<div class="div85">
-       						<div class="div84">       						       							
-       							<img class="icon9" src="/image/mapPin.svg">       							        							
-       						</div>
-     					</div>  
-     					
-     					<!-- 팝업창(전남 순천) -->
-     					<!-- 위험 행위 발생 시 해당 위치에 나타나야함! -->
-     					<div class="div91">
-       						<!-- 팝업창 하단 마름모 -->
-       						<img class="beak-icon" src="/image/Beak.svg">
-       						<!-- 팝업창 하단 마름모 외곽선 -->
-       						<img class="beak-icon" src="/image/Stroke.svg">
-       						
-       						
-       						<div class="parent3">
-       							<b class="b3">
-       							
-       								<!-- 로그 발생 시각 : DB에서 createdAt값 가져오기-->
-       								<p class="p">[13:24:15]</p>
-       								<!-- 로그 발생 위치 : DB에서 가져오기 -->
-       							    <!-- 주소 컬럼 없음!(위도, 경도 컬럼만 있음) -->
-       								<p class="p">전남 순천시 서면 선평리 1023</p>
-       								<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
-									<!-- eventLevel에 따라 색상 변경되어야 함 -->
-       								<p class="p9">휴대폰 조작</p>
-       								
-       							</b>
-       							
-       							<!-- 위험 등급 표시 아이콘 -->
-								<!-- eventLevel에 따라 색상 변경되어야 함 -->
-       							<div class="frame-child8">
-       							</div>
-       						</div>
-     					</div>     		
-     					
-   				</div>        				
-      		</div>
-    	
+    		<b class="b7" >실시간 차량 위치 모니터링</b>
     		
-   			<div class="parent">
+    		<!-- 우빈 : (신)카카오 지도 들어갈 공간 div
+    		따로 css 빼지말고 독립적이게 인라인으로 넣는게 좋은 거 같음 -->
+    		
+   		  	<div id="mapContainer"
+		       style="
+		         top:35px;				/* 지도시작하는 부분 얼마나 내릴지 */
+		         min-height: 95.5%;		/* 세로 */
+		         width: 100%;			/* 가로 */
+		         border-radius: 10px;	/* 꼭지점 둥글게 */
+		         overflow: hidden;		/* 뭔지모름 gpt가 해줌 */
+		         background: #2f2f36;	/* 로딩 중 배경 확인용. 뭔지모름 gpt가 해줌 */
+		    "></div>
+    			
+      	</div>
+      	
+   	<div class="parent">
    			
    			
 <!-- ======================================= 검색창 =======================================  -->   			
@@ -890,6 +747,53 @@
 	
 	    // 1분마다 업데이트 (자정 넘어가면 날짜가 바뀌도록)
 	    setInterval(updateDateTime, 60000);
+	</script>
+	
+	<!-- 카카오지도 JS -->
+	<script>
+	  kakao.maps.load(function() {
+	    // 지도 표시할 div
+	    const container = document.getElementById('mapContainer');
+	
+	    // 지도 중심 (기본 서울시청)
+	    const center = new kakao.maps.LatLng(37.5665, 126.9780);
+	    const map = new kakao.maps.Map(container, { center: center, level: 7 });
+	
+	    // 서버에서 받아온 운전자 데이터 (컨트롤러에서 model.addAttribute("drivers", drivers))
+	    const drivers = [
+	      <c:forEach var="d" items="${drivers}" varStatus="s">
+	        {
+	          name: "${d.driverName}",
+	          contact: "${d.driverContact}",
+	          lat: Number("${d.driverLat}"),
+	          lng: Number("${d.driverLon}")
+	        }<c:if test="${!s.last}">,</c:if>
+	      </c:forEach>
+	    ];
+	
+	    const bounds = new kakao.maps.LatLngBounds();
+	    const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+	
+	    drivers.forEach(d => {
+	      if (isNaN(d.lat) || isNaN(d.lng)) return;
+	      const pos = new kakao.maps.LatLng(d.lat, d.lng);
+	      bounds.extend(pos);
+	
+	      const marker = new kakao.maps.Marker({ position: pos, map });
+	
+	      const content = `
+	        <div style="padding:8px; min-width:180px">
+	          <b>${d.name || '운전자'}</b><br>
+	          ${d.contact || '-'}
+	        </div>`;
+	      kakao.maps.event.addListener(marker, 'click', function() {
+	        infowindow.setContent(content);
+	        infowindow.open(map, marker);
+	      });
+	    });
+	
+	    if (drivers.length > 0) map.setBounds(bounds);
+	  });
 	</script>
 </body>
 </html>

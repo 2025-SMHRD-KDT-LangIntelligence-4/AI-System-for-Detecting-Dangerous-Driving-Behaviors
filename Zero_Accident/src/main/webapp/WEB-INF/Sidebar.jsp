@@ -96,8 +96,8 @@
 			</div>
 			
 			<!-- 로그아웃 버튼 -->
-			<!-- 로그아웃 시 StartPage.jsp or LoginAdmin.jsp로 이동 -->
-			<form action="#" method="post">
+			<!-- 우빈 : 로그아웃 시 StartPage.jsp로 이동 -->
+			<form action="logout" method="post">
   				<button type="submit" class="logOut">
     				<img class="icon22" src="/image/Log-out.svg">
     			</button>

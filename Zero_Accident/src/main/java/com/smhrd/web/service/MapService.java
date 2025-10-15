@@ -4,13 +4,13 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import com.smhrd.web.entity.Driver;
-import com.smhrd.web.mapper.DriverMapper;
+import com.smhrd.web.mapper.MapMapper;
 
 @Service
 @RequiredArgsConstructor
-public class DriverService {
+public class MapService {
 
-    private final DriverMapper mapper;
+    private final MapMapper mapper;
 
     public List<Driver> getAllWithCoords() {
         return mapper.findAllWithCoords();

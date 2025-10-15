@@ -7,27 +7,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import lombok.RequiredArgsConstructor;
 import com.smhrd.web.entity.Driver;
-import com.smhrd.web.service.DriverService;
+import com.smhrd.web.service.MapService;
 
 @Controller
 @RequiredArgsConstructor
 public class MapController {
 
-    private final DriverService driverService;
+    private final MapService service;
 
-    // 여러 운전자 마커
-    @GetMapping("/map/drivers")
-    public String mapDrivers(Model model) {
-        List<Driver> drivers = driverService.getAllWithCoords();
+    // 우빈 : 메인페이지로 이동
+    @GetMapping("/MainAdmin우빈")
+    public String MainAdmin우빈(Model model) {
+    	// 운전자 현재 위치 마커불러오기
+        List<Driver> drivers = service.getAllWithCoords();
         model.addAttribute("drivers", drivers);
-        return "MapDrivers"; // /WEB-INF/MapDrivers.jsp
+        return "MainAdmin우빈";
     }
 
-    // 단일 운전자 마커 (선택)
+    // 우빈 : 단일 운전자 마커 (아직 안 쓰는 메서드)
     @GetMapping("/map/driver")
     public String mapDriver(@RequestParam int driverIdx, Model model) {
-        Driver d = driverService.getOne(driverIdx);
-        model.addAttribute("driver", d);
+        Driver driver = service.getOne(driverIdx);
+        model.addAttribute("driver", driver);
         return "MapDriver"; // /WEB-INF/MapDriver.jsp
     }
 }

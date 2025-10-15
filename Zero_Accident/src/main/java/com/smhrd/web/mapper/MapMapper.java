@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import com.smhrd.web.entity.Driver;
 
 @Mapper
-public interface DriverMapper {
+public interface MapMapper {
 
     // 좌표가 있는 운전자 목록
     List<Driver> findAllWithCoords();

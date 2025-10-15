@@ -77,6 +77,13 @@ public class LoginController{
 		rttr.addFlashAttribute("msg", "로그인 성공!");
 		return "redirect:/MainDriver";
 	}
-
+	
+	// 로그아웃
+	@PostMapping("/logout")
+	public String logout(HttpSession session, RedirectAttributes ra) {
+        session.invalidate(); // 세션 무효화
+        ra.addFlashAttribute("alertMsg", "로그아웃 되었습니다."); // 1회성 메시지
+		return("redirect:/");
+	}
 
 }
