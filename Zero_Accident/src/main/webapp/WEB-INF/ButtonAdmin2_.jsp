@@ -215,7 +215,7 @@
    							
    							<!-- 전체 운전자 수 : DB에서 조회할 값! -->
    							<span class="span">${driverCount}</span>
-   							<span class="buttonadmin2jsp-span">명   </span>
+   							<span class="buttonadmin2jsp-span">명</span>
  						</div>
    					</div>
    					
@@ -248,7 +248,7 @@
  							<!-- 운전자 증명사진 -->							
    							<div class="avatar-icon">
    								<!-- image 삽입 공간 : DB에서 이미지 url 가져오기! -->
-   								<img class="avatar-img" src="/image/driver1.png">  								
+   								<img class="avatar-img" src="${driverList.driverImg}">  								
    							</div> 
    							 							 							
    							<div class="s021">

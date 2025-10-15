@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
     private String driverContact;
     private LocalDate driverBirthdate;
     private String driverRegion;
+    private String driverImg;
     private LocalDateTime createdAt;
     
     // Admin 관련
