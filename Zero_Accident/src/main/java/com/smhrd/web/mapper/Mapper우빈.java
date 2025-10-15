@@ -11,7 +11,7 @@ import com.smhrd.web.entity.Join1;
 @Mapper
 public interface Mapper우빈 {
 	
-		List<Join1> SelectAllDrivers();
-		
-		int SelectDriverCount();
+//		List<Join1> SelectAllDrivers();
+//		
+//		int SelectDriverCount();
 }

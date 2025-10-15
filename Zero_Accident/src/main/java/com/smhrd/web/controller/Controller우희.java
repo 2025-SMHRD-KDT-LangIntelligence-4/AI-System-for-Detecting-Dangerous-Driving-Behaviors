@@ -15,24 +15,4 @@ import com.smhrd.web.service.LogService;
 public class Controller우희{
 	@Autowired
 	MainMapper mapper;
-	
-	// 관리자 - 운전자 등록 페이지
-			@GetMapping("/ButtonAdmin2_1")
-			public String ButtonAdmin2_1() {
-				return "ButtonAdmin2_1";
-			}
-		
-		// 관리자 - 메시지 보내기 페이지
-			@GetMapping("/ButtonAdmin2_2")
-			public String ButtonAdmin2_2() {
-				return "ButtonAdmin2_2";
-			}
-
-		// 관리자 - 통계 페이지
-			@GetMapping("/ButtonAdmin2_3")
-			public String ButtonAdmin2_3() {
-				return "ButtonAdmin2_3";
-			}
-			
-		
 }

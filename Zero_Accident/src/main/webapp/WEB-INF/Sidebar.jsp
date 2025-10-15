@@ -58,8 +58,8 @@
   				<span class="tooltip">메인 대시보드</span>
   				</div>
   				
-  				<!-- 클릭 시 ButtonAdmin2.jsp로 이동(운전자 관리 페이지) -->
-  				<button type="button" class="driverInfo" onclick="location.href='/ButtonAdmin2'">
+  				<!-- 클릭 시 ButtonAdmin2_0.jsp로 이동(운전자 관리 페이지) -->
+  				<button type="button" class="driverInfo" onclick="location.href='/ButtonAdmin2_0'">
   					<img class="icon33" src="/image/DriverButton.svg">
   				</button>
   				

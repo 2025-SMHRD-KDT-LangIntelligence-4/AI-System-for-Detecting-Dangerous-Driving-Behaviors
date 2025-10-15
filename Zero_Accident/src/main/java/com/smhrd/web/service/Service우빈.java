@@ -15,13 +15,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Service우빈 {
 	
-    private final Mapper우빈 mapper;
-    
-    public List<Join1> SelectAllDrivers() {
-    	return mapper.SelectAllDrivers();
-    }
-    
-    public int SelectDriverCount() {
-    	return mapper.SelectDriverCount();
-    }
+//    private final Mapper우빈 mapper;
+//    
+//    public List<Join1> SelectAllDrivers() {
+//    	return mapper.SelectAllDrivers();
+//    }
+//    
+//    public int SelectDriverCount() {
+//    	return mapper.SelectDriverCount();
+//    }
 }

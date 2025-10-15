@@ -4,7 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.smhrd.web.mapper.Mapper우빈">
-
+<!-- 
 <select id="SelectAllDrivers" resultType="com.smhrd.web.entity.Join1">
 	SELECT d.driver_contact, d.driver_birthdate, d.driver_region, d.created_at, d.driver_name, d.driver_idx, d.driver_img, a.admin_name, c.car_number, COUNT(l.car_number) AS count_log
 	FROM tb_driver d
@@ -17,5 +17,5 @@
 <select id="SelectDriverCount" resultType="int">	
 	SELECT COUNT(*) FROM tb_driver;
 </select>
-
+ -->
 </mapper>
