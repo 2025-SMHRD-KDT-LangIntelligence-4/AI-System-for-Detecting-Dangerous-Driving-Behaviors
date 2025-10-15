@@ -8,13 +8,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.smhrd.web.entity.ExampleEntity;
+import com.smhrd.web.service.복사용Service;
 import com.smhrd.web.service.설명용Service;
 
+import lombok.RequiredArgsConstructor;
+
 @Controller // 이 클래스를 컨트롤러라고 선언
+@RequiredArgsConstructor // 롬복 라이브러리가 밑의 final 설명용 Service와 자동으로 연결해주는 어노테이션
 public class 설명용Controller {
 	
-	@Autowired  // 스프링이 알아서 연결해주는 어노테이션
-	private 설명용Service service;
+	private final 설명용Service service;
 	// 뭘 연결해? ExampleService라는 서비스와 연결하겠다. 그리고 service 라는 이름으로 가져다 쓰겠다.
 	
 	@GetMapping("/ExampleView2")

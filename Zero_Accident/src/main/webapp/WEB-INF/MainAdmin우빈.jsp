@@ -441,12 +441,23 @@
 <!-- ============================= 실시간 차량 위치 모니터링(지도) ==============================  -->
 
    	
-    	<div class="div81" id="mapContainer">
+    	<div class="div81"> <!-- (구)지도가 있던 공간 div -->
+		    	<b class="b7" >실시간 차량 위치 모니터링</b>
     	
-	    	<!-- 타이틀 -->
-	    	<b class="b7">실시간 차량 위치 모니터링</b>
-				
+    		<!-- (신)카카오 지도 들어갈 공간 div : 우빈 div id="mapContrainer 만듦-->
+    		  <div id="mapContainer"
+		       style="
+		         top:35px;				/* 지도시작하는 부분 얼마나 내릴지 */
+		         min-height: 95%;		/* 세로 */
+		         width: 100%;			/* 가로 */
+		         border-radius: 10px;	/* 꼭지점 둥글게 */
+		         overflow: hidden;		/* 뭔지모름 gpt가 해줌 */
+		         background: #2f2f36;	/* 로딩 중 배경 확인용. 뭔지모름 gpt가 해줌 */
+		       "></div>
+    	
       	</div>
+				
+	    	<!-- 타이틀 -->
     	
     		
    			<div class="parent">

@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.smhrd.web.mapper.MainMapper;
 import com.smhrd.web.service.LogService;
-import com.smhrd.web.service.Service유선;
+
+import lombok.RequiredArgsConstructor;
 
 @Controller
+@RequiredArgsConstructor
+
 public class MainController{
-	@Autowired
-	MainMapper mapper;
+	
+	// private final MainService service; 아직 메인서비스가 없음
 	
 	// 가장 첫 화면 : 관리자 or 운전자 선택
 	@GetMapping("/") 
@@ -48,25 +51,14 @@ public class MainController{
 	}
 	
 	private final LogService logService;
-    private final Service유선 registerservice유선;
-    @Autowired
-    public  MainController(LogService logService, Service유선 registerservice유선) {
-        this.logService = logService;
-        this.registerservice유선 = registerservice유선;
-    }
     
     @GetMapping("/MainAdmin")
     public String MainAdmin(Model model) {
         // tb_log의 log_idx 총 개수 조회
         int totalCount = logService.getTotalLogCount();
         model.addAttribute("totalCount", totalCount); // JSP에 전달
-        long count = registerservice유선.getruncarCount();
-        model.addAttribute("count", count);
         return "MainAdmin"; // JSP 파일명과 일치하도록 수정
     }
-    
-
-
 	
 	// 운전자 메인 화면
 		@GetMapping("/MainDriver")
@@ -96,7 +88,5 @@ public class MainController{
 		@GetMapping("/ButtonAdmin5")
 		public String ButtonAdmin5() {
 			return "ButtonAdmin5";
-			}
-		
-		
+			}	
 }
