@@ -12,6 +12,7 @@ import com.smhrd.web.entity.Driver;
 import com.smhrd.web.mapper.MainMapper;
 import com.smhrd.web.service.LogService;
 import com.smhrd.web.service.MapService;
+import com.smhrd.web.service.Service유선;
 
 import lombok.RequiredArgsConstructor;
 
@@ -22,6 +23,7 @@ public class MainController{
 	
 	private final LogService logService;
 	private final MapService mapService;
+	private final Service유선 registerservice유선;
 	
 	// private final MainService service; 아직 메인서비스가 없음
 	
@@ -64,10 +66,14 @@ public class MainController{
         int totalCount = logService.getTotalLogCount();
         model.addAttribute("totalCount", totalCount); // JSP에 전달
         
-    	// 우빈 : 운전자 현재 위치 마커불러오기
+      	// 우빈 : 운전자 현재 위치 마커불러오기
         List<Driver> drivers = mapService.getAllWithCoords();
         model.addAttribute("drivers", drivers);
         
+        // 유선 : 현재 운행 차량 조회
+        long count = registerservice유선.getruncarCount();
+        model.addAttribute("count", count);
+    	
         return "MainAdmin";
     }
 	

@@ -13,8 +13,5 @@ import com.smhrd.web.service.Service유선;
 
 @Controller
 public class Controller유선{
-	@Autowired
-	MainMapper mapper;
 
-		
 }
