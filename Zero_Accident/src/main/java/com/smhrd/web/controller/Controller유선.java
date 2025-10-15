@@ -16,16 +16,5 @@ public class Controller유선{
 	@Autowired
 	MainMapper mapper;
 
-		private final Service유선 registerservice유선;
 		
-		public Controller유선(Service유선 registerservice유선) {
-			this.registerservice유선 = registerservice유선;
-		}
-		
-		@GetMapping("/MainAdmin유선")
-	    public String showCount(Model model) {
-	        long count = registerservice유선.getruncarCount();
-	        model.addAttribute("count", count);
-	        return "MainAdmin유선"; 
-		}
 }

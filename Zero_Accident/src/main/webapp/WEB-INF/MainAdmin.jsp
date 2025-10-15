@@ -125,7 +125,7 @@
 			<img class="icon13" src="/image/accountCircle.svg">
 			
 			<!-- 관리자 이름 : DB에서 adminName값 가져오기! -->
-			<b class="search-here">강우희 관리자</b>
+			<b class="search-here">${sessionScope.loginAdmin.adminName} 관리자</b>
      	</button>
      	
      	<!-- Zer0-Accident 텍스트 로고 -->
@@ -773,7 +773,7 @@
  					
  						<!-- 현재 운행 차량 대수 : DB에서 가져오기! -->
  						<!-- 차량 운행 유무 컬럼 없음 -->
-   						<span class="span">121</span>
+   						<span class="span">${count}</span>
    						<span class="span4">대 운행중</span>
  					</div>
      			</div>
