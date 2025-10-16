@@ -160,7 +160,9 @@ html, body {
   	letter-spacing: 0.44px;
   	line-height: 13.13px;
   	text-transform: uppercase;
-  	font-weight: 800;
+  	font-weight: 700;
+  	white-space: nowrap;      /* ✅ 줄바꿈 방지 */
+  	 line-height: normal;      /* 줄 간격 기본값으로 복귀 */
 }
 .div8 {
   	width: 93px;
@@ -216,10 +218,11 @@ html, body {
   	flex-direction: column;
   	align-items: flex-start;
   	gap: 20.5px;
+  	top:10px;
 }
 .frame-container {
-  	display: flex;
-  	align-items: flex-start;
+  	display: inline-flex;
+  	align-items: center;
   	gap: 9.3px;
 }
 .bar-chart-2-wrapper {
@@ -230,19 +233,18 @@ html, body {
   	height: 18.7px;
   	width: 18.7px;
   	position: relative;
-  	overflow: hidden;
   	flex-shrink: 0;
+  	align-items: center;
 }
 .buttonadmin4jsp-icon {
   	position: absolute;
-  	height: 66.31%;
-  	width: 49.73%;
-  	top: 16.64%;
+  	height: 100%;
+  	width: 100%;
+  	top: -5%;
   	right: 25.3%;
-  	bottom: 17.05%;
+  	bottom: 25%;
   	left: 24.96%;
   	max-width: 100%;
-  	overflow: hidden;
   	max-height: 100%;
 }
 .container {
@@ -255,6 +257,8 @@ html, body {
   	position: relative;
   	line-height: 14.06px;
   	text-transform: uppercase;
+  	white-space: nowrap;
+  	
 }
 .frame-div {
   	align-self: stretch;
@@ -280,8 +284,15 @@ html, body {
   	justify-content: flex-end;
 }
 .span {
-  	font-weight: 800;
+  	font-weight:800;
 }
+
+.danger-num {
+	font-weight:800;
+	letter-spacing:0.5px;
+}
+
+
 .b7 {
   	font-size: 12.9px;
   	color: #eaefef;
@@ -294,22 +305,26 @@ html, body {
 .wrapper7 {
   	position: absolute;
   	top: 327.69px;
-  	left: 135.2px;
+  	left: 131px;
   	display: flex;
   	align-items: center;
   	justify-content: flex-end;
   	text-align: right;
   	font-size: 24.5px;
   	color: #cc8889;
+  	
 }
 .div15 {
   	position: relative;
   	line-height: 18.46px;
   	text-transform: uppercase;
+  	
 }
 .span5 {
   	font-size: 17px;
+  	font-weight:700;
   	color: #eaefef;
+  	
 }
 .div16 {
   	position: absolute;
@@ -710,7 +725,7 @@ button.alert-btn {
   	letter-spacing: 0.44px;
   	line-height: 13.18px;
   	text-transform: uppercase;
-  	font-weight: 800;
+  	font-weight: 700;
   	color: #fff;
 }
 

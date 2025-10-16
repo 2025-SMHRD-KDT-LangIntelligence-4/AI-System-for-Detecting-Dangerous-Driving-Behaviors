@@ -207,13 +207,12 @@
    				
 				<div class="wrapper7">
   					<div class="div15">
+						<span class="span5">총</span>
 						<span class="span">
-  							<span class="span5">총</span>
   							
   							<!-- DB에서 가져오기!  -->
-  							<span>59</span>
+  							<span class="danger-num">59</span><span class="span5">건</span>
 						</span>
-						<b class="span5">건</b>
   					</div>
 				</div>
 				
@@ -226,7 +225,7 @@
     				<div class="div106">
       					<div class="frame-parent13">
         						<div class="frame-parent14">
-          							<img class="frame-icon" alt="">
+          							<img class="frame-icon" src="/image/calender.svg">
           							
           							<div class="group">
             								<div class="div107" id="dateDiv">
