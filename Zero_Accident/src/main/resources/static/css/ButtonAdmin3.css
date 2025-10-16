@@ -710,47 +710,52 @@ html, body {
   border-radius: 9.9px;
   background-color: #44444e;
   width: 701.1px;
-  height: 588.2px;           /* 고정 높이 유지 */
+  height: 588.2px;
   font-size: 13.43px;
-  padding-top: 90px;          /* ✅ 상단 여백 확보 (LOG 헤더 아래로 띄움) */
+
   display: flex;
-  flex-direction: column;
-  overflow: hidden;          /* 바깥으로 넘치는 부분 숨김 */
+  flex-direction: column;  /* 상단 헤더 + 리스트 세로 배치 */
+  overflow: hidden;        /* 내부 스크롤만 표시 */
+  font-family: 'NanumSquare Neo OTF', sans-serif;  /* ✅ 폰트 강제 적용 */
 }
 
-/* 내부 리스트 스크롤 영역 */
+/* 헤더 영역 (LOG 제목) */
+.log-header {
+  flex: 0 0 auto;          /* 높이 고정 */
+  padding: 15px 20px 5px 20px;
+  color: #fff;
+}
+
+/* 로그 리스트 영역 */
 .div5999 {
-  flex: 1;
-  min-height: 0;             /* 스크롤 정상 작동용 */
-  overflow-y: auto;
-  overflow-x: hidden;         /* ✅ 가로 스크롤 제거 */
+  flex: 1 1 auto;          /* ✅ 나머지 공간을 모두 차지 */
+  overflow-y: auto;        /* ✅ 세로 스크롤 활성화 */
+  overflow-x: hidden;      /* ✅ 가로 스크롤 제거 */
+  padding: 85px 12px 30px 20px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 9.3px;
-  font-size: 13.87px;
-  padding: 0 12px 30px 24px; /* 오른쪽/아래 여백 확보 */
   scroll-behavior: smooth;
+  font-family: 'NanumSquare Neo OTF', sans-serif;  /* ✅ 폰트 강제 적용 */
+  font-weight:400;
 }
 
-/* 스크롤 커스텀 */
+/* 스크롤 커스텀*/
 .div5999::-webkit-scrollbar {
-  width: 6px;                /* ✅ 스크롤바 얇게 */
+  width: 8px;
 }
 .div5999::-webkit-scrollbar-thumb {
   background-color: #5f5f6e;
   border-radius: 10px;
-  min-height: 15px;          /* ✅ 스크롤 크기 줄이기 */
 }
 .div5999::-webkit-scrollbar-track {
   background-color: #2e2e36;
 }
 
-/* 파이어폭스 호환 */
-.div5999 {
-  scrollbar-width: thin;
-  scrollbar-color: #5f5f6e #2e2e36;
-}
+
+
+
 
 
 
