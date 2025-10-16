@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>\
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
@@ -15,106 +15,21 @@
 
     <!-- MainAdmin.css 파일의 스타일을 적용하겠다. -->
    	<link rel="stylesheet"  href="/css/MainAdmin.css" />
-   	
-	<!-- 카카오 지도 SDK -->
+   	<!-- Sidebar.css 파일의 스타일을 적용하겠다. -->
+	<link rel="stylesheet"  href="/css/Sidebar.css" />
+	<!-- 우빈 : 카카오 지도 SDK -->
 	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b1fc2610a3c9415f64affd1fc92ced5b&autoload=false"></script>
-	
-	
+
 </head>
 <body>
 
 	<!-- 전체 컨테이너 -->
 	<div class="mainadminjsp">
 		
-		
-<!--===============================   사이드바   ======================================== -->
-		
-		
-		<div class="div97">
-		
-			<!-- ZOA 로고 -->	
-   			<div class="div98">
-   				<div class="avatar">
-   				</div>
-     				<div class="small">
-       					<div class="small-child">
-       					</div>
-       					<div class="z0a">
-       						<span>Z</span>
-       						<span class="span6">0</span>
-       						<span class="a">A</span>
-       					</div>
-       					<img class="small-item" src="/image/Rectangle 212.svg">
-       					
-       					<img class="small-inner" src="/image/Rectangle 212.svg">       					
-     				</div>
-   			</div>
-   			
-   			<!-- 구분선 -->
-   			<div class="div99">
-   			</div>
-   			   			
-   			<div class="div100">
-   				<div class="main">Main</div>
-   				
-   				<!-- 클릭 시 MainAdmin.jsp로 이동 -->
-   				<button type="button" class="mainButton" onclick="location.href='/MainAdmin'">
-   					<img class="icon14" src="/image/MainButton.svg">
-   				</button>
-   				
-   				<!-- 클릭 시 ButtonAdmin2.jsp로 이동(운전자 관리 페이지) -->
-   				<button type="button" class="driverInfo" onclick="location.href='/ButtonAdmin2'">
-   					<img class="icon" src="/image/DriverButton.svg">
-   				</button>
-   				
-   				<!-- 클릭 시 ButtonAdmin3.jsp로 이동(전체 로그 조회 페이지) -->
-   				<button type="button" class="logButton" onclick="location.href='/ButtonAdmin3'">
-   					<img class="icon14" src="/image/LogButton.svg">
-   				</button>
-   				
-   				<!-- 클릭 시 ButtonAdmin4.jsp로 이동(실시간 블랙박스 모니터링 페이지) -->
-   				<button type="button" class="blackbox" onclick="location.href='/ButtonAdmin4'">
-   					<img class="icon" src="/image/BlackboxButton.svg">
-   				</button>
-   				
-   				<!-- 클릭 시 ButtonAdmin5.jsp로 이동(관리자 정보 페이지) -->
-   				<button type="button" class="adminInfo" onclick="location.href='/ButtonAdmin5'">
-   					<img class="icon" src="/image/AdminButton.svg">
-   				</button> 
-   				    				
-   			</div>
-   			
-   			<!-- 구분선 -->
-   			<div class="div99">
-   			</div>
-   			
-   			
-   			<div class="div102">
-   				<div class="main">Settings</div>
-   				
-   				<!-- 클릭 시 ButtonAdmin6.jsp로 이동(시스템 알림 페이지) -->
-   				<button type="button" class="noti" onclick="location.href='/ButtonAdmin6'">
-   					<img class="icon" src="/image/notifications.svg">
-   				</button>
-   				
-   				<!-- 클릭 시 ButtonAdmin7.jsp로 이동(환경설정 페이지) -->
-   				<button type="button" class="settings" onclick="location.href='/ButtonAdmin7'">
-   					<img class="icon14" src="/image/Settings.svg">
-   				</button>
-   				     				
-   			</div>
-   			
-   			<div class="div103">
-   			
-   				<!-- 로그아웃 버튼 -->
-   				<!-- 로그아웃 시 ???.jsp로 이동 -->
-   				<button type="button" class="logOut" onclick="location.href='logout'">
-     				<img class="icon14" src="/image/Log-out.svg">
-     			</button>
-     			      				
-   			</div>
-   			
-   		</div>
+		<!-- 사이드 바 -->
+		<!-- Sidebar.jsp 파일에서 작업하기! -->
+  		<%@ include file="/WEB-INF/Sidebar.jsp" %>	
+
     		
     		
 <!--=====================================   메인   ========================================= -->
@@ -129,7 +44,7 @@
 			<img class="icon13" src="/image/accountCircle.svg">
 			
 			<!-- 관리자 이름 : DB에서 adminName값 가져오기! -->
-			<b class="search-here">강우희 관리자</b>
+			<b class="search-here">${sessionScope.loginAdmin.adminName} 관리자</b>
      	</button>
      	
      	<!-- Zer0-Accident 텍스트 로고 -->
@@ -145,6 +60,8 @@
 			<div class="notice">
 			
 <!--====================================== 날짜/시간 탭 =======================================-->
+				
+				
 				<div class="div36">
 					<div class="frame-parent">
 					
@@ -156,13 +73,13 @@
  								
  								<!-- 실시간 표시로 변경 필요! -->
  								<div class="mainadminjsp-parent">
-   									<div class="div37">
-   										<span>10월 </span>
-   										<span class="span5">29</span>
-   										<span>일</span>
-   									</div>
-   									<div class="div38">수요일</div>
- 								</div>
+								    <div class="div37" id="dateDiv">
+								        <span id="monthSpan"></span>
+								        <span class="span5" id="daySpan"></span>
+								        <span>일</span>
+								    </div>
+								    <div class="div38" id="weekdayDiv"></div>
+								</div>
 						</div>
  						
  						<!-- 현재 시간 -->	
@@ -173,7 +90,7 @@
 							
 							<!-- 실시간 표시로 변경 필요! -->
 							<div class="pm-wrapper">
- 									<div class="search-here">15:19PM</div>
+ 									<div class="search-here" id="currentTime"></div>
 							</div>
 						</div>
 					</div>
@@ -442,25 +359,25 @@
 
    	
     	<div class="div81"> <!-- (구)지도가 있던 공간 div -->
-		    	<b class="b7" >실시간 차량 위치 모니터링</b>
     	
-    		<!-- (신)카카오 지도 들어갈 공간 div : 우빈 div id="mapContrainer 만듦-->
-    		  <div id="mapContainer"
+    		<b class="b7" >실시간 차량 위치 모니터링</b>
+    		
+    		<!-- 우빈 : (신)카카오 지도 들어갈 공간 div
+    		따로 css 빼지말고 독립적이게 인라인으로 넣는게 좋은 거 같음 -->
+    		
+   		  	<div id="mapContainer"
 		       style="
 		         top:35px;				/* 지도시작하는 부분 얼마나 내릴지 */
-		         min-height: 95%;		/* 세로 */
+		         min-height: 95.5%;		/* 세로 */
 		         width: 100%;			/* 가로 */
 		         border-radius: 10px;	/* 꼭지점 둥글게 */
 		         overflow: hidden;		/* 뭔지모름 gpt가 해줌 */
 		         background: #2f2f36;	/* 로딩 중 배경 확인용. 뭔지모름 gpt가 해줌 */
-		       "></div>
-    	
+		    "></div>
+    			
       	</div>
-				
-	    	<!-- 타이틀 -->
-    	
-    		
-   			<div class="parent">
+      	
+   	<div class="parent">
    			
    			
 <!-- ======================================= 검색창 =======================================  -->   			
@@ -630,7 +547,7 @@
  					
  						<!-- 현재 운행 차량 대수 : DB에서 가져오기! -->
  						<!-- 차량 운행 유무 컬럼 없음 -->
-   						<span class="span">121</span>
+   						<span class="span">${count}</span>
    						<span class="span4">대 운행중</span>
  					</div>
      			</div>
@@ -646,7 +563,7 @@
    						<span class="span">총 </span>
    						
    						<!-- 일간 위험 행위 발생 횟수 : DB에서 가져오기!  -->
-   						<span class="mainadminjsp-span">43</span>
+   						<span class="mainadminjsp-span">${totalCount}</span>
    						<span class="span">건 발생</span>
  					</div>
      			</div>
@@ -664,35 +581,105 @@
    						<div class="mainadminjsp-log">LOG</div>
    					</div>
    					
-   					<!-- 로그 리스트 --> <!-- div class="frame-child" : 주황색, "frame-item" : 빨간색 -->
+   					<!-- 로그 리스트 -->
    					<!-- 최신 로그 발생 시 자동 업데이트 -->
    					<div class="group">
-   						<c:forEach var="log" items="${logList}">
-   						<!-- items : 컨트롤러에서 내가 정한 변수이름, var : items안의 내용물 하나 -->
-	   						<!-- 로그 1 -->
-	 						<div class="div24">
-	   							<div class="ellipse-parent">
-	   							
-	   								<!-- 위험 등급 표시 아이콘 -->
-									<!-- eventLevel에 따라 색상 변경되어야 함 -->
-	   								<div class="${log.eventColor}">
-	   								</div>
-	   								
-	   								<!-- 로그 정보 -->
-	   								<div class="wrapper6">
-	   								
-	   									<!-- 위험 행위 발생 시각, 운전자 고유 ID, 위험 행위 종류 -->
-	   									<div class="div25">[${log.createdAt}]  ${log.carNumber}  ${log.eventType}</div>
-	   								</div>
-	   							</div>
-	   							
-	   							<!-- 캠 버튼 클릭 시 블랙박스 영상 클립 띄워주기 -->
-	   							<button type="button" class="videoclip" onclick="location.href='#'">
-	   								<img class="icon" src="/image/videocam.svg">
-	   							</button>												
-	 						</div> <!-- 로그1 끝 -->
- 						</c:forEach>
-
+   					
+   						<!-- 로그 1 -->
+ 						<div class="div24">
+   							<div class="ellipse-parent">
+   							
+   								<!-- 위험 등급 표시 아이콘 -->
+								<!-- eventLevel에 따라 색상 변경되어야 함 -->
+   								<div class="frame-child">
+   								</div>
+   								
+   								<!-- 로그 정보 -->
+   								<div class="wrapper6">
+   								
+   									<!-- 위험 행위 발생 시각, 운전자 고유 ID, 위험 행위 종류
+   									     : DB에서 createdAt, dirverIdx, eventType 값 가져오기 -->
+   									<div class="div25">[12:31:44]  S032  졸음 운전</div>
+   								</div>
+   							</div>
+   							
+   							<!-- 캠 버튼 클릭 시 블랙박스 영상 클립 띄워주기 -->
+   							<button type="button" class="videoclip" onclick="location.href='#'">
+   								<img class="icon" src="/image/videocam.svg">
+   							</button>												
+ 						</div>
+ 						
+ 						<!-- 로그 2 -->
+						<div class="div24">
+  							<div class="ellipse-parent">
+  							
+  								<!-- 위험 등급 표시 아이콘 -->
+								<!-- eventLevel에 따라 색상 변경되어야 함 -->
+ 								<div class="frame-item">
+ 								</div>
+ 								
+ 								<!-- 로그 정보 -->
+ 								<div class="wrapper6">
+ 								
+ 									<!-- 위험 행위 발생 시각, 운전자 고유 ID, 위험 행위 종류
+   									     : DB에서 createdAt, dirverIdx, eventType 값 가져오기 -->
+   									<div class="div25">[14:42:31]  S101  운전자 폭행</div>
+ 								</div>
+  							</div>
+  							 							
+  							<!-- 캠 버튼 클릭 시 블랙박스 영상 클립 띄워주기 -->
+   							<button type="button" class="videoclip" onclick="location.href='#'">
+   								<img class="icon" src="/image/videocam.svg">
+   							</button>							
+						</div>
+     						
+     					<!-- 로그 3 -->	
+   						<div class="div24">
+ 							<div class="ellipse-parent">
+ 							
+ 								<!-- 위험 등급 표시 아이콘 -->
+								<!-- eventLevel에 따라 색상 변경되어야 함 -->
+   								<div class="frame-child">
+   								</div>
+   								
+   								<!-- 로그 정보 -->
+   								<div class="wrapper6">
+   								
+   									<!-- 위험 행위 발생 시각, 운전자 고유 ID, 위험 행위 종류
+   									     : DB에서 createdAt, dirverIdx, eventType 값 가져오기 -->
+   									<div class="div25">[12:04:39]  S006  운전대 미제어</div>
+   								</div>
+ 							</div>
+ 							
+ 							<!-- 캠 버튼 클릭 시 블랙박스 영상 클립 띄워주기 -->
+   							<button type="button" class="videoclip" onclick="location.href='#'">
+   								<img class="icon" src="/image/videocam.svg">
+   							</button>   							
+   						</div>
+     						
+     					<!-- 로그 4 -->		
+   						<div class="div24">
+ 							<div class="ellipse-parent">
+ 							
+ 								<!-- 위험 등급 표시 아이콘 -->
+								<!-- eventLevel에 따라 색상 변경되어야 함 -->
+   								<div class="frame-child">
+   								</div>
+   								
+   								<!-- 로그 정보 -->
+   								<div class="wrapper6">
+   								
+   									<!-- 위험 행위 발생 시각, 운전자 고유 ID, 위험 행위 종류
+   									     : DB에서 createdAt, dirverIdx, eventType 값 가져오기 -->
+   									<div class="div25">[11:29:58]  S049  휴대폰 조작</div>
+   								</div>
+ 							</div>
+ 														
+ 							<!-- 캠 버튼 클릭 시 블랙박스 영상 클립 띄워주기 -->
+   							<button type="button" class="videoclip" onclick="location.href='#'">
+   								<img class="icon" src="/image/videocam.svg">
+   							</button>  							
+   						</div>
    					</div>  					
  				</div>   						  				
    			</div>      			      
@@ -710,9 +697,59 @@
    			<div class="search-here">Copyright ⓒ 2025 Zo-A Co. All rights reserved.</div>
  		</div>    	
   	</div>
- 
-  	
-  	<!-- 카카오지도 JS -->
+	<script>
+	    function updateTime() {
+	        const now = new Date();
+	
+	        // 시, 분 가져오기
+	        let hours = now.getHours();
+	        let minutes = now.getMinutes();
+	        let ampm = hours >= 12 ? 'PM' : 'AM';
+	
+	        // 12시간제 변환
+	        hours = hours % 12;
+	        hours = hours ? hours : 12; // 0시 → 12시
+	
+	        // 두 자리 숫자로 표시
+	        hours = hours < 10 ? '0' + hours : hours;
+	        minutes = minutes < 10 ? '0' + minutes : minutes;
+	
+	        // 표시
+	        document.getElementById('currentTime').textContent = hours + ':' + minutes + ampm;
+	    }
+	
+	    // 페이지 로드 시 바로 실행
+	    updateTime();
+	
+	    // 1초마다 갱신
+	    setInterval(updateTime, 1000);
+	</script>
+	<script>
+	    function updateDateTime() {
+	        const now = new Date();
+	
+	        // 월, 일
+	        const month = now.getMonth() + 1; // 0~11 -> +1
+	        const day = now.getDate();
+	
+	        // 요일
+	        const weekdays = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+	        const weekday = weekdays[now.getDay()];
+	
+	        // 화면에 반영
+	        document.getElementById("monthSpan").textContent = month + "월 ";
+	        document.getElementById("daySpan").textContent = day;
+	        document.getElementById("weekdayDiv").textContent = weekday;
+	    }
+	
+	    // 페이지 로드 시 바로 실행
+	    updateDateTime();
+	
+	    // 1분마다 업데이트 (자정 넘어가면 날짜가 바뀌도록)
+	    setInterval(updateDateTime, 60000);
+	</script>
+	
+	<!-- 카카오지도 JS -->
 	<script>
 	  kakao.maps.load(function() {
 	    // 지도 표시할 div
@@ -758,6 +795,5 @@
 	    if (drivers.length > 0) map.setBounds(bounds);
 	  });
 	</script>
-
 </body>
 </html>

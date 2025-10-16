@@ -1,4 +1,4 @@
-package com.smhrd.web.entity;
+package com.smhrd.web.dto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -13,11 +13,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-	public class 복사용Entity {
+	public class LogWithCarNumber {
 	
-		private String 테이블컬럼명과일치;
-		// ex) tb_driver의 driver_name이 있으면
-		// private String driverName으로 만들어야함
-		
+		private String eventType;
+		private String eventLevel;
+		private String carNumber;
+		private LocalDateTime createdAt;
+		private String eventColor;
 	}
 

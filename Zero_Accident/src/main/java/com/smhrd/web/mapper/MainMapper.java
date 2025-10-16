@@ -5,12 +5,12 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.smhrd.web.entity.Join1;
+import com.smhrd.web.dto.DriverInfo;
 
 @Mapper
 public interface MainMapper {
 	
-		List<Join1> SelectAllDrivers();
+		List<DriverInfo> SelectAllDrivers();
 		
 		int SelectDriverCount();
 }

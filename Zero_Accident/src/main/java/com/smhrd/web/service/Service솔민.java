@@ -7,12 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smhrd.web.mapper.Mapper솔민;
+import com.smhrd.web.mapper.Mapper우빈;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class Service솔민 {
 
-    @Autowired
-    private Mapper솔민 mapper;
+    private final Mapper솔민 mapper;
 
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
