@@ -5,13 +5,12 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.smhrd.web.entity.Join1;
+import com.smhrd.web.dto.DriverInfo;
+import com.smhrd.web.dto.LogWithCarNumber;
 
 
 @Mapper
 public interface Mapper우빈 {
 	
-//		List<Join1> SelectAllDrivers();
-//		
-//		int SelectDriverCount();
+	public List<LogWithCarNumber> selectLogList();
 }

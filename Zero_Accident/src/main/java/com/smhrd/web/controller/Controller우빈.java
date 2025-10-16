@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.smhrd.web.entity.Join1;
+import com.smhrd.web.dto.LogWithCarNumber;
 import com.smhrd.web.service.Service우빈;
 
 import lombok.RequiredArgsConstructor;
@@ -17,35 +17,26 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequiredArgsConstructor
 public class Controller우빈{
-	
 	private final Service우빈 service;
 	
-//	@GetMapping("ButtonAdmin2_")
-//	public String ButtonAdmin2_(Model model) {
-//		List<Join1> driverList = service.SelectAllDrivers();
-//		int driverCount = service.SelectDriverCount();
-//		
-//		// 우빈 : 포매팅 -> DB에서 가져온 정보를 보여줄 방식을 설정
-//	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년MM월dd일");
-//	    for (Join1 j : driverList) {
-//	    	// 날짜 yyyy-mm-dd 형식을 yyyy년mm월dd일로 바꾸기 + localdatetime -> localdate
-//	        if (j.getCreatedAt() != null) {
-//	        	j.setFmtCreatedAt(j.getCreatedAt().toLocalDate().format(formatter));
-//	        }
-//	     // 날짜 yyyy-mm-dd 형식을 yyyy년mm월dd일로 바꾸기
-//	        if (j.getDriverBirthdate() != null) {
-//	        	j.setFmtDriverBirthdate(j.getDriverBirthdate().format(formatter));
-//	        }
-//	        // driver_idx → "S001" 형식으로 
-//	        // "S%03d"뜻 : S로 시작해서 3자리 미만을 3자리로 하고 빈칸에 0을 채워라.
-//	        	j.setDriverCode(String.format("S%03d", j.getDriverIdx()));
-//	    }
-//	    
-//	    // 모델에 driverList라는 이름으로 담아서 뷰페이지로 보내기
-//		model.addAttribute("driverList", driverList); 
-//		model.addAttribute("driverCount", driverCount);
-//		
-//		return "ButtonAdmin2_0";
-//	}
+	@GetMapping("/MainAdmin우빈")
+	public String MainAdmin우빈(Model model) {
+		// 유선 : 로그 최신순 4개 받아오기
+		List<LogWithCarNumber> logList = service.selectLogList();
+		// 유선 : 로그 eventLevel에 따라 색 바꾸는 로직
+		for (LogWithCarNumber log : logList) {
+			if ("1".equals(log.getEventLevel())) {
+				log.setEventColor("frame-child");
+			}
+			if ("2".equals(log.getEventLevel())) {
+				log.setEventColor("frame-child");
+			}
+			if ("3".equals(log.getEventLevel())) {
+				log.setEventColor("frame-item");
+			}
+		}
+		model.addAttribute("logList", logList);
+		return "MainAdmin우빈";
+	}
 
 }
