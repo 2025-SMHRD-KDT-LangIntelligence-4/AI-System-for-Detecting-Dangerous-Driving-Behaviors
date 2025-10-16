@@ -99,11 +99,11 @@ public class MainController{
 			// 우빈 : 포매팅 -> DB에서 가져온 정보를 보여줄 방식을 설정
 		    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년MM월dd일");
 		    for (DriverInfo j : driverList) {
-		    	// 날짜 yyyy-mm-dd 형식을 yyyy년mm월dd일로 바꾸기 + localdatetime -> localdate
+		    	// createdAt yyyy-mm-dd 형식을 yyyy년mm월dd일로 바꾸기 + localdatetime -> localdate
 		        if (j.getCreatedAt() != null) {
 		        	j.setFmtCreatedAt(j.getCreatedAt().toLocalDate().format(formatter));
 		        }
-		        // 날짜 yyyy-mm-dd 형식을 yyyy년mm월dd일로 바꾸기
+		        // brithDate yyyy-mm-dd 형식을 yyyy년mm월dd일로 바꾸기
 		        if (j.getDriverBirthdate() != null) {
 		        	j.setFmtDriverBirthdate(j.getDriverBirthdate().format(formatter));
 		        }

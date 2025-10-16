@@ -1184,6 +1184,27 @@ button.wrapper10 {
   	flex-direction: column;
   	align-items: flex-start;
 }
-
+/* 우빈 이벤트레벨에 따라 변하는 동그라미 div class */
+.circle-blue {
+  	width: 14.7px;
+  	height: 14.7px;
+  	position: relative;
+  	border-radius: 50%;
+  	background-color: #7f8caa;
+}
+.circle-yellow {
+  	width: 14.7px;
+  	height: 14.7px;
+  	position: relative;
+  	border-radius: 50%;
+  	background-color: #fcb859;
+}
+.circle-red {
+  	width: 14.7px;
+  	height: 14.7px;
+  	position: relative;
+  	border-radius: 50%;
+  	background-color: #d07b7b;
+}
 
 
