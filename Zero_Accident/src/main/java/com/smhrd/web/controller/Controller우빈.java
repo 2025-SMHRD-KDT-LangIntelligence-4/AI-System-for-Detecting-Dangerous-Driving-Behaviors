@@ -26,7 +26,7 @@ public class Controller우빈{
 		// 유선 : 로그 eventLevel에 따라 색 바꾸는 로직
 		for (LogWithCarNumber log : logList) {
 			if ("1".equals(log.getEventLevel())) {
-				log.setEventColor("frame-child");
+				log.setEventColor("frame-item2");
 			}
 			if ("2".equals(log.getEventLevel())) {
 				log.setEventColor("frame-child");

@@ -306,6 +306,20 @@ html, body {
   	border-radius: 50%;
   	background-color: #feb95a;
 }
+.frame-item {
+  	height: 16px;
+  	width: 16px;
+  	position: relative;
+  	border-radius: 50%;
+  	background-color: #d07b7b;
+}
+.frame-item2 {
+  	height: 16px;
+  	width: 16px;
+  	position: relative;
+  	border-radius: 50%;
+  	background-color: #7F8CAA;
+}
 .wrapper6 {
   	height: 15.9px;
   	width: 186.7px;
@@ -320,13 +334,6 @@ html, body {
 .icon {
   	height: 36.7px;
   	width: 40.4px;
-}
-.frame-item {
-  	height: 16px;
-  	width: 16px;
-  	position: relative;
-  	border-radius: 50%;
-  	background-color: #d07b7b;
 }
 .icon4 {
   	position: absolute;
