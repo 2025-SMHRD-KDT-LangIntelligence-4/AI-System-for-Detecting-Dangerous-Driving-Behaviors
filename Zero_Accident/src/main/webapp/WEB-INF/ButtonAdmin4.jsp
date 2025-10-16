@@ -230,8 +230,7 @@
           							<div class="group">
             								<div class="div107" id="dateDiv">
               									<span id="monthSpan"></span>
-              									<span class="span6" id="daySpan"></span>
-              									<span>일</span>
+              									<span class="span6" id="daySpan"></span><span>일</span>           							
             								</div>
             								<div class="div108" id="weekdayDiv"></div>
           							</div>

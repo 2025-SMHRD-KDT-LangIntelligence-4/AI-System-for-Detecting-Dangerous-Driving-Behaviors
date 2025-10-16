@@ -353,17 +353,18 @@ html, body {
 
 
 .div17 {
-  	position: absolute;
-  	top: 50.13px;
+  	
+  	margin-top: 50.13px;
   	left: calc(50% - 616.72px);
   	width: 1234px;
-  	height: 1340px;
+  	height: auto;
   	display: flex;
   	align-items: flex-start;
   	justify-content: center;
   	flex-wrap: wrap;
   	align-content: flex-start;
   	gap: 40px;
+  	padding-bottom:50px;
 }
 .div18 {
   	height: 364.9px;
@@ -682,6 +683,8 @@ button.alert-btn {
 .div107 {
   	position: relative;
   	line-height: 18.67px;
+  	white-space:nowrap;
+  	left:0.5px;
 }
 .span6 {
   	color: #d07b7b;

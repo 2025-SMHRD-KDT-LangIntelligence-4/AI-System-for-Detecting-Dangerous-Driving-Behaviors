@@ -79,6 +79,7 @@ html, body {
 }
 .search-here {
   	position: relative;
+  	white-space:nowrap;
 }
 .div3 {
   	position: absolute;
@@ -213,6 +214,7 @@ html, body {
 .div12 {
   	position: relative;
   	line-height: 14.94px;
+  	white-space:nowrap;
 }
 .div13 {
   	height: 144.7px;

@@ -180,7 +180,8 @@ html, body {
   	font-size: 13.07px;
   	color: #eaefef;
 }
-.link {
+button.link {
+	all:unset;
   	align-self: stretch;
   	border-radius: 7.47px;
   	background-color: #686363;
@@ -188,7 +189,12 @@ html, body {
   	align-items: center;
   	padding: 9.3px 11.2px;
   	gap: 11.2px;
+  	cursor:pointer;
+  	
 }
+
+
+
 .groups-icon {
   	width: 22px;
   	position: relative;
@@ -199,7 +205,8 @@ html, body {
   	position: relative;
   	letter-spacing: -0.02em;
   	line-height: 18.67px;
-  	font-weight: 800;
+  	font-weight: 700;
+  	
 }
 .buttonadmin2jsp-link {
   	align-self: stretch;
@@ -213,46 +220,50 @@ html, body {
   	height: 18.7px;
   	width: 18.7px;
   	position: relative;
-  	overflow: hidden;
   	flex-shrink: 0;
+  	display: flex;
+  
 }
 .buttonadmin2jsp-icon {
   	position: absolute;
-  	height: 74.87%;
-  	width: 91.44%;
-  	top: 12.48%;
+  	height: 100%;
+  	width: 100%;
+  	top: 0%;
   	right: 4.4%;
   	bottom: 12.65%;
   	left: 4.16%;
   	max-width: 100%;
-  	overflow: hidden;
+  	
   	max-height: 100%;
 }
-.link2 {
+button.link2 {
+	all:unset;
   	align-self: stretch;
   	border-radius: 7.47px;
   	display: flex;
   	align-items: center;
   	padding: 9.3px 11.2px;
   	gap: 15.9px;
+  	cursor:pointer;
+  	
 }
 .icon2 {
   	position: absolute;
-  	height: 74.87%;
-  	width: 74.87%;
-  	top: 12.48%;
+  	height: 100%;
+  	width: 100%;
+  	top: 0%;
   	right: 12.65%;
   	bottom: 12.65%;
-  	left: 12.48%;
+  	left: 0%;
   	max-width: 100%;
   	overflow: hidden;
   	max-height: 100%;
 }
 .icon3 {
   	position: absolute;
-  	height: 49.73%;
-  	width: 91.44%;
-  	top: 24.96%;
+  	height: 100%;
+  	width: 100%;
+  	top: 0%;
   	right: 4.4%;
   	bottom: 25.3%;
   	left: 4.16%;
@@ -274,6 +285,7 @@ html, body {
   	overflow-y: auto;       /* ✅ 세로 스크롤 활성화 */
   	overflow-x: hidden;     /* ✅ 가로 스크롤 방지 */
   	scroll-behavior: smooth;/* ✅ 부드러운 스크롤 */
+  	
 }
 
 /* 스크롤 커스텀*/
@@ -333,12 +345,12 @@ html, body {
   	background-color: #686363;
 }
 .div12 {
-  	position: absolute;
-  	top: 77.13px;
+  	
+  	margin-top: 77.13px;
   	left: calc(50% - 616.72px);
   	width: 1234.2px;
-  	height: 1510px;
-  	overflow-y: auto;
+  	height: auto;
+  	
   	display: flex;
   	align-items: flex-start;
   	justify-content: center;
@@ -348,6 +360,7 @@ html, body {
   	text-align: center;
   	font-size: 20.74px;
   	color: #eaefef;
+  	padding-bottom:50px;
 }
 .div13 {
   	height: 304.2px;
