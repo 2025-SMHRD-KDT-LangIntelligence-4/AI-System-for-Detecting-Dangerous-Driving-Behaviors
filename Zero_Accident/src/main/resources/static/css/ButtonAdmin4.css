@@ -70,7 +70,9 @@ html, body {
   	padding: 0px 12.1px 0px 10.3px;
   	box-sizing: border-box;
 }
-.div3 {
+button.div3 {
+	all: unset;
+	cursor: pointer;
   	position: absolute;
   	top: 37.34px;
   	left: 1349.04px;
@@ -89,6 +91,8 @@ html, body {
 }
 .b {
   	position: relative;
+  	font-weight: 500;
+  	margin-top: 2px;
 }
 .div4 {
   	position: absolute;

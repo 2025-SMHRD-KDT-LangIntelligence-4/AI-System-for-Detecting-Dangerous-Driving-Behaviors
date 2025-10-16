@@ -75,8 +75,7 @@
  								<div class="mainadminjsp-parent">
 								    <div class="div37" id="dateDiv">
 								        <span id="monthSpan"></span>
-								        <span class="span5" id="daySpan"></span>
-								        <span>일</span>
+								        <span class="span5" id="daySpan"></span><span>일</span>
 								    </div>
 								    <div class="div38" id="weekdayDiv"></div>
 								</div>
@@ -392,6 +391,8 @@
    					</div>
    				</div>     				     				     				
    				
+   
+
 
 <!-- ========================================= 통계 =======================================  -->   			
 

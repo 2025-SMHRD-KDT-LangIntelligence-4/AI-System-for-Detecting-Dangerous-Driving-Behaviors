@@ -80,6 +80,8 @@ html, body {
 .search-here {
   	position: relative;
   	white-space:nowrap;
+  	font-weight:300;
+  	font-size:90%;
 }
 .div3 {
   	position: absolute;
@@ -102,7 +104,9 @@ html, body {
   	justify-content: space-between;
   	gap: 6.1px;
 }
-.div5 {
+button.div5 {
+	all: unset;
+	cursor: pointer;
   	height: 25.2px;
   	width: 42px;
   	border-radius: 4.98px;
@@ -114,8 +118,11 @@ html, body {
   	justify-content: center;
   	padding: 7.5px 10.3px;
   	box-sizing: border-box;
+  	font-weight: 500;
 }
 .div7 {
+	all: unset;
+	cursor: pointer;
   	height: 25.2px;
   	width: 42px;
   	border-radius: 4.98px;
@@ -215,6 +222,7 @@ html, body {
   	position: relative;
   	line-height: 14.94px;
   	white-space:nowrap;
+  	font-weight: 300;
 }
 .div13 {
   	height: 144.7px;
@@ -331,19 +339,21 @@ html, body {
   	position: absolute;
   	top: 0px;
   	left: 0px;
-  	white-space: pre-wrap;
+  	white-space: nowrap;
+  	font-weight:300;
 }
 .icon {
-  	height: 36.7px;
-  	width: 40.4px;
+  	height: 110%;
+  	width: 110%;
+  	margin-right:20px;
 }
 .icon4 {
   	position: absolute;
-  	top: 14.94px;
+  	top: 22px;
   	left: 18.67px;
   	border-radius: 7.35px;
-  	width: 40.4px;
-  	height: 36.7px;
+  	width: 8%;
+  	height: 8%;
 }
 .log {
   	position: absolute;
@@ -364,7 +374,7 @@ html, body {
 .mainadminjsp-log {
   	position: relative;
   	line-height: 18.67px;
-  	font-weight: 800;
+  	font-weight: 700;
 }
 .div32 {
   	position: absolute;
@@ -479,10 +489,12 @@ html, body {
   	flex-direction: column;
   	align-items: flex-end;
   	gap: 7.5px;
+  	margin-top:2px;
 }
 .div37 {
   	position: relative;
   	line-height: 18.67px;
+  	white-space:nowrap;
 }
 .span5 {
   	color: #d07b7b;
@@ -492,6 +504,7 @@ html, body {
   	position: relative;
   	font-size: 13.8px;
   	text-align: right;
+  	right:0px;
 }
 .parent2 {
   	height: 41.1px;
@@ -544,6 +557,7 @@ html, body {
 }
 .p {
   	margin: 0;
+  	font-weight:300;
 }
 .div47 {
   	position: absolute;
@@ -629,6 +643,7 @@ html, body {
 .div54 {
   	position: relative;
   	color: #d07b7b;
+  	font-weight: 300;
 }
 .div55 {
   	height: 133.5px;
@@ -673,11 +688,12 @@ button.alert-btn {
   	position: relative;
   	overflow: hidden;
   	flex-shrink: 0;
+  	margin-bottom: 10px;
 }
 .icon5 {
   	position: absolute;
-  	height: 75.51%;
-  	width: 87.24%;
+  	height: 100%;
+  	width: 100%;
   	top: 12.08%;
   	right: 6.29%;
   	bottom: 12.41%;
@@ -696,6 +712,7 @@ button.alert-btn {
 .div61 {
   	position: relative;
   	color: #feb95a;
+  	font-weight: 300;
 }
 .div64 {
   	width: 43.9px;
@@ -708,11 +725,12 @@ button.alert-btn {
   	justify-content: center;
   	padding: 9.5px;
   	box-sizing: border-box;
+  	
 }
 .icon6 {
   	position: absolute;
-  	height: 59.18%;
-  	width: 83.16%;
+  	height: 100%;
+  	width: 100%;
   	top: 20.55%;
   	right: 8.5%;
   	bottom: 20.27%;
@@ -720,6 +738,8 @@ button.alert-btn {
   	max-width: 100%;
   	overflow: hidden;
   	max-height: 100%;
+  	margin-bottom: 10px;
+  	
 }
 .div73 {
   	height: 27.1px;
@@ -739,7 +759,7 @@ button.alert-btn {
   	left: 51.35px;
   	border-radius: 9.34px;
   	background-color: #44444e;
-  	width: 1276.2px;
+  	width: 1285.2px;
   	height: 12.1px;
   	display: flex;
   	align-items: center;
@@ -747,6 +767,7 @@ button.alert-btn {
   	padding: 0px 12.1px 0px 10.3px;
   	box-sizing: border-box;
 }
+
 .div80 {
   	position: absolute;
   	top: 43.88px;
@@ -815,6 +836,11 @@ button.alert-btn {
   	overflow: hidden;
   	max-height: 100%;
 }
+
+
+
+
+
 .div85 {
   	position: absolute;
   	top: 384.35px;
@@ -1016,8 +1042,11 @@ button.alert-btn {
   	display: inline-block;
   	font-family: 'NanumSquare Neo OTF';
   	width: 450.9px;
+  	font-weight: 500;
 }
-.div95 {
+button.div95 {
+	all:unset;
+	cursor: pointer;
   	position: absolute;
   	top: 37.34px;
   	left: 1349.04px;
@@ -1032,6 +1061,7 @@ button.alert-btn {
   	height: 23.3px;
   	width: 23.3px;
   	position: relative;
+  	right:-8px;
 }
 .div96 {
   	position: absolute;
@@ -1207,6 +1237,10 @@ button.alert-btn {
   	position: relative;
   	border-radius: 50%;
   	background-color: #d07b7b;
+}
+
+button.videoclip {
+	all: unset;
 }
 
 

@@ -50,7 +50,7 @@
 				<img class="icon" src="/image/accountCircle.svg">
 				
 				<!-- 관리자 이름 : DB에서 adminName값 가져오기! -->
-				<b class="b">강우희 관리자</b>
+				<b class="b">${sessionScope.loginAdmin.adminName} 관리자</b>
 	     	</button>
    			
    			<!-- Zer0-Accident 텍스트 로고 --> 
