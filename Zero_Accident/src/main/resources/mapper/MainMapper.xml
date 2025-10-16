@@ -18,4 +18,15 @@
 	SELECT COUNT(*) FROM tb_driver;
 </select>
 
+<select id="countDriverIdx">
+	SELECT COUNT(driver_idx) FROM tb_car
+</select>
+	 
+<select id="selectLogList">
+ 	SELECT *
+	FROM tb_log 
+	ORDER BY created_at DESC
+	LIMIT 4
+</select>
+
 </mapper>

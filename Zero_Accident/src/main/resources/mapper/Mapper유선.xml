@@ -5,9 +5,16 @@
   
 
 <mapper namespace="com.smhrd.web.mapper.Mapper유선">
-	<!-- 
+	
 	<select id="countDriverIdx">
 		SELECT COUNT(driver_idx) FROM tb_car
 	</select>
-	 -->
+	 
+	 <select id="selectLogList">
+	 	SELECT *
+	 	FROM tb_log 
+	 	ORDER BY created_at DESC
+	 	LIMIT 4
+	 </select>
+	 
 </mapper>

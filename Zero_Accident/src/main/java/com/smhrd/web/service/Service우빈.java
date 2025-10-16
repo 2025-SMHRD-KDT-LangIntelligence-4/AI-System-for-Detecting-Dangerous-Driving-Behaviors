@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.smhrd.web.dto.LogWithCarNumber;
+import com.smhrd.web.dto.SelectLog;
 import com.smhrd.web.mapper.Mapper우빈;
 
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 public class Service우빈 {
     private final Mapper우빈 mapper;
     
-    public List<LogWithCarNumber> selectLogList() {
+    public List<SelectLog> selectLogList() {
     	return mapper.selectLogList();
     }
 }

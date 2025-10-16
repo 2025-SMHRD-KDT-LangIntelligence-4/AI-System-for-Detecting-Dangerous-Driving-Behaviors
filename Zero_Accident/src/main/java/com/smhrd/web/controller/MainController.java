@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.smhrd.web.dto.DriverInfo;
+import com.smhrd.web.dto.SelectLog;
 import com.smhrd.web.entity.Driver;
 import com.smhrd.web.mapper.MainMapper;
 import com.smhrd.web.service.LogService;
@@ -27,7 +28,8 @@ public class MainController{
 	private final MainService service;
 	private final LogService logService;
 	private final MapService mapService;
-	private final Service유선 registerservice유선;
+
+	
 	
 	// 가장 첫 화면 : 관리자 or 운전자 선택
 	@GetMapping("/") 
@@ -59,6 +61,7 @@ public class MainController{
 		return "RegisterDriver";
 	}
 	
+	
     @GetMapping("/MainAdmin")
     public String MainAdmin(Model model) {
 	    // 솔민 : tb_log의 log_idx 총 개수 조회
@@ -70,10 +73,44 @@ public class MainController{
 	    model.addAttribute("drivers", drivers);
 	    
 	    // 유선 : 현재 운행 차량 조회
-	    long count = registerservice유선.getruncarCount();
+	    long count = service.countDriverIdx();
 	    model.addAttribute("count", count);
-		
-	    return "MainAdmin";
+	    
+	    // 유선 : 로그(위험등급색깔, 로그기록시간, 차번호, 위험운전타입)
+
+		 List<SelectLog> logList = service.selectLogList();
+		 //이벤트레벨에 따라 문자열을 바꾼다. 포매팅 (색깔에 관한문자열 frame-item :빨강, frame-child :주황
+		 for (SelectLog log : logList) {
+				 if ("1".equals(log.getEventLevel())){
+					 log.setEventColor("frame-item2");
+				 }if ("2".equals(log.getEventLevel())){
+					 log.setEventColor("frame-child");
+				 }if ("3".equals(log.getEventLevel())){
+				 log.setEventColor("frame-item");
+			 }
+		 }
+		// 영어 -> 한글로 바꾸기 (PHONE -> 휴대폰 조작, HAND -> 핸들미제어, DROWSY -> 졸음운전, ASSAULT -> 운전자폭행
+		 for (SelectLog log : logList) {
+			 if ("PHONE".equals(log.getEventType())){
+				 log.setEventTypeKo("휴대폰 조작");
+			 }if ("HAND".equals(log.getEventType())){
+				  log.setEventTypeKo("핸들 미제어");
+			 }if ("DROWSY".equals(log.getEventType())){
+				  log.setEventTypeKo("졸음 운전");
+			 }if ("ASSAULT".equals(log.getEventType())){
+				  log.setEventTypeKo("운전자 폭행");
+			 }
+		 }
+			 
+		 // 로그 기록 시간 보기 쉽게 바꾸기 [13:44:08]
+		// ofPattern에 내가 바꾸고 싶은 형식 지정 (hh:mm:ss 등)
+		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
+		    for (SelectLog j : logList) {
+		        	j.setRegDate(j.getCreatedAt().format(formatter));
+		    }
+		    
+		    model.addAttribute("logList", logList);
+			return "/MainAdmin";
     }
 	
 	// 운전자 메인 화면

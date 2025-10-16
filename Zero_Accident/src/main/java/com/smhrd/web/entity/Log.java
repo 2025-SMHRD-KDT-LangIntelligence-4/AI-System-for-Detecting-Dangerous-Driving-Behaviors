@@ -1,4 +1,4 @@
-package com.smhrd.web.entity;
+		package com.smhrd.web.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 
 	public class Log {
 		private int logIdx;
-		private String eventType; //요거
+		private String eventType; //요거			
 		//@Column(precision = 17, scale = 14, nullable = false)
 	    private BigDecimal eventLat;
 		//@Column(precision = 17, scale = 14, nullable = false)

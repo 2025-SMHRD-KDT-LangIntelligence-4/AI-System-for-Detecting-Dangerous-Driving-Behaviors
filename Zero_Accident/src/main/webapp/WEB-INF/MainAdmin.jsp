@@ -584,22 +584,21 @@
    					<!-- 로그 리스트 -->
    					<!-- 최신 로그 발생 시 자동 업데이트 -->
    					<div class="group">
-   					
+   					<c:forEach var="log" items="${logList}">
    						<!-- 로그 1 -->
  						<div class="div24">
    							<div class="ellipse-parent">
    							
-   								<!-- 위험 등급 표시 아이콘 -->
-								<!-- eventLevel에 따라 색상 변경되어야 함 -->
-   								<div class="frame-child">
+   								<!-- 위험 등급 표시 아이콘 --> 
+								<!-- eventLevel에 따라 색상 변경되어야 함 frame-item -->
+   								<div class="${log.eventColor}">
    								</div>
    								
    								<!-- 로그 정보 -->
    								<div class="wrapper6">
-   								
    									<!-- 위험 행위 발생 시각, 운전자 고유 ID, 위험 행위 종류
    									     : DB에서 createdAt, dirverIdx, eventType 값 가져오기 -->
-   									<div class="div25">[12:31:44]  S032  졸음 운전</div>
+   									<div class="div25">[${log.regDate}]  ${log.carNumber}  ${log.eventTypeKo}</div>
    								</div>
    							</div>
    							
@@ -608,83 +607,11 @@
    								<img class="icon" src="/image/videocam.svg">
    							</button>												
  						</div>
- 						
- 						<!-- 로그 2 -->
-						<div class="div24">
-  							<div class="ellipse-parent">
-  							
-  								<!-- 위험 등급 표시 아이콘 -->
-								<!-- eventLevel에 따라 색상 변경되어야 함 -->
- 								<div class="frame-item">
- 								</div>
- 								
- 								<!-- 로그 정보 -->
- 								<div class="wrapper6">
- 								
- 									<!-- 위험 행위 발생 시각, 운전자 고유 ID, 위험 행위 종류
-   									     : DB에서 createdAt, dirverIdx, eventType 값 가져오기 -->
-   									<div class="div25">[14:42:31]  S101  운전자 폭행</div>
- 								</div>
-  							</div>
-  							 							
-  							<!-- 캠 버튼 클릭 시 블랙박스 영상 클립 띄워주기 -->
-   							<button type="button" class="videoclip" onclick="location.href='#'">
-   								<img class="icon" src="/image/videocam.svg">
-   							</button>							
-						</div>
-     						
-     					<!-- 로그 3 -->	
-   						<div class="div24">
- 							<div class="ellipse-parent">
- 							
- 								<!-- 위험 등급 표시 아이콘 -->
-								<!-- eventLevel에 따라 색상 변경되어야 함 -->
-   								<div class="frame-child">
-   								</div>
-   								
-   								<!-- 로그 정보 -->
-   								<div class="wrapper6">
-   								
-   									<!-- 위험 행위 발생 시각, 운전자 고유 ID, 위험 행위 종류
-   									     : DB에서 createdAt, dirverIdx, eventType 값 가져오기 -->
-   									<div class="div25">[12:04:39]  S006  운전대 미제어</div>
-   								</div>
- 							</div>
- 							
- 							<!-- 캠 버튼 클릭 시 블랙박스 영상 클립 띄워주기 -->
-   							<button type="button" class="videoclip" onclick="location.href='#'">
-   								<img class="icon" src="/image/videocam.svg">
-   							</button>   							
-   						</div>
-     						
-     					<!-- 로그 4 -->		
-   						<div class="div24">
- 							<div class="ellipse-parent">
- 							
- 								<!-- 위험 등급 표시 아이콘 -->
-								<!-- eventLevel에 따라 색상 변경되어야 함 -->
-   								<div class="frame-child">
-   								</div>
-   								
-   								<!-- 로그 정보 -->
-   								<div class="wrapper6">
-   								
-   									<!-- 위험 행위 발생 시각, 운전자 고유 ID, 위험 행위 종류
-   									     : DB에서 createdAt, dirverIdx, eventType 값 가져오기 -->
-   									<div class="div25">[11:29:58]  S049  휴대폰 조작</div>
-   								</div>
- 							</div>
- 														
- 							<!-- 캠 버튼 클릭 시 블랙박스 영상 클립 띄워주기 -->
-   							<button type="button" class="videoclip" onclick="location.href='#'">
-   								<img class="icon" src="/image/videocam.svg">
-   							</button>  							
-   						</div>
+ 						</c:forEach>
    					</div>  					
  				</div>   						  				
-   			</div>      			      
-      	      
-      	      	   		
+   			</div>
+   			
    			<div class="div79">
    			</div>
    			<div class="div80">
