@@ -281,7 +281,7 @@
                									<span class="buttonadmin3jsp-span" id="daySpan"></span>
                									<span>일</span>
              								</div>
-             								<div class="div35" id="weekdayDiv">수요일</div>
+             								<div class="div35" id="weekdayDiv"></div>
            							</div>
          						</div>
          						<div class="parent6">
@@ -383,7 +383,7 @@
 														
 								<!-- 위험 등급 표시 아이콘 -->
 								<!-- eventLevel에 따라 색상 변경되어야 함 -->							
-								<div class="log-contents-child"></div>
+								<div class="circle-yellow"></div>
 								
 								
 								<!-- 조치 상태 -->
@@ -503,7 +503,7 @@
    					
    					<!-- 위험 등급 표시 아이콘 -->
 					<!-- eventLevel에 따라 색상 변경되어야 함 -->	
-   					<div class="log-contents-child">
+   					<div class="circle-yellow">
    					</div>
    					
    					<!-- 구분선 -->
