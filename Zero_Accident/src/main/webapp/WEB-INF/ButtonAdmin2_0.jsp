@@ -14,7 +14,7 @@
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 
     <!-- ButtonAdmin2.css 파일의 스타일을 적용하겠다. -->
-	<link rel="stylesheet"  href="/css/ButtonAdmin2.css" />
+	<link rel="stylesheet"  href="/css/ButtonAdmin2_0.css" />
 	<!-- Sidebar.css 파일의 스타일을 적용하겠다. -->
 	<link rel="stylesheet"  href="${cpath}/css/Sidebar.css" />
 	
