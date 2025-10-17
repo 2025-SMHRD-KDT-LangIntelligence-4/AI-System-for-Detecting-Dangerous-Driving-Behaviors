@@ -170,6 +170,18 @@ button.logOut {
 	cursor:pointer;
 }
 
+.main {
+position: relative;
+font-size: 9.18px;
+letter-spacing: 0.37px;
+line-height: 11.02px;
+text-transform: uppercase;
+font-weight: 500;
+font-family: Inter;
+color: rgba(255, 255, 255, 0.5);
+text-align: left;
+}
+
 
 
 .tooltip-wrapper {

@@ -47,7 +47,7 @@
 	 			
 	 			
 			<div class="div555">
-  				<div class="main">Main</div>
+  				<div class="main">MAIN</div>
   				
   				
   				<div class="tooltip-wrapper">
