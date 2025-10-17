@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.smhrd.web.dto.SelectEvent;
 import com.smhrd.web.dto.SelectLog;
 import com.smhrd.web.entity.ExampleEntity;
 import com.smhrd.web.mapper.Mapper우빈;
@@ -26,6 +27,13 @@ public class Service유선 {
     public List<SelectLog> selectLogList() {
     		return mapper유선.selectLogList();
     }
+    
+    	public SelectEvent selectEventchart() {
+    		SelectEvent result = mapper유선.selectEventchart();
+    		return result;
+    	
+    }
+    
 }
 
 

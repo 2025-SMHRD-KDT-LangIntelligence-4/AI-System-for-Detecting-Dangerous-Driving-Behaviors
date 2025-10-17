@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import com.smhrd.web.dto.SelectEvent;
 import com.smhrd.web.dto.SelectLog;
 
 
@@ -20,4 +21,7 @@ public interface Mapper유선 {
 	// 복잡하고 길이가 긴 코딩일수록 문법이 서로 다르다면 햇갈리기때문이에요 
 	
 	List<SelectLog> selectLogList();
+	
+	SelectEvent selectEventchart();
+	
 }

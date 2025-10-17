@@ -17,4 +17,16 @@
 	 	LIMIT 4
 	 </select>
 	 
+	 <select id="selectEventchart" resultType="com.smhrd.web.mapper.Mapper유선">
+	 	SELECT *
+        SUM(CASE WHEN event_type = 'Phone' THEN amount ELSE 0 END) AS total_P,
+        
+        SUM(CASE WHEN event_type = 'Hand' THEN amount ELSE 0 END) AS total_H,
+        
+        SUM(CASE WHEN event_type = 'Drowsy' THEN amount ELSE 0 END) AS total_D,
+        
+        SUM(CASE WHEN event_type = 'Assault' THEN amount ELSE 0 END) AS total_A
+    		FROM tb_log;
+	 </select>
+	 
 </mapper>
