@@ -4,18 +4,10 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.smhrd.web.mapper.Mapper우빈">
-<!-- 
-<select id="SelectAllDrivers" resultType="com.smhrd.web.entity.Join1">
-	SELECT d.driver_contact, d.driver_birthdate, d.driver_region, d.created_at, d.driver_name, d.driver_idx, d.driver_img, a.admin_name, c.car_number, COUNT(l.car_number) AS count_log
-	FROM tb_driver d
-	LEFT JOIN tb_admin a ON d.admin_idx = a.admin_idx
-	LEFT JOIN tb_car c ON d.driver_idx = c.driver_idx
-	LEFT JOIN tb_log l ON l.car_number = c.car_number
-	GROUP BY d.driver_idx, d.driver_contact, d.driver_birthdate, d.driver_region, d.created_at, a.admin_name, c.car_number
-</select>
-	
-<select id="SelectDriverCount" resultType="int">	
-	SELECT COUNT(*) FROM tb_driver;
-</select>
- -->
+	<select id="selectLogList">
+		SELECT * 
+		FROM tb_log
+		ORDER BY created_at DESC
+		LIMIT 4;
+	</select>
 </mapper>

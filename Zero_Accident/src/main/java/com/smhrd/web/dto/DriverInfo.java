@@ -1,4 +1,4 @@
-package com.smhrd.web.entity;
+package com.smhrd.web.dto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 
 // 우빈 : driver, admin, log 테이블 다중 조인용 엔터티
 
-	public class Join1 {
+	public class DriverInfo {
 	
     // Driver 관련
 	private int driverIdx;

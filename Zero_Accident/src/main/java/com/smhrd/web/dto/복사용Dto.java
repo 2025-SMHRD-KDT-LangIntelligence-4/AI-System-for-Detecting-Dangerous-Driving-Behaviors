@@ -1,4 +1,4 @@
-package com.smhrd.web.entity;
+package com.smhrd.web.dto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-	public class 복사용Entity {
+	public class 복사용Dto {
 	
 		private String 테이블컬럼명과일치;
 		// ex) tb_driver의 driver_name이 있으면

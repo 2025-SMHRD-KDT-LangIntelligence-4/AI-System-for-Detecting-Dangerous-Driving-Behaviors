@@ -15,14 +15,14 @@ public class MapController {
 
     private final MapService service;
 
-    // 우빈 : 메인페이지로 이동
-    @GetMapping("/MainAdmin우빈")
-    public String MainAdmin우빈(Model model) {
-    	// 운전자 현재 위치 마커불러오기
-        List<Driver> drivers = service.getAllWithCoords();
-        model.addAttribute("drivers", drivers);
-        return "MainAdmin우빈";
-    }
+//    // 우빈 : 메인페이지로 이동
+//    @GetMapping("/MainAdmin우빈")
+//    public String MainAdmin우빈(Model model) {
+//    	// 운전자 현재 위치 마커불러오기
+//        List<Driver> drivers = service.getAllWithCoords();
+//        model.addAttribute("drivers", drivers);
+//        return "MainAdmin우빈";
+//    }
 
     // 우빈 : 단일 운전자 마커 (아직 안 쓰는 메서드)
     @GetMapping("/map/driver")

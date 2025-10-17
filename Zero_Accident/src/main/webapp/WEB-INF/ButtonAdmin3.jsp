@@ -50,7 +50,7 @@
 				<img class="icon" src="/image/accountCircle.svg">
 				
 				<!-- 관리자 이름 : DB에서 adminName값 가져오기! -->
-				<b class="b">강우희 관리자</b>
+				<b class="b">${sessionScope.loginAdmin.adminName} 관리자</b>
 	     	</button>
    			
    			<!-- Zer0-Accident 텍스트 로고 --> 
@@ -273,22 +273,22 @@
      				<div class="div33">
        					<div class="frame-parent">
          						<div class="frame-group">
-           							<img class="frame-child" alt="">
+           							<img class="frame-child" src="/image/calender.svg">
            							
            							<div class="parent5">
-             								<div class="div34">
-               									<span>10월 </span>
-               									<span class="buttonadmin3jsp-span">29</span>
+             								<div class="div34" id="dateDiv">
+               									<span id="monthSpan"></span>
+               									<span class="buttonadmin3jsp-span" id="daySpan"></span>
                									<span>일</span>
              								</div>
-             								<div class="div35">수요일</div>
+             								<div class="div35" id="weekdayDiv"></div>
            							</div>
          						</div>
          						<div class="parent6">
            							<div class="div36">
            							</div>
            							<div class="pm-wrapper">
-             								<div class="b">15:19PM</div>
+             								<div class="b" id="currentTime"></div>
            							</div>
          						</div>
        					</div>
@@ -383,7 +383,7 @@
 														
 								<!-- 위험 등급 표시 아이콘 -->
 								<!-- eventLevel에 따라 색상 변경되어야 함 -->							
-								<div class="log-contents-child"></div>
+								<div class="circle-yellow"></div>
 								
 								
 								<!-- 조치 상태 -->
@@ -423,7 +423,7 @@
    			
    				<!-- 블랙박스 영상 클립 -->
  				<div class="div15">
- 					<!-- 영상 삽입 후 삭제 -->
+ 					<!-- 영상 삽입 후 삭제-->
    					<div class="b">블랙박스 영상</div>
  				</div>
  				
@@ -503,7 +503,7 @@
    					
    					<!-- 위험 등급 표시 아이콘 -->
 					<!-- eventLevel에 따라 색상 변경되어야 함 -->	
-   					<div class="log-contents-child">
+   					<div class="circle-yellow">
    					</div>
    					
    					<!-- 구분선 -->
@@ -563,7 +563,57 @@
     		
   	</div>
   	
-  	
+  	<script>
+	    function updateTime() {
+	        const now = new Date();
+	
+	        // 시, 분 가져오기
+	        let hours = now.getHours();
+	        let minutes = now.getMinutes();
+	        let ampm = hours >= 12 ? 'PM' : 'AM';
+	
+	        // 12시간제 변환
+	        hours = hours % 12;
+	        hours = hours ? hours : 12; // 0시 → 12시
+	
+	        // 두 자리 숫자로 표시
+	        hours = hours < 10 ? '0' + hours : hours;
+	        minutes = minutes < 10 ? '0' + minutes : minutes;
+	
+	        // 표시
+	        document.getElementById('currentTime').textContent = hours + ':' + minutes + ampm;
+	    }
+	
+	    // 페이지 로드 시 바로 실행
+	    updateTime();
+	
+	    // 1초마다 갱신
+	    setInterval(updateTime, 1000);
+	</script>
+	<script>
+	    function updateDateTime() {
+	        const now = new Date();
+	
+	        // 월, 일
+	        const month = now.getMonth() + 1; // 0~11 -> +1
+	        const day = now.getDate();
+	
+	        // 요일
+	        const weekdays = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+	        const weekday = weekdays[now.getDay()];
+	
+	        // 화면에 반영
+	        document.getElementById("monthSpan").textContent = month + "월 ";
+	        document.getElementById("daySpan").textContent = day;
+	        document.getElementById("weekdayDiv").textContent = weekday;
+	    }
+	
+	    // 페이지 로드 시 바로 실행
+	    updateDateTime();
+	
+	    // 1분마다 업데이트 (자정 넘어가면 날짜가 바뀌도록)
+	    setInterval(updateDateTime, 60000);
+	</script>
   	
   	
 
