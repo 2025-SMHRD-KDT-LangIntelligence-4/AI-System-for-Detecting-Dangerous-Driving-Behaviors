@@ -9,8 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import com.smhrd.web.dto.DriverInfo;
+import com.smhrd.web.dto.SelectEvent;
 import com.smhrd.web.dto.SelectLog;
 import com.smhrd.web.mapper.MainMapper;
 import com.smhrd.web.mapper.Mapper유선;
@@ -21,6 +24,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping
 public class Controller유선{
 	private final Service유선 service;
 	
@@ -60,7 +64,17 @@ public class Controller유선{
 		    model.addAttribute("logList", logList);
 			return "/MainAdmin유선";
 	
-	}
+		}
 	
+	@GetMapping("/ButtonAdmin4유선")
+    public String ButtonAdmin4유선(Model model) {
+		SelectEvent selectEventchart = service.selectEventchart();
+		model.addAttribute("selectEventchart", selectEventchart);
+		return "/ButtonAdmin4유선";
+		
+	}
 }
+	
+	
+	
 	
