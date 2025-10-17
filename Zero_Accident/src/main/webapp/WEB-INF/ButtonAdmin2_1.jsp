@@ -83,8 +83,10 @@
 								<!-- 운전자 생년월일 : DB에서 driverBirthdate값 가져오기! -->
 								<p class="p">${driver.fmtDriverBirthdate}</p>
 								<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
-								<p class="p">순천시 조례동</p>
-								<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
+								<p class="p">
+									<span class="region-text" data-lat="${driver.driverLat}"
+										data-lng="${driver.driverLon}">지역 불러오는 중…</span>
+								</p> <!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
 								<p class="p">${driver.adminName}</p>
 								<!-- 운전자 차량번호 : DB에서 carNumber값 가져오기! -->
 								<p class="p">${driver.carNumber}</p>

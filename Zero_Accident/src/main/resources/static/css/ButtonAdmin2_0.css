@@ -1,4 +1,4 @@
-@charset "UTF-8";
+
 
 /* 화면 중앙에 고정 */
 html, body {
@@ -90,6 +90,689 @@ button.div3 {
 .b {
   	position: relative;
   	font-weight: 500;
+  	margin-top: 2px;
+}
+.div4 {
+  	position: absolute;
+  	top: 100.83px;
+  	left: 55.08px;
+  	width: 223.1px;
+  	height: 63.5px;
+  	font-size: 18.37px;
+}
+.b2 {
+  	position: absolute;
+  	top: 42.95px;
+  	left: 0px;
+  	display: inline-block;
+  	width: 223.1px;
+}
+.zer0-accident {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 223.1px;
+  	height: 34.5px;
+  	font-size: 31.61px;
+}
+.buttonadmin2jsp-zer0-accident {
+  	position: absolute;
+  	top: 0%;
+  	left: 0%;
+  	letter-spacing: -0.06em;
+  	font-weight: 800;
+  	background: linear-gradient(90deg, #979c9c, #b8cfce 50%, #7f8caa);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+.div5 {
+  	position: absolute;
+  	top: 212.86px;
+  	left: 51.35px;
+  	border-radius: 9.9px;
+  	background-color: #44444e;
+  	height: 378.1px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	padding: 34.5px 15.9px;
+  	box-sizing: border-box;
+  	font-size: 10.98px;
+  	color: rgba(255, 255, 255, 0.5);
+}
+.div6 {
+  	width: 194.2px;
+  	height: 218.1px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: space-between;
+  	gap: 17.7px;
+}
+.menu {
+  	align-self: stretch;
+  	height: 25.2px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: space-between;
+  	padding: 0px 9.3px;
+  	box-sizing: border-box;
+  	gap: 9.3px;
+}
+.buttonadmin2jsp-menu {
+  	align-self: stretch;
+  	position: relative;
+  	letter-spacing: 0.44px;
+  	line-height: 13.18px;
+  	text-transform: uppercase;
+  	font-weight: 800;
+}
+.div7 {
+  	width: 74.7px;
+  	height: 1.9px;
+  	position: relative;
+  	border-radius: 1.84px;
+  	background-color: #686363;
+}
+.navigation {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	gap: 7.5px;
+  	font-size: 13.07px;
+  	color: #eaefef;
+}
+button.link {
+	all:unset;
+  	align-self: stretch;
+  	border-radius: 7.47px;
+  	background-color: #686363;
+  	display: flex;
+  	align-items: center;
+  	padding: 9.3px 11.2px;
+  	gap: 11.2px;
+  	cursor:pointer;
+  	
+}
+
+
+
+.groups-icon {
+  	width: 22px;
+  	position: relative;
+  	max-height: 100%;
+}
+.label {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: -0.02em;
+  	line-height: 18.67px;
+  	font-weight: 700;
+  	
+}
+.buttonadmin2jsp-link {
+  	align-self: stretch;
+  	border-radius: 7.47px;
+  	display: flex;
+  	align-items: center;
+  	padding: 9.3px 11.2px 9.3px 13.1px;
+  	gap: 14px;
+}
+.user-plus {
+  	height: 18.7px;
+  	width: 18.7px;
+  	position: relative;
+  	flex-shrink: 0;
+  	display: flex;
+  
+}
+.buttonadmin2jsp-icon {
+  	position: absolute;
+  	height: 100%;
+  	width: 100%;
+  	top: 0%;
+  	right: 4.4%;
+  	bottom: 12.65%;
+  	left: 4.16%;
+  	max-width: 100%;
+  	
+  	max-height: 100%;
+}
+button.link2 {
+	all:unset;
+  	align-self: stretch;
+  	border-radius: 7.47px;
+  	display: flex;
+  	align-items: center;
+  	padding: 9.3px 11.2px;
+  	gap: 15.9px;
+  	cursor:pointer;
+  	
+}
+.icon2 {
+  	position: absolute;
+  	height: 100%;
+  	width: 100%;
+  	top: 0%;
+  	right: 12.65%;
+  	bottom: 12.65%;
+  	left: 0%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.icon3 {
+  	position: absolute;
+  	height: 100%;
+  	width: 100%;
+  	top: 0%;
+  	right: 4.4%;
+  	bottom: 25.3%;
+  	left: 4.16%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.div8 {
+  	position: absolute;
+  	top: 212.86px;
+  	left: 329.56px;
+  	border-radius: 9.9px;
+  	background-color: #44444e;
+  	width: 1234.2px;
+  	height: 588.2px;
+  	text-align: right;
+  	font-size: 14px;
+  	color: rgba(255, 255, 255, 0.5);
+  	overflow-y: auto;       /* ✅ 세로 스크롤 활성화 */
+  	overflow-x: hidden;     /* ✅ 가로 스크롤 방지 */
+  	scroll-behavior: smooth;/* ✅ 부드러운 스크롤 */
+  	
+}
+
+/* 스크롤 커스텀*/
+.div8::-webkit-scrollbar {
+  width: 8px;
+}
+.div8::-webkit-scrollbar-thumb {
+  background-color: #5f5f6e;
+  border-radius: 10px;
+}
+.div8::-webkit-scrollbar-track {
+  background-color: #2e2e36;
+}
+
+.div9 {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 1234.2px;
+  	height: 49.5px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-end;
+  	justify-content: flex-end;
+  	padding: 0px 37.3px 0px 39.2px;
+  	box-sizing: border-box;
+  	gap: 9.3px;
+}
+.wrapper {
+  	align-self: stretch;
+  	height: 14px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 0px 2.8px;
+  	box-sizing: border-box;
+}
+.div10 {
+  	flex: 1;
+  	position: relative;
+  	letter-spacing: 0.44px;
+  	line-height: 13.18px;
+  	text-transform: uppercase;
+  	font-weight: 800;
+}
+.span {
+  	color: #eaefef;
+}
+.buttonadmin2jsp-span {
+  	white-space: pre-wrap;
+}
+.div11 {
+  	width: 140px;
+  	height: 1.9px;
+  	position: relative;
+  	border-radius: 1.84px;
+  	background-color: #686363;
+}
+.div12 {
+  	
+  	margin-top: 77.13px;
+  	left: calc(50% - 616.72px);
+  	width: 1234.2px;
+  	height: auto;
+  	
+  	display: flex;
+  	align-items: flex-start;
+  	justify-content: center;
+  	flex-wrap: wrap;
+  	align-content: flex-start;
+  	gap: 40px;
+  	text-align: center;
+  	font-size: 20.74px;
+  	color: #eaefef;
+  	padding-bottom:50px;
+}
+.div13 {
+  	height: 304.2px;
+  	width: 553px;
+  	position: relative;
+  	box-shadow: 5.530000686645508px 0px 5.53px rgba(0, 0, 0, 0.25), 0px 5.530000686645508px 5.53px rgba(0, 0, 0, 0.25);
+  	border-radius: 14.65px;
+  	background-color: #37353e;
+}
+.avatar-parent {
+  	position: absolute;
+  	top: 62.21px;
+  	left: 41.47px;
+  	width: 141px;
+  	height: 211.5px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: space-between;
+  	gap: 15.2px;
+}
+.avatar-icon {
+  	align-self: stretch;
+  	position: relative;
+  	border-radius: 136.57px;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+  	object-fit: cover;
+}
+
+.avatar-icon {
+width: 100%;
+height: 141px;
+position: relative;
+border-radius: 136.57px;
+background-color: rgba(0, 0, 0, 0.2);
+border: 3px solid #eaefef;
+box-sizing: border-box;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* 이미지 꽉 채우기 */
+  border: none;                 /* 내부 이미지 테두리 제거 */
+  border-radius: 0;             /* ✅ 중복된 둥근 효과 제거 */
+}
+
+.s021 {
+  	position: relative;
+  	letter-spacing: 0.65px;
+  	line-height: 27.65px;
+  	text-transform: uppercase;
+  	font-weight: 800;
+}
+.p {
+  	margin: 0;
+}
+.buttonadmin2jsp-s021 {
+  	margin: 0;
+  	color: #b8cfce;
+}
+.radio-button-unchecked-parent {
+  	position: absolute;
+  	top: 16.59px;
+  	left: 15.21px;
+  	display: flex;
+  	align-items: center;
+  	gap: 9.7px;
+  	font-size: 17.97px;
+  	color: #cc8889;
+}
+.radio-button-unchecked-icon {
+  	height: 27.7px;
+  	width: 27.7px;
+  	position: relative;
+}
+.parent {
+  	position: absolute;
+  	top: 26.27px;
+  	left: 208.07px;
+  	width: 318.7px;
+  	height: 250.2px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: space-between;
+  	gap: 9.7px;
+  	text-align: left;
+  	font-size: 13px;
+}
+.div15 {
+  	align-self: stretch;
+  	border-radius: 14.65px;
+  	background-color: #44444e;
+  	display: flex;
+  	align-items: center;
+  	padding: 13.8px;
+}
+.title-parent {
+  	width: 290.3px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-between;
+  	gap: 20px;
+}
+.title {
+  	border-radius: 14.65px;
+  	background-color: #7f8caa;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 13.8px;
+}
+.b3 {
+  	position: relative;
+  	letter-spacing: 0.41px;
+  	line-height: 20.74px;
+  	text-transform: uppercase;
+}
+.container {
+  	width: 116.1px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-end;
+  	justify-content: center;
+  	text-align: right;
+}
+.b4 {
+  	align-self: stretch;
+  	position: relative;
+  	letter-spacing: 0.41px;
+  	line-height: 20.74px;
+  	text-transform: uppercase;
+}
+.div16 {
+  	align-self: stretch;
+  	height: 40.1px;
+  	position: relative;
+  	border-radius: 12.44px;
+  	background-color: #eaefef;
+  	text-align: center;
+  	font-size: 20.74px;
+  	color: #7f8caa;
+  	border: none;                /* 기본 테두리 제거 */
+  border-radius: 10px;         /* 모서리 둥글게 */
+   transition: all 0.2s ease;   /* hover 시 부드러운 변화 */
+}
+.b5 {
+  	position: absolute;
+  	top: calc(50% - 10.37px);
+  	left: calc(50% - 65.34px);
+  	letter-spacing: 0.65px;
+  	line-height: 19.52px;
+  	text-transform: uppercase;
+  	font-weight:500;
+  	font-family: 'NanumSquare Neo OTF', sans-serif;
+  	cursor: pointer;             /* 마우스 올렸을 때 손 모양 */
+}
+
+
+.radio-button-unchecked-group {
+  	position: absolute;
+  	top: 16.59px;
+  	left: 15.21px;
+  	display: flex;
+  	align-items: center;
+  	gap: 9.7px;
+  	font-size: 17.97px;
+  	color: #b8cfce;
+}
+.parent16 {
+  	position: absolute;
+  	top: 161.51px;
+  	left: 965.34px;
+  	width: 262.3px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-between;
+  	gap: 18px;
+}
+.div85 {
+  	border-radius: 9.9px;
+  	background-color: #44444e;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 8.4px 13.1px;
+  	gap: 9.3px;
+}
+.div87 {
+  	border-radius: 9.9px;
+  	background-color: #44444e;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 8.4px 13.1px;
+  	gap: 9.3px;
+  	color: #d07b7b;
+}
+.cancel-icon {
+  	height: 18.7px;
+  	width: 18.7px;
+  	position: relative;
+}
+.div89 {
+  	position: absolute;
+  	top: 618.97px;
+  	left: 51.35px;
+  	border-radius: 9.9px;
+  	background-color: #44444e;
+  	width: 226.9px;
+  	height: 182.1px;
+  	font-size: 18.67px;
+  	color: #eaefef;
+}
+.div90 {
+  	position: absolute;
+  	top: calc(50% - 72.38px);
+  	left: calc(50% - 97.58px);
+  	border-radius: 9.9px;
+  	background-color: #37353e;
+  	width: 194.2px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 9.3px 6.5px;
+  	box-sizing: border-box;
+}
+.frame-parent {
+  	width: 169.9px;
+  	height: 126px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: space-between;
+  	gap: 20px;
+}
+.frame-group {
+  	align-self: stretch;
+  	display: flex;
+  	align-items: flex-start;
+  	justify-content: space-between;
+  	padding: 0px 5.6px;
+  	gap: 20px;
+}
+.frame-child {
+  	height: 17.7px;
+  	width: 17.7px;
+}
+.parent17 {
+  	width: 74.7px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-end;
+  	gap: 7.5px;
+}
+.div91 {
+  	position: relative;
+  	line-height: 18.67px;
+}
+.span2 {
+  	color: #d07b7b;
+}
+.div92 {
+  	align-self: stretch;
+  	position: relative;
+  	font-size: 13.8px;
+  	text-align: right;
+}
+.parent18 {
+  	height: 41.1px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: space-between;
+  	gap: 5.6px;
+  	font-size: 28.01px;
+}
+.div93 {
+  	width: 72.8px;
+  	height: 4.7px;
+  	border-radius: 9.34px;
+  	background-color: #44444e;
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-between;
+  	padding: 0px 12.1px 0px 10.3px;
+  	box-sizing: border-box;
+}
+.pm-wrapper {
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+.div94 {
+  	position: absolute;
+  	top: 161.51px;
+  	right: 668.44px;
+  	border-radius: 9.9px;
+  	background-color: #44444e;
+  	width: 617.1px;
+  	height: 35.5px;
+  	display: flex;
+  	align-items: center;
+  	padding: 8.4px 16.8px 8.4px 8.4px;
+  	box-sizing: border-box;
+  	gap: 9.3px;
+  	font-size: 13.15px;
+}
+.child {
+  	height: 24.9px;
+  	width: 26.8px;
+}
+
+/* 화면 중앙에 고정 */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;   /* 가로 중앙 */
+  align-items: center;       /* 세로 중앙 */
+  overflow: hidden;
+}
+
+.buttonadmin2jsp {
+  	width: 2002px;
+  	height: 956px;
+  	position: relative;
+  	background-color: #44444e;
+  	text-align: left;
+  	font-size: 13.93px;
+  	color: #b8cfce;
+  	font-family: 'NanumSquare Neo OTF';
+}
+.copyright {
+  	position: absolute;
+  	bottom: 28.01px;
+  	left: calc(50% - 162.47px);
+  	width: 324px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+.div {
+  	position: absolute;
+  	top: calc(50% - 421.98px);
+  	left: 255px;
+  	border-radius: 11.02px;
+  	background-color: #37353e;
+  	width: 1615.1px;
+  	height: 844.9px;
+  	font-size: 14.94px;
+}
+.buttonadmin2jsp-div {
+  	position: absolute;
+  	top: 43.88px;
+  	left: 51.35px;
+  	border-radius: 9.34px;
+  	background-color: #44444e;
+  	width: 1276.2px;
+  	height: 12.1px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-between;
+  	padding: 0px 12.1px 0px 10.3px;
+  	box-sizing: border-box;
+}
+.div2 {
+  	position: absolute;
+  	top: 43.88px;
+  	left: 1490.95px;
+  	border-radius: 9.34px;
+  	background-color: #44444e;
+  	width: 72.8px;
+  	height: 12.1px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-between;
+  	padding: 0px 12.1px 0px 10.3px;
+  	box-sizing: border-box;
+}
+button.div3 {
+	all: unset;
+	cursor: pointer;
+  	position: absolute;
+  	top: 37.34px;
+  	left: 1349.04px;
+  	width: 120.4px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-between;
+  	gap: 8.1px;
+  	text-align: center;
+}
+.icon {
+  	height: 23.3px;
+  	width: 23.3px;
+  	position: relative;
+}
+.b {
+  	position: relative;
+  	font-weight: 300;
   	margin-top: 2px;
 }
 .div4 {

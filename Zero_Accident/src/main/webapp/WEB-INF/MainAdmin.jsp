@@ -391,7 +391,88 @@
    					</div>
    				</div>     				     				     				
    				
-   
+   				<!-- 검색창 클릭 시 나올 창 -->  				  			
+   				<div class="div111">
+	    			<div class="div222">
+	    				<!-- 돋보기 아이콘 -->
+		      			<img class="child11" src="/image/VectorBlue.svg">
+		      			
+		      			<!-- 검색어 입력란 -->
+		      			<!-- name="searchTxt" : searchTxt가 포함된 운전자 정보 불러오기 -->
+		      			<!-- DB에서 driverImg, driverIdx, driverName, carNumber, carType 가져오기 -->
+		      			<input
+		      			type="text"
+		      			id="searchTxt"
+		      			name="searchTxt"
+		      			class="div333"
+		      			>        				
+		      			
+						<!-- 창 닫기 버튼 -->		      			
+		      			<button class="closeBtn">
+		      			<img class="inner111" src="/image/close.svg">     			
+		      			</button>
+	      			
+	    			</div>
+	    			
+	    			<!-- 검색 결과창 -->
+		    		<div class="search-content">
+		    			<!-- 검색 결과 리스트 -->
+		      			<div class="div666">
+		      				
+		      				<!-- 반복문으로 동일한 검색 결과 4개 출력됨 -->
+		      				<c:forEach var="i" begin="1" end="4">
+		      					
+		      					<!-- 검색 결과 -->
+		        				<div class="searchResult">
+		        					<!-- 운전자 사진 : DB에서 driverImg값 가져오기!  -->
+		          					<img class="avatar-icon11" src="/image/driver1.png">
+		          							          					
+		          					<div class="div888">
+		          					
+		          						<!-- 운전자 ID -->
+	            						<div class="frame-div11">
+	              							<div class="s001-wrapper">
+	              								
+	              								<!-- DB에서 driverIdx값 가져오기! -->
+                								<div class="s001">S001</div>
+	              							</div>
+	            						</div>
+	            						
+	            						<!-- 운전자 이름 -->
+	            						<div class="div-inner11">
+	              							<div class="div-inner11">
+	              							
+	              								<!-- DB에서 driverName값 가져오기! -->
+                								<div class="s001">김영호</div>
+	              							</div>
+	            						</div>
+	            						
+	            						<!-- 차량 번호 -->
+	            						<div class="inner22">
+	              							<div class="s001-wrapper">
+	              								
+	              								<!-- DB에서 carNumber값 가져오기! -->
+                								<div class="s001">서울 12아 3456</div>
+	              							</div>
+	            						</div>
+	            						
+	            						<!-- 차량 종류 -->
+	            						<div class="inner33">
+	              							<div class="s001-wrapper">
+	              							
+	              								<!-- DB에서 carType값 가져오기! -->
+                								<div class="s001">택시</div>
+	              							</div>
+	            						</div>
+		          					</div>
+		        				</div>
+		        			</c:forEach>		 				
+		        				
+		      			</div> <!-- 검색 결과 리스트 끝 -->
+		      			
+		    		</div> <!-- 검색 결과창 끝 -->
+		    		
+  				</div> <!-- 검색창 전체 컨테이너 끝 -->
 
 
 <!-- ========================================= 통계 =======================================  -->   			
@@ -723,5 +804,38 @@
 	    if (drivers.length > 0) map.setBounds(bounds);
 	  });
 	</script>
+	
+	<!-- 검색창 토글 기능 -->
+	
+	<script>
+	document.addEventListener("DOMContentLoaded", function() {
+	  const searchBar = document.querySelector(".div2");       // 검색바
+	  const searchPopup = document.querySelector(".div111");   // 검색창
+	  const closeBtn = document.querySelector(".closeBtn");   // 닫기 버튼
+	
+	  // 검색창 열기 / 닫기 (검색바 클릭)
+	  searchBar.addEventListener("click", function() {
+	    searchPopup.style.display =
+	      searchPopup.style.display === "block" ? "none" : "block";
+	  });
+	
+	  // 닫기 버튼 클릭 시 검색창 닫기
+	  closeBtn.addEventListener("click", function() {
+	    searchPopup.style.display = "none";
+	  });
+	
+	  // 외부 클릭 시 닫기
+	  document.addEventListener("click", function(e) {
+	    if (
+	      !searchBar.contains(e.target) &&
+	      !searchPopup.contains(e.target)
+	    ) {
+	      searchPopup.style.display = "none";
+	    }
+	  });
+	});
+	</script>
+	
+	
 </body>
 </html>
