@@ -16,9 +16,11 @@
     <!-- MainAdmin.css 파일의 스타일을 적용하겠다. -->
    	<link rel="stylesheet"  href="/css/MainAdmin.css" />
    	
-	<!-- 카카오 지도 SDK -->
+	<!-- 우빈: 카카오 지도 SDK -->
 	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b1fc2610a3c9415f64affd1fc92ced5b&autoload=false"></script>
 	
+	<!-- 우빈 : 역지오코딩 -->
+	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_JAVASCRIPT_KEY&libraries=services"></script>
 	
 </head>
 <body>
