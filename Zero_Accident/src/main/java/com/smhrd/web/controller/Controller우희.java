@@ -15,4 +15,10 @@ import com.smhrd.web.service.LogService;
 public class Controller우희{
 	@Autowired
 	MainMapper mapper;
+	
+	
+		@GetMapping("/MainAdmin우희")
+		public String MainAdmin우희() {
+			return "MainAdmin우희";
+		}
 }

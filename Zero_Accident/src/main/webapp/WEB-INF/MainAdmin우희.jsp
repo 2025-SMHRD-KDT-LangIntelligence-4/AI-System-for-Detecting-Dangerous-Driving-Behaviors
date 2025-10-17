@@ -473,6 +473,7 @@
 		    		</div> <!-- 검색 결과창 끝 -->
 		    		
   				</div> <!-- 검색창 전체 컨테이너 끝 -->
+   		
 
 
 <!-- ========================================= 통계 =======================================  -->   			
@@ -706,6 +707,8 @@
    			<div class="search-here">Copyright ⓒ 2025 Zo-A Co. All rights reserved.</div>
  		</div>    	
   	</div>
+  	
+  	
 	<script>
 	    function updateTime() {
 	        const now = new Date();
@@ -805,6 +808,8 @@
 	  });
 	</script>
 	
+	
+	
 	<!-- 검색창 토글 기능 -->
 	
 	<script>
@@ -835,7 +840,7 @@
 	  });
 	});
 	</script>
-	
+
 	
 </body>
 </html>
