@@ -71,7 +71,7 @@
    				<input 
 				    type="text" 
 				    class="div51" 			   
-				    name="searchText"
+				    name="searchTxt"
 				>
    				
    				<!-- 돋보기 아이콘 -->

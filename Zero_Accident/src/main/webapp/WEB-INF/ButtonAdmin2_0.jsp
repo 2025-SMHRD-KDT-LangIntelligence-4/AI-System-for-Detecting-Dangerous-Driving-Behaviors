@@ -178,7 +178,7 @@
 				    type="text" 
 				    class="search-input" 
 				    placeholder="검색어를 입력하세요."
-				    name="searchText"
+				    name="searchTxt"
 				>
    			</div>
    			
