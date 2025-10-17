@@ -1,34 +1,50 @@
 package com.smhrd.web.service;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
+import com.smhrd.web.mapper.Mapper솔민;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smhrd.web.mapper.Mapper솔민;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class Service솔민 {
 
     @Autowired
-    private Mapper솔민 mapper;
+    private Mapper솔민 mapper솔민;
 
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    public Map<String, Integer> getLogCount(String type, LocalDate targetDate) {
+        List<Map<String, Object>> rawData;
+        Map<String, Integer> result = new HashMap<>();
 
-    public int getAssaultCount(String startDate, String endDate) {
-        return mapper.countByEventAndDate("ASSAULT", startDate, endDate);
-    }
+        // 초기값 0으로 세팅
+        result.put("ASSAULT", 0);
+        result.put("DROWSY", 0);
+        result.put("HAND", 0);
+        result.put("PHONE", 0);
 
-    public int getDrowsyCount(String startDate, String endDate) {
-        return mapper.countByEventAndDate("DROWSY", startDate, endDate);
-    }
+        switch (type.toLowerCase()) {
+            case "yearly":
+                rawData = mapper솔민.getYearlyCount(targetDate.getYear());
+                break;
+            case "monthly":
+                rawData = mapper솔민.getMonthlyCount(targetDate.getYear(), targetDate.getMonthValue());
+                break;
+            case "weekly":
+                rawData = mapper솔민.getWeeklyCount(targetDate.toString());
+                break;
+            default:
+                rawData = mapper솔민.getDailyCount(targetDate.toString());
+        }
 
-    public int getHandCount(String startDate, String endDate) {
-        return mapper.countByEventAndDate("HAND", startDate, endDate);
-    }
+        for (Map<String, Object> row : rawData) {
+            String eventType = (String) row.get("event_type");
+            Integer count = ((Long) row.get("count")).intValue(); // MyBatis가 Long으로 가져올 수 있음
+            result.put(eventType, count);
+        }
 
-    public int getPhoneCount(String startDate, String endDate) {
-        return mapper.countByEventAndDate("PHONE", startDate, endDate);
+        return result;
     }
 }

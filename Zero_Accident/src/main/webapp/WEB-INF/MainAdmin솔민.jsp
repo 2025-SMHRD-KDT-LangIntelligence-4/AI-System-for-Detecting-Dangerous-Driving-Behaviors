@@ -630,74 +630,134 @@
      				
      				
    					<div class="div4">
-					    <button type="button" class="div5" data-type="monthly"><b class="search-here">월간</b></button>
-					    <button type="button" class="div5" data-type="weekly"><b class="search-here">주간</b></button>
-					    <button type="button" class="div7" data-type="daily"><b class="search-here">일간</b></button>
-					</div>
+   					
+   						<!-- 월간 통계 버튼 -->
+   						<button type="button" class="div5">
+   							<b class="search-here">월간</b>
+   						</button>
+   						
+   						<!-- 주간 통계 버튼 -->
+   						<button type="button" class="div5">
+   							<b class="search-here">주간</b>
+   						</button>
+   						
+   						<!-- 일간 통계 버튼 -->
+   						<button type="button" class="div7">
+   							<b class="search-here">일간</b>
+   						</button>
+   						
+   					</div>
      					
      <!-- ============ 일간 위험 행위 발생 그래프 ============= -->	
-   					<!-- 그래프 영역 -->
-						<div class="div8">
-						    <div class="div9">
-						        <!-- 운전자 폭행 -->
-						        <div class="div10">
-						            <div class="component-1-wrapper">
-						                <div class="component-1">
-						                    <div class="component-1-child"></div>
-						                    <div class="component-1-inner">
-						                        <div class="wrapper">
-						                            <div class="div11">0</div>
-						                        </div>
-						                    </div>
-						                </div>
-						            </div>
-						            <div class="container"><div class="div12">운전자 폭행</div></div>
-						        </div>
-						        <!-- 졸음운전 -->
-						        <div class="div13">
-						            <div class="component-1-wrapper">
-						                <div class="component-1">
-						                    <div class="component-1-child"></div>
-						                    <div class="component-1-inner">
-						                        <div class="wrapper">
-						                            <div class="div11">0</div>
-						                        </div>
-						                    </div>
-						                </div>
-						            </div>
-						            <div class="container"><div class="div12">졸음운전</div></div>
-						        </div>
-						        <!-- 운전대 미제어 -->
-						        <div class="div16">
-						            <div class="component-1-wrapper">
-						                <div class="component-1">
-						                    <div class="component-1-child"></div>
-						                    <div class="component-1-inner">
-						                        <div class="wrapper">
-						                            <div class="div11">0</div>
-						                        </div>
-						                    </div>
-						                </div>
-						            </div>
-						            <div class="container"><div class="div12">운전대 미제어</div></div>
-						        </div>
-						        <!-- 휴대폰 조작 -->
-						        <div class="div19">
-						            <div class="component-1-wrapper">
-						                <div class="component-1">
-						                    <div class="component-1-child"></div>
-						                    <div class="component-1-inner">
-						                        <div class="wrapper">
-						                            <div class="div11">0</div>
-						                        </div>
-						                    </div>
-						                </div>
-						            </div>
-						            <div class="container"><div class="div12">휴대폰 조작</div></div>
-						        </div>
-						    </div>
-						</div>
-   					</div>
+   					<div class="div8">
+   						<div class="div9">
+   						
+   							<!-- 운전자 폭행  -->
+   							<div class="div10">
+   								<div class="component-1-wrapper">
+   									<div class="component-1">
+   									
+   										<!-- background bar -->
+   										<div class="component-1-child">
+   										</div>
+   										
+   										<div class="component-1-inner">
+   											<!-- 실제 막대그래프 -->
+   											<!-- 발생 횟수에 따라 height 자동 조절 -->
+   											<div class="wrapper">
+   												<!-- 일간 운전자 폭행 발생 횟수 : DB에서 가져오기! -->
+   												<div class="div11">1</div>
+   											</div>
+   										</div>
+   									</div>
+   								</div>
+   								
+   								<!-- 라벨 -->
+   								<div class="container">
+   									<div class="div12">운전자 폭행</div>
+   								</div>
+   							</div>
+     							
+     						<!-- 졸음운전  -->	
+   							<div class="div13">   							
+   								<div class="component-1-wrapper">
+   									<div class="component-1">
+   										
+   										<!-- background bar -->
+   										<div class="component-1-child">
+   										</div>
+   										  										
+   										<div class="frame-div">
+   											<!-- 실제 막대그래프 -->
+   											<!-- 발생 횟수에 따라 height 자동 조절 -->
+   											<div class="wrapper">
+   												<!-- 일간 졸음 운전 발생 횟수 : DB에서 가져오기! -->
+   												<div class="div11">12</div>
+   											</div>
+   										</div>
+   									</div>
+   								</div>
+   								
+   								<!-- 라벨 -->
+   								<div class="container">
+     									<div class="div12">졸음운전</div>
+   								</div>
+   							</div>
+     							
+     						<!-- 운전대 미제어  -->		
+   							<div class="div16">
+   								<div class="component-1-wrapper">
+   									<div class="component-1">
+   									
+   										<!-- background bar -->
+   										<div class="component-1-child">
+   										</div>
+   										  										
+   										<div class="mainadminjsp-component-1-inner">
+   											<!-- 실제 막대그래프 -->
+   											<!-- 발생 횟수에 따라 height 자동 조절 -->
+   											<div class="wrapper">
+   												<!-- 일간 운전대 미제어 발생 횟수 : DB에서 가져오기! -->
+   												<div class="div11">8</div>
+   											</div>
+   										</div>
+   									</div>
+   								</div>
+   								
+   								<!-- 라벨 -->
+   								<div class="container">
+     									<div class="div12">운전대 미제어</div>
+   								</div>
+   							</div>
+     							
+     						<!-- 휴대폰 조작  -->		
+   							<div class="div19">
+   								<div class="component-1-wrapper">
+   									<div class="component-1">
+   										
+   										<!-- background bar -->
+   										<div class="component-1-child">
+   										</div>
+   										  										
+   										<div class="component-1-inner2">
+   											<!-- 실제 막대그래프 -->
+   											<!-- 발생 횟수에 따라 height 자동 조절 -->
+   											<div class="wrapper">
+   												<!-- 일간 휴대폰 조작 발생 횟수 : DB에서 가져오기! -->
+   												<div class="div11">23</div>
+   											</div>
+   										</div>
+   									</div>
+   								</div>
+   								
+   								<!-- 라벨 -->
+   								<div class="container">
+     									<div class="div12">휴대폰 조작</div>
+   								</div>
+   							</div>
+   						</div>
+   					</div>    					
+   				</div>
      				
      				
 <!-- ==================================== 운행 차량 대수 =====================================  -->   			     				
@@ -889,57 +949,87 @@
 	    setInterval(updateTime, 1000);
 	</script>
 	<script>
-	    function updateDateTime() {
-	        const now = new Date();
-	
-	        // 월, 일
-	        const month = now.getMonth() + 1; // 0~11 -> +1
-	        const day = now.getDate();
-	
-	        // 요일
-	        const weekdays = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
-	        const weekday = weekdays[now.getDay()];
-	
-	        // 화면에 반영
-	        document.getElementById("monthSpan").textContent = month + "월 ";
-	        document.getElementById("daySpan").textContent = day;
-	        document.getElementById("weekdayDiv").textContent = weekday;
-	    }
-	
-	    // 페이지 로드 시 바로 실행
-	    updateDateTime();
-	
-	    // 1분마다 업데이트 (자정 넘어가면 날짜가 바뀌도록)
-	    setInterval(updateDateTime, 60000);
-	</script>
-	<script>
-		function updateGraph(data){
-		    const mapping = ["assault","drowsy","hand","phone"];
-		    document.querySelectorAll('.div11').forEach((numDiv, index) => {
-		        const key = mapping[index];
-		        const count = data[key] || 0;
-		        numDiv.textContent = count;
+		document.addEventListener("DOMContentLoaded", () => {
 		
-		        const bar = numDiv.closest('.component-1-inner');
-		        if(bar) bar.style.height = (count*8 + 20) + "px"; // 비율 조정
-		    });
-		}
+		    /**
+		     * DB에서 데이터 가져오기 + 디버그
+		     */
+		    function fetchLogData(type) {
+		        console.log("fetchLogData 호출, type:", type);
+		        if (!type) {
+		            console.error("fetchLogData 호출 시 type이 비어있음!");
+		            return;
+		        }
 		
-		// 초기 로드 시 일간 그래프
-		fetch('/MainAdmin솔민/ajax?type=daily')
-		    .then(res => res.json())
-		    .then(data => updateGraph(data));
+		        const today = new Date().toISOString().slice(0, 10); // yyyy-MM-dd
+		        console.log(`데이터 조회 타입: ${type}, 기준일: ${today}`);
 		
-		// 버튼 클릭 시
-		document.querySelectorAll('.div4 button').forEach(btn => {
-		    btn.addEventListener('click', function(e) {
-		        const type = e.currentTarget.dataset.type;
-		        fetch(`/MainAdmin솔민/ajax?type=${type}`)
+		        fetch(`/logs/count?type=${type}&date=${today}`)
 		            .then(res => res.json())
-		            .then(data => updateGraph(data));
+		            .then(data => {
+		                console.log("DB에서 받은 데이터:", data);
+		                updateBars(data);
+		            })
+		            .catch(err => console.error("DB fetch 오류:", err));
+		    }
+		
+		    /**
+		     * 막대그래프 업데이트 + 디버그
+		     */
+		    function updateBars(data) {
+		        const minHeight = 5; // 최소 높이 px
+		        document.querySelectorAll(".component-1").forEach(barDiv => {
+		            const event = barDiv.dataset.event;
+		            const count = data[event] || 0;
+		
+		            const innerDiv = barDiv.querySelector(".component-1-inner");
+		            innerDiv.style.height = `${Math.max(count * 10, minHeight)}px`;
+		
+		            const numberDiv = barDiv.querySelector(".div11");
+		            numberDiv.innerText = count;
+		
+		            console.log(`막대: ${event}, 높이(px): ${innerDiv.style.height}, 숫자: ${numberDiv.innerText}`);
+		        });
+		    }
+		
+		    /**
+		     * 버튼 클릭 이벤트 연결
+		     */
+		    document.querySelectorAll(".div5, .div7").forEach(btn => {
+		        console.log("버튼 type 확인:", btn.dataset.type);
+		        btn.addEventListener("click", () => {
+		            document.querySelectorAll(".div5, .div7").forEach(b => b.classList.remove("active"));
+		            btn.classList.add("active");
+		
+		            const type = btn.dataset.type;
+		            console.log("버튼 클릭, type:", type);
+		            fetchLogData(type);
+		        });
 		    });
+		
+		    // 초기 로드: 연간 데이터 표시
+		    fetchLogData('yearly');
+		
+		    // 막대 dataset 확인
+		    document.querySelectorAll(".component-1").forEach(barDiv => {
+		        console.log("막대 event 확인:", barDiv.dataset.event);
+		    });
+		
 		});
 	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
