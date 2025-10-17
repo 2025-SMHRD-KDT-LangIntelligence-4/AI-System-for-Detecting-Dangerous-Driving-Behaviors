@@ -269,31 +269,8 @@
 <!--===================================   날짜 및 시간   ==================================== -->   		
    			
    			
-   			<div class="div32">
-     				<div class="div33">
-       					<div class="frame-parent">
-         						<div class="frame-group">
-           							<img class="frame-child" src="/image/calender.svg">
-           							
-           							<div class="parent5">
-             								<div class="div34" id="dateDiv">
-               									<span id="monthSpan"></span>
-               									<span class="buttonadmin3jsp-span" id="daySpan"></span>
-               									<span>일</span>
-             								</div>
-             								<div class="div35" id="weekdayDiv"></div>
-           							</div>
-         						</div>
-         						<div class="parent6">
-           							<div class="div36">
-           							</div>
-           							<div class="pm-wrapper">
-             								<div class="b" id="currentTime"></div>
-           							</div>
-         						</div>
-       					</div>
-     				</div>
-   			</div>
+   			<!-- Datetime.jsp 파일에서 작업하기! -->
+	  		<%@ include file="/WEB-INF/Datetime.jsp" %>  	
    		
    			  			  			  			
 <!--====================================   로그 리스트  ===================================== -->   		   			

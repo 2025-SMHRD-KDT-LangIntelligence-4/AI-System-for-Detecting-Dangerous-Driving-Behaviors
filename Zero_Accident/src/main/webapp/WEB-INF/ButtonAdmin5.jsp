@@ -19,6 +19,9 @@
 	<!-- Sidebar.css 파일의 스타일을 적용하겠다. -->
 	<link rel="stylesheet"  href="/css/Sidebar.css" />
 	
+	<!-- Datetime.css 파일의 스타일을 적용하겠다. -->
+	<link rel="stylesheet"  href="/css/Datetime.css" />
+	
 </head>
 <body>
 	
@@ -137,32 +140,9 @@
    			
 <!--==================================   날짜 및 시간   ===================================== -->   		  	
 
-   			  			
-   			<div class="div122">
-     				<div class="div123">
-       					<div class="frame-parent6">
-         						<div class="frame-parent7">
-           							<img class="frame-child" alt="">
-           							
-           							<div class="buttonadmin5jsp-parent">
-             								<div class="div124">
-               									<span>10월 </span>
-               									<span class="span3">29</span>
-               									<span>일</span>
-             								</div>
-             								<div class="div125">수요일</div>
-           							</div>
-         						</div>
-         						<div class="parent2">
-           							<div class="div126">
-           							</div>
-           							<div class="child">
-             								<div class="b">15:19PM</div>
-           							</div>
-         						</div>
-       					</div>
-     				</div>
-   			</div>
+   			<!-- Datetime.jsp 파일에서 작업하기! -->
+	  		<%@ include file="/WEB-INF/Datetime.jsp" %>  			
+   			
    			
    			<!-- title -->
    			<div class="div127">관리자 마이페이지</div>

@@ -21,4 +21,9 @@ public class Controller우희{
 		public String MainAdmin우희() {
 			return "MainAdmin우희";
 		}
+		
+		@GetMapping("/Datetime")
+		public String Datetime() {
+			return "Datetime";
+		}
 }

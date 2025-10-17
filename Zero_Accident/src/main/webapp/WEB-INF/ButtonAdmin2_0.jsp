@@ -15,6 +15,8 @@
 	<link rel="stylesheet"  href="/css/ButtonAdmin2_0.css" />
 	<!-- Sidebar.css 파일의 스타일을 적용하겠다. -->
 	<link rel="stylesheet"  href="${cpath}/css/Sidebar.css" />
+	<!-- Datetime.css 파일의 스타일을 적용하겠다. -->
+	<link rel="stylesheet"  href="/css/Datetime.css" />
 	<!-- 우빈 : 카카오 지도 SDK -->
 	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b1fc2610a3c9415f64affd1fc92ced5b&libraries=services"></script>
 </head>
@@ -127,42 +129,9 @@
    			
 <!--====================================== 날짜/시간 탭 =======================================-->
    			
-   			 			
-   			<div class="div89">
-   				<div class="div90">  				  					
- 					<div class="frame-parent">
- 					
- 				<!-- =============현재 날짜 ===============-->
-   						<div class="frame-group">
-   						
-   							<!-- 달력 아이콘 -->
-   							<img class="frame-child" src="/image/calender.svg">
-   							
-   							<!-- 실시간 표시로 변경 필요! -->
-   							<div class="parent17">
- 								<div class="div91" id="dateDiv">
-   									<span id="monthSpan"></span>
-   									<span class="span2" id="daySpan"></span>
-   									<span>일</span>
- 								</div>
- 								<div class="div92" id="weekdayDiv"></div>
-   							</div>
-   						</div>
-   						
-   			   <!-- =============현재 시간 =============-->	
-   						<div class="parent18">
-   							<!-- 구분선 -->
- 							<div class="div93">
- 							</div>
- 							
- 							<!-- 실시간 표시로 변경 필요! -->
- 							<div class="pm-wrapper">
-   								<div class="b" id="currentTime"></div>
- 							</div>
-   						</div>
- 					</div>
-   				</div>
-   			</div>
+   			<!-- Datetime.jsp 파일에서 작업하기! -->
+	  		<%@ include file="/WEB-INF/Datetime.jsp" %>   			
+   		
    			
 <!-- 비동기통신용 여기부터 감싸는 div 만들어야함 -->   			
 <!-- ======================================= 검색 ========================================  -->   			

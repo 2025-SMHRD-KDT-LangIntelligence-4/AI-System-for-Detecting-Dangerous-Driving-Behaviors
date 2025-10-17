@@ -23,45 +23,31 @@
 <!--====================================== 날짜/시간 탭 =======================================-->
    			
    			 			
-   			<div class="div899">
-   				<div class="div900">  				  					
- 					<div class="frame-parent">
- 					
- 				<!-- =============현재 날짜 ===============-->
-   						<div class="frame-group">
-   						
-   							<!-- 달력 아이콘 -->
-   							<img class="frame-child" src="/image/calender.svg">
-   							 							
-   							<div class="parent177">
- 								<div class="div911" id="dateDiv">
- 								
- 									<!-- 현재 월 -->
-   									<span id="monthSpan"></span>
-   									
-   									<!-- 현재 일 -->
-   									<span class="span222" id="daySpan"></span>
-   									<span>일</span>
- 								</div>
- 								<div class="div922" id="weekdayDiv"></div>
-   							</div>
-   						</div>
-   						
-   			   <!-- =============현재 시간 =============-->	
-   						<div class="parent188">
-   							<!-- 구분선 -->
- 							<div class="div933">
- 							</div>							
- 							
- 							<div class="pm-wrapper">
- 								<!-- 현재 시간 -->
-   								<div class="b" id="currentTime"></div>
- 							</div>
-   						</div>
- 					</div>
-   				</div>
-   			</div>	
-	
+   			<div class="datetime-container">
+  <div class="datetime-inner">
+    <div class="datetime-frame">
+      <div class="datetime-left">
+        <img class="datetime-icon" src="/image/calender.svg" alt="calendar">
+
+        <div class="datetime-info">
+          <div class="datetime-date" id="dateDiv">
+            <span id="monthSpan"></span>
+            <span class="datetime-day" id="daySpan"></span><span>일</span>
+          </div>
+          <div class="datetime-weekday" id="weekdayDiv"></div>
+        </div>
+      </div>
+
+      <div class="datetime-right">
+        <div class="datetime-empty"></div>
+        <div class="datetime-time-wrapper">
+          <div class="datetime-time" id="currentTime"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 	
 			<script>
 	    function updateTime() {
