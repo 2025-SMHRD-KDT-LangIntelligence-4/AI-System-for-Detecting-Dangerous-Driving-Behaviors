@@ -23,33 +23,45 @@
 <!--====================================== 날짜/시간 탭 =======================================-->
    			
    			 			
-   			<div class="datetime-container">
-  <div class="datetime-inner">
-    <div class="datetime-frame">
-      <div class="datetime-left">
-        <img class="datetime-icon" src="/image/calender.svg" alt="calendar">
-
-        <div class="datetime-info">
-          <div class="datetime-date" id="dateDiv">
-            <span id="monthSpan"></span>
-            <span class="datetime-day" id="daySpan"></span><span>일</span>
-          </div>
-          <div class="datetime-weekday" id="weekdayDiv"></div>
-        </div>
-      </div>
-
-      <div class="datetime-right">
-        <div class="datetime-empty"></div>
-        <div class="datetime-time-wrapper">
-          <div class="datetime-time" id="currentTime"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="datetime-container">
+		  <div class="datetime-inner">
+			    <div class="datetime-frame">
+			    
+				      <div class="datetime-left">
+				      
+				      		<!-- 달력 아이콘 -->
+				        	<img class="datetime-icon" src="/image/calender.svg" alt="calendar">
+							
+							<!-- 현재 날짜 -->
+					        <div class="datetime-info">
+						          <div class="datetime-date" id="dateDiv">
+						          		<!-- 월 -->
+							            <span id="monthSpan"></span>
+							            <!-- 일 -->
+							            <span class="datetime-day" id="daySpan"></span><span>일</span>
+						          </div>
+						      <!-- 요일 -->
+					          <div class="datetime-weekday" id="weekdayDiv"></div>
+					        </div>
+				      </div>
+					  
+					  <!-- 현재 시간 -->
+				      <div class="datetime-right">
+					        <div class="datetime-empty"></div>
+					        <div class="datetime-time-wrapper">
+					        	<!-- 현재 시간 -->
+					          	<div class="datetime-time" id="currentTime"></div>
+					        </div>
+				      </div>
+			    </div>
+		  </div>
 </div>
 
 	
-			<script>
+	
+	
+	
+	<script>
 	    function updateTime() {
 	        const now = new Date();
 	
