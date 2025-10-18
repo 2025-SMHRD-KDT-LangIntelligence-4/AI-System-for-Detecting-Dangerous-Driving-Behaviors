@@ -1,10 +1,12 @@
 @charset "UTF-8";
 
-/* 시계 콜론 깜빡이는 효과 : 1.5초 간격*/
+/* 시계 콜론 깜빡이는 효과 : 
+   1.5초 간격으로 blink 애니메이션을 2단계(보이는 상태, 안 보이는 상태)로 나눠서 무한반복하겠따.*/
 .blink-colon {
   animation: blink 1.5s steps(2, start) infinite;
 }
 
+/* blink 애니메이션 정의 : 애니메이션이 끝날 때 화면에서 숨김 처리하겠다.*/
 @keyframes blink {
   to {
     visibility: hidden;

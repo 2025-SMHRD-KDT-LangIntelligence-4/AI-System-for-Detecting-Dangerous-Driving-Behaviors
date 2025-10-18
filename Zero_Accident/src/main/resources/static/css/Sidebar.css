@@ -140,6 +140,7 @@ button.driverInfo {
 	cursor:pointer;
 }
 
+
 button.logButton {
 	all:unset;
 	cursor:pointer;
@@ -169,6 +170,36 @@ button.logOut {
 	all:unset;
 	cursor:pointer;
 }
+
+/* 기본 아이콘 색 (#9B9A9F) */
+.sidebar-btn img {
+  filter: brightness(0) saturate(100%) invert(57%) sepia(5%) saturate(284%) hue-rotate(202deg) brightness(91%) contrast(91%);
+  transition: filter 0.2s ease;
+}
+
+/* 클릭 후 활성 상태 (#CC8889) */
+.sidebar-btn.active img {
+  filter: brightness(0) saturate(100%) invert(73%) sepia(10%) saturate(1330%) hue-rotate(314deg) brightness(97%) contrast(90%);
+}
+
+/* hover 시 조금 밝게 */
+.sidebar-btn:hover img {
+  filter: brightness(0) saturate(100%) invert(73%) sepia(10%) saturate(1330%) hue-rotate(314deg) brightness(97%) contrast(90%);
+}
+
+.sidebar-btn img {
+  color: #9B9A9F; /* 기본 회색 */
+  transition: color 0.2s ease;
+}
+
+.sidebar-btn.active img {
+  color: #CC8889; /* 클릭 시 핑크 */
+}
+
+.sidebar-btn:hover img {
+  color: #E6A0A1; /* hover 시 조금 더 밝게 */
+}
+
 
 .main {
 position: relative;
