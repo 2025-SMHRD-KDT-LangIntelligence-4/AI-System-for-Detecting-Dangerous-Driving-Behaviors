@@ -33,6 +33,7 @@ import lombok.NoArgsConstructor;
     
     // Car 관련
     private String carNumber;
+    private String carType;
     
     // Log 관련
     private String countLog;
@@ -41,5 +42,4 @@ import lombok.NoArgsConstructor;
     private String fmtCreatedAt;
     private String fmtDriverBirthdate;
     private String driverCode;
-	}
-
+}

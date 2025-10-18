@@ -311,14 +311,13 @@ button.div3 {
 
 .avatar-icon {
   	align-self: stretch;
-  	height: 133px;
+  	height: 100%;
   	position: relative;
   	border-radius: 109.06px;
   	max-width: 100%;
   	overflow: hidden;
   	flex-shrink: 0;
   	object-fit: cover;
-  	top:-3px;
 }
 .a021 {
   	position: relative;

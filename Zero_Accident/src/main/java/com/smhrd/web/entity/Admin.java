@@ -20,7 +20,16 @@ import lombok.NoArgsConstructor;
 		private String adminPwd;
 		private String adminName;
 		private String adminContact;
+		private String adminImg;
+		private String adminRegion;
+		private int adminWarningCount;
+		private LocalDate adminBirthdate;
 		private LocalDateTime joinedAt;
+		private String fmtJoinedAt;
+		private String fmtAdminBirthdate;
+		private String adminCode;
 		
+		// admin이 관리하는 운전자 수
+		private Integer driverCount;
 	}
 

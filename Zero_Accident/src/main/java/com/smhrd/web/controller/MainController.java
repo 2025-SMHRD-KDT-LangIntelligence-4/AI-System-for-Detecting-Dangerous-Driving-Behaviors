@@ -9,16 +9,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.smhrd.web.dto.DriverInfo;
 import com.smhrd.web.dto.MakeGraph;
 import com.smhrd.web.dto.SelectLog;
 import com.smhrd.web.dto.SelectVideo;
+import com.smhrd.web.entity.Admin;
 import com.smhrd.web.entity.Driver;
 import com.smhrd.web.service.LogService;
 import com.smhrd.web.service.MainService;
 import com.smhrd.web.service.MapService;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -204,7 +207,16 @@ public class MainController{
 		
 	// 관리자 정보 관리 페이지
 		@GetMapping("/ButtonAdmin5")
-		public String ButtonAdmin5() {
+		public String ButtonAdmin5(Model model, HttpSession session, RedirectAttributes ra) {
+	    	Admin loginAdmin = (Admin) session.getAttribute("loginAdmin");
+	    	if (loginAdmin == null) {
+	            // 로그인 세션 만료 시 1회성 메시지 전달
+	            ra.addFlashAttribute("alertMsg", "로그인 세션이 만료되었습니다.");
+	            return "redirect:/";
+	        }
+	    	int adminIdx = loginAdmin.getAdminIdx();
+	    	List<DriverInfo> driverList = service.selectDriverByAdminIdx(adminIdx);
+	    	model.addAttribute("driverList", driverList);
 			return "ButtonAdmin5";
 			}	
 }

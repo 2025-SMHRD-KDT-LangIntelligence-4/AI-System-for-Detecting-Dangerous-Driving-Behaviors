@@ -30,4 +30,6 @@ public interface MainMapper {
 		List<MakeGraph> selectEventTypeCountMonth();
 
 		List<MakeGraph> selectEventTypeCountWeek();
+		
+		List<DriverInfo> selectDriverByAdminIdx(int adminIdx);
 }

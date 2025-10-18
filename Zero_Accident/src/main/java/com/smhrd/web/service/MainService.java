@@ -100,4 +100,35 @@ public class MainService {
 
         return fixedList;
     }
+    
+    // 우빈 : 관리자 마이페이지 정보 조회
+	public List<DriverInfo> selectDriverByAdminIdx(int adminIdx) {
+		List<DriverInfo> list = mapper.selectDriverByAdminIdx(adminIdx);
+
+        for (DriverInfo d : list) {
+            // 우빈 : driver_idx → S001 형식으로
+            d.setDriverCode(String.format("S%03d", d.getDriverIdx()));
+            // 우빈 : 차량 타입 한글 매핑
+            if (d.getCarType() != null) {
+                switch (d.getCarType()) {
+                    case "BUS":
+                        d.setCarType("버스");
+                        break;
+                    case "TAXI":
+                        d.setCarType("택시");
+                        break;
+                    case "TRUCK":
+                        d.setCarType("트럭");
+                        break;
+                    case "PRIVATE":
+                        d.setCarType("개인");
+                        break;
+                    default:
+                        d.setCarType("기타");
+                        break;
+                }
+            }
+        }
+        return list;
+	}
 }

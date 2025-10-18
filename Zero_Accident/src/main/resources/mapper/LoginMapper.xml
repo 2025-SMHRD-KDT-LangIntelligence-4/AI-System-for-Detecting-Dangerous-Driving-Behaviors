@@ -5,14 +5,22 @@
   
 <mapper namespace="com.smhrd.web.mapper.LoginMapper">
 
+<!-- 로그인 정보 세션 쿼리문 -->
 <select id="findByAdminId" parameterType="string" resultType="com.smhrd.web.entity.Admin">
-    SELECT admin_id, admin_pwd, admin_name, admin_contact
-    FROM tb_admin
+    SELECT
+    a.*,
+    COALESCE(dc.cnt, 0) AS driverCount
+    FROM tb_admin a
+    LEFT JOIN (
+	    SELECT admin_idx, COUNT(*) AS cnt
+	    FROM tb_driver
+	    GROUP BY admin_idx
+	  ) dc ON dc.admin_idx = a.admin_idx
     WHERE admin_id = #{adminId}
 </select>
 
 <select id="findByDriverId" parameterType="string" resultType="com.smhrd.web.entity.Driver">
-    SELECT driver_id, driver_pwd, driver_name, driver_contact
+    SELECT *
     FROM tb_driver
     WHERE driver_id = #{driverId}
 </select>

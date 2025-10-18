@@ -64,4 +64,12 @@
     GROUP BY event_type
 </select>
 
+<!-- 우빈 : 관리자 마이페이지 정보 조회 -->
+<select id="selectDriverByAdminIdx" parameterType="int" resultType="com.smhrd.web.dto.DriverInfo">
+	  SELECT d.*, c.car_number, c.car_type
+	  FROM tb_driver d
+	  LEFT JOIN tb_car c ON d.driver_idx = c.driver_idx
+	  WHERE admin_idx = #{adminIdx}
+ </select>
+
 </mapper>

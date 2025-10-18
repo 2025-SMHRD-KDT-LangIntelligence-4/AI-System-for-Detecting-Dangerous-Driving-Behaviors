@@ -163,16 +163,16 @@
  							<div class="avatarBorder">
  							
 	 							<!-- 관리자 증명사진 : DB에서 adminImg 가져오기! -->
-	   							<img class="avatar-icon" src="/image/admin1.png">
+	   							<img class="avatar-icon" src="${sessionScope.loginAdmin.adminImg}">
 							</div>
    							
    							<div class="a021">
    							
    								<!-- 관리자 이름 : DB에서 adminName값 가져오기! -->
-   								<p class="p">강우희 관리자</p>
+   								<p class="p">${sessionScope.loginAdmin.adminName} 관리자</p>
    								
    								<!-- 관리자 ID : DB에서 adminIdx값 가져오기! -->
-   								<p class="buttonadmin5jsp-a021">(A021)</p>
+   								<p class="buttonadmin5jsp-a021">(${sessionScope.loginAdmin.adminCode})</p>
    							</div>
  						</div>
     						
@@ -202,25 +202,25 @@
    									<b class="b7">
    										
    										<!-- 관리자 연락처 : DB에서 adminContact값 가져오기! -->
-   										<p class="info">010-3908-9546</p>
+   										<p class="info">${sessionScope.loginAdmin.adminContact}</p>
    										
    										<!-- 관리자 생년월일 : DB에서 가져오기! -->					
-   										<p class="info">1989-08-09</p>
+   										<p class="info">${sessionScope.loginAdmin.fmtAdminBirthdate}</p>
    										
    										<!-- 관리자 소속(회사명) : DB에서 가져오기! -->
-   										<p class="info">   합자회사 순천교통</p>
+   										<p class="info">합자회사 순천교통</p>
    										
    										<!-- 담당 지역 : DB에서 가져오기! -->
-   										<p class="info">전남 순천</p>
+   										<p class="info">${sessionScope.loginAdmin.adminRegion}</p>
    										
    										<!-- 담당 운전자 수 : DB에서 조회하기! -->
-   										<p class="info">37명</p>
+   										<p class="info">${sessionScope.loginAdmin.driverCount}명</p>
    										
    										<!-- 누적 경고 처리 횟수 : DB에서 조회하기! -->
-   										<p class="info">125건</p>
+   										<p class="info">${sessionScope.loginAdmin.adminWarningCount}건</p>
    										
    										<!-- 관리자 가입 일자 : DB에서 joined_at값 가져오기! -->
-   										<p class="info">2021-12-02</p>
+   										<p class="info">${sessionScope.loginAdmin.fmtJoinedAt}</p>
    									</b>
  								</div>
    							</div>
@@ -317,7 +317,7 @@
    							<!-- 최다 경고 발생 운전자-->
    							<div class="wrapper50">
 								<div class="div105">
-  									<span class="span">정민수 </span><b class="b9">운전자</b>
+  									<span class="span">정민수</span><b class="b9"> 운전자</b>
 								</div>
    							</div>
  						</div>
@@ -406,12 +406,12 @@
    					<div class="group">
    						
    						<!-- 동일한 운전자 15번 반복 출력  -->
-   						<c:forEach var="i" begin="1" end="15">
+   						<c:forEach var="d" items="${driverList}">
    							<!-- 운전자 1명 -->
 	 						<div class="div24">
 	 							
 	 							<!-- 운전자 사진 : DB에서 driverImg값 가져오기! -->
-	   							<img class="buttonadmin5jsp-avatar-icon" src="/image/driver1.png">
+	   							<img class="buttonadmin5jsp-avatar-icon" src="${d.driverImg}">
 	   							
 	   							
 	   							<div class="div25">
@@ -419,28 +419,28 @@
 		   							<!-- 운전자 ID : DB에서 driverIdx값 가져오기! -->
     								<div class="inner">
       									<div class="s001-wrapper">
-   											<div class="s001">S001</div>
+   											<div class="s001">${d.driverCode}</div>
       									</div>
     								</div>
     								
     								<!-- 운전자 이름 : DB에서 driverName값 가져오기! -->
     								<div class="child">
       									<div class="child">
-       										<div class="s001">김영호</div>
+       										<div class="s001">${d.driverName}</div>
       									</div>
     								</div>
     								
     								<!-- 차량 번호 : DB에서 carNumber값 가져오기! -->
     								<div class="buttonadmin5jsp-inner">
       									<div class="s001-wrapper">
-      										<div class="s001">서울 12아 3456</div>
+      										<div class="s001">${d.carNumber}</div>
       									</div>
     								</div>
 	     							
 	     							<!-- 차량 종류 : DB에서 carType값 가져오기! -->	
     								<div class="inner2">
       									<div class="s001-wrapper">
-      										<div class="s001">택시</div>
+      										<div class="s001">${d.carType}</div>
       									</div>
     								</div>
     								
@@ -472,14 +472,5 @@
  		
   	</div> <!-- 전체 컨테이너 끝 -->
   	
-  	
-  	
-  	
-
-	
-	
-	
-	
-	
 </body>
 </html>
