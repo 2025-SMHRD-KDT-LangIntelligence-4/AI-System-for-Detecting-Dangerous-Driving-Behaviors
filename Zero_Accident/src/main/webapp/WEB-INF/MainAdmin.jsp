@@ -189,7 +189,7 @@
 								</div>
 								<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
 								<!-- eventLevel에 따라 색상 변경되어야 함 -->
-								<div class="div54">${v.eventType}</div>
+								<div class="${v.eventTypeColor}">${v.eventType}</div>
 							</div>
 						</div>
 						
