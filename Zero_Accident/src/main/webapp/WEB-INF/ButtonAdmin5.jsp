@@ -461,15 +461,11 @@
  				<!-- 구분선 -->
  				<div class="div233">
  				</div>
-   			</div>
-   			
-   			
-   			
-   			
-   			
+   			</div> 	
    			
  		</div> <!-- 메인 컨테이너 끝 -->
  		
+ 		<!-- 저작권 -->
  		<div class="copyright">
    			<div class="b">Copyright ⓒ 2025 Zo-A Co. All rights reserved.</div>
  		</div>
