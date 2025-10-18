@@ -47,12 +47,15 @@
 					  
 					  <!-- 현재 시간 -->
 				      <div class="datetime-right">
-					        <div class="datetime-empty"></div>
-					        <div class="datetime-time-wrapper">
-					        	<!-- 현재 시간 -->
-					          	<div class="datetime-time" id="currentTime"></div>
-					        </div>
-				      </div>
+						  <div class="datetime-empty"></div>
+						  <div class="datetime-time-wrapper">
+						    <div class="datetime-time">
+						      <!-- 시 -->              <!-- 콜론 -->                      <!-- 분 -->                <!-- AM/PM -->
+						      <span id="hours"></span><span class="blink-colon">:</span><span id="minutes"></span><span id="ampm"></span>
+						    </div>
+						  </div>
+					  </div>
+
 			    </div>
 		  </div>
 </div>
@@ -62,32 +65,31 @@
 	
 	
 	<script>
-	    function updateTime() {
-	        const now = new Date();
+	  	function updateTime() {
+	    const now = new Date();
 	
-	        // 시, 분 가져오기
-	        let hours = now.getHours();
-	        let minutes = now.getMinutes();
-	        let ampm = hours >= 12 ? 'PM' : 'AM';
+	    let hours = now.getHours();
+	    let minutes = now.getMinutes();
+	    const ampm = hours >= 12 ? 'PM' : 'AM';
 	
-	        // 12시간제 변환
-	        hours = hours % 12;
-	        hours = hours ? hours : 12; // 0시 → 12시
+	    // 12시간제로 변환
+	    hours = hours % 12;
+	    hours = hours ? hours : 12;
 	
-	        // 두 자리 숫자로 표시
-	        hours = hours < 10 ? '0' + hours : hours;
-	        minutes = minutes < 10 ? '0' + minutes : minutes;
+	    // 두 자리 포맷
+	    hours = hours < 10 ? '0' + hours : hours;
+	    minutes = minutes < 10 ? '0' + minutes : minutes;
 	
-	        // 표시
-	        document.getElementById('currentTime').textContent = hours + ':' + minutes + ampm;
-	    }
+	    // 각각 표시
+	    document.getElementById('hours').textContent = hours;
+	    document.getElementById('minutes').textContent = minutes;
+	    document.getElementById('ampm').textContent = ampm;
+	  }
 	
-	    // 페이지 로드 시 바로 실행
-	    updateTime();
-	
-	    // 1초마다 갱신
-	    setInterval(updateTime, 1000);
+	  updateTime();
+	  setInterval(updateTime, 1000);
 	</script>
+
 	<script>
 	    function updateDateTime() {
 	        const now = new Date();

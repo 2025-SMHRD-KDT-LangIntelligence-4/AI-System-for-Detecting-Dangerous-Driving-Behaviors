@@ -87,7 +87,7 @@
 	  				<button type="button" class="adminInfo" onclick="location.href='/ButtonAdmin5'">
 	  					<img class="icon33" src="/image/AdminButton.svg">
 	  				</button>
-	  				<span class="tooltip">관리자 정보</span> 
+	  				<span class="tooltip">관리자 마이페이지</span> 
   				</div>
   				
 			</div>

@@ -1,5 +1,37 @@
 @charset "UTF-8";
 
+/* 시계 콜론 깜빡이는 효과 : 1.5초 간격*/
+.blink-colon {
+  animation: blink 1.5s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* 시, 콜론, 분 글자 간격 늘리기 */
+.datetime-time {
+  letter-spacing: 2px;  
+}
+
+.datetime-time span {
+  display: inline-block;
+}
+
+/*시계 시,분,AM/PM 글자 간격 늘리기*/
+#hours {
+	letter-spacing: 0.5px;
+}
+
+#minutes {
+	letter-spacing: 0.5px;
+}
+
+#ampm {
+	letter-spacing: 0.5px;
+}
 
 .datetime-time {
   position: relative;
