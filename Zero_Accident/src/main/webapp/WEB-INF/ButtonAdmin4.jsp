@@ -266,7 +266,7 @@
        								<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
 									<!-- eventLevel에 따라 색상 변경되어야 함 -->
        								<div class="wrapper8">
-       									<div class="b">운전자 폭행</div>
+       									<div class="bb">운전자 폭행</div>
        								</div>
      							</div>
       						</div>

@@ -93,8 +93,7 @@ button.div3 {
 .b {
   	position: relative;
   	font-weight: 300;
-  	margin-top: -2px;
-  	margin-left: -5px;
+  	margin-top: 2px;
 }
 .div4 {
   	position: absolute;
