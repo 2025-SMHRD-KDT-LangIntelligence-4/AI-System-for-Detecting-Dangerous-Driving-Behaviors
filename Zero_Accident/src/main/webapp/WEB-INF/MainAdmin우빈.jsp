@@ -14,12 +14,14 @@
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 
     <!-- MainAdmin.css 파일의 스타일을 적용하겠다. -->
-   	<link rel="stylesheet"  href="/css/MainAdmin.css" />
+   	<link rel="stylesheet"  href="/css/MainAdmin우빈.css" />
    	<!-- Sidebar.css 파일의 스타일을 적용하겠다. -->
 	<link rel="stylesheet"  href="/css/Sidebar.css" />
 	<!-- 우빈 : 카카오 지도 SDK -->
 	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b1fc2610a3c9415f64affd1fc92ced5b&autoload=false"></script>
-
+	<!-- 우빈 : J Query 로드 -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	
 </head>
 <body>
 
@@ -176,7 +178,7 @@
 							</div>
 							<div class="s101-parent">
 							
-								<!-- 운전자ID : DB에서 driverIdx값 가져오기! -->
+								<!-- 운전자ID : DB에서 driverCode값 가져오기! -->
 								<div class="search-here">${v.driverCode}</div>
 								<!-- 구분선 -->
 								<div class="line-div">
@@ -194,8 +196,26 @@
 						
 						<!-- 실시간 블랙박스 영상 -->
 						<div class="div55">
-							<!-- 영상 삽입 후 삭제 -->
-							<div class="search-here">블랙박스 영상</div>
+						    <c:choose>
+						        <c:when test="${not empty v.eventVideo}">
+						            <video
+						                src="${cpath}${v.eventVideo}"
+						                class="blackbox-video"
+						                style="width:100%; height:100%; object-fit:cover; border-radius:8px;"
+						                controls
+						                muted
+						                autoplay
+						                loop
+						                playsinline
+						                preload="metadata"
+						            >
+						                브라우저가 video 태그를 지원하지 않습니다.
+						            </video>
+						        </c:when>
+						        <c:otherwise>
+						            <div class="search-here">동영상 준비 중</div>
+						        </c:otherwise>
+						    </c:choose>
 						</div>
 						
 						<!-- 경고 전송 버튼 -->
@@ -339,7 +359,6 @@
 
 <!-- ========================================= 통계 =======================================  -->   			
 
-
    				<div class="div3">
    					
    					<!-- 타이틀 -->
@@ -348,31 +367,35 @@
    						<div class="mainadminjsp-log">위험 운전 유형별 발생 건수</div>
      				</div>
      				
-     				
    					<div class="div4">
-   					
-   						<!-- 월간 통계 버튼 -->
-   						<button type="button" class="div5">
-   							<b class="search-here">월간</b>
-   						</button>
    						
-   						<!-- 주간 통계 버튼 -->
-   						<button type="button" class="div5">
-   							<b class="search-here">주간</b>
-   						</button>
-   						
-   						<!-- 일간 통계 버튼 -->
-   						<button type="button" class="div7">
-   							<b class="search-here">일간</b>
-   						</button>
+						<!-- 연간 통계 버튼 -->
+						<button type="button" class="div7" data-period="year"
+						        >
+						  <b class="search-here">연간</b>
+						</button>
+						
+						<!-- 월간 통계 버튼 -->
+						<button type="button" class="div5" data-period="month"
+						        >
+						  <b class="search-here">월간</b>
+						</button>
+						
+						<!-- 주간 통계 버튼 -->
+						<button type="button" class="div5" data-period="week"
+						        >
+						  <b class="search-here">주간</b>
+						</button>
    						
    					</div>
      					
-     <!-- ============ 일간 위험 행위 발생 그래프 ============= -->	
-   					<div class="div8">
-   						<div class="div9">
+     <!-- ============ 위험 행위 발생 그래프 ============= -->	
+   					<div id="div8" class="div8"> <!-- 그래프 감싸는 검정 div -->
+   					
+   						<div class="div9"> <!-- 그래프 좌우정렬 div -->
    						
-   							<!-- 운전자 폭행  -->
+   							<c:forEach var="e" items="${eventList }">
+   							<!-- 운전자 폭행, 총 4개 그래프 반복문으로  -->
    							<div class="div10">
    								<div class="component-1-wrapper">
    									<div class="component-1">
@@ -386,7 +409,7 @@
    											<!-- 발생 횟수에 따라 height 자동 조절 -->
    											<div class="wrapper">
    												<!-- 일간 운전자 폭행 발생 횟수 : DB에서 가져오기! -->
-   												<div class="div11">1</div>
+   												<div class="div11">${e.cnt }</div>
    											</div>
    										</div>
    									</div>
@@ -394,90 +417,14 @@
    								
    								<!-- 라벨 -->
    								<div class="container">
-   									<div class="div12">운전자 폭행</div>
+   									<div class="div12">${e.eventType }</div>
    								</div>
-   							</div>
-     							
-     						<!-- 졸음운전  -->	
-   							<div class="div13">   							
-   								<div class="component-1-wrapper">
-   									<div class="component-1">
-   										
-   										<!-- background bar -->
-   										<div class="component-1-child">
-   										</div>
-   										  										
-   										<div class="frame-div">
-   											<!-- 실제 막대그래프 -->
-   											<!-- 발생 횟수에 따라 height 자동 조절 -->
-   											<div class="wrapper">
-   												<!-- 일간 졸음 운전 발생 횟수 : DB에서 가져오기! -->
-   												<div class="div11">12</div>
-   											</div>
-   										</div>
-   									</div>
-   								</div>
-   								
-   								<!-- 라벨 -->
-   								<div class="container">
-     									<div class="div12">졸음운전</div>
-   								</div>
-   							</div>
-     							
-     						<!-- 운전대 미제어  -->		
-   							<div class="div16">
-   								<div class="component-1-wrapper">
-   									<div class="component-1">
-   									
-   										<!-- background bar -->
-   										<div class="component-1-child">
-   										</div>
-   										  										
-   										<div class="mainadminjsp-component-1-inner">
-   											<!-- 실제 막대그래프 -->
-   											<!-- 발생 횟수에 따라 height 자동 조절 -->
-   											<div class="wrapper">
-   												<!-- 일간 운전대 미제어 발생 횟수 : DB에서 가져오기! -->
-   												<div class="div11">8</div>
-   											</div>
-   										</div>
-   									</div>
-   								</div>
-   								
-   								<!-- 라벨 -->
-   								<div class="container">
-     									<div class="div12">운전대 미제어</div>
-   								</div>
-   							</div>
-     							
-     						<!-- 휴대폰 조작  -->		
-   							<div class="div19">
-   								<div class="component-1-wrapper">
-   									<div class="component-1">
-   										
-   										<!-- background bar -->
-   										<div class="component-1-child">
-   										</div>
-   										  										
-   										<div class="component-1-inner2">
-   											<!-- 실제 막대그래프 -->
-   											<!-- 발생 횟수에 따라 height 자동 조절 -->
-   											<div class="wrapper">
-   												<!-- 일간 휴대폰 조작 발생 횟수 : DB에서 가져오기! -->
-   												<div class="div11">23</div>
-   											</div>
-   										</div>
-   									</div>
-   								</div>
-   								
-   								<!-- 라벨 -->
-   								<div class="container">
-     									<div class="div12">휴대폰 조작</div>
-   								</div>
-   							</div>
-   						</div>
-   					</div>    					
-   				</div>
+   							</div> <!-- 4개 유형 그래프 중 1개 끝 -->
+   							</c:forEach>
+
+   						</div> <!-- 그래프 좌우 정렬 끝 -->
+   					</div> <!-- 그래프 검정 배경 끝 -->   					
+   				</div> <!-- 전체 그래프 회색 배경 끝 -->
      				
      				
 <!-- ==================================== 운행 차량 대수 =====================================  -->   			     				
@@ -620,7 +567,7 @@
 	    setInterval(updateDateTime, 60000);
 	</script>
 	
-	<!-- 카카오지도 JS -->
+	<!-- 우빈 : 카카오지도 JS -->
 	<script>
 	  kakao.maps.load(function() {
 	    // 지도 표시할 div
@@ -652,11 +599,13 @@
 	
 	      const marker = new kakao.maps.Marker({ position: pos, map });
 	
-	      const content = `
-	        <div style="padding:8px; min-width:180px">
-	          <b>${d.name || '운전자'}</b><br>
-	          ${d.contact || '-'}
-	        </div>`;
+	      // ✅ 템플릿 리터럴 대신 문자열 연결 사용
+	      const content =
+	        '<div style="padding:8px; min-width:180px">' +
+	          '<b>' + (d.name || '운전자') + '</b><br>' +
+	          (d.contact || '-') +
+	        '</div>';
+
 	      kakao.maps.event.addListener(marker, 'click', function() {
 	        infowindow.setContent(content);
 	        infowindow.open(map, marker);
@@ -697,7 +646,84 @@
 	  });
 	});
 	</script>
+
+	<script>
+	  function setStatsActive(selectedPeriod) {
+	    // 모든 버튼 가져오기
+	    const buttons = document.querySelectorAll('[data-period]');
 	
+	    buttons.forEach(btn => {
+	      // 현재 버튼의 period 값
+	      const period = btn.getAttribute('data-period');
 	
+	      if (period === selectedPeriod) {
+	        // 선택된 버튼: 활성화 스타일(div7)
+	        btn.classList.remove('div5');
+	        btn.classList.add('div7');
+	      } else {
+	        // 나머지 버튼: 비활성화 스타일(div5)
+	        btn.classList.remove('div7');
+	        btn.classList.add('div5');
+	      }
+	    });
+	  }
+	</script>
+
+	<script>
+	  // 버튼 클릭 핸들러
+	  $(document).on('click', '[data-period]', function () {
+	    const period = $(this).data('period'); // year|month|week
+	    console.log('🧩 클릭된 period =', period);
+	    loadStats(period);
+	    setStatsActive(period);
+	  });
+	
+	// 통계 로딩 (jQuery AJAX) — 최고값도 80%까지만 채움
+	  function loadStats(period) {
+	    console.log('🟢 버튼 클릭됨:', period);
+
+	    $.ajax({
+	      url: '/api/stats',
+	      method: 'GET',
+	      data: { period },     // ?period=year
+	      dataType: 'json',
+	      success: function (data) {
+	        console.log('📦 받은 데이터:', data);
+
+	        // 1) 최대값 계산 (0 나눗셈 방지)
+	        const maxCnt = Math.max(1, ...data.map(d => d.cnt || 0));
+
+	        // 2) 숫자/라벨 업데이트
+	        const cntEls   = document.querySelectorAll('.div11');
+	        const labelEls = document.querySelectorAll('.div12');
+	        for (let i = 0; i < data.length; i++) {
+	          if (cntEls[i])   cntEls[i].textContent   = data[i].cnt ?? 0;
+	          if (labelEls[i]) labelEls[i].textContent = data[i].eventType ?? '-';
+	        }
+
+	        // 3) 막대 높이 설정 (최대값 = 90%)
+	        const bars = document.querySelectorAll('.component-1 .component-1-inner');
+	        for (let i = 0; i < bars.length; i++) {
+	          const cnt = (data[i]?.cnt ?? 0);
+	          const pct = Math.round((cnt / maxCnt) * 90);
+	          bars[i].style.height = pct + '%';
+	          // (선택) 값 확인용
+	          bars[i].dataset.value = cnt;
+	        }
+	      },
+	      error: function (xhr, status, err) {
+	        console.error('❌ AJAX 실패:', status, err, xhr?.responseText);
+	        alert('데이터를 불러오지 못했습니다.');
+	      }
+	    });
+	  }
+	
+	  // 초기 실행
+	  $(function () {
+	    loadStats('year');
+	    setStatsActive('year'); // 선택버튼 스타일 표시
+	  });
+	</script>
+
 </body>
 </html>

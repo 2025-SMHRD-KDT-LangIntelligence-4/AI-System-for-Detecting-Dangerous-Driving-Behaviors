@@ -29,4 +29,39 @@
 	LIMIT 4
 </select>
 
+<!-- 우빈 : 블랙박스 4개 위험도순 -->
+<select id="selectVideoList" resultType="com.smhrd.web.dto.SelectVideo">
+    SELECT l.*, d.driver_idx
+    FROM tb_log l
+    LEFT JOIN tb_car c ON l.car_number = c.car_number
+    LEFT JOIN tb_driver d ON c.driver_idx = d.driver_idx
+    ORDER BY l.event_level DESC, l.created_at DESC
+    LIMIT 4
+</select>
+
+<!-- 우빈 : 그래프 비동기통신 연간 -->
+<select id="selectEventTypeCountYear" resultType="com.smhrd.web.dto.MakeGraph">
+    SELECT event_type, COUNT(*) AS cnt
+    FROM tb_log
+    WHERE YEAR(created_at) = YEAR(CURDATE())
+    GROUP BY event_type
+</select>
+
+<!-- 우빈 : 그래프 비동기통신 월간 -->
+<select id="selectEventTypeCountMonth" resultType="com.smhrd.web.dto.MakeGraph">
+    SELECT event_type, COUNT(*) AS cnt
+    FROM tb_log
+    WHERE MONTH(created_at) = MONTH(CURDATE())
+      AND YEAR(created_at) = YEAR(CURDATE())
+    GROUP BY event_type
+</select>
+
+<!-- 우빈 : 그래프 비동기통신 주간 -->
+<select id="selectEventTypeCountWeek" resultType="com.smhrd.web.dto.MakeGraph">
+    SELECT event_type, COUNT(*) AS cnt
+    FROM tb_log
+    WHERE YEARWEEK(created_at, 1) = YEARWEEK(CURDATE(), 1)
+    GROUP BY event_type
+</select>
+
 </mapper>

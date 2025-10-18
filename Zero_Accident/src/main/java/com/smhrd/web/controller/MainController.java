@@ -3,20 +3,21 @@ package com.smhrd.web.controller;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.smhrd.web.dto.DriverInfo;
+import com.smhrd.web.dto.MakeGraph;
 import com.smhrd.web.dto.SelectLog;
+import com.smhrd.web.dto.SelectVideo;
 import com.smhrd.web.entity.Driver;
-import com.smhrd.web.mapper.MainMapper;
 import com.smhrd.web.service.LogService;
 import com.smhrd.web.service.MainService;
 import com.smhrd.web.service.MapService;
-import com.smhrd.web.service.Service유선;
 
 import lombok.RequiredArgsConstructor;
 
@@ -72,14 +73,22 @@ public class MainController{
 	    List<Driver> drivers = mapService.getAllWithCoords();
 	    model.addAttribute("drivers", drivers);
 	    
+        // 우빈 : 블랙박스 4개 영상 위험도 순으로 가져오기
+        List<SelectVideo> videoList = service.selectVideoList();
+        model.addAttribute("videoList", videoList);
+        
+        // 우빈 : 통계 그래프 (기본 year)
+        List<MakeGraph> eventList = service.selectEventTypeCountByPeriod("year");
+        model.addAttribute("eventList", eventList);
+	    
 	    // 유선 : 현재 운행 차량 조회
 	    long count = service.countDriverIdx();
 	    model.addAttribute("count", count);
 	    
 	    // 유선 : 로그(위험등급색깔, 로그기록시간, 차번호, 위험운전타입)
-
 		 List<SelectLog> logList = service.selectLogList();
-		 //이벤트레벨에 따라 문자열을 바꾼다. 포매팅 (색깔에 관한문자열 frame-item :빨강, frame-child :주황
+		 // 유선 : 이벤트레벨에 따라 문자열을 바꾼다. 
+		 // 포매팅 (색깔에 관한문자열 frame-item :빨강, frame-child :주황
 		 for (SelectLog log : logList) {
 				 if ("1".equals(log.getEventLevel())){
 					 log.setEventColor("frame-item2");
@@ -89,7 +98,8 @@ public class MainController{
 				 log.setEventColor("frame-item");
 			 }
 		 }
-		// 영어 -> 한글로 바꾸기 (PHONE -> 휴대폰 조작, HAND -> 핸들미제어, DROWSY -> 졸음운전, ASSAULT -> 운전자폭행
+		 // 유선 : 영어 -> 한글로 바꾸기
+		 // (PHONE -> 휴대폰 조작, HAND -> 핸들미제어, DROWSY -> 졸음운전, ASSAULT -> 운전자폭행
 		 for (SelectLog log : logList) {
 			 if ("PHONE".equals(log.getEventType())){
 				 log.setEventTypeKo("휴대폰 조작");
@@ -102,8 +112,8 @@ public class MainController{
 			 }
 		 }
 			 
-		 // 로그 기록 시간 보기 쉽게 바꾸기 [13:44:08]
-		// ofPattern에 내가 바꾸고 싶은 형식 지정 (hh:mm:ss 등)
+		 // 유선 : 로그 기록 시간 보기 쉽게 바꾸기 [13:44:08]
+		 // ofPattern에 내가 바꾸고 싶은 형식 지정 (hh:mm:ss 등)
 		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
 		    for (SelectLog j : logList) {
 		        	j.setRegDate(j.getCreatedAt().format(formatter));
@@ -111,6 +121,13 @@ public class MainController{
 		    
 		    model.addAttribute("logList", logList);
 			return "/MainAdmin";
+    }
+    
+    // 우빈 : 비동기 통신(AJAX) 요청 처리 (통계 버튼)
+    @GetMapping("/api/stats")
+    @ResponseBody
+    public List<MakeGraph> getStats(@RequestParam String period) {
+        return service.selectEventTypeCountByPeriod(period);
     }
 	
 	// 운전자 메인 화면

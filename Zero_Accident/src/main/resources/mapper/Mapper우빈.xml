@@ -4,16 +4,5 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.smhrd.web.mapper.Mapper우빈">
-<select id="selectVideoList" resultType="com.smhrd.web.dto.SelectVideo">
-    SELECT
-    l.*, d.driver_idx
-    FROM tb_log l
-    LEFT JOIN tb_car c 
-        ON l.car_number = c.car_number
-    LEFT JOIN tb_driver d 
-        ON c.driver_idx = d.driver_idx
-    ORDER BY l.event_level DESC
-    LIMIT 4
-</select>
 
 </mapper>

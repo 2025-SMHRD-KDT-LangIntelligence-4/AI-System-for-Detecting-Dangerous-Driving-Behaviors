@@ -19,7 +19,8 @@
 	<link rel="stylesheet"  href="/css/Sidebar.css" />
 	<!-- 우빈 : 카카오 지도 SDK -->
 	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b1fc2610a3c9415f64affd1fc92ced5b&autoload=false"></script>
-
+	<!-- 우빈 : J Query 로드 -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 
@@ -163,7 +164,7 @@
 				
 				
 				<div class="div50">
-				
+				<c:forEach var="v" items="${videoList}">
 					<!-- 블랙박스 1 -->
 					<div class="div51">
 					
@@ -172,30 +173,48 @@
 						
 							<!-- 위험 등급 표시 아이콘 -->
 							<!-- eventLevel에 따라 색상 변경되어야 함 -->
-							<div class="frame-item">
+							<div class="${v.eventColor}">
 							</div>
 							<div class="s101-parent">
 							
-								<!-- 운전자ID : DB에서 driverIdx값 가져오기! -->
-								<div class="search-here">S101</div>
+								<!-- 운전자ID : DB에서 driverCode값 가져오기! -->
+								<div class="search-here">${v.driverCode}</div>
 								<!-- 구분선 -->
 								<div class="line-div">
 								</div>
 								<!-- 차량번호 : DB에서 carNumber값 가져오기! -->
-								<div class="search-here">11바 9653</div>
+								<div class="search-here">${v.carNumber}</div>
 								<!-- 구분선 -->
 								<div class="line-div">
 								</div>
 								<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
 								<!-- eventLevel에 따라 색상 변경되어야 함 -->
-								<div class="div54">운전자 폭행</div>
+								<div class="div54">${v.eventType}</div>
 							</div>
 						</div>
 						
 						<!-- 실시간 블랙박스 영상 -->
 						<div class="div55">
-							<!-- 영상 삽입 후 삭제 -->
-							<div class="search-here">블랙박스 영상</div>
+						    <c:choose>
+						        <c:when test="${not empty v.eventVideo}">
+						            <video
+						                src="${cpath}${v.eventVideo}"
+						                class="blackbox-video"
+						                style="width:100%; height:100%; object-fit:cover; border-radius:8px;"
+						                controls
+						                muted
+						                autoplay
+						                loop
+						                playsinline
+						                preload="metadata"
+						            >
+						                브라우저가 video 태그를 지원하지 않습니다.
+						            </video>
+						        </c:when>
+						        <c:otherwise>
+						            <div class="search-here">동영상 준비 중</div>
+						        </c:otherwise>
+						    </c:choose>
 						</div>
 						
 						<!-- 경고 전송 버튼 -->
@@ -209,146 +228,8 @@
 							</div>
 						</button>
 						
-					</div>
- 						
- 					<!-- 블랙박스 2 -->	
-					<div class="div51">
-					
-						<!-- 상태바 -->
-						<div class="div52">
-						
-								<!-- 위험 등급 표시 아이콘 -->
-								<!-- eventLevel에 따라 색상 변경되어야 함 -->
- 								<div class="inner">
- 								</div>
- 								<div class="s101-parent">
- 									
- 									<!-- 운전자ID : DB에서 driverIdx값 가져오기! -->
-   									<div class="search-here">S049</div>
-   									<!-- 구분선 -->
-   									<div class="line-div">
-   									</div>
-   									<!-- 차량번호 : DB에서 carNumber값 가져오기! -->
-   									<div class="search-here">45사 8291</div>
-   									<!-- 구분선 -->
-   									<div class="line-div">
-   									</div>
-   									<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
-									<!-- eventLevel에 따라 색상 변경되어야 함 -->
-   									<div class="div61">휴대폰 조작</div>
- 								</div>
-						</div>
-						
-						<!-- 실시간 블랙박스 영상 -->
-						<div class="div55">
-							<!-- 영상 삽입 후 삭제 -->
-							<div class="search-here">블랙박스 영상</div>
-						</div>
-						
-						<!-- 경고 전송 버튼 -->
-						<!-- 버튼 클릭 시 운전자에게 해당 위험 단계에 맞는 경고 발송 -->
-						<button type="button" class="alert-btn">
-							<div class="div64">
-								<div class="alert-triangle">
-									<!-- 스피커 아이콘 -->
-									<img class="icon6" src="/image/Volume.svg">										
-								</div>
-							</div>
-						</button>
-				    </div>
- 						
- 					<!-- 블랙박스 3 -->	
-					<div class="div51">
-					
-							<!-- 상태바 -->
- 							<div class="div52">
- 								
- 								<!-- 위험 등급 표시 아이콘 -->
-								<!-- eventLevel에 따라 색상 변경되어야 함 -->
-   								<div class="inner">
-   								</div>  								
-   								<div class="s101-parent">
-   								
-   									<!-- 운전자ID : DB에서 driverIdx값 가져오기! -->
-   									<div class="search-here">S032</div>
-   									<!-- 구분선 -->
-   									<div class="line-div">
-   									</div>
-   									<!-- 차량번호 : DB에서 carNumber값 가져오기! -->
-   									<div class="search-here">63아 4720</div>
-   									<!-- 구분선 -->
-   									<div class="line-div">
-   									</div>
-   									<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
-									<!-- eventLevel에 따라 색상 변경되어야 함 -->
-   									<div class="div61">졸음 운전 </div>
-   								</div>
- 							</div>
- 							
- 							<!-- 실시간 블랙박스 영상 -->
- 							<div class="div55">
- 								<!-- 영상 삽입 후 삭제 -->
-   								<div class="search-here">블랙박스 영상</div>
- 							</div>
- 							
- 							<!-- 경고 전송 버튼 -->
-							<!-- 버튼 클릭 시 운전자에게 해당 위험 단계에 맞는 경고 발송 -->
- 							<button type="button" class="alert-btn">
-   								<div class="div64">
-   									<div class="alert-triangle">
-   										<!-- 스피커 아이콘 -->
-   										<img class="icon6" src="/image/Volume.svg">   										
-   									</div>
-   								</div>
- 							</button>
-					</div>
- 						
- 					<!-- 블랙박스 4 -->	
-					<div class="div51">
-					
-						<!-- 상태바 -->
-						<div class="div73">
-						
-							<!-- 위험 등급 표시 아이콘 -->
-							<!-- eventLevel에 따라 색상 변경되어야 함 -->
-							<div class="inner">
-							</div>
-							<div class="s101-parent">
-									
-									<!-- 운전자ID : DB에서 driverIdx값 가져오기! -->
- 									<div class="search-here">S006</div>
- 									<!-- 구분선 -->
- 									<div class="line-div">
- 									</div>
- 									<!-- 차량번호 : DB에서 carNumber값 가져오기! -->
- 									<div class="search-here">88사 2107</div>
- 									<!-- 구분선 -->
- 									<div class="line-div">
- 									</div>
- 									<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
-									<!-- eventLevel에 따라 색상 변경되어야 함 -->
- 									<div class="div61">운전대 미제어 </div>
-							</div>
-						</div>
- 							
- 						<!-- 실시간 블랙박스 영상 -->	
-						<div class="div55">
-							<!-- 영상 삽입 후 삭제 -->
-							<div class="search-here">블랙박스 영상</div>
-						</div>
-						
-						<!-- 경고 전송 버튼 -->
-						<!-- 버튼 클릭 시 운전자에게 해당 위험 단계에 맞는 경고 발송 -->
-						<button type="button" class="alert-btn">
-							<div class="div64">
-								<div class="alert-triangle">
-									<!-- 스피커 아이콘 -->
-									<img class="icon6" src="/image/Volume.svg">										
-								</div>
-							</div>
-						</button>						
-					</div>
-					
+					</div> <!-- 블랙박스 끝 -->
+					</c:forEach>
 				</div>
 			</div>
       	</div>
@@ -477,7 +358,6 @@
 
 <!-- ========================================= 통계 =======================================  -->   			
 
-
    				<div class="div3">
    					
    					<!-- 타이틀 -->
@@ -486,31 +366,35 @@
    						<div class="mainadminjsp-log">위험 운전 유형별 발생 건수</div>
      				</div>
      				
-     				
    					<div class="div4">
-   					
-   						<!-- 월간 통계 버튼 -->
-   						<button type="button" class="div5">
-   							<b class="search-here">월간</b>
-   						</button>
    						
-   						<!-- 주간 통계 버튼 -->
-   						<button type="button" class="div5">
-   							<b class="search-here">주간</b>
-   						</button>
-   						
-   						<!-- 일간 통계 버튼 -->
-   						<button type="button" class="div7">
-   							<b class="search-here">일간</b>
-   						</button>
+						<!-- 연간 통계 버튼 -->
+						<button type="button" class="div7" data-period="year"
+						        >
+						  <b class="search-here">연간</b>
+						</button>
+						
+						<!-- 월간 통계 버튼 -->
+						<button type="button" class="div5" data-period="month"
+						        >
+						  <b class="search-here">월간</b>
+						</button>
+						
+						<!-- 주간 통계 버튼 -->
+						<button type="button" class="div5" data-period="week"
+						        >
+						  <b class="search-here">주간</b>
+						</button>
    						
    					</div>
      					
-     <!-- ============ 일간 위험 행위 발생 그래프 ============= -->	
-   					<div class="div8">
-   						<div class="div9">
+     <!-- ============ 위험 행위 발생 그래프 ============= -->	
+   					<div id="div8" class="div8"> <!-- 그래프 감싸는 검정 div -->
+   					
+   						<div class="div9"> <!-- 그래프 좌우정렬 div -->
    						
-   							<!-- 운전자 폭행  -->
+   							<c:forEach var="e" items="${eventList }">
+   							<!-- 운전자 폭행, 총 4개 그래프 반복문으로  -->
    							<div class="div10">
    								<div class="component-1-wrapper">
    									<div class="component-1">
@@ -524,7 +408,7 @@
    											<!-- 발생 횟수에 따라 height 자동 조절 -->
    											<div class="wrapper">
    												<!-- 일간 운전자 폭행 발생 횟수 : DB에서 가져오기! -->
-   												<div class="div11">1</div>
+   												<div class="div11">${e.cnt }</div>
    											</div>
    										</div>
    									</div>
@@ -532,93 +416,17 @@
    								
    								<!-- 라벨 -->
    								<div class="container">
-   									<div class="div12">운전자 폭행</div>
+   									<div class="div12">${e.eventType }</div>
    								</div>
-   							</div>
-     							
-     						<!-- 졸음운전  -->	
-   							<div class="div13">   							
-   								<div class="component-1-wrapper">
-   									<div class="component-1">
-   										
-   										<!-- background bar -->
-   										<div class="component-1-child">
-   										</div>
-   										  										
-   										<div class="frame-div">
-   											<!-- 실제 막대그래프 -->
-   											<!-- 발생 횟수에 따라 height 자동 조절 -->
-   											<div class="wrapper">
-   												<!-- 일간 졸음 운전 발생 횟수 : DB에서 가져오기! -->
-   												<div class="div11">12</div>
-   											</div>
-   										</div>
-   									</div>
-   								</div>
-   								
-   								<!-- 라벨 -->
-   								<div class="container">
-     									<div class="div12">졸음운전</div>
-   								</div>
-   							</div>
-     							
-     						<!-- 운전대 미제어  -->		
-   							<div class="div16">
-   								<div class="component-1-wrapper">
-   									<div class="component-1">
-   									
-   										<!-- background bar -->
-   										<div class="component-1-child">
-   										</div>
-   										  										
-   										<div class="mainadminjsp-component-1-inner">
-   											<!-- 실제 막대그래프 -->
-   											<!-- 발생 횟수에 따라 height 자동 조절 -->
-   											<div class="wrapper">
-   												<!-- 일간 운전대 미제어 발생 횟수 : DB에서 가져오기! -->
-   												<div class="div11">8</div>
-   											</div>
-   										</div>
-   									</div>
-   								</div>
-   								
-   								<!-- 라벨 -->
-   								<div class="container">
-     									<div class="div12">운전대 미제어</div>
-   								</div>
-   							</div>
-     							
-     						<!-- 휴대폰 조작  -->		
-   							<div class="div19">
-   								<div class="component-1-wrapper">
-   									<div class="component-1">
-   										
-   										<!-- background bar -->
-   										<div class="component-1-child">
-   										</div>
-   										  										
-   										<div class="component-1-inner2">
-   											<!-- 실제 막대그래프 -->
-   											<!-- 발생 횟수에 따라 height 자동 조절 -->
-   											<div class="wrapper">
-   												<!-- 일간 휴대폰 조작 발생 횟수 : DB에서 가져오기! -->
-   												<div class="div11">23</div>
-   											</div>
-   										</div>
-   									</div>
-   								</div>
-   								
-   								<!-- 라벨 -->
-   								<div class="container">
-     									<div class="div12">휴대폰 조작</div>
-   								</div>
-   							</div>
-   						</div>
-   					</div>    					
-   				</div>
+   							</div> <!-- 4개 유형 그래프 중 1개 끝 -->
+   							</c:forEach>
+
+   						</div> <!-- 그래프 좌우 정렬 끝 -->
+   					</div> <!-- 그래프 검정 배경 끝 -->   					
+   				</div> <!-- 전체 그래프 회색 배경 끝 -->
      				
      				
-<!-- ==================================== 운행 차량 대수 =====================================  -->   			     				
+<!-- ==================================== 운행 차량 대수 =====================================  -->   		     				
      			
      			
      			<div class="div34">
@@ -836,6 +644,80 @@
 	});
 	</script>
 	
+	<script>
+	  function setStatsActive(selectedPeriod) {
+	    // 모든 버튼 가져오기
+	    const buttons = document.querySelectorAll('[data-period]');
 	
+	    buttons.forEach(btn => {
+	      // 현재 버튼의 period 값
+	      const period = btn.getAttribute('data-period');
+	
+	      if (period === selectedPeriod) {
+	        // 선택된 버튼: 활성화 스타일(div7)
+	        btn.classList.remove('div5');
+	        btn.classList.add('div7');
+	      } else {
+	        // 나머지 버튼: 비활성화 스타일(div5)
+	        btn.classList.remove('div7');
+	        btn.classList.add('div5');
+	      }
+	    });
+	  }
+	</script>
+
+	<script>
+	  // 버튼 클릭 핸들러
+	  $(document).on('click', '[data-period]', function () {
+	    const period = $(this).data('period'); // year|month|week
+	    loadStats(period);
+	    setStatsActive(period);
+	  });
+	
+	// 통계 로딩 (jQuery AJAX)
+	  function loadStats(period) {
+
+	    $.ajax({
+	      url: '/api/stats',
+	      method: 'GET',
+	      data: { period },     // ?period=year
+	      dataType: 'json',
+	      success: function (data) {
+
+	        // 1) 최대값 계산 (0 나눗셈 방지)
+	        const maxCnt = Math.max(1, ...data.map(d => d.cnt || 0));
+
+	        // 2) 숫자/라벨 업데이트
+	        const cntEls   = document.querySelectorAll('.div11');
+	        const labelEls = document.querySelectorAll('.div12');
+	        for (let i = 0; i < data.length; i++) {
+	          if (cntEls[i])   cntEls[i].textContent   = data[i].cnt ?? 0;
+	          if (labelEls[i]) labelEls[i].textContent = data[i].eventType ?? '-';
+	        }
+
+	        // 3) 막대 높이 설정 (최대값 = 90%)
+	        const bars = document.querySelectorAll('.component-1 .component-1-inner');
+	        for (let i = 0; i < bars.length; i++) {
+	          const cnt = (data[i]?.cnt ?? 0);
+	          const pct = Math.round((cnt / maxCnt) * 90);
+	          bars[i].style.height = pct + '%';
+	          // (선택) 값 확인용
+	          bars[i].dataset.value = cnt;
+	        }
+	      },
+	      error: function (xhr, status, err) {
+	        console.error('❌ AJAX 실패:', status, err, xhr?.responseText);
+	        alert('데이터를 불러오지 못했습니다.');
+	      }
+	    });
+	  }
+	
+	  // 통계버튼 디폴트값 year
+	  $(function () {
+	    loadStats('year');
+	    setStatsActive('year'); // 선택버튼 스타일 표시
+	  });
+	</script>
+		
 </body>
 </html>

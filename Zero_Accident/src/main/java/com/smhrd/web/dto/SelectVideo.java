@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 	public class SelectVideo {
+		private String logIdx;
 		private String eventType;
 		private String eventLevel;
 		private String eventColor;
