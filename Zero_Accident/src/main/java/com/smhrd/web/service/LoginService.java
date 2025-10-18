@@ -43,7 +43,7 @@ public class LoginService {
             findAdmin.setFmtAdminBirthdate(findAdmin.getAdminBirthdate().format(formatter));
         }	    
 	    // 5. admin_idx → A001 형식으로
-            findAdmin.setAdminCode(String.format("S%03d", findAdmin.getAdminIdx()));
+            findAdmin.setAdminCode(String.format("A%03d", findAdmin.getAdminIdx()));
 	    // 6. 로그인 성공
 	    return findAdmin;
 	}
