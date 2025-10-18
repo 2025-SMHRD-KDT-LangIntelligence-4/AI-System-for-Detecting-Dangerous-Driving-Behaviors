@@ -92,7 +92,7 @@ button.div3 {
 .b {
   	position: relative;
   	font-weight: 300;
-  	margin-top: 2px;
+  	
 }
 .div4 {
   	position: absolute;
@@ -468,7 +468,7 @@ button.div3 {
 }
 .div40 {
   	width: 93.4px;
-  	height: 1.9px;
+  	height: 3px;
   	position: relative;
   	border-radius: 1.84px;
   	background-color: #686363;
@@ -514,7 +514,9 @@ button.div3 {
   	font-size: 9.34px;
   	color: #fff;
 }
-.calendar {
+button.calendar {
+	all: unset;
+	cursor: pointer;
   	height: 13.1px;
   	width: 13.1px;
   	position: relative;
@@ -523,17 +525,18 @@ button.div3 {
 }
 .buttonadmin3jsp-icon {
   	position: absolute;
-  	height: 83.21%;
-  	width: 74.81%;
-  	top: 8.32%;
-  	right: 12.72%;
-  	bottom: 8.48%;
-  	left: 12.47%;
-  	max-width: 100%;
-  	overflow: hidden;
+  	height: 100%;
+  	width: 100%;
+  	top: 0%;
+  	right: 0%;
+  	bottom: 0%;
+  	left: 0%;
+  	max-width: 100%; 	
   	max-height: 100%;
+  	z-index: 100;
 }
 .div44 {
+	position: relative;
   	align-self: stretch;
   	height: 64.4px;
   	display: grid;
@@ -568,7 +571,7 @@ button.div3 {
   	gap: 5.6px;
 }
 .check-box-outline-blank-icon {
-  	width: 14px;
+  	width: 20px;
   	position: relative;
   	max-height: 100%;
 }
@@ -576,6 +579,7 @@ button.div3 {
   	position: relative;
   	line-height: 13.18px;
   	text-transform: uppercase;
+  	font-weight: 500;
 }
 .check-box-outline-blank-group {
   	position: absolute;
@@ -645,6 +649,7 @@ button.div3 {
   	position: relative;
   	line-height: 13.18px;
   	text-transform: uppercase;
+  	font-weight: 500;
 }
 .ellipse-div {
   	height: 14px;
@@ -690,7 +695,8 @@ button.div3 {
   	box-sizing: border-box;
   	gap: 4px;
 }
-.div51 {
+input.div51 {
+	all: unset;
   	height: 31.7px;
   	width: 181.1px;
   	border-radius: 12.21px;
@@ -700,10 +706,12 @@ button.div3 {
   	justify-content: center;
   	padding: 10.3px 18.7px;
   	box-sizing: border-box;
+  	font-color: 
 }
 .item {
-  	height: 24.9px;
-  	width: 26.8px;
+  	height: 14.8px;
+  	width: 14.8px;
+  	margin-right: 4px;
 }
 
 
@@ -833,4 +841,46 @@ button.div3 {
   	border-radius: 50%;
   	background-color: #fcb859;
 }
+
+.div42 {
+  display: flex;
+  align-items: center;
+  background-color: #6c7a97;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.date-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.calendar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* 기본 달력 아이콘 제거 (크롬, 엣지, 사파리 공통) */
+.date-input::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.date-input {
+  font-family: 'NanumSquare Neo OTF', sans-serif; /* ✅ 폰트 지정 */
+  font-size: 9.3px;                               /* ✅ 글씨 크기 */
+  color: #EAEFEF;                                /* ✅ 텍스트 색상 */
+  margin-left: -5px;
+  margin-top: -1px;
+  font-weight: 700;
+}
+
 

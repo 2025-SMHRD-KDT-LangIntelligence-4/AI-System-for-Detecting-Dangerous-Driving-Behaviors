@@ -101,21 +101,24 @@
    					<div class="parent7">
  						<div class="div41">날짜</div>
  						
- 						<!-- 날짜 선택  -->
- 						<!-- 클릭 시 달력 나타나게 하기-->
  						<div class="div42">
  						
- 							<!-- 날짜 선택 시 해당 날짜로 변경됨. 
- 								 ex) 2025-10-29 -->
-   							<div class="pm-wrapper">
-   								<div class="b">날짜를 선택하세요.</div>
-   							</div>
-   							
-   							<!-- 달력 아이콘 -->
-   							<div class="calendar">
-   								<img class="buttonadmin3jsp-icon" src="/image/Calendar.svg">    								
-   							</div>
- 						</div>
+						  <!-- 날짜 선택 결과 나타남 -->
+						  <div class="pm-wrapper">
+						    <input 
+						      type="date" 
+						      id="datePicker" 
+						      class="date-input"
+						      name="dateInput" 
+						    >
+						  </div>
+						
+						  <!-- 달력 아이콘 : 클릭 시 날짜 선택 가능한 달력 나타남 -->
+						  <button type="button" class="calendar" id="calendarBtn">
+						    <img class="buttonadmin3jsp-icon" src="/image/Calendar.svg">
+						  </button>
+						</div>
+
    					</div>
    					
    					<!-- 위험 행위 종류 필터 -->
@@ -123,38 +126,38 @@
  						<div class="div45">위험 행위 종류</div>
  						
  						<!-- 졸음 운전 -->
- 						<div class="check-box-outline-blank-parent">
+ 						<div class="check-box-outline-blank-parent iconChange">
  						
  							<!-- 체크 박스 -->
  							<!-- 클릭 시 아이콘 변경됨 -->
-   							<img class="check-box-outline-blank-icon" src="/image/checkBox.svg">					
+   							<img class="check-box-outline-blank-icon checkBox" src="/image/checkBox.svg">					
    							<b class="b10">졸음 운전</b>
  						</div>
  						
  						<!-- 휴대폰 조작 -->
- 						<div class="check-box-outline-blank-group">
+ 						<div class="check-box-outline-blank-group iconChange">
    							
    							<!-- 체크 박스 -->
  							<!-- 클릭 시 아이콘 변경됨 -->
-   							<img class="check-box-outline-blank-icon" src="/image/checkBox.svg">
+   							<img class="check-box-outline-blank-icon checkBox" src="/image/checkBox.svg">
    							<b class="b10">휴대폰 조작</b>
  						</div>
  						
  						<!-- 운전대 미제어 -->
- 						<div class="check-box-outline-blank-container">
+ 						<div class="check-box-outline-blank-container iconChange">
    							
    							<!-- 체크 박스 -->
  							<!-- 클릭 시 아이콘 변경됨 -->
-   							<img class="check-box-outline-blank-icon" src="/image/checkBox.svg">
+   							<img class="check-box-outline-blank-icon checkBox" src="/image/checkBox.svg">
    							<b class="b10">운전대 미제어</b>
  						</div>
  						
  						<!-- 운전자 폭행 -->
- 						<div class="buttonadmin3jsp-check-box-outline-blank-parent">
+ 						<div class="buttonadmin3jsp-check-box-outline-blank-parent iconChange">
    							
    							<!-- 체크 박스 -->
  							<!-- 클릭 시 아이콘 변경됨 -->
-   							<img class="check-box-outline-blank-icon" src="/image/checkBox.svg">
+   							<img class="check-box-outline-blank-icon checkBox" src="/image/checkBox.svg">
    							<b class="b10">운전자 폭행</b>
  						</div>
    					</div>
@@ -165,11 +168,11 @@
  						<div class="buttonadmin3jsp-frame-parent">
  						
  							<!-- 위험 등급 : 상 -->
-   							<div class="frame-parent2">
+   							<div class="frame-parent2 iconChange">
    							
    								<!-- 체크 박스 -->
  								<!-- 클릭 시 아이콘 변경됨 -->
-   								<img class="frame-item" src="/image/checkBox.svg">
+   								<img class="frame-item checkBox" src="/image/checkBox.svg">
    								 								
    								<div class="wrapper7">
    									<b class="b14">상</b>
@@ -181,11 +184,11 @@
    							
    							
    							<!-- 위험 등급 : 중 -->
-   							<div class="frame-parent2">
+   							<div class="frame-parent2 iconChange">
      								
    								<!-- 체크 박스 -->
 								<!-- 클릭 시 아이콘 변경됨 -->
-								<img class="frame-item" src="/image/checkBox.svg">
+								<img class="frame-item checkBox" src="/image/checkBox.svg">
    								 								
    								<div class="wrapper7">
    									<b class="b14">중</b>
@@ -197,11 +200,11 @@
    							
    							
    							<!-- 위험 등급 : 하 -->
-   							<div class="frame-parent2">
+   							<div class="frame-parent2 iconChange">
  								
  								<!-- 체크 박스 -->
 								<!-- 클릭 시 아이콘 변경됨 -->
-								<img class="frame-item" src="/image/checkBox.svg">
+								<img class="frame-item checkBox" src="/image/checkBox.svg">
  								
  								<div class="wrapper7">
    									<b class="b14">하</b>
@@ -224,11 +227,11 @@
  						<div class="frame-parent5">
  						
  							<!-- 조치 완료  -->
-   							<div class="frame-parent2">
+   							<div class="frame-parent2 iconChange">
  								
  								<!-- 체크 박스 -->
 								<!-- 클릭 시 아이콘 변경됨 -->
-								<img class="frame-item" src="/image/checkBox.svg">
+								<img class="frame-item checkBox" src="/image/checkBox.svg">
 								
  								<div class="wrapper10">
    									<b class="b14">조치 완료</b>
@@ -237,11 +240,11 @@
    							
    							
    							<!-- 조치 중 -->
-   							<div class="frame-parent2">
+   							<div class="frame-parent2 iconChange">
      								
    								<!-- 체크 박스 -->
 								<!-- 클릭 시 아이콘 변경됨 -->
-								<img class="frame-item" src="/image/checkBox.svg">
+								<img class="frame-item checkBox" src="/image/checkBox.svg">
 							
    								<div class="wrapper10">
    									<b class="b14">조치 중</b>
@@ -250,11 +253,11 @@
    							
    							
    							<!-- 미조치 -->
-   							<div class="frame-parent2">
+   							<div class="frame-parent2 iconChange">
  								
  								<!-- 체크 박스 -->
 								<!-- 클릭 시 아이콘 변경됨 -->
-								<img class="frame-item" src="/image/checkBox.svg">
+								<img class="frame-item checkBox" src="/image/checkBox.svg">
  								
  								<div class="wrapper10">
    									<b class="b14">미조치</b>
@@ -591,6 +594,28 @@
 	    // 1분마다 업데이트 (자정 넘어가면 날짜가 바뀌도록)
 	    setInterval(updateDateTime, 60000);
 	</script>
+	
+	<!-- 날짜 필터의 달력 아이콘 클릭 시 달력 열기 -->
+	<script>
+		const calendarBtn = document.getElementById('calendarBtn');
+		const datePicker = document.getElementById('datePicker');
+	
+		calendarBtn.addEventListener('click', () => {
+		  datePicker.showPicker(); // ✅ 브라우저 기본 달력 열기
+		});
+	</script>
+	
+	<!-- 검색 필터 네모 박스 클릭 시 체크 박스로 변경 -->
+	<script>
+			document.querySelectorAll('.iconChange').forEach(item => {
+			  	item.addEventListener('click', () => {
+			    const img = item.querySelector('.checkBox');
+			    const checked = img.classList.toggle('checked');
+			    img.src = checked ? '/image/checkBoxR.svg' : '/image/checkBox.svg';
+			  });
+			});
+	</script>
+	
   	
   	
 
