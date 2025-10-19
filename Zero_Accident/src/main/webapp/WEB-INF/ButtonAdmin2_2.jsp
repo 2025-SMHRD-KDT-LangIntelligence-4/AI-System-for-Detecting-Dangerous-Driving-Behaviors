@@ -48,7 +48,7 @@
 				
 				<!-- 선택 등록 버튼 -->
 				<!-- 버튼 클릭 시 선택한 운전자 일괄 등록됨. -->
-			    <button type="button" class="driver-bulk-register">
+			    <button type="button" class="registerAllBtn">
 			    	<!-- 아이콘 -->
 			      	<img class="add-circle-icon" src="/image/addCircle2.svg">
 			      	<div class="driver-bulk-text">운전자 등록</div>
@@ -60,7 +60,9 @@
 	
 	  <!-- 운전자 등록 대기 리스트  -->
 	  <div class="driver-waiting-table-area">
-	  		 
+	  		
+	  		
+			<div class="header">
 		   	<!-- 카테고리 --> 
 		    <div class="driver-waiting-header-row">
 			      <div class="driver-header-select">
@@ -78,6 +80,7 @@
 		    
 		    <!-- 구분선 -->
 		    <div class="driver-waiting-table-line"></div>
+		    </div>
 	
 		    <!-- 리스트 전체 프레임 -->
 		    <div class="driver-register-list">
@@ -92,12 +95,27 @@
 					        <div class="driver-card-inner">
 					        
 					        	  <!-- 체크 박스 -->
-						          <img class="driver-photo" src="/image/checkBoxRed.svg">
+					        	  <!-- input 태그 추가 : value 값으로 선택된 운전자를 식별하기 위함. -->
+					        	  <!-- name="driverId" : 질문(Question) -->
+					        	  <!-- value="${driver.driverId}" : 답(Answer) -->
+								  <label class="custom-checkbox">
+								  
+									    <input 
+										    type="checkbox" 
+										    class="driver-checkbox"
+										    name="driverId" 
+										    value="${driver.driverId}"
+									    >
+								    
+									    <!-- 기존 디자인 유지, input 태그의 체크박스는 숨김 처리(css) -->
+									    <img src="/image/checkBoxRed.svg" alt="check" class="checkbox-img">
+								  </label>
+						          
 						          
 						          <div class="driver-info-group">
 						          
 						          		<!-- 운전자 ID : driverID -->
-							            <div class="driver-id">S021</div>
+							            <div class="driver-id">driver022</div>
 							            
 							            <!-- 운전자 이름 : driverName -->
 							            <div class="driver-name">강지현</div>
@@ -118,7 +136,9 @@
 				        
 				        <!-- 운전자 개별 등록 버튼 -->
 				        <!-- 버튼 클릭 시 해당 운전자 등록됨. -->
-				        <button type="button" class="driver-register-btn">
+				        <!-- data-id="${driver.driverId} 
+				        : 이 버튼이 어떤 운전자에 해당하는지 식별하기 위해 추가적으로 태그에 정보를 담아둔다.  -->
+				        <button type="button" class="registerBtn" data-id="${driver.driverId}">
 				          <b>운전자 등록</b>
 				        </button>
 				        
