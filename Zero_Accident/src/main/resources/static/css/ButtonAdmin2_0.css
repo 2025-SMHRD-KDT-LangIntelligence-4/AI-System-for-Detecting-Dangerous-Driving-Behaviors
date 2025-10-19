@@ -355,13 +355,13 @@ button.link2 {
 .div12 {
   	
   	margin-top: 77.13px;
-  	left: calc(50% - 616.72px);
+  	
   	width: 1234.2px;
   	height: auto;
   	
   	display: flex;
   	align-items: flex-start;
-  	justify-content: center;
+  	justify-content: flex-start;
   	flex-wrap: wrap;
   	align-content: flex-start;
   	gap: 40px;
@@ -369,6 +369,9 @@ button.link2 {
   	font-size: 20.74px;
   	color: #eaefef;
   	padding-bottom:50px;
+  	
+  	position: relative; 
+  left: 0; /* ✅ 중앙 기준 제거 */
 }
 .div13 {
   	height: 304.2px;
@@ -973,9 +976,13 @@ button.link2 {
   	text-align: right;
   	font-size: 14px;
   	color: rgba(255, 255, 255, 0.5);
-  	overflow-y: auto;       /* ✅ 세로 스크롤 활성화 */
-  	overflow-x: hidden;     /* ✅ 가로 스크롤 방지 */
-  	scroll-behavior: smooth;/* ✅ 부드러운 스크롤 */
+  	overflow-y: auto;       /*  세로 스크롤 활성화 */
+  	overflow-x: hidden;     /*  가로 스크롤 방지 */
+  	scroll-behavior: smooth;/*  부드러운 스크롤 */
+  	display: block; 
+  	justify-content: center; /*  내부는  기준 */
+  	align-items: flex-start;
+  
   	
 }
 
@@ -1038,13 +1045,12 @@ button.link2 {
 .div12 {
   	
   	margin-top: 77.13px;
-  	left: calc(50% - 616.72px);
+  	margin-left: 40px;
   	width: 1234.2px;
   	height: auto;
-  	
   	display: flex;
   	align-items: flex-start;
-  	justify-content: center;
+  	justify-content: flex-start;
   	flex-wrap: wrap;
   	align-content: flex-start;
   	gap: 40px;
@@ -1235,7 +1241,9 @@ box-sizing: border-box;
   	justify-content: space-between;
   	gap: 18px;
 }
-.div85 {
+button.div85 {
+	all: unset;
+	cursor: pointer;
   	border-radius: 9.9px;
   	background-color: #44444e;
   	display: flex;
@@ -1244,7 +1252,9 @@ box-sizing: border-box;
   	padding: 8.4px 13.1px;
   	gap: 9.3px;
 }
-.div87 {
+button.div87 {
+	all: unset;
+	cursor: pointer;
   	border-radius: 9.9px;
   	background-color: #44444e;
   	display: flex;
@@ -1259,6 +1269,11 @@ box-sizing: border-box;
   	width: 18.7px;
   	position: relative;
 }
+
+.searchTxt {
+	all: unset;
+}
+
 .div89 {
   	position: absolute;
   	top: 618.97px;

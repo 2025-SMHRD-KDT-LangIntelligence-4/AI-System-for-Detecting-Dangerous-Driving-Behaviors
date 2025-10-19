@@ -145,7 +145,7 @@
    			  	<!-- 검색어 입력란 -->				
    				<input 
 				    type="text" 
-				    class="search-input" 
+				    class="searchTxt" 
 				    placeholder="검색어를 입력하세요."
 				    name="searchTxt"
 				>
