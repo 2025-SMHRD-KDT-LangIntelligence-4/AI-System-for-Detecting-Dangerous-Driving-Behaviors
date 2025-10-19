@@ -1381,6 +1381,7 @@ button.videoclip {
   	font-weight: 200;
 }
 .div-inner11 {
+	white-space: nowrap;
   	display: flex;
   	align-items: center;
   	justify-content: center;

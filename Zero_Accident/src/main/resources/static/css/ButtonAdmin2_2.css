@@ -96,20 +96,7 @@ button.driver-bulk-register {
   font-weight: 300;
 }
 
-.driver-waiting-table-area {
-  position: relative;           
-  top: 79px;
-  left: 0;
-  border-radius: 9.22px;
-  background-color: #37353e;
-  width: 1152px;
-  min-height: 475px;             
-  height: fit-content;                  
-  text-align: center;
-  color: #cc8889;
-  padding-bottom: 30px;          
-  overflow: visible;            
-}
+
 
 
 /* 테이블 밑줄 */
@@ -145,6 +132,7 @@ button.driver-bulk-register {
   display: flex;
   align-items: center;
   font-weight: 500;
+  margin-left: 3px;
 }
 
 .driver-header-columns {
@@ -155,11 +143,7 @@ button.driver-bulk-register {
 }
 
 .col-id,
-.col-name,
-.col-gender,
-.col-phone,
-.col-birth,
-.col-date {
+.col-name {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -175,18 +159,69 @@ button.driver-bulk-register {
 .col-date { width: 83px; }
 
 
+.col-name {
+	padding-left: 5px;
+}
+
+.col-birth {
+	margin-left:-12px;
+}
+
+.col-gender,
+.col-phone,
+.col-birth,
+.col-date {
+	display: flex;
+  	align-items: center;
+  	justify-content: flex-start;
+  	height: 26px;
+  	font-weight: 500;
+}
+
+
+.driver-waiting-table-area { 
+	position: absolute; 
+	top: 79px; left: 0; 
+	border-radius: 9.22px; 
+	background-color: #37353e; 
+	width: 1152px; 
+	height: 475px; 
+	text-align: center; 
+	color: #cc8889; 
+	overflow: hidden;
+	overflow-y: auto;
+	}
+	
+/* 스크롤 커스텀*/
+.driver-waiting-table-area::-webkit-scrollbar {
+  width: 8px;
+}
+.driver-waiting-table-area::-webkit-scrollbar-thumb {
+  background-color: #5f5f6e;
+  border-radius: 10px;
+}
+.driver-waiting-table-area::-webkit-scrollbar-track {
+  background-color: #2e2e36;
+}
+	
+	
 .driver-register-list {
   position: relative;
   top: 108px;
   left: 71px;
   width: 1010px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
   font-size: 13.87px;
   color: #fff;
+  padding-bottom: 50px;
 }
+
+
+
 
 /* 개별 카드 */
 .driver-card {
