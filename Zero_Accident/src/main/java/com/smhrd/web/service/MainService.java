@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smhrd.web.dto.DriverInfo;
 import com.smhrd.web.dto.MakeGraph;
@@ -131,4 +132,81 @@ public class MainService {
         }
         return list;
 	}
+	
+	// 우빈 : 메인페이지 검색창 (이름, 차량번호, 차량타입, 운전자코드)
+	public List<DriverInfo> selectSearchList(String q) {
+	    // 1️⃣ 검색어 전처리 (null 방지 + 앞뒤 공백 제거)
+	    String keyword = (q != null) ? q.trim() : "";
+	    // === 추가: 검색어 길이 제한 50 (DB 부하 방지) ===
+	    if (keyword.length() > 50) {
+	        keyword = keyword.substring(0, 50);
+	    }
+	    // === 추가 : 아무것도 입력 안 하면 바로 빈 리스트 반환 (전체목록 방지)
+	    if (keyword.isEmpty()) {
+	        return new ArrayList<>(); // 빈 배열 반환 → 화면에 아무것도 안 뜸
+	    }
+	    // 2️⃣ 한글 → 영어 차량 타입 매핑
+	    Map<String, String> typeMap = Map.of(
+	        "택시", "TAXI",
+	        "버스", "BUS",
+	        "트럭", "TRUCK",
+	        "개인", "PRIVATE"
+	    );
+	    // 3️⃣ 차량 타입 한글 검색 시 → 영어 코드로 자동 변환
+	    for (Map.Entry<String, String> e : typeMap.entrySet()) {
+	        // === 추가: e.getKey()가 비어있으면 substring 호출하지 않도록 방어 ===
+	        String key = e.getKey();
+	        if (key == null || key.isEmpty()) {
+	            continue;
+	        }
+	        // 기존 로직: 부분 일치(첫글자 포함 또는 전체 포함) 검사
+	        if (keyword.contains(key.substring(0, 1)) || keyword.contains(key)) {
+	            keyword = e.getValue();
+	            break;
+	        }
+	    }
+	    // 4️⃣ driverCode 검색 처리 (예: "S001" → "1")
+	    if (keyword.length() > 1 && keyword.toUpperCase().startsWith("S")) {
+	        try {
+	            int idx = Integer.parseInt(keyword.substring(1).replaceAll("[^0-9]", ""));
+	            keyword = String.valueOf(idx);
+	        } catch (NumberFormatException ex) {
+	            // 숫자 변환 실패 시 원래 검색어 유지 (안정성 확보)
+	            System.out.println("⚠️ driverCode 변환 실패: " + keyword);
+	        }
+	    }
+	    // 5️⃣ 변환된 keyword로 DB 조회
+	    List<DriverInfo> list = mapper.selectSearchList(keyword);
+	    // 6️⃣ 조회 결과 후처리
+	    for (DriverInfo d : list) {
+	        // 6-1️⃣ driver_idx → S001 형식 코드화
+	        d.setDriverCode(String.format("S%03d", d.getDriverIdx()));
+	        // 6-2️⃣ 영어 차량 타입을 한글로 변환
+	        if (d.getCarType() != null) {
+	            switch (d.getCarType()) {
+	                case "BUS":
+	                    d.setCarType("버스");
+	                    break;
+	                case "TAXI":
+	                    d.setCarType("택시");
+	                    break;
+	                case "TRUCK":
+	                    d.setCarType("트럭");
+	                    break;
+	                case "PRIVATE":
+	                    d.setCarType("개인");
+	                    break;
+	                case "SEDAN":
+	                    d.setCarType("승용");
+	                    break;
+	                default:
+	                    d.setCarType("기타");
+	                    break;
+	            }
+	        }
+	    }
+	    // 7️⃣ 최종 리스트 반환
+	    return list;
+	}
+
 }

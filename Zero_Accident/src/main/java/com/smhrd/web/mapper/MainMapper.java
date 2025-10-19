@@ -32,4 +32,6 @@ public interface MainMapper {
 		List<MakeGraph> selectEventTypeCountWeek();
 		
 		List<DriverInfo> selectDriverByAdminIdx(int adminIdx);
+
+		List<DriverInfo> selectSearchList(String q);
 }

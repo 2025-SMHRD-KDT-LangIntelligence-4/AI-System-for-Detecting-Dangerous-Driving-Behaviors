@@ -295,63 +295,49 @@
 	      			
 	    			</div>
 	    			
-	    			<!-- 검색 결과창 -->
-		    		<div class="search-content">
-		    			<!-- 검색 결과 리스트 -->
-		      			<div class="div666">
-		      				
-		      				<!-- 반복문으로 동일한 검색 결과 4개 출력됨 -->
-		      				<c:forEach var="i" begin="1" end="4">
-		      					
-		      					<!-- 검색 결과 -->
-		        				<div class="searchResult">
-		        					<!-- 운전자 사진 : DB에서 driverImg값 가져오기!  -->
-		          					<img class="avatar-icon11" src="/image/driver1.png">
-		          							          					
-		          					<div class="div888">
-		          					
-		          						<!-- 운전자 ID -->
-	            						<div class="frame-div11">
-	              							<div class="s001-wrapper">
-	              								
-	              								<!-- DB에서 driverIdx값 가져오기! -->
-                								<div class="s001">S001</div>
-	              							</div>
-	            						</div>
-	            						
-	            						<!-- 운전자 이름 -->
-	            						<div class="div-inner11">
-	              							<div class="div-inner11">
-	              							
-	              								<!-- DB에서 driverName값 가져오기! -->
-                								<div class="s001">김영호</div>
-	              							</div>
-	            						</div>
-	            						
-	            						<!-- 차량 번호 -->
-	            						<div class="inner22">
-	              							<div class="s001-wrapper">
-	              								
-	              								<!-- DB에서 carNumber값 가져오기! -->
-                								<div class="s001">서울 12아 3456</div>
-	              							</div>
-	            						</div>
-	            						
-	            						<!-- 차량 종류 -->
-	            						<div class="inner33">
-	              							<div class="s001-wrapper">
-	              							
-	              								<!-- DB에서 carType값 가져오기! -->
-                								<div class="s001">택시</div>
-	              							</div>
-	            						</div>
-		          					</div>
-		        				</div>
-		        			</c:forEach>		 				
-		        				
-		      			</div> <!-- 검색 결과 리스트 끝 -->
-		      			
-		    		</div> <!-- 검색 결과창 끝 -->
+					<!-- 우빈 : 검색 결과창 -->
+					<div class="search-content">
+					  <!-- 검색 결과 리스트 -->
+					  <div class="div666">
+					    
+					    <!-- 템플릿용 카드 (display:none으로 숨김) -->
+					    <div class="searchResult" id="driver-template" style="display:none">
+					      <!-- 운전자 사진 -->
+					      <img class="avatar-icon11" src="" alt="운전자 사진">
+					      
+					      <div class="div888">
+					        <!-- 운전자 ID -->
+					        <div class="frame-div11">
+					          <div class="s001-wrapper">
+					            <div class="s001 driverCode"></div>
+					          </div>
+					        </div>
+					        
+					        <!-- 운전자 이름 -->
+					        <div class="div-inner11">
+					          <div class="div-inner11">
+					            <div class="s001 driverName"></div>
+					          </div>
+					        </div>
+					        
+					        <!-- 차량 번호 -->
+					        <div class="inner22">
+					          <div class="s001-wrapper">
+					            <div class="s001 carNumber"></div>
+					          </div>
+					        </div>
+					        
+					        <!-- 차량 종류 -->
+					        <div class="inner33">
+					          <div class="s001-wrapper">
+					            <div class="s001 carType"></div>
+					          </div>
+					        </div>
+					      </div>
+					    </div>
+					    
+					  </div> <!-- 검색 결과 리스트 끝 -->
+					</div> <!-- 검색 결과창 끝 -->
 		    		
   				</div> <!-- 검색창 전체 컨테이너 끝 -->
 
@@ -514,6 +500,8 @@
    			<div class="search-here">Copyright ⓒ 2025 Zo-A Co. All rights reserved.</div>
  		</div>    	
   	</div>
+  	
+ <!-- ========================= 스크립트 부분 ========================= -->
 	<script>
 	    function updateTime() {
 	        const now = new Date();
@@ -718,6 +706,41 @@
 	    setStatsActive('year'); // 선택버튼 스타일 표시
 	  });
 	</script>
-		
+	
+<!-- 우빈 : 검색 로직 -->
+	<script>
+	  // 1️⃣ DOM이 완전히 로드된 뒤 실행 (HTML 요소 다 준비된 후)
+	  $(document).ready(function() {
+	    // 2️⃣ #searchTxt(검색창)에 사용자가 글자를 입력할 때마다
+	    $("#searchTxt").on("input", function() {
+	      // 3️⃣ 현재 입력된 검색어를 변수에 저장
+	      const keyword = $(this).val();
+	      // 4️⃣ 서버에 AJAX GET 요청 보내기 "/api/search/drivers?q=검색어" 형태로 전송됨
+	      $.get("/api/search/drivers", { q: keyword }, function(data) {
+	        // 5️⃣ 검색 결과를 표시할 영역(div666)을 선택
+	        const wrap = $(".div666");
+	        // 6️⃣ 템플릿(숨겨둔 카드 1개)을 선택
+	        const tmpl = $("#driver-template");
+	        // 7️⃣ 기존에 표시된 검색 결과 카드들을 모두 삭제(검색내용바뀜) 단, 템플릿(#driver-template)은 남겨둠
+	        wrap.find(".searchResult:not(#driver-template)").remove();
+	        // 8️⃣ 서버에서 받은 data(DriverInfo 리스트)를 하나씩 처리
+	        data.forEach(d => {
+	          // 9️⃣ 템플릿을 복제(clone)해서 새 카드 생성
+	          const item = tmpl.clone().removeAttr("id").show();
+	          // 🔹 driverImg가 있으면 그대로, 없으면 기본 이미지로 대체
+	          item.find(".avatar-icon11").attr("src", d.driverImg || "/imagePeople/default.png");
+	          // 🔹 각 정보들을 해당 위치(class) 안에 넣기
+	          item.find(".driverCode").text(d.driverCode);
+	          item.find(".driverName").text(d.driverName);
+	          item.find(".carNumber").text(d.carNumber);
+	          item.find(".carType").text(d.carType);
+	          // 🔹 완성된 카드를 결과 영역(div666)에 추가
+	          wrap.append(item);
+	        });
+	      });
+	    });
+	  });
+	</script>
+
 </body>
 </html>

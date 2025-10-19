@@ -70,6 +70,17 @@
 	  FROM tb_driver d
 	  LEFT JOIN tb_car c ON d.driver_idx = c.driver_idx
 	  WHERE admin_idx = #{adminIdx}
- </select>
+</select>
+
+<!-- 우빈 : 메인페이지 검색창 결과 조회 -->
+<select id="selectSearchList" parameterType="String" resultType="com.smhrd.web.dto.DriverInfo">
+	SELECT d.*, c.car_number, c.car_type
+	FROM tb_driver d
+	LEFT JOIN tb_car c ON d.driver_idx = c.driver_idx
+	WHERE d.driver_name LIKE CONCAT ('%', #{q}, '%')
+	OR c.car_number LIKE CONCAT('%', #{q}, '%')
+	OR c.car_type LIKE CONCAT('%', #{q}, '%')
+	OR CAST(d.driver_idx AS CHAR) LIKE CONCAT('%', #{q}, '%')
+</select>
 
 </mapper>

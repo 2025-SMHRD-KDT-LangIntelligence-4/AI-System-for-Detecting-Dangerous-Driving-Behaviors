@@ -65,6 +65,22 @@ public class MainController{
 		return "RegisterDriver";
 	}
 	
+	@GetMapping("/View우빈")
+	public String View우빈(Model model) {
+//		List<DriverInfo> searchList = service.selectSearchList();
+//		model.addAttribute("searchList", searchList);
+		return "/View우빈";
+	}
+	
+	// 우빈 : 검색문구 AJAX 방식으로 받기
+	@ResponseBody
+    @GetMapping("/api/search/drivers")
+	// 우빈 : 메인페이지 검색창
+	public List<DriverInfo> selectSearchList (@RequestParam("q") String q) {
+		//System.out.println("검색어: " + q); // 콘솔 확인용
+		List<DriverInfo> searchList = service.selectSearchList(q);
+        return searchList;
+	}
 	
     @GetMapping("/MainAdmin")
     public String MainAdmin(Model model) {
