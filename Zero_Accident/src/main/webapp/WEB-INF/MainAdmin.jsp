@@ -90,7 +90,7 @@
 							
 							<!-- 실시간 표시로 변경 필요! -->
 							<div class="pm-wrapper">
- 									<div class="search-here" id="currentTime"></div>
+ 									<div class="searchHere" id="currentTime"></div>
 							</div>
 						</div>
 					</div>
@@ -286,6 +286,7 @@
 		      			id="searchTxt"
 		      			name="searchTxt"
 		      			class="div333"
+		      			autocomplete="off"
 		      			>        				
 		      			
 						<!-- 창 닫기 버튼 -->		      			
@@ -357,19 +358,19 @@
 						<!-- 연간 통계 버튼 -->
 						<button type="button" class="div7" data-period="year"
 						        >
-						  <b class="search-here">연간</b>
+						  <b class="search-heree">연간</b>
 						</button>
 						
 						<!-- 월간 통계 버튼 -->
 						<button type="button" class="div5" data-period="month"
 						        >
-						  <b class="search-here">월간</b>
+						  <b class="search-heree">월간</b>
 						</button>
 						
 						<!-- 주간 통계 버튼 -->
 						<button type="button" class="div5" data-period="week"
 						        >
-						  <b class="search-here">주간</b>
+						  <b class="search-heree">주간</b>
 						</button>
    						
    					</div>
@@ -423,7 +424,7 @@
  					
  						<!-- 현재 운행 차량 대수 : DB에서 가져오기! -->
  						<!-- 차량 운행 유무 컬럼 없음 -->
-   						<span class="span">${count}</span>
+   						<span class="spann">${count}</span>
    						<span class="span4">대 운행중</span>
  					</div>
      			</div>
@@ -604,32 +605,30 @@
 	<!-- 검색창 토글 기능 -->
 	
 	<script>
-	document.addEventListener("DOMContentLoaded", function() {
-	  const searchBar = document.querySelector(".div2");       // 검색바
-	  const searchPopup = document.querySelector(".div111");   // 검색창
-	  const closeBtn = document.querySelector(".closeBtn");   // 닫기 버튼
-	
-	  // 검색창 열기 / 닫기 (검색바 클릭)
-	  searchBar.addEventListener("click", function() {
-	    searchPopup.style.display =
-	      searchPopup.style.display === "block" ? "none" : "block";
-	  });
-	
-	  // 닫기 버튼 클릭 시 검색창 닫기
-	  closeBtn.addEventListener("click", function() {
-	    searchPopup.style.display = "none";
-	  });
-	
-	  // 외부 클릭 시 닫기
-	  document.addEventListener("click", function(e) {
-	    if (
-	      !searchBar.contains(e.target) &&
-	      !searchPopup.contains(e.target)
-	    ) {
-	      searchPopup.style.display = "none";
-	    }
-	  });
-	});
+		  document.addEventListener("DOMContentLoaded", function() {
+		  const searchBar = document.querySelector(".div2");     // 검색바
+		  const searchPopup = document.querySelector(".div111"); // 검색창
+		  const closeBtn = document.querySelector(".closeBtn");  // 닫기 버튼
+
+		  // 검색창 열기 / 닫기
+		  searchBar.addEventListener("click", function(e) {
+		    e.stopPropagation(); // 이벤트 버블링 방지
+		    searchPopup.classList.toggle("active");
+		  });
+
+		  // 닫기 버튼 클릭 시 닫기
+		  closeBtn.addEventListener("click", function() {
+		    searchPopup.classList.remove("active");
+		  });
+
+		  // 외부 클릭 시 닫기
+		  document.addEventListener("click", function(e) {
+		    if (!searchBar.contains(e.target) && !searchPopup.contains(e.target)) {
+		      searchPopup.classList.remove("active");
+		    }
+		  });
+		});
+
 	</script>
 	
 	<script>
@@ -741,6 +740,9 @@
 	    });
 	  });
 	</script>
+	
+	
+	
 
 </body>
 </html>

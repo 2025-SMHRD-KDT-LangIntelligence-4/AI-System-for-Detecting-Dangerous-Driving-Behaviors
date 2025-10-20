@@ -85,6 +85,17 @@ html, body {
   	font-weight:300;
   	font-size:100%;
 }
+
+.searchHere {
+	font-wieght: 500;
+	font-size:100%
+}
+
+b.search-heree {
+	font-weight: 800;
+	white-space: nowrap;
+}
+
 .div3 {
   	position: absolute;
   	top: 81.22px;
@@ -376,7 +387,7 @@ button.div5 {
 .mainadminjsp-log {
   	position: relative;
   	line-height: 18.67px;
-  	font-weight: 700;
+  	font-weight: 500;
 }
 .div32 {
   	position: absolute;
@@ -403,6 +414,13 @@ button.div5 {
 .span {
   	font-weight: 800;
 }
+
+.spann {
+  	font-weight: 800;
+  	
+}
+
+
 .mainadminjsp-span {
   	font-size: 33.6px;
   	font-weight: 800;
@@ -645,7 +663,7 @@ button.div5 {
 .div54 {
   	position: relative;
   	color: #d07b7b;
-  	font-weight: 300;
+  	font-weight: 500;
 }
 .div54-1 {
   	position: relative;
@@ -719,7 +737,7 @@ button.alert-btn {
 .div61 {
   	position: relative;
   	color: #feb95a;
-  	font-weight: 300;
+  	font-weight: 500;
 }
 .div64 {
   	width: 43.9px;
@@ -766,7 +784,7 @@ button.alert-btn {
   	left: 51.35px;
   	border-radius: 9.34px;
   	background-color: #44444e;
-  	width: 1285.2px;
+  	width: 1276.2px;
   	height: 12.1px;
   	display: flex;
   	align-items: center;
@@ -1068,7 +1086,7 @@ button.div95 {
   	height: 23.3px;
   	width: 23.3px;
   	position: relative;
-  	right:-8px;
+  	right:0px;
 }
 .div96 {
   	position: absolute;
@@ -1252,18 +1270,36 @@ button.videoclip {
 
 
 .div111 {
-	display: none;
-  	width: 100%;
-  	height: 700.2px;
-  	position: relative;
-  	background-color: #37353e;
-  	text-align: left;
-  	font-size: 14.94px;
-  	color: #b8cfce;
-  	font-family: 'NanumSquare Neo OTF';
-  	z-index: 100;            /* 다른 요소 위에 표시 */
-  	
+  /* 기존 디자인 그대로 유지 */
+  width: 100%;
+  height: 700.2px;
+  position: relative;
+  background-color: #37353e;
+  text-align: left;
+  font-size: 14.94px;
+  color: #b8cfce;
+  font-family: 'NanumSquare Neo OTF';
+  z-index: 100;
+
+  /* 애니메이션 초기 상태 */
+  opacity: 0;
+  max-height: 0;               /* 처음에는 닫혀 있음 */
+  overflow: hidden;            /* 내부 내용 안 보이게 */
+  pointer-events: none;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    max-height 0.5s ease;      /* 높이가 자연스럽게 늘어남 */
 }
+
+/* 열릴 때 (검색창 활성화 상태) */
+.div111.active {
+  opacity: 1;
+  max-height: 700.2px;         /* 원래 높이로 */
+  transform: translateY(0);    /* 아래로 부드럽게 이동 */
+  pointer-events: auto;
+}
+
 
 
 
@@ -1294,7 +1330,7 @@ button.videoclip {
   	position: relative;
   	border-radius: 12.21px;
   	background-color: #37353e;
-  	padding-left: 5px;
+  	padding-left: 10px;
 }
 .div444 {
   	position: absolute;
@@ -1403,5 +1439,7 @@ button.closeBtn {
 	all: unset;
 	cursor: pointer;
 }
+
+
 
 
