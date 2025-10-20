@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.smhrd.web.dto.DriverInfo;
 import com.smhrd.web.dto.MakeGraph;
+import com.smhrd.web.dto.MakeGraph2_4;
 import com.smhrd.web.dto.SelectLog;
 import com.smhrd.web.dto.SelectVideo;
 
@@ -34,4 +35,6 @@ public interface MainMapper {
 		List<DriverInfo> selectDriverByAdminIdx(int adminIdx);
 
 		List<DriverInfo> selectSearchList(String q);
+		
+	    List<MakeGraph2_4> selectMonthlyByEventType(int months);
 }

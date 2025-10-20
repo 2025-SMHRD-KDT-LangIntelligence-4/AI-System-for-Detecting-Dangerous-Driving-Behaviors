@@ -2,17 +2,17 @@ package com.smhrd.web.mapper;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.smhrd.web.dto.DriverInfo;
-import com.smhrd.web.dto.MakeGraph;
-import com.smhrd.web.dto.SelectVideo;
-import com.smhrd.web.entity.Driver;
+import com.smhrd.web.dto.MakeGraph2_4;
 
 
 
 @Mapper
 public interface Mapper우빈 {
+
+
 	
 }

@@ -19,6 +19,9 @@
 	<link rel="stylesheet"  href="/css/Datetime.css" />
 	<!-- 우빈 : 카카오 지도 SDK -->
 	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b1fc2610a3c9415f64affd1fc92ced5b&libraries=services"></script>
+	<!-- 우빈 : buttonAdmin2_4 통계 차트 불러오기 밑의 style까지 세트-->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
 
@@ -187,41 +190,61 @@
   </div>
   
   	
-	<!-- 우빈 : 비동기 페이지 로드 함수 -->
-	<script>
-	  // div8 영역에 조각 JSP를 로드
-	  function loadPage(url) {
-	    fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' }})
-	      .then(res => res.text())
-	      .then(html => {
-	        document.querySelector('.div8').innerHTML = html;
-	        fillRegionsInDiv8();
-	      })
-	      .catch(err => console.error(err));
-	  }
-	  
-	  // 버튼 색상 토글 함수
-	  function setActive(clickedBtn) {
-	    // 1. 모든 navigation 버튼을 흰색(link2)으로 초기화
-	    document.querySelectorAll('.navigation button').forEach(btn => {
-	      btn.classList.remove('link');
-	      btn.classList.remove('link2');
-	      btn.classList.add('link2'); // 기본은 흰색
-	    });
+<!-- 우빈 : 비동기 페이지 로드 함수 -->
+<script>
+  // div8 영역에 조각 JSP를 로드
+  function loadPage(url) {
+    fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' }})
+      .then(res => res.text())
+      .then(html => {
+        const target = document.querySelector('.div8');
+        target.innerHTML = html;
 
-	    // 2. 클릭한 버튼은 회색(link)으로 변경
-	    clickedBtn.classList.remove('link2');
-	    clickedBtn.classList.add('link');
-	  }
-	
-	  // 페이지 최초 로드 시 기본 탭(2_1) 자동 로드
-	  document.addEventListener('DOMContentLoaded', function() {
-	    loadPage('${cpath}/ButtonAdmin2_1');
-	    // 첫 버튼을 active로
-	    const firstBtn = document.querySelector('.navigation button');
-	    if (firstBtn) firstBtn.classList.add('active');
-	  });
-	</script>
+        // ✅ 추가: 삽입된 조각의 <script>들을 재주입하여 실행
+        executeInlineScripts(target);
+
+        // 기존 기능 유지
+        if (typeof fillRegionsInDiv8 === 'function') {
+          fillRegionsInDiv8();
+        }
+      })
+      .catch(err => console.error(err));
+  }
+
+  // ✅ 삽입된 DOM 안의 <script>를 실행시키는 최소 유틸
+  function executeInlineScripts(container) {
+    const scripts = container.querySelectorAll('script');
+    scripts.forEach((oldScript) => {
+      const s = document.createElement('script');
+      // src, type 등 속성 유지
+      for (const {name, value} of oldScript.attributes) {
+        s.setAttribute(name, value);
+      }
+      // inline 스크립트는 텍스트 복사
+      if (!oldScript.src) s.text = oldScript.textContent;
+      // 교체하면서 실행
+      oldScript.parentNode.replaceChild(s, oldScript);
+    });
+  }
+
+  // 버튼 색상 토글 함수 (원본 그대로)
+  function setActive(clickedBtn) {
+    document.querySelectorAll('.navigation button').forEach(btn => {
+      btn.classList.remove('link', 'link2');
+      btn.classList.add('link2');
+    });
+    clickedBtn.classList.remove('link2');
+    clickedBtn.classList.add('link');
+  }
+
+  // 페이지 최초 로드 시 기본 탭(2_1) 자동 로드 (원본 그대로)
+  document.addEventListener('DOMContentLoaded', function() {
+    loadPage('${cpath}/ButtonAdmin2_1');
+    const firstBtn = document.querySelector('.navigation button');
+    if (firstBtn) firstBtn.classList.add('active');
+  });
+</script>
+
 	
 	<!-- 우빈 역지오코딩 (위도경도를 지역명으로) -->
 	<script>
@@ -261,6 +284,6 @@
 	    });
 	  }
 	</script>
-
+	
 </body>
 </html>

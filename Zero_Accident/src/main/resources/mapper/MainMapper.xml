@@ -83,4 +83,15 @@
 	OR CAST(d.driver_idx AS CHAR) LIKE CONCAT('%', #{q}, '%')
 </select>
 
+<select id="selectMonthlyByEventType" parameterType="int" resultType="com.smhrd.web.dto.MakeGraph2_4">
+  SELECT
+    DATE_FORMAT(l.created_at, '%Y-%m') AS ym,
+    l.event_type AS eventType,
+    COUNT(*) AS cnt
+  FROM tb_log l
+  WHERE l.created_at >= DATE_SUB(CURDATE(), INTERVAL #{months} MONTH)
+  GROUP BY ym, eventType
+  ORDER BY ym ASC, eventType ASC
+</select>
+  
 </mapper>

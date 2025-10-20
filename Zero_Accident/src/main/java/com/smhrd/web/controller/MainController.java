@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.smhrd.web.dto.DriverInfo;
 import com.smhrd.web.dto.MakeGraph;
+import com.smhrd.web.dto.MakeGraph2_4;
 import com.smhrd.web.dto.SelectLog;
 import com.smhrd.web.dto.SelectVideo;
 import com.smhrd.web.entity.Admin;
@@ -63,13 +64,6 @@ public class MainController{
 	@GetMapping("/RegisterDriver")
 	public String RegisterDriver() {
 		return "RegisterDriver";
-	}
-	
-	@GetMapping("/View우빈")
-	public String View우빈(Model model) {
-//		List<DriverInfo> searchList = service.selectSearchList();
-//		model.addAttribute("searchList", searchList);
-		return "/View우빈";
 	}
 	
 	// 우빈 : 검색문구 AJAX 방식으로 받기
@@ -157,7 +151,6 @@ public class MainController{
 	// 관리자 - 운전자 관리 페이지 기본틀
 	@GetMapping("ButtonAdmin2_0")
 	public String ButtonAdmin2_0() {
-
 		return "ButtonAdmin2_0";
 		}
 		
@@ -205,7 +198,9 @@ public class MainController{
 		}
 	// 관리자 - 통계 페이지
 		@GetMapping("/ButtonAdmin2_4")
-		public String ButtonAdmin2_4() {
+	    public String ButtonAdmin2_4(Model model) {
+	        List<MakeGraph2_4> graphValue = service.selectMonthlyByEventType(12);
+	        model.addAttribute("graphValue", graphValue);
 			return "ButtonAdmin2_4";
 		}
 		

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smhrd.web.dto.DriverInfo;
 import com.smhrd.web.dto.MakeGraph;
+import com.smhrd.web.dto.MakeGraph2_4;
 import com.smhrd.web.dto.SelectLog;
 import com.smhrd.web.dto.SelectVideo;
 import com.smhrd.web.mapper.MainMapper;
@@ -208,5 +209,19 @@ public class MainService {
 	    // 7️⃣ 최종 리스트 반환
 	    return list;
 	}
-
+	
+	// 우빈 : ButtonAdmin2_4 통계
+    public List<MakeGraph2_4> selectMonthlyByEventType(int months) {
+    	List<MakeGraph2_4> list = mapper.selectMonthlyByEventType(months);
+        for (MakeGraph2_4 v : list) {
+        	// 이벤트타입 영어 -> 한글 변환
+        	switch (v.getEventType()) {
+        	case "ASSAULT" -> v.setEventType("운전자 폭행");
+        	case "DROWSY"  -> v.setEventType("졸음 운전");
+        	case "PHONE"   -> v.setEventType("휴대폰 조작");
+        	case "HAND"    -> v.setEventType("운전대 미제어");
+        	}
+        }
+        return list;
+    }
 }
