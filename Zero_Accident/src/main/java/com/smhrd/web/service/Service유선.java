@@ -31,7 +31,10 @@ public class Service유선 {
     	public SelectEvent selectEventchart() {
     		SelectEvent result = mapper유선.selectEventchart();
     		return result;
+    }
     	
+        public List<SelectLog> selectBlackbox() {
+    		return mapper유선.selectBlackbox();
     }
     
 }

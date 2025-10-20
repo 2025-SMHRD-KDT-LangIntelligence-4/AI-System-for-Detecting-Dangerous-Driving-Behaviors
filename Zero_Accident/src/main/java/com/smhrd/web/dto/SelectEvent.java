@@ -14,10 +14,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 	public class SelectEvent {
-	private Long totalPhone; // SQL의 total_P와 매핑
-    private Long totalHand; // SQL의 total_H와 매핑
-    private Long totalDrowsy; // SQL의 total_D와 매핑
-    private Long totalAssault; // SQL의 total_A와 매핑
+	private Long totalP; // SQL의 totalP와 매핑
+    private Long totalH; // SQL의 totalH와 매핑
+    private Long totalD; // SQL의 totalD와 매핑
+    private Long totalA; // SQL의 totalA와 매핑
 	
+    public Long getTotalSum() {
+        // null 체크를 포함하여 안전하게 합산합니다.
+        long sum = 0;
+        if (totalP != null) sum += totalP;
+        if (totalH != null) sum += totalH;
+        if (totalD != null) sum += totalD;
+        if (totalA != null) sum += totalA;
+        return sum;
+    }
+    
 	}
 

@@ -17,16 +17,33 @@
 	 	LIMIT 4
 	 </select>
 	 
-	 <select id="selectEventchart" resultType="com.smhrd.web.mapper.Mapper유선">
-	 	SELECT *
-        SUM(CASE WHEN event_type = 'Phone' THEN amount ELSE 0 END) AS total_P,
+	 <select id="selectBlackbox" resultType="com.smhrd.web.dto.SelectLog">
+	 	SELECT 
+		    tl.*, 
+		    td.driver_name AS driverName, 
+		    td.driver_idx AS driverIdx
+		FROM 
+		    tb_log tl
+		INNER JOIN 
+		    tb_car tc ON tl.car_number = tc.car_number
+		INNER JOIN 
+		    tb_driver td ON tc.driver_idx = td.driver_idx
+		ORDER BY 
+		    tl.created_at DESC
+		LIMIT 9;
+	 </select>
+	 
+	 <select id="selectEventchart" resultType="com.smhrd.web.dto.SelectEvent">
+	 	SELECT
+        		SUM(CASE WHEN event_type = 'Phone' THEN 1 ELSE 0 END) AS totalP,
         
-        SUM(CASE WHEN event_type = 'Hand' THEN amount ELSE 0 END) AS total_H,
+        		SUM(CASE WHEN event_type = 'Hand' THEN 1 ELSE 0 END) AS totalH,
         
-        SUM(CASE WHEN event_type = 'Drowsy' THEN amount ELSE 0 END) AS total_D,
+        		SUM(CASE WHEN event_type = 'Drowsy' THEN 1 ELSE 0 END) AS totalD,
         
-        SUM(CASE WHEN event_type = 'Assault' THEN amount ELSE 0 END) AS total_A
-    		FROM tb_log;
+        		SUM(CASE WHEN event_type = 'Assault' THEN 1 ELSE 0 END) AS totalA
+    		FROM 
+    			tb_log;
 	 </select>
 	 
 </mapper>

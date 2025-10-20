@@ -24,4 +24,6 @@ public interface Mapper유선 {
 	
 	SelectEvent selectEventchart();
 	
+	List<SelectLog> selectBlackbox();
+	
 }
