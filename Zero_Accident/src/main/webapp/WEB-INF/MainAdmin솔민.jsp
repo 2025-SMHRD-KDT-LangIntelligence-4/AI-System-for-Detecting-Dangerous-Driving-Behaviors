@@ -19,7 +19,8 @@
 	<link rel="stylesheet"  href="/css/Sidebar.css" />
 	<!-- 우빈 : 카카오 지도 SDK -->
 	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b1fc2610a3c9415f64affd1fc92ced5b&autoload=false"></script>
-
+	<!-- 우빈 : J Query 로드 -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 
@@ -163,7 +164,7 @@
 				
 				
 				<div class="div50">
-				
+				<c:forEach var="v" items="${videoList}">
 					<!-- 블랙박스 1 -->
 					<div class="div51">
 					
@@ -172,30 +173,48 @@
 						
 							<!-- 위험 등급 표시 아이콘 -->
 							<!-- eventLevel에 따라 색상 변경되어야 함 -->
-							<div class="frame-item">
+							<div class="${v.eventColor}">
 							</div>
 							<div class="s101-parent">
 							
-								<!-- 운전자ID : DB에서 driverIdx값 가져오기! -->
-								<div class="search-here">S101</div>
+								<!-- 운전자ID : DB에서 driverCode값 가져오기! -->
+								<div class="search-here">${v.driverCode}</div>
 								<!-- 구분선 -->
 								<div class="line-div">
 								</div>
 								<!-- 차량번호 : DB에서 carNumber값 가져오기! -->
-								<div class="search-here">11바 9653</div>
+								<div class="search-here">${v.carNumber}</div>
 								<!-- 구분선 -->
 								<div class="line-div">
 								</div>
 								<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
 								<!-- eventLevel에 따라 색상 변경되어야 함 -->
-								<div class="div54">운전자 폭행</div>
+								<div class="${v.eventTypeColor}">${v.eventType}</div>
 							</div>
 						</div>
 						
 						<!-- 실시간 블랙박스 영상 -->
 						<div class="div55">
-							<!-- 영상 삽입 후 삭제 -->
-							<div class="search-here">블랙박스 영상</div>
+						    <c:choose>
+						        <c:when test="${not empty v.eventVideo}">
+						            <video
+						                src="${cpath}${v.eventVideo}"
+						                class="blackbox-video"
+						                style="width:100%; height:100%; object-fit:cover; border-radius:8px;"
+						                controls
+						                muted
+						                autoplay
+						                loop
+						                playsinline
+						                preload="metadata"
+						            >
+						                브라우저가 video 태그를 지원하지 않습니다.
+						            </video>
+						        </c:when>
+						        <c:otherwise>
+						            <div class="search-here">동영상 준비 중</div>
+						        </c:otherwise>
+						    </c:choose>
 						</div>
 						
 						<!-- 경고 전송 버튼 -->
@@ -209,146 +228,8 @@
 							</div>
 						</button>
 						
-					</div>
- 						
- 					<!-- 블랙박스 2 -->	
-					<div class="div51">
-					
-						<!-- 상태바 -->
-						<div class="div52">
-						
-								<!-- 위험 등급 표시 아이콘 -->
-								<!-- eventLevel에 따라 색상 변경되어야 함 -->
- 								<div class="inner">
- 								</div>
- 								<div class="s101-parent">
- 									
- 									<!-- 운전자ID : DB에서 driverIdx값 가져오기! -->
-   									<div class="search-here">S049</div>
-   									<!-- 구분선 -->
-   									<div class="line-div">
-   									</div>
-   									<!-- 차량번호 : DB에서 carNumber값 가져오기! -->
-   									<div class="search-here">45사 8291</div>
-   									<!-- 구분선 -->
-   									<div class="line-div">
-   									</div>
-   									<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
-									<!-- eventLevel에 따라 색상 변경되어야 함 -->
-   									<div class="div61">휴대폰 조작</div>
- 								</div>
-						</div>
-						
-						<!-- 실시간 블랙박스 영상 -->
-						<div class="div55">
-							<!-- 영상 삽입 후 삭제 -->
-							<div class="search-here">블랙박스 영상</div>
-						</div>
-						
-						<!-- 경고 전송 버튼 -->
-						<!-- 버튼 클릭 시 운전자에게 해당 위험 단계에 맞는 경고 발송 -->
-						<button type="button" class="alert-btn">
-							<div class="div64">
-								<div class="alert-triangle">
-									<!-- 스피커 아이콘 -->
-									<img class="icon6" src="/image/Volume.svg">										
-								</div>
-							</div>
-						</button>
-				    </div>
- 						
- 					<!-- 블랙박스 3 -->	
-					<div class="div51">
-					
-							<!-- 상태바 -->
- 							<div class="div52">
- 								
- 								<!-- 위험 등급 표시 아이콘 -->
-								<!-- eventLevel에 따라 색상 변경되어야 함 -->
-   								<div class="inner">
-   								</div>  								
-   								<div class="s101-parent">
-   								
-   									<!-- 운전자ID : DB에서 driverIdx값 가져오기! -->
-   									<div class="search-here">S032</div>
-   									<!-- 구분선 -->
-   									<div class="line-div">
-   									</div>
-   									<!-- 차량번호 : DB에서 carNumber값 가져오기! -->
-   									<div class="search-here">63아 4720</div>
-   									<!-- 구분선 -->
-   									<div class="line-div">
-   									</div>
-   									<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
-									<!-- eventLevel에 따라 색상 변경되어야 함 -->
-   									<div class="div61">졸음 운전 </div>
-   								</div>
- 							</div>
- 							
- 							<!-- 실시간 블랙박스 영상 -->
- 							<div class="div55">
- 								<!-- 영상 삽입 후 삭제 -->
-   								<div class="search-here">블랙박스 영상</div>
- 							</div>
- 							
- 							<!-- 경고 전송 버튼 -->
-							<!-- 버튼 클릭 시 운전자에게 해당 위험 단계에 맞는 경고 발송 -->
- 							<button type="button" class="alert-btn">
-   								<div class="div64">
-   									<div class="alert-triangle">
-   										<!-- 스피커 아이콘 -->
-   										<img class="icon6" src="/image/Volume.svg">   										
-   									</div>
-   								</div>
- 							</button>
-					</div>
- 						
- 					<!-- 블랙박스 4 -->	
-					<div class="div51">
-					
-						<!-- 상태바 -->
-						<div class="div73">
-						
-							<!-- 위험 등급 표시 아이콘 -->
-							<!-- eventLevel에 따라 색상 변경되어야 함 -->
-							<div class="inner">
-							</div>
-							<div class="s101-parent">
-									
-									<!-- 운전자ID : DB에서 driverIdx값 가져오기! -->
- 									<div class="search-here">S006</div>
- 									<!-- 구분선 -->
- 									<div class="line-div">
- 									</div>
- 									<!-- 차량번호 : DB에서 carNumber값 가져오기! -->
- 									<div class="search-here">88사 2107</div>
- 									<!-- 구분선 -->
- 									<div class="line-div">
- 									</div>
- 									<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
-									<!-- eventLevel에 따라 색상 변경되어야 함 -->
- 									<div class="div61">운전대 미제어 </div>
-							</div>
-						</div>
- 							
- 						<!-- 실시간 블랙박스 영상 -->	
-						<div class="div55">
-							<!-- 영상 삽입 후 삭제 -->
-							<div class="search-here">블랙박스 영상</div>
-						</div>
-						
-						<!-- 경고 전송 버튼 -->
-						<!-- 버튼 클릭 시 운전자에게 해당 위험 단계에 맞는 경고 발송 -->
-						<button type="button" class="alert-btn">
-							<div class="div64">
-								<div class="alert-triangle">
-									<!-- 스피커 아이콘 -->
-									<img class="icon6" src="/image/Volume.svg">										
-								</div>
-							</div>
-						</button>						
-					</div>
-					
+					</div> <!-- 블랙박스 끝 -->
+					</c:forEach>
 				</div>
 			</div>
       	</div>
@@ -391,95 +272,147 @@
    					</div>
    				</div>     				     				     				
    				
-   
+   				<!-- 검색창 클릭 시 나올 창 -->  				  			
+   				<div class="div111">
+	    			<div class="div222">
+	    				<!-- 돋보기 아이콘 -->
+		      			<img class="child11" src="/image/VectorBlue.svg">
+		      			
+		      			<!-- 검색어 입력란 -->
+		      			<!-- name="searchTxt" : searchTxt가 포함된 운전자 정보 불러오기 -->
+		      			<!-- DB에서 driverImg, driverIdx, driverName, carNumber, carType 가져오기 -->
+		      			<input
+		      			type="text"
+		      			id="searchTxt"
+		      			name="searchTxt"
+		      			class="div333"
+		      			>        				
+		      			
+						<!-- 창 닫기 버튼 -->		      			
+		      			<button class="closeBtn">
+		      			<img class="inner111" src="/image/close.svg">     			
+		      			</button>
+	      			
+	    			</div>
+	    			
+					<!-- 우빈 : 검색 결과창 -->
+					<div class="search-content">
+					  <!-- 검색 결과 리스트 -->
+					  <div class="div666">
+					    
+					    <!-- 템플릿용 카드 (display:none으로 숨김) -->
+					    <div class="searchResult" id="driver-template" style="display:none">
+					      <!-- 운전자 사진 -->
+					      <img class="avatar-icon11" src="" alt="운전자 사진">
+					      
+					      <div class="div888">
+					        <!-- 운전자 ID -->
+					        <div class="frame-div11">
+					          <div class="s001-wrapper">
+					            <div class="s001 driverCode"></div>
+					          </div>
+					        </div>
+					        
+					        <!-- 운전자 이름 -->
+					        <div class="div-inner11">
+					          <div class="div-inner11">
+					            <div class="s001 driverName"></div>
+					          </div>
+					        </div>
+					        
+					        <!-- 차량 번호 -->
+					        <div class="inner22">
+					          <div class="s001-wrapper">
+					            <div class="s001 carNumber"></div>
+					          </div>
+					        </div>
+					        
+					        <!-- 차량 종류 -->
+					        <div class="inner33">
+					          <div class="s001-wrapper">
+					            <div class="s001 carType"></div>
+					          </div>
+					        </div>
+					      </div>
+					    </div>
+					    
+					  </div> <!-- 검색 결과 리스트 끝 -->
+					</div> <!-- 검색 결과창 끝 -->
+		    		
+  				</div> <!-- 검색창 전체 컨테이너 끝 -->
 
 
 <!-- ========================================= 통계 =======================================  -->   			
 
+   				<div class="div3">
+   					
+   					<!-- 타이틀 -->
+   					<div class="title">
+   						<img class="vector-icon" src="/image/Vector.svg">  						
+   						<div class="mainadminjsp-log">위험 운전 유형별 발생 건수</div>
+     				</div>
+     				
+   					<div class="div4">
+   						
+						<!-- 연간 통계 버튼 -->
+						<button type="button" class="div7" data-period="year"
+						        >
+						  <b class="search-here">연간</b>
+						</button>
+						
+						<!-- 월간 통계 버튼 -->
+						<button type="button" class="div5" data-period="month"
+						        >
+						  <b class="search-here">월간</b>
+						</button>
+						
+						<!-- 주간 통계 버튼 -->
+						<button type="button" class="div5" data-period="week"
+						        >
+						  <b class="search-here">주간</b>
+						</button>
+   						
+   					</div>
+     					
+     <!-- ============ 위험 행위 발생 그래프 ============= -->	
+   					<div id="div8" class="div8"> <!-- 그래프 감싸는 검정 div -->
+   					
+   						<div class="div9"> <!-- 그래프 좌우정렬 div -->
+   						
+   							<c:forEach var="e" items="${eventList }">
+   							<!-- 운전자 폭행, 총 4개 그래프 반복문으로  -->
+   							<div class="div10">
+   								<div class="component-1-wrapper">
+   									<div class="component-1">
+   									
+   										<!-- background bar -->
+   										<div class="component-1-child">
+   										</div>
+   										
+   										<div class="component-1-inner">
+   											<!-- 실제 막대그래프 -->
+   											<!-- 발생 횟수에 따라 height 자동 조절 -->
+   											<div class="wrapper">
+   												<!-- 일간 운전자 폭행 발생 횟수 : DB에서 가져오기! -->
+   												<div class="div11">${e.cnt }</div>
+   											</div>
+   										</div>
+   									</div>
+   								</div>
+   								
+   								<!-- 라벨 -->
+   								<div class="container">
+   									<div class="div12">${e.eventType }</div>
+   								</div>
+   							</div> <!-- 4개 유형 그래프 중 1개 끝 -->
+   							</c:forEach>
 
-   				<div class="div3">		
-					<!-- 타이틀 -->
-					<div class="title">
-						<img class="vector-icon" src="/image/Vector.svg">  						
-						<div class="mainadminjsp-log">위험 운전 유형별 발생 건수</div>
-				 	</div>
-				 				
-					<!-- 통계 기간 선택 버튼 -->
-					<div class="div4">
-					    <button type="button" class="div5" data-type="yearly">연간</button>
-					    <button type="button" class="div5" data-type="monthly">월간</button>
-					    <button type="button" class="div5" data-type="weekly">주간</button>
-					</div>
-				
-					<!-- 그래프 영역 -->
-					<div class="div8">
-					  <div class="div9">
-				
-					    <!-- 운전자 폭행 -->
-					    <div class="div10">
-					      <div class="component-1-wrapper">
-					        <div class="component-1">
-					          <div class="component-1-child"></div>
-					          <div class="component-1-inner">
-					            <div class="wrapper">
-					              <div class="div11">${counts['ASSAULT'] != null ? counts['ASSAULT'] : 0}</div>
-					            </div>
-					          </div>
-					        </div>
-					      </div>
-					      <div class="container"><div class="div12">운전자 폭행</div></div>
-					    </div>
-				
-					    <!-- 졸음운전 -->
-					    <div class="div13">
-					      <div class="component-1-wrapper">
-					        <div class="component-1">
-					          <div class="component-1-child"></div>
-					          <div class="frame-div">
-					            <div class="wrapper">
-					              <div class="div11">${counts['DROWSY'] != null ? counts['DROWSY'] : 0}</div>
-					            </div>
-					          </div>
-					        </div>
-					      </div>
-					      <div class="container"><div class="div12">졸음운전</div></div>
-					    </div>
-				
-					    <!-- 운전대 미제어 -->
-					    <div class="div16">
-					      <div class="component-1-wrapper">
-					        <div class="component-1">
-					          <div class="component-1-child"></div>
-					          <div class="mainadminjsp-component-1-inner">
-					            <div class="wrapper">
-					              <div class="div11">${counts['HAND'] != null ? counts['HAND'] : 0}</div>
-					            </div>
-					          </div>
-					        </div>
-					      </div>
-					      <div class="container"><div class="div12">운전대 미제어</div></div>
-					    </div>
-				
-					    <!-- 휴대폰 조작 -->
-					    <div class="div19">
-					      <div class="component-1-wrapper">
-					        <div class="component-1">
-					          <div class="component-1-child"></div>
-					          <div class="component-1-inner2">
-					            <div class="wrapper">
-					              <div class="div11">${counts['PHONE'] != null ? counts['PHONE'] : 0}</div>
-					            </div>
-					          </div>
-					        </div>
-					      </div>
-					      <div class="container"><div class="div12">휴대폰 조작</div></div>
-					    </div>
-				
-					  </div>
-					</div>    					
-				</div>
-			
-<!-- ==================================== 운행 차량 대수 =====================================  -->   			     				
+   						</div> <!-- 그래프 좌우 정렬 끝 -->
+   					</div> <!-- 그래프 검정 배경 끝 -->   					
+   				</div> <!-- 전체 그래프 회색 배경 끝 -->
+     				
+     				
+<!-- ==================================== 운행 차량 대수 =====================================  -->   		     				
      			
      			
      			<div class="div34">
@@ -567,6 +500,8 @@
    			<div class="search-here">Copyright ⓒ 2025 Zo-A Co. All rights reserved.</div>
  		</div>    	
   	</div>
+  	
+ <!-- ========================= 스크립트 부분 ========================= -->
 	<script>
 	    function updateTime() {
 	        const now = new Date();
@@ -665,39 +600,146 @@
 	    if (drivers.length > 0) map.setBounds(bounds);
 	  });
 	</script>
-	<!-- ================= 그래프 동적 변경 스크립트 ================= -->
+	
+	<!-- 검색창 토글 기능 -->
+	
 	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-		  const buttons = document.querySelectorAll(".div5, .div7");
-		
-		  buttons.forEach(btn => {
-		    btn.addEventListener("click", () => {
-		      const type = btn.getAttribute("data-type");
-		      console.log("버튼 클릭됨:", type);
-		
-		      fetch(`/getGraphData?type=${type}`)
-		        .then(res => res.json())
-		        .then(data => {
-		          console.log("받은 데이터:", data);
-		
-		          if (!data || Object.keys(data).length === 0) {
-		            console.warn("데이터 없음!");
-		            return;
-		          }
-		
-		          // 그래프 막대 높이 갱신
-		          document.querySelectorAll(".component-1").forEach(el => {
-		            const type = el.parentElement.parentElement.querySelector(".div12").innerText.trim();
-		            const value = data[type.toUpperCase()] || 0;
-		            const height = Math.max(value * 10, 5); // 최소 5px 유지
-		            el.querySelector(".component-1-child").style.height = `${height}px`;
-		            el.querySelector(".div11").innerText = value;
-		          });
-		        })
-		        .catch(err => console.error("fetch 오류:", err));
-		    });
-		  });
-		});
+	document.addEventListener("DOMContentLoaded", function() {
+	  const searchBar = document.querySelector(".div2");       // 검색바
+	  const searchPopup = document.querySelector(".div111");   // 검색창
+	  const closeBtn = document.querySelector(".closeBtn");   // 닫기 버튼
+	
+	  // 검색창 열기 / 닫기 (검색바 클릭)
+	  searchBar.addEventListener("click", function() {
+	    searchPopup.style.display =
+	      searchPopup.style.display === "block" ? "none" : "block";
+	  });
+	
+	  // 닫기 버튼 클릭 시 검색창 닫기
+	  closeBtn.addEventListener("click", function() {
+	    searchPopup.style.display = "none";
+	  });
+	
+	  // 외부 클릭 시 닫기
+	  document.addEventListener("click", function(e) {
+	    if (
+	      !searchBar.contains(e.target) &&
+	      !searchPopup.contains(e.target)
+	    ) {
+	      searchPopup.style.display = "none";
+	    }
+	  });
+	});
+	</script>
+	
+	<script>
+	  function setStatsActive(selectedPeriod) {
+	    // 모든 버튼 가져오기
+	    const buttons = document.querySelectorAll('[data-period]');
+	
+	    buttons.forEach(btn => {
+	      // 현재 버튼의 period 값
+	      const period = btn.getAttribute('data-period');
+	
+	      if (period === selectedPeriod) {
+	        // 선택된 버튼: 활성화 스타일(div7)
+	        btn.classList.remove('div5');
+	        btn.classList.add('div7');
+	      } else {
+	        // 나머지 버튼: 비활성화 스타일(div5)
+	        btn.classList.remove('div7');
+	        btn.classList.add('div5');
+	      }
+	    });
+	  }
+	</script>
+
+	<script>
+	  // 버튼 클릭 핸들러
+	  $(document).on('click', '[data-period]', function () {
+	    const period = $(this).data('period'); // year|month|week
+	    loadStats(period);
+	    setStatsActive(period);
+	  });
+	
+	// 통계 로딩 (jQuery AJAX)
+	  function loadStats(period) {
+
+	    $.ajax({
+	      url: '/api/stats',
+	      method: 'GET',
+	      data: { period },     // ?period=year
+	      dataType: 'json',
+	      success: function (data) {
+
+	        // 1) 최대값 계산 (0 나눗셈 방지)
+	        const maxCnt = Math.max(1, ...data.map(d => d.cnt || 0));
+
+	        // 2) 숫자/라벨 업데이트
+	        const cntEls   = document.querySelectorAll('.div11');
+	        const labelEls = document.querySelectorAll('.div12');
+	        for (let i = 0; i < data.length; i++) {
+	          if (cntEls[i])   cntEls[i].textContent   = data[i].cnt ?? 0;
+	          if (labelEls[i]) labelEls[i].textContent = data[i].eventType ?? '-';
+	        }
+
+	        // 3) 막대 높이 설정 (최대값 = 90%)
+	        const bars = document.querySelectorAll('.component-1 .component-1-inner');
+	        for (let i = 0; i < bars.length; i++) {
+	          const cnt = (data[i]?.cnt ?? 0);
+	          const pct = Math.round((cnt / maxCnt) * 90);
+	          bars[i].style.height = pct + '%';
+	          // (선택) 값 확인용
+	          bars[i].dataset.value = cnt;
+	        }
+	      },
+	      error: function (xhr, status, err) {
+	        console.error('❌ AJAX 실패:', status, err, xhr?.responseText);
+	        alert('데이터를 불러오지 못했습니다.');
+	      }
+	    });
+	  }
+	
+	  // 통계버튼 디폴트값 year
+	  $(function () {
+	    loadStats('year');
+	    setStatsActive('year'); // 선택버튼 스타일 표시
+	  });
+	</script>
+	
+<!-- 우빈 : 검색 로직 -->
+	<script>
+	  // 1️⃣ DOM이 완전히 로드된 뒤 실행 (HTML 요소 다 준비된 후)
+	  $(document).ready(function() {
+	    // 2️⃣ #searchTxt(검색창)에 사용자가 글자를 입력할 때마다
+	    $("#searchTxt").on("input", function() {
+	      // 3️⃣ 현재 입력된 검색어를 변수에 저장
+	      const keyword = $(this).val();
+	      // 4️⃣ 서버에 AJAX GET 요청 보내기 "/api/search/drivers?q=검색어" 형태로 전송됨
+	      $.get("/api/search/drivers", { q: keyword }, function(data) {
+	        // 5️⃣ 검색 결과를 표시할 영역(div666)을 선택
+	        const wrap = $(".div666");
+	        // 6️⃣ 템플릿(숨겨둔 카드 1개)을 선택
+	        const tmpl = $("#driver-template");
+	        // 7️⃣ 기존에 표시된 검색 결과 카드들을 모두 삭제(검색내용바뀜) 단, 템플릿(#driver-template)은 남겨둠
+	        wrap.find(".searchResult:not(#driver-template)").remove();
+	        // 8️⃣ 서버에서 받은 data(DriverInfo 리스트)를 하나씩 처리
+	        data.forEach(d => {
+	          // 9️⃣ 템플릿을 복제(clone)해서 새 카드 생성
+	          const item = tmpl.clone().removeAttr("id").show();
+	          // 🔹 driverImg가 있으면 그대로, 없으면 기본 이미지로 대체
+	          item.find(".avatar-icon11").attr("src", d.driverImg || "/imagePeople/default.png");
+	          // 🔹 각 정보들을 해당 위치(class) 안에 넣기
+	          item.find(".driverCode").text(d.driverCode);
+	          item.find(".driverName").text(d.driverName);
+	          item.find(".carNumber").text(d.carNumber);
+	          item.find(".carType").text(d.carType);
+	          // 🔹 완성된 카드를 결과 영역(div666)에 추가
+	          wrap.append(item);
+	        });
+	      });
+	    });
+	  });
 	</script>
 
 </body>

@@ -92,7 +92,7 @@ button.div3 {
 .b {
   	position: relative;
   	font-weight: 300;
-  	
+  	z-index: 100;
 }
 .div4 {
   	position: absolute;
@@ -135,6 +135,7 @@ button.div3 {
 
 .child {
   	position: absolute;
+  	z-index: 100;
   	top: 28.01px;
   	left: 34.54px;
   	width: 27.1px;
@@ -145,16 +146,16 @@ button.div3 {
 }
 .div6 {
   	position: absolute;
-  	top: 62.13px;
-  	left: calc(50% - 326.83px);
-  	border-radius: 9.34px;
-  	background-color: #686363;
-  	width: 653px;
+  	z-index: 90;
+  	top: 0px;
+  	left: calc(50% - 335px);
+  	background-color: #44444E;
+  	width: 670px;
   	height: 5px;
   	display: flex;
   	align-items: center;
   	justify-content: space-between;
-  	padding: 0px 12.1px 0px 10.3px;
+  	padding: 50px 10px 20px 10px;
   	box-sizing: border-box;
 }
 .wrapper {
@@ -170,6 +171,7 @@ button.div3 {
   	position: relative;
   	display: inline-block;
   	flex-shrink: 0;
+  	z-index: 100;
 }
 .container {
   	position: absolute;
@@ -201,6 +203,7 @@ button.div3 {
   	position: relative;
   	display: inline-block;
   	flex-shrink: 0;
+  	z-index: 100;
 }
 .buttonadmin3jsp-wrapper {
   	position: absolute;
@@ -540,8 +543,6 @@ button.calendar {
   	align-self: stretch;
   	height: 64.4px;
   	display: grid;
-  	grid-template-rows: ;
-  	grid-template-columns: ;
   	justify-content: start;
   	align-content: start;
   	column-gap: 9.3px;
@@ -705,8 +706,7 @@ input.div51 {
   	align-items: center;
   	justify-content: center;
   	padding: 10.3px 18.7px;
-  	box-sizing: border-box;
-  	font-color: 
+  	box-sizing: border-box; 
 }
 .item {
   	height: 14.8px;
@@ -774,6 +774,7 @@ input.div51 {
 
 .div60 {
   	width: 653px;
+  	z-index: 80;
   	height: 47.6px;
   	border-radius: 9.89px;
   	background-color: #37353e;
@@ -882,5 +883,4 @@ input.div51 {
   margin-top: -1px;
   font-weight: 700;
 }
-
 
