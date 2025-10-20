@@ -264,13 +264,13 @@
        								<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
 									<!-- eventLevel에 따라 색상 변경되어야 함 -->
        								<div class="wrapper8">
-       									<div class="b">${b.eventTypeKo}</div>
+       									<div class="b text-${b.eventColor}">${b.eventTypeKo}</div>
        								</div>
      							</div>
       						</div>
       						
       						<!-- 실시간 블랙박스 영상 -->
-      						<div class="div49">
+      						<div class="div49" >
       						<!-- 블랙박스 영상 삽입 후 삭제 -->
        							<div class="b">${b.eventVideo}</div>
       						</div>
@@ -292,7 +292,7 @@
     							
     								<!-- 위험 행위 발생 일시 : DB에서 createdAt값 가져오기 -->
       								<div class="wrapper10">
-      									<b class="b">${b.createdAt}</b>
+      									<b class="b">${b.regDate}</b>
       								</div>
       								
       								<!-- 운전자 이름, 운전자 ID : DB에서 driverName, driverIdx값 가져오기! -->
@@ -309,14 +309,15 @@
       								<div class="pm-wrapper">
        									<div class="b">${b.displayAddr}</div>
       								</div>
-    							 	 </div>
+       								</div>
+     							</div>
       						</div>
-    					   </div>
     					</div>
-	    			</c:forEach>	
-    					 			   			 			
+    				</c:forEach>	 			   			 			
   				</div>
-  			</div>
+  			</div>		 	
+		</div>
+    		
     	<!-- 저작권 -->	
    		<div class="copyright">
    			<div class="b">Copyright ⓒ 2025 Zo-A Co. All rights reserved.</div>

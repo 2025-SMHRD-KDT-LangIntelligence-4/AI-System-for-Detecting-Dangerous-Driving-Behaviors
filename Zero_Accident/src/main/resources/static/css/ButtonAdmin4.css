@@ -698,4 +698,16 @@ div.div48 {
 	font-weight: 300;
 	margin-top: 2px;
 }
+.text-circle-red {
+    color:  #d07b7b !important;
+}
+
+.text-circle-yellow {
+    color:  #fcb859 !important;
+}
+
+.text-circle-blue {
+    color: #7f8caa !important;
+}
+
 

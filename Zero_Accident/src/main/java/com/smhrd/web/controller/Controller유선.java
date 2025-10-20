@@ -99,7 +99,7 @@ public class Controller유선{
 			 }
 		 }
 		// 로그 기록 시간 보기 쉽게 바꾸기 2025-10-20 [13:44:08]
-		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd  hh:mm");
+		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd a hh:mm:ss");
 		    for (SelectLog j : blackboxList) {
 		        	j.setRegDate(j.getCreatedAt().format(formatter));
 		    }
