@@ -136,49 +136,15 @@
 	  		<%@ include file="/WEB-INF/Datetime.jsp" %>   			
    		
    			
-<!-- ======================================= 검색 ========================================  -->   			
 
-   		
-   			<!-- 검색바 -->
-   			<div class="div94">
-   				<!-- 돋보기 아이콘 -->
-   				<img class="child" src="/image/search.svg">
-   				 				
-   			  	<!-- 검색어 입력란 -->				
-   				<input 
-				    type="text" 
-				    class="searchTxt" 
-				    placeholder="검색어를 입력하세요."
-				    name="searchTxt"
-				>
-   			</div>
-   			
-   			 			
-   			<div class="parent16">
-   				
-   				<!-- 검색 필터 버튼 -->
- 				<button type="button" class="div85">
-   					<div class="user-plus">
-   						<!-- 필터 아이콘 -->
-   						<img class="buttonadmin2jsp-icon" src="/image/filter.svg">    						
-   					</div>
-   					<div class="b">검색 필터</div>
- 				</button>
- 				
- 				<!-- 운전자 삭제 버튼 -->				
- 				<button type="button" class="div87">
- 					<!-- 삭제 아이콘 -->
-   					<img class="cancel-icon" src="/image/cancel.svg">					
-   					<div class="b">운전자 삭제</div>
- 				</button>
-   			</div>
-   				
 <!-- ======================================= 메인 ========================================  -->   				
- 					
-   			<div class="div8">
-					<!-- 우빈 : 현재 div8만 비통기통신되게 만듬. -->
- 			</div>
+	 				
+	 			
+	   			<div class="div8">
+						<!-- 우빈 : 현재 div8만 비통기통신되게 만듬. -->
+	 			</div>
  			
+ 			</div>		
    		
 
    		<!-- 저작권 -->

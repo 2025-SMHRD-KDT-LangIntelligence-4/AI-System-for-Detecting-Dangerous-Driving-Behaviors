@@ -1,0 +1,383 @@
+@charset "UTF-8";
+
+
+.driver-waiting-container {
+  width: 100%;
+  height: 554px;
+  position: relative;
+  text-align: right;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'NanumSquare Neo OTF';
+  left: 40px;
+}
+
+.driver-waiting-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1152px;
+  height: 67px;
+}
+
+/* 등록 대기자 153명 */
+.driver-waiting-stats {
+  position: absolute;
+  top: 23.14px;
+  left: 1004.87px;
+  width: 140px;
+  height: 14px;
+}
+
+.driver-waiting-stats-inner {
+  position: absolute;
+  top: 0;
+  left: 5.8px;
+  letter-spacing: 0.44px;
+  line-height: 13.18px;
+  text-transform: uppercase;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  width: 134.4px;
+}
+
+.driver-waiting-text {
+  width: 100%;
+  font-weight: 700;
+}
+
+.driver-count {
+  color: #eaefef;
+}
+
+.driver-unit {
+  white-space: pre-wrap;
+}
+
+/* 상단 밑줄 */
+.driver-waiting-line {
+  position: absolute;
+  top: 46.48px;
+  left: 1005.87px;
+  border-radius: 1.84px;
+  background-color: #686363;
+  width: 140px;
+  height: 3px;
+}
+
+/* 일괄등록 버튼 */
+button.registerAllBtn {
+  all: unset;
+  cursor: pointer;
+  position: absolute;
+  top: 32px;
+  left: 0;
+  border-radius: 9.9px;
+  background-color: #37353e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8.4px 13.1px;
+  gap: 9.3px;
+  text-align: left;
+  font-size: 14.94px;
+  color: #7f8caa;
+}
+
+.add-circle-icon {
+  height: 18.7px;
+  width: 18.7px;
+  position: relative;
+}
+
+.driver-bulk-text {
+  position: relative;
+  font-weight: 300;
+}
+
+
+
+
+
+
+
+
+
+.driver-header-select {
+  white-space: nowrap;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  padding-left: 5px;
+}
+
+.driver-header-columns {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  color: #fff;
+}
+
+
+.col-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  font-weight: 500;
+}
+
+.col-id {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 26px;
+  font-weight: 500;
+}
+
+.col-id { width: 36px; }
+.col-name { width: 59px; }
+.col-gender { width: 58px; }
+.col-phone { width: 90px; }
+.col-birth { width: 91px; }
+.col-date { width: 83px; }
+
+.col-gender {
+	margin-left:-8px;
+}
+
+
+.col-birth {
+	margin-left:-10px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	height: 26px;
+  	font-weight: 500;
+}
+
+.col-date {
+	margin-left:-13px;
+	display: flex;
+  	align-items: center;
+  	justify-content: flex-end;
+  	height: 26px;
+  	font-weight: 500;
+}
+
+.col-phone {
+	margin-left:-8px;
+}
+
+
+.col-gender,
+.col-phone {
+	display: flex;
+  	align-items: center;
+  	justify-content: flex-start;
+  	height: 26px;
+  	font-weight: 500;
+}
+
+.col-gender {
+	
+}
+
+.driver-waiting-table-area { 
+	position: absolute; 
+	top: 79px; left: 0; 
+	border-radius: 9.22px; 
+	background-color: #37353e; 
+	width: 1152px; 
+	height: 475px; 
+	text-align: center; 
+	color: #cc8889; 
+	overflow: hidden;
+	overflow-y: auto;
+	}
+	
+/* 스크롤 커스텀*/
+.driver-waiting-table-area::-webkit-scrollbar {
+  width: 8px;
+}
+.driver-waiting-table-area::-webkit-scrollbar-thumb {
+  background-color: #5f5f6e;
+  border-radius: 10px;
+}
+.driver-waiting-table-area::-webkit-scrollbar-track {
+  background-color: #2e2e36;
+}
+	
+	
+.driver-register-list {
+  position: relative;
+  top: 20px;
+  left: 71px;
+  width: 1010px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13.87px;
+  color: #fff;
+  padding-bottom: 50px;
+  margin-left: -3.5px;
+}
+
+
+
+
+/* 개별 카드 */
+.driver-card {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 42px;
+}
+
+/* 카드 본체 */
+.driver-card-inner {
+  height: 48px;
+  width: 812px;
+  border-radius: 9.22px;
+  background-color: #44444e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 16px;
+  box-sizing: border-box;
+  gap: 58px;
+}
+
+
+
+/* 카드 내부 정보 묶음 */
+.driver-info-group {
+  width: 780px;
+  display: flex;
+  align-items: center;
+  gap: 63px;
+}
+
+.driver-id,
+.driver-name,
+.driver-gender,
+.driver-phone,
+.driver-birth,
+.driver-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 66px;
+  white-space: nowrap;
+  font-weight: 300;
+}
+
+/* 등록 버튼 */
+button.registerBtn {
+  all: unset;
+  cursor: pointer;
+  height: 34px;
+  width: 156px;
+  position: relative;
+  border-radius: 12.44px;
+  background-color: #eaefef;
+  font-size: 14px;
+  color: #7f8caa;
+}
+
+.registerBtn b {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  letter-spacing: 0.65px;
+  line-height: 19.52px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* 🔹 클릭(눌림) 효과 */
+button.registerBtn:active {
+  transform: scale(0.8);              /* 살짝 작아지며 눌리는 느낌 */
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.4); /* 안쪽 그림자 (눌린 입체감) */
+}
+
+/* 🔹 hover 효과(선택사항) */
+button.registerBtn:hover {
+  background-color: #e2e7e7;           /* 살짝 어두운 톤 */
+  transform: scale(1.02);              /* 마우스 올리면 약간 커짐 */
+}
+
+
+
+.custom-checkbox {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin-top: 1.8px;
+}
+
+.driver-checkbox {
+  position: absolute;
+  opacity: 0;   /* 체크박스 숨김 */
+  cursor: pointer;
+}
+
+.checkbox-img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+  
+}
+
+/* 클릭 시 효과 */
+.driver-checkbox:checked + .checkbox-img {
+  content: url("/image/checkedBoxRed.svg");  /* 체크된 상태의 이미지 */
+  transform: scale(1.1);
+}
+
+/* 헤더 전체 (상단 고정) */
+.header {
+  position: sticky;         /* relative → sticky */
+  top: 0;                   /* 화면 맨 위에 고정 */
+  z-index: 100;             /* 위로 띄워서 본문 위에 표시 */
+  background-color: #37353e;
+  width: 100%;
+  height: 69px;
+  text-align: center;
+  font-size: 14px;
+  color: #cc8889;
+  font-family: 'NanumSquare Neo OTF';
+  padding-bottom: 10px;
+  
+}
+
+/* 헤더 내부 행 */
+.driver-waiting-header-row {
+  display: flex;
+  align-items: center;
+  gap: 46px;
+  width: 780px;
+  padding-top: 20px;
+  margin-left: 72px;
+}
+
+/* 헤더 아래 구분선 */
+.driver-waiting-table-line {
+  position: sticky;
+  top: 69px;                /* 헤더 바로 밑에 고정 */
+  z-index: 90;
+  border-radius: 9.34px;
+  background-color: #686363;
+  width: 812px;
+  height: 3px;
+  margin-left: 67px;
+  
+}
+
+
+

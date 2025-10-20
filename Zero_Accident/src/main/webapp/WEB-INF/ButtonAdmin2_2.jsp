@@ -39,7 +39,8 @@
 			          
 			          <!-- span 태그 줄바꿈 시 글자 간 간격 생김. 붙여 둘 것. -->
 			          <!-- 등록 대기자 수 : DB에서 가져오기! -->
-			          <span class="driver-count">153</span><span class="driver-unit">명</span>
+			          <span class="driver-count">153</span><span 
+			          class="driver-unit">명</span>
 			        </span>
 			      </div>
 			    </div>
@@ -115,7 +116,7 @@
 						          
 						          <div class="driver-info-group">
 						          
-						          		<!-- 운전자 ID : driverID -->
+						          		<!-- 운전자 ID : driverId -->
 							            <div class="driver-id">driver022</div>
 							            
 							            <!-- 운전자 이름 : driverName -->
