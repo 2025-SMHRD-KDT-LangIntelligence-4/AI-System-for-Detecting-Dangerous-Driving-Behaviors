@@ -4,6 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 
+
+
+
+
+
 <!-- 등록된 전체 운전자 수 -->
 <div class="div9">
 	<div class="wrapper">
@@ -50,7 +55,7 @@
 				<div class="s021">
 
 					<!-- 운전자 이름 : DB에서 driverName값 가져오기! -->
-					<p class="p">${driver.driverName}</p>
+					<p class="driverName">${driver.driverName}</p>
 
 					<!-- 운전자 고유 ID : DB에서 driverIdx값 가져오기! -->
 					<p class="buttonadmin2jsp-s021">(${driver.driverCode})</p>
@@ -65,13 +70,13 @@
 						<!-- 카테고리 -->
 						<div class="title">
 							<b class="b3">
-								<p class="p">연락처</p>
-								<p class="p">생년 월일</p>
-								<p class="p">근무 지역</p>
-								<p class="p">관리자</p>
-								<p class="p">차량 번호</p>
-								<p class="p">등록 일자</p>
-								<p class="p">총 위험 행위 건수</p>
+								<p class="pp">연락처</p>
+								<p class="pp">생년 월일</p>
+								<p class="pp">근무 지역</p>
+								<p class="pp">관리자</p>
+								<p class="pp">차량 번호</p>
+								<p class="pp">등록 일자</p>
+								<p class="pp">총 위험 행위 건수</p>
 							</b>
 						</div>
 
@@ -85,8 +90,9 @@
 								<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
 								<p class="p">
 									<span class="region-text" data-lat="${driver.driverLat}"
-										data-lng="${driver.driverLon}">지역 불러오는 중…</span>
-								</p> <!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
+										data-lng="${driver.driverLon}" >지역 불러오는 중…</span>
+								</p> 
+								<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
 								<p class="p">${driver.adminName}</p>
 								<!-- 운전자 차량번호 : DB에서 carNumber값 가져오기! -->
 								<p class="p">${driver.carNumber}</p>
@@ -114,3 +120,9 @@
 
 </div>
 <!-- 운전자 리스트 끝-->
+
+
+
+
+
+
