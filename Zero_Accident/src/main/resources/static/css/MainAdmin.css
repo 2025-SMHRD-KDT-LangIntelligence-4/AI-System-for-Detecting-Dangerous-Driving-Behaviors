@@ -725,11 +725,40 @@ button.alert-btn {
   	padding: 9.5px;
   	box-sizing: border-box;
 }
+
+/* 경고 버튼 scale 조정 애니메이션 효과 */
+.div57 {
+  /* pulse-icon 애니메이션 효과를 1.2초 간격으로 무한 반복하겠다. */
+  animation: pulse-icon 1.2s ease-in-out infinite;
+}
+
+/* pulse-icon 정의 */
+@keyframes pulse-icon {
+  /* 시작 지점 : 크기, 투명도 그대로 */
+  0% { transform: scale(1); opacity: 1; }
+  /* 중간 지점 : 크기 1.05배, 투명도 0.8 */
+  50% { transform: scale(1.05); opacity: 0.8; }
+  /* 끝 지점 : 크기, 투명도 돌아옴 */
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* 경고 버튼에 마우스를 올렸을 때 */
+.div57:hover {
+	/* 마우스 올리면 애니메이션 멈춤 */
+	animation-play-state: paused;
+	/* 크기 1.05배 */ 
+	transform: scale(1.05) !important;
+	/* 투명도 1 */ 
+	opacity: 1 !important;
+	/* 부드럽게 크기 조정됨 */ 
+	transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+	
+}
+
 .alert-triangle {
   	width: 19.6px;
   	height: 19.6px;
   	position: relative;
-  	overflow: hidden;
   	flex-shrink: 0;
   	margin-bottom: 10px;
 }
@@ -738,11 +767,10 @@ button.alert-btn {
   	height: 100%;
   	width: 100%;
   	top: 12.08%;
-  	right: 6.29%;
+  	right: 0%;
   	bottom: 12.41%;
-  	left: 6.47%;
+  	left: 0%;
   	max-width: 100%;
-  	overflow: hidden;
   	max-height: 100%;
 }
 .inner {
