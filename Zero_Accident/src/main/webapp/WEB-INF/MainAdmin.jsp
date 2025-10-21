@@ -242,18 +242,22 @@
     	
     		<b class="b7" >실시간 차량 위치 모니터링</b>
     		
-    		<!-- 우빈 : (신)카카오 지도 들어갈 공간 div
-    		따로 css 빼지말고 독립적이게 인라인으로 넣는게 좋은 거 같음 -->
+    		<!-- 우빈 : (신)카카오 지도 들어갈 공간 div -->
+    		<!-- brightness(밝기), contrast(대비), saturate(채도) -->
     		
-   		  	<div id="mapContainer"
-		       style="
-		         top:35px;				/* 지도시작하는 부분 얼마나 내릴지 */
-		         min-height: 95.5%;		/* 세로 */
-		         width: 100%;			/* 가로 */
-		         border-radius: 10px;	/* 꼭지점 둥글게 */
-		         overflow: hidden;		/* 넘친 콘텐츠 숨기기 */
-		         background: #2f2f36;	/* 로딩 중 배경 확인용. 뭔지모름 gpt가 해줌 */
-		    "></div>
+			<div id="mapContainer"
+			     style="
+			       top:35px;				/* 지도시작하는 부분 얼마나 내릴지 */
+			       min-height:95.5%;		/* 세로 */
+			       width:100%;				/* 가로 */
+			       border-radius:10px;		/* 꼭지점 둥글게 */
+			       overflow:hidden;			/* 넘친 콘텐츠 숨기기 */
+			       background:#2f2f36;		/* 지도 로딩 중 하얀색 말고 우리 배경색으로	 	*/
+			       filter: 	brightness(1)	/* 밝기- 0.7:어두움 ~ 1:기본 ~ 1.3:밝음			*/
+			       			contrast(1)		/* 대비- 0.8:낮은대비 ~ 1:기본 ~ 1.3:강한대비 	*/
+			       			saturate(1);	/* 채도- 0.5:흑백느낌 ~ 1:기본 ~ 1.2:원색느낌	*/
+			     ">
+			</div>
     			
       	</div>
       	
