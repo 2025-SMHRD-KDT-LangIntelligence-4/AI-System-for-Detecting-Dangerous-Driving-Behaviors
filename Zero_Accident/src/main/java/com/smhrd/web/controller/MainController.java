@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.smhrd.web.dto.DriverInfo;
+import com.smhrd.web.dto.DriverWaiting;
 import com.smhrd.web.dto.MakeGraph;
 import com.smhrd.web.dto.MakeGraph2_4;
 import com.smhrd.web.dto.SelectLog;
@@ -169,9 +170,15 @@ public class MainController{
 		return "ButtonAdmin2_1";
 	}
 		
-	// 우빈 : 관리자 - 운전자 등록 페이지
+	// 우빈 : 관리자 - 대기 운전자 등록 페이지
 	@GetMapping("/ButtonAdmin2_2")
-	public String ButtonAdmin2_2() {
+	public String ButtonAdmin2_2(Model model) {
+		// 운전자 대기 리스트 조회
+		List<DriverWaiting> driverList = service.SelectWaitingDrivers();
+		// 운전자 대기 수 조회
+		int driverCount = service.SelectWaitingDriverCount();
+		model.addAttribute("driverList", driverList);
+		model.addAttribute("driverCount", driverCount);
 		return "ButtonAdmin2_2";
 	}
 		

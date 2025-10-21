@@ -139,10 +139,19 @@
 			
 			    // 모든 사이드바 버튼(.sidebar-btn 클래스 가진 요소)을 선택
 			    const buttons = document.querySelectorAll(".sidebar-btn");
-			
+				
 			    // localStorage에 저장된 '마지막으로 클릭한 버튼 인덱스'를 가져옴
 			    const savedIndex = localStorage.getItem("activeSidebar");
-			
+			    
+			    // 첫 번째 버튼(Main)을 기본 활성화
+			    const defaultIndex = 0;
+			    if (savedIndex !== null && buttons[savedIndex]) {
+			      buttons[savedIndex].classList.add("active");
+			    } else if (buttons[defaultIndex]) {
+			      buttons[defaultIndex].classList.add("active");
+			      localStorage.setItem("activeSidebar", defaultIndex);
+			    }
+			    
 			    // 저장된 인덱스가 존재하고, 해당 버튼이 실제로 존재하면
 			    // 그 버튼에 'active' 클래스를 추가 (색상 유지)
 			    if (savedIndex !== null && buttons[savedIndex]) {

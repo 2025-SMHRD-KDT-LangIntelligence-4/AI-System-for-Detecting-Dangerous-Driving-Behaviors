@@ -5,6 +5,7 @@
   
 <mapper namespace="com.smhrd.web.mapper.MainMapper">
 
+<!-- 우빈 : 2_1 전체운전자 기록 조회 -->
 <select id="SelectAllDrivers" resultType="com.smhrd.web.dto.DriverInfo">
 	SELECT d.driver_contact, d.driver_birthdate, d.driver_lon, d.driver_lat, d.created_at, d.driver_name, d.driver_idx, d.driver_img, d.driver_gender, a.admin_name, c.car_number, COUNT(l.car_number) AS count_log
 	FROM tb_driver d
@@ -13,9 +14,20 @@
 	LEFT JOIN tb_log l ON l.car_number = c.car_number
 	GROUP BY d.driver_idx, d.driver_contact, d.driver_birthdate, d.driver_lon, d.driver_lat, d.created_at, a.admin_name, c.car_number
 </select>
-	
+
+<!-- 우빈 : 2_1 전체운전자 수 조회 -->
 <select id="SelectDriverCount" resultType="int">	
-	SELECT COUNT(*) FROM tb_driver;
+	SELECT COUNT(*) FROM tb_driver
+</select>
+
+<!-- 우빈 : 2_2 대기중인 운전자 리스트 조회 -->
+<select id="SelectWaitingDrivers" resultType="com.smhrd.web.dto.DriverWaiting">	
+	SELECT * FROM tb_driver WHERE admin_idx IS NULL
+</select>
+
+<!-- 우빈 : 2_2 대기중인 운전자 수 조회 -->
+<select id="SelectWaitingDriverCount" resultType="int">	
+	SELECT COUNT(*) FROM tb_driver WHERE admin_idx IS NULL
 </select>
 
 <select id="countDriverIdx">
@@ -84,6 +96,7 @@
 	OR CAST(d.driver_idx AS CHAR) LIKE CONCAT('%', #{q}, '%')
 </select>
 
+<!-- 우빈 2_4 그래프용 통계 자료 조회 -->
 <select id="selectMonthlyByEventType" parameterType="int" resultType="com.smhrd.web.dto.MakeGraph2_4">
   SELECT
     DATE_FORMAT(l.created_at, '%Y-%m') AS ym,

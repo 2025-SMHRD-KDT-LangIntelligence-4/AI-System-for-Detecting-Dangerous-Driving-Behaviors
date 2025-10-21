@@ -39,7 +39,7 @@
 			          
 			          <!-- span 태그 줄바꿈 시 글자 간 간격 생김. 붙여 둘 것. -->
 			          <!-- 등록 대기자 수 : DB에서 가져오기! -->
-			          <span class="driver-count">153</span><span 
+			          <span class="driver-count">${driverCount}</span><span 
 			          class="driver-unit">명</span>
 			        </span>
 			      </div>
@@ -88,7 +88,7 @@
 		    <div class="driver-register-list">
 		    
 			      <!-- 반복문으로 동일한 등록 대기자 10명 출력! -->
-			      <c:forEach var="i" begin="1" end="10">
+			      <c:forEach var="d" items="${driverList }">
 			      
   					  <!-- 운전자 1명 --> 
 				      <div class="driver-card">
@@ -105,8 +105,6 @@
 									    <input 
 										    type="checkbox" 
 										    class="driver-checkbox"
-										    name="driverId" 
-										    value="${driver.driverId}"
 									    >
 								    
 									    <!-- 기존 디자인 유지, input 태그의 체크박스는 숨김 처리(css) -->
@@ -117,22 +115,22 @@
 						          <div class="driver-info-group">
 						          
 						          		<!-- 운전자 ID : driverId -->
-							            <div class="driver-id">driver022</div>
+							            <div class="driver-id">${d.driverId }</div>
 							            
 							            <!-- 운전자 이름 : driverName -->
-							            <div class="driver-name">강지현</div>
+							            <div class="driver-name">${d.driverName}</div>
 							            
 							            <!-- 운전자 성별 : driverGender -->
-							            <div class="driver-gender">여</div>
+							            <div class="driver-gender">${d.driverGender}</div>
 							            
 							            <!-- 운전자 연락처 : driverContact -->
-							            <div class="driver-phone">010-3701-9247</div>
+							            <div class="driver-phone">${d.driverContact}</div>
 							            
 							            <!-- 운전자 생년월일 : driverBirthdate -->
-							            <div class="driver-birth">2000-06-29</div>
+							            <div class="driver-birth">${d.fmtDriverBirthdate}</div>
 							            
 							            <!-- 신청 일자 : createdAt -->
-							            <div class="driver-date">2025-10-19</div>
+							            <div class="driver-date">${d.fmtCreatedAt}</div>
 						          </div>
 					        </div>
 				        

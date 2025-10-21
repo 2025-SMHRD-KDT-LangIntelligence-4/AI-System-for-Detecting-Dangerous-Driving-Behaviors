@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.smhrd.web.dto.DriverInfo;
+import com.smhrd.web.dto.DriverWaiting;
 import com.smhrd.web.dto.MakeGraph;
 import com.smhrd.web.dto.MakeGraph2_4;
 import com.smhrd.web.dto.SelectLog;
@@ -37,4 +38,8 @@ public interface MainMapper {
 		List<DriverInfo> selectSearchList(String q);
 		
 	    List<MakeGraph2_4> selectMonthlyByEventType(int months);
+
+		List<DriverWaiting> SelectWaitingDrivers();
+
+		int SelectWaitingDriverCount();
 }

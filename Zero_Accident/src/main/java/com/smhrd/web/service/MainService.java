@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smhrd.web.dto.DriverInfo;
+import com.smhrd.web.dto.DriverWaiting;
 import com.smhrd.web.dto.MakeGraph;
 import com.smhrd.web.dto.MakeGraph2_4;
 import com.smhrd.web.dto.SelectLog;
@@ -26,7 +27,8 @@ public class MainService {
     private final MainMapper mapper;
     
     public List<DriverInfo> SelectAllDrivers() {
-		// 우빈 : 포매팅 -> DB에서 가져온 정보를 보여줄 방식을 설정
+		// 우빈 : 2_1페이지 
+    	// 포매팅 -> DB에서 가져온 정보를 보여줄 방식을 설정
     	List<DriverInfo> driverList = mapper.SelectAllDrivers();
 	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년MM월dd일");
 	    for (DriverInfo j : driverList) {
@@ -49,10 +51,37 @@ public class MainService {
 	    }
     	return driverList;
     }
-    
+    // 우빈 : 2_1 페이지
     public int SelectDriverCount() {
     	return mapper.SelectDriverCount();
     }
+    
+    // 우빈 : 2_2 페이지
+	public List<DriverWaiting> SelectWaitingDrivers() {
+		List<DriverWaiting> driverList = mapper.SelectWaitingDrivers();
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년MM월dd일");
+		for (DriverWaiting j : driverList) {
+	    	// createdAt yyyy-mm-dd 형식을 yyyy년mm월dd일로 바꾸기 + localdatetime -> localdate
+	        if (j.getCreatedAt() != null) {
+	        	j.setFmtCreatedAt(j.getCreatedAt().toLocalDate().format(formatter));
+	        }
+	        // brithDate yyyy-mm-dd 형식을 yyyy년mm월dd일로 바꾸기
+	        if (j.getDriverBirthdate() != null) {
+	        	j.setFmtDriverBirthdate(j.getDriverBirthdate().format(formatter));
+	        }
+	        // 성별 M, F를 남, 여로 바꾸기
+        	switch (j.getDriverGender()) {
+        	case "M" -> j.setDriverGender("남");
+        	case "F"  -> j.setDriverGender("여");
+        	}
+		}
+		return driverList;
+	}
+	
+	// 우빈 : 2_2 페이지
+	public int SelectWaitingDriverCount() {
+		return mapper.SelectWaitingDriverCount();
+	}
     
     public int countDriverIdx() {
         return mapper.countDriverIdx();
@@ -245,4 +274,8 @@ public class MainService {
         }
         return list;
     }
+    
+    
+    
+    
 }

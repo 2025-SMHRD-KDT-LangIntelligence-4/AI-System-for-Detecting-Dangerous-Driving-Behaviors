@@ -105,8 +105,6 @@
 									    <input 
 										    type="checkbox" 
 										    class="driver-checkbox"
-										    name="driverIdx" 
-										    value="${driver.driverIdxChecked}"
 									    >
 								    
 									    <!-- 기존 디자인 유지, input 태그의 체크박스는 숨김 처리(css) -->
