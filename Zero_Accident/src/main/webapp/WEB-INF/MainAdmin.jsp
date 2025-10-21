@@ -251,7 +251,7 @@
 		         min-height: 95.5%;		/* 세로 */
 		         width: 100%;			/* 가로 */
 		         border-radius: 10px;	/* 꼭지점 둥글게 */
-		         overflow: hidden;		/* 뭔지모름 gpt가 해줌 */
+		         overflow: hidden;		/* 넘친 콘텐츠 숨기기 */
 		         background: #2f2f36;	/* 로딩 중 배경 확인용. 뭔지모름 gpt가 해줌 */
 		    "></div>
     			
@@ -420,12 +420,12 @@
      				<!-- 대중교통 아이콘 -->
  					<img class="error-icon" src="/image/car.svg">
  					
- 					<div class="search-here">
+ 					<div class="search-hereee">
  					
  						<!-- 현재 운행 차량 대수 : DB에서 가져오기! -->
  						<!-- 차량 운행 유무 컬럼 없음 -->
-   						<span class="spann">${count}</span>
-   						<span class="span4">대 운행중</span>
+   						<span class="spann">${count}</span><span 
+   						class="span4">대 운행중</span>
  					</div>
      			</div>
      				
@@ -436,12 +436,12 @@
      				<!-- 경고 아이콘 -->
  					<img class="error-icon" src="/image/error2.svg">
  					
- 					<div class="search-here">
+ 					<div class="search-herea">
    						<span class="span">총 </span>
    						
    						<!-- 일간 위험 행위 발생 횟수 : DB에서 가져오기!  -->
-   						<span class="mainadminjsp-span">${totalCount}</span>
-   						<span class="span">건 발생</span>
+   						<span class="mainadminjsp-span">${totalCount}</span><span 
+   						class="span">건 발생</span>
  					</div>
      			</div>
      				

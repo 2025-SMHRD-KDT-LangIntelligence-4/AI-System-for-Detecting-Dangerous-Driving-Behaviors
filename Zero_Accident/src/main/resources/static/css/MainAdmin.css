@@ -96,6 +96,22 @@ b.search-heree {
 	white-space: nowrap;
 }
 
+.search-hereee {
+  	position: relative;
+  	white-space:nowrap;
+  	font-weight:300;
+  	font-size:100%;
+  	margin-top: -3px;
+}
+
+.search-herea {
+	position: relative;
+  	white-space:nowrap;
+  	font-weight:300;
+  	font-size:100%;
+  	margin-top: -6px;
+}
+
 .div3 {
   	position: absolute;
   	top: 81.22px;
@@ -222,7 +238,9 @@ button.div5 {
 .div11 {
   	position: relative;
   	line-height: 14.94px;
-  	font-weight: 800;
+  	font-weight: 700;
+  	margin-top: -1px;
+  	font-size: 90%;
 }
 .container {
   	display: flex;
@@ -416,7 +434,7 @@ button.div5 {
 }
 
 .spann {
-  	font-weight: 800;
+  	font-weight: 900;
   	
 }
 
@@ -1439,6 +1457,9 @@ button.closeBtn {
 	all: unset;
 	cursor: pointer;
 }
+
+
+
 
 
 
