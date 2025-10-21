@@ -26,4 +26,11 @@ public class Controller우희{
 		public String Datetime() {
 			return "Datetime";
 		}
+		
+		
+		// 운전자 위험운전상세페이지
+		@GetMapping("/MainPageDriver2_1")
+		public String MainPageDriver2_1() {
+			return "MainPageDriver2_1";
+		}
 }
