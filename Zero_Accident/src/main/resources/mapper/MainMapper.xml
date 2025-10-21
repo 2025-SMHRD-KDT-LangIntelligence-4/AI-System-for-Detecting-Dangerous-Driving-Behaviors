@@ -12,12 +12,13 @@
 	LEFT JOIN tb_admin a ON d.admin_idx = a.admin_idx
 	LEFT JOIN tb_car c ON d.driver_idx = c.driver_idx
 	LEFT JOIN tb_log l ON l.car_number = c.car_number
+	WHERE d.admin_idx IS NOT NULL
 	GROUP BY d.driver_idx, d.driver_contact, d.driver_birthdate, d.driver_lon, d.driver_lat, d.created_at, a.admin_name, c.car_number
 </select>
 
 <!-- 우빈 : 2_1 전체운전자 수 조회 -->
 <select id="SelectDriverCount" resultType="int">	
-	SELECT COUNT(*) FROM tb_driver
+	SELECT COUNT(*) FROM tb_driver WHERE admin_idx IS NOT NULL
 </select>
 
 <!-- 우빈 : 2_2 대기중인 운전자 리스트 조회 -->

@@ -24,7 +24,7 @@ public class MapController {
 //        return "MainAdmin우빈";
 //    }
 
-    // 우빈 : 단일 운전자 마커 (아직 안 쓰는 메서드)
+    // 우빈 : 단일 운전자 마커
     @GetMapping("/map/driver")
     public String mapDriver(@RequestParam int driverIdx, Model model) {
         Driver driver = service.getOne(driverIdx);

@@ -579,14 +579,24 @@
 	
 	    const bounds = new kakao.maps.LatLngBounds();
 	    const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
-	
+	    
+	 	// 커스텀 마커 이미지 설정
+	    const markerImage = new kakao.maps.MarkerImage(
+	      '/image/mapPinR.svg',       // 이미지 경로 (예: /static/image/marker.png)
+	      new kakao.maps.Size(36, 36), // 이미지 크기 (px)
+	      { offset: new kakao.maps.Point(18, 36) } // 기준점 (가운데 아래)
+	    );
+	 	
 	    drivers.forEach(d => {
 	      if (isNaN(d.lat) || isNaN(d.lng)) return;
 	      const pos = new kakao.maps.LatLng(d.lat, d.lng);
 	      bounds.extend(pos);
 	
-	      const marker = new kakao.maps.Marker({ position: pos, map });
-	
+	      // 기본 마커 : const marker = new kakao.maps.Marker({ position: pos, map });
+	      
+	      // 커스텀 마커로 변경
+	      const marker = new kakao.maps.Marker({position: pos, image: markerImage, map});
+	      
 	      const content = `
 	        <div style="padding:8px; min-width:180px">
 	          <b>${d.name || '운전자'}</b><br>
