@@ -348,6 +348,8 @@ button div {
     font-weight: 800;
 }
 .input_id {
+	all: unset;
+	cursor: text;
     position: absolute;
     height: calc(100% - 911px);
     top: 299px;
@@ -367,6 +369,8 @@ button div {
     position: relative;
 }
 .input_pwd {
+	all: unset;
+	cursor: text;
     position: absolute;
     width: calc(100% - 80px);
     top: 364px;
@@ -502,6 +506,19 @@ input::placeholder {
     padding: 26px 0px;
     box-sizing: border-box;
 }
+
+/* 🔹 클릭(눌림) 효과 */
+button.btn_login:active {
+  transform: scale(0.8);              /* 살짝 작아지며 눌리는 느낌 */
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.4); /* 안쪽 그림자 (눌린 입체감) */
+}
+
+/* 🔹 hover 효과(선택사항) */
+button.btn_login:hover {
+  background-color: #e2e7e7;           /* 살짝 어두운 톤 */
+  transform: scale(1.02);              /* 마우스 올리면 약간 커짐 */
+}
+
 .login_text {
     font-weight: 800;
 }
