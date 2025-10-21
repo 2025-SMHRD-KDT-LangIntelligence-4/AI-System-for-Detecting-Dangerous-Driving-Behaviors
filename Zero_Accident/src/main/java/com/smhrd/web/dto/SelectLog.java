@@ -48,6 +48,8 @@ import lombok.NoArgsConstructor;
     }
 	// 블랙박스 알림 버튼 색깔
 	private String eventColor2;
+	// 블랙박스 알림 아이콘
+	private String icon;
 	
 	}
 

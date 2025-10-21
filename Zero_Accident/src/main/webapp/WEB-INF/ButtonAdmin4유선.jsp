@@ -296,10 +296,10 @@
 							<!-- 버튼 클릭 시 운전자에게 해당 위험 단계에 맞는 경고 발송 -->
       						<button type="button" 
       						class="alert-btn">
-    							<div class="${b.eventColor2 }">
+    							<div class="${b.eventColor2}">
       								<div class="alert-triangle">
       									<!-- 경고 아이콘 -->
-      									<img class="icon5" src="/image/Danger.svg">      									
+      									<img class="icon8" src="${pageContext.request.contextPath}${b.icon}">      									
       								</div>
     							</div>
       						</button>

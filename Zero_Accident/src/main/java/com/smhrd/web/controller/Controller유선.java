@@ -98,7 +98,7 @@ public class Controller유선{
 				 blackbox.setEventTypeKo("운전자 폭행");
 			 }
 		 }
-		// 로그 기록 시간 보기 쉽게 바꾸기 2025-10-20 [13:44:08]
+		// 로그 기록 시간 보기 쉽게 바꾸기 2025-10-20 13:44:08
 		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd  hh:mm:ss");
 		    for (SelectLog j : blackboxList) {
 		        	j.setRegDate(j.getCreatedAt().format(formatter));
@@ -108,15 +108,24 @@ public class Controller유선{
 				 if ("1".equals(blackbox.getEventLevel())){
 					 blackbox.setEventColor2("div51");
 				 }if ("2".equals(blackbox.getEventLevel())){
-					 blackbox.setEventColor2("div23_2");
+					 blackbox.setEventColor2("div51");
 				 }if ("3".equals(blackbox.getEventLevel())){
 					 blackbox.setEventColor2("div23");
 			 }
+			
+		 }
+		    // 유선 : 블랙박스 알림아이콘 바꾸기
+		    for (SelectLog blackbox : blackboxList) {
+				 if ("1".equals(blackbox.getEventLevel())){
+					 blackbox.setIcon("/image/Volume.svg");
+				 }if ("2".equals(blackbox.getEventLevel())){
+					 blackbox.setIcon("/image/Volume.svg");
+				 }if ("3".equals(blackbox.getEventLevel())){
+					 blackbox.setIcon("/image/Danger.svg");
+			 }
+			
 		 }
 		    
-		    
-		    
-		     
 		model.addAttribute("selectBlackbox", blackboxList);
 		return "/ButtonAdmin4유선";
 		
