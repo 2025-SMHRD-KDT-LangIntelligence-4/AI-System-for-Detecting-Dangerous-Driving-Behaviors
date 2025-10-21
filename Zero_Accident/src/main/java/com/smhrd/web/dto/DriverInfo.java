@@ -22,6 +22,7 @@ import lombok.NoArgsConstructor;
 	private String driverName;
     private String driverContact;
     private LocalDate driverBirthdate;
+    private String driverGender;
     private String driverRegion;
     private String driverImg;
     private LocalDateTime createdAt;

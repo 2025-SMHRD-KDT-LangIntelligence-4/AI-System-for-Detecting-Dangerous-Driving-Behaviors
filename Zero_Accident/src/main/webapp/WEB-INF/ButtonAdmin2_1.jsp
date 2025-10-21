@@ -50,7 +50,9 @@
 				<!-- 운전자 증명사진 -->
 				<div class="avatar-icon">
 					<!-- image 삽입 공간 : DB에서 이미지 url 가져오기! -->
-					<img class="avatar-img" src="${driver.driverImg}">
+					<img class="avatar-img"
+					src="${driver.driverImg}"
+					onerror="this.onerror=null; this.src='/imagePeople/default.png';">
 				</div>
 
 				<div class="s021">

@@ -163,7 +163,8 @@
  							<div class="avatarBorder">
  							
 	 							<!-- 관리자 증명사진 : DB에서 adminImg 가져오기! -->
-	   							<img class="avatar-icon" src="${sessionScope.loginAdmin.adminImg}">
+	   							<img class="avatar-icon"
+	   							src="${sessionScope.loginAdmin.adminImg}">
 							</div>
    							
    							<div class="a021">
@@ -411,7 +412,8 @@
 	 						<div class="div24">
 	 							
 	 							<!-- 운전자 사진 : DB에서 driverImg값 가져오기! -->
-	   							<img class="buttonadmin5jsp-avatar-icon" src="${d.driverImg}">
+	   							<img class="buttonadmin5jsp-avatar-icon" src="${d.driverImg}"
+	   							onerror="this.onerror=null; this.src='/imagePeople/default.png';">
 	   							
 	   							
 	   							<div class="div25">

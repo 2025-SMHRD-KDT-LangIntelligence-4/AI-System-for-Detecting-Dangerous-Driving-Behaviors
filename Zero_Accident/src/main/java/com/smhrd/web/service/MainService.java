@@ -1,6 +1,7 @@
 package com.smhrd.web.service;
 
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +26,28 @@ public class MainService {
     private final MainMapper mapper;
     
     public List<DriverInfo> SelectAllDrivers() {
-    	return mapper.SelectAllDrivers();
+		// 우빈 : 포매팅 -> DB에서 가져온 정보를 보여줄 방식을 설정
+    	List<DriverInfo> driverList = mapper.SelectAllDrivers();
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년MM월dd일");
+	    for (DriverInfo j : driverList) {
+	    	// createdAt yyyy-mm-dd 형식을 yyyy년mm월dd일로 바꾸기 + localdatetime -> localdate
+	        if (j.getCreatedAt() != null) {
+	        	j.setFmtCreatedAt(j.getCreatedAt().toLocalDate().format(formatter));
+	        }
+	        // brithDate yyyy-mm-dd 형식을 yyyy년mm월dd일로 바꾸기
+	        if (j.getDriverBirthdate() != null) {
+	        	j.setFmtDriverBirthdate(j.getDriverBirthdate().format(formatter));
+	        }
+	        // 성별 M, F를 남, 여로 바꾸기
+        	switch (j.getDriverGender()) {
+        	case "M" -> j.setDriverGender("남");
+        	case "F"  -> j.setDriverGender("여");
+        	}
+	        // driver_idx → "S001" 형식으로 
+	        // "S%03d"뜻 : S로 시작해서 3자리 미만을 3자리로 하고 빈칸에 0을 채워라.
+	        	j.setDriverCode(String.format("S%03d", j.getDriverIdx()));
+	    }
+    	return driverList;
     }
     
     public int SelectDriverCount() {
@@ -62,7 +84,6 @@ public class MainService {
             v.setDriverCode(String.format("S%03d", v.getDriverIdx()));
             
         }
-
         return list;
     }
     

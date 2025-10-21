@@ -154,55 +154,45 @@ public class MainController{
 		return "ButtonAdmin2_0";
 		}
 		
-	// 관리자 - 운전자 관리 페이지 (디폴트)
-		@GetMapping("/ButtonAdmin2_1")
-		public String ButtonAdmin2_1(Model model) {
-			// 운전자 리스트 조회
-			List<DriverInfo> driverList = service.SelectAllDrivers();
-			// 운전자 전체 수 조회
-			int driverCount = service.SelectDriverCount();
-			
-			// 우빈 : 포매팅 -> DB에서 가져온 정보를 보여줄 방식을 설정
-		    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년MM월dd일");
-		    for (DriverInfo j : driverList) {
-		    	// createdAt yyyy-mm-dd 형식을 yyyy년mm월dd일로 바꾸기 + localdatetime -> localdate
-		        if (j.getCreatedAt() != null) {
-		        	j.setFmtCreatedAt(j.getCreatedAt().toLocalDate().format(formatter));
-		        }
-		        // brithDate yyyy-mm-dd 형식을 yyyy년mm월dd일로 바꾸기
-		        if (j.getDriverBirthdate() != null) {
-		        	j.setFmtDriverBirthdate(j.getDriverBirthdate().format(formatter));
-		        }
-		        // driver_idx → "S001" 형식으로 
-		        // "S%03d"뜻 : S로 시작해서 3자리 미만을 3자리로 하고 빈칸에 0을 채워라.
-		        	j.setDriverCode(String.format("S%03d", j.getDriverIdx()));
-		    }
-			    
-		    // 모델에 driverList라는 이름으로 담아서 뷰페이지로 보내기
-			model.addAttribute("driverList", driverList); 
-			model.addAttribute("driverCount", driverCount);
-			
-			return "ButtonAdmin2_1";
-		}
+	// 우빈 : 관리자 - 운전자 관리 페이지 (디폴트)
+	@GetMapping("/ButtonAdmin2_1")
+	public String ButtonAdmin2_1(Model model) {
+		// 운전자 리스트 조회
+		List<DriverInfo> driverList = service.SelectAllDrivers();
+		// 운전자 전체 수 조회
+		int driverCount = service.SelectDriverCount();
+		    
+	    // 모델에 driverList라는 이름으로 담아서 뷰페이지로 보내기
+		model.addAttribute("driverList", driverList);
+		model.addAttribute("driverCount", driverCount);
 		
-	// 관리자 - 운전자 등록 페이지
-		@GetMapping("/ButtonAdmin2_2")
-		public String ButtonAdmin2_2() {
-			return "ButtonAdmin2_2";
-		}
+		return "ButtonAdmin2_1";
+	}
 		
-	// 관리자 - 메시지 보내기 페이지
-		@GetMapping("/ButtonAdmin2_3")
-		public String ButtonAdmin2_3() {
-			return "ButtonAdmin2_3";
-		}
-	// 관리자 - 통계 페이지
-		@GetMapping("/ButtonAdmin2_4")
-	    public String ButtonAdmin2_4(Model model) {
-	        List<MakeGraph2_4> graphValue = service.selectMonthlyByEventType(12);
-	        model.addAttribute("graphValue", graphValue);
-			return "ButtonAdmin2_4";
-		}
+	// 우빈 : 관리자 - 운전자 등록 페이지
+	@GetMapping("/ButtonAdmin2_2")
+	public String ButtonAdmin2_2() {
+		return "ButtonAdmin2_2";
+	}
+		
+	// 우빈 : 관리자 - 메시지 보내기 페이지
+	@GetMapping("/ButtonAdmin2_3")
+	public String ButtonAdmin2_3(Model model) {
+		// 운전자 리스트 조회
+		List<DriverInfo> driverList = service.SelectAllDrivers();
+		// 운전자 전체 수 조회
+		int driverCount = service.SelectDriverCount();
+		model.addAttribute("driverList", driverList);
+		model.addAttribute("driverCount", driverCount);
+		return "ButtonAdmin2_3";
+	}
+	// 우빈 : 관리자 - 통계 페이지
+	@GetMapping("/ButtonAdmin2_4")
+    public String ButtonAdmin2_4(Model model) {
+        List<MakeGraph2_4> graphValue = service.selectMonthlyByEventType(12);
+        model.addAttribute("graphValue", graphValue);
+		return "ButtonAdmin2_4";
+	}
 		
 	// 관리자 - 전체 로그 조회 페이지
 		@GetMapping("/ButtonAdmin3")
@@ -221,7 +211,7 @@ public class MainController{
 		public String ButtonAdmin5(Model model, HttpSession session, RedirectAttributes ra) {
 	    	Admin loginAdmin = (Admin) session.getAttribute("loginAdmin");
 	    	if (loginAdmin == null) {
-	            // 로그인 세션 만료 시 1회성 메시지 전달
+	            // 우빈 : 로그인 세션 만료 시 1회성 메시지 전달
 	            ra.addFlashAttribute("alertMsg", "로그인 세션이 만료되었습니다.");
 	            return "redirect:/";
 	        }
@@ -229,5 +219,5 @@ public class MainController{
 	    	List<DriverInfo> driverList = service.selectDriverByAdminIdx(adminIdx);
 	    	model.addAttribute("driverList", driverList);
 			return "ButtonAdmin5";
-			}	
+			}
 }

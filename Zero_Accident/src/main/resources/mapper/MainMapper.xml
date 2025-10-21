@@ -6,7 +6,7 @@
 <mapper namespace="com.smhrd.web.mapper.MainMapper">
 
 <select id="SelectAllDrivers" resultType="com.smhrd.web.dto.DriverInfo">
-	SELECT d.driver_contact, d.driver_birthdate, d.driver_lon, d.driver_lat, d.created_at, d.driver_name, d.driver_idx, d.driver_img, a.admin_name, c.car_number, COUNT(l.car_number) AS count_log
+	SELECT d.driver_contact, d.driver_birthdate, d.driver_lon, d.driver_lat, d.created_at, d.driver_name, d.driver_idx, d.driver_img, d.driver_gender, a.admin_name, c.car_number, COUNT(l.car_number) AS count_log
 	FROM tb_driver d
 	LEFT JOIN tb_admin a ON d.admin_idx = a.admin_idx
 	LEFT JOIN tb_car c ON d.driver_idx = c.driver_idx
@@ -43,7 +43,7 @@
 <select id="selectEventTypeCountYear" resultType="com.smhrd.web.dto.MakeGraph">
     SELECT event_type, COUNT(*) AS cnt
     FROM tb_log
-    WHERE YEAR(created_at) = YEAR(CURDATE())
+    WHERE YEAR(created_at) = YEAR('2025-10-20')
     GROUP BY event_type
 </select>
 
@@ -51,8 +51,8 @@
 <select id="selectEventTypeCountMonth" resultType="com.smhrd.web.dto.MakeGraph">
     SELECT event_type, COUNT(*) AS cnt
     FROM tb_log
-    WHERE MONTH(created_at) = MONTH(CURDATE())
-      AND YEAR(created_at) = YEAR(CURDATE())
+    WHERE MONTH(created_at) = MONTH('2025-10-20')
+      AND YEAR(created_at) = YEAR('2025-10-20')
     GROUP BY event_type
 </select>
 
@@ -60,9 +60,10 @@
 <select id="selectEventTypeCountWeek" resultType="com.smhrd.web.dto.MakeGraph">
     SELECT event_type, COUNT(*) AS cnt
     FROM tb_log
-    WHERE YEARWEEK(created_at, 1) = YEARWEEK(CURDATE(), 1)
+    WHERE YEARWEEK(created_at, 1) = YEARWEEK('2025-10-20', 1)
     GROUP BY event_type
 </select>
+
 
 <!-- 우빈 : 관리자 마이페이지 정보 조회 -->
 <select id="selectDriverByAdminIdx" parameterType="int" resultType="com.smhrd.web.dto.DriverInfo">
