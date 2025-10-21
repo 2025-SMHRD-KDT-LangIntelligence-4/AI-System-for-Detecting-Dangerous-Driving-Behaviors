@@ -255,7 +255,7 @@
      							<div class="l00000212-parent">
      								
      								<!-- 로그 ID : DB에서 logIdx값 가져오기 -->
-       								<div class="b">${b.logIdx}</div>
+       								<div class="b">${b.displayLogidx}</div>
        								
        								<!-- 구분선 -->
        								<div class="frame-child">
@@ -269,15 +269,34 @@
      							</div>
       						</div>
       						
-      						<!-- 실시간 블랙박스 영상 -->
-      						<div class="div49" >
-      						<!-- 블랙박스 영상 삽입 후 삭제 -->
-       							<div class="b">${b.eventVideo}</div>
-      						</div>
-      						
+      						                  <!-- 실시간 블랙박스 영상 -->
+                  <div class="div49">
+                      <c:choose>
+                          <c:when test="${not empty b.eventVideo}">
+                              <video
+                                  src="${cpath}${b.eventVideo}"
+                                  class="blackbox-video"
+                                  style="width:100%; height:100%; object-fit:cover; border-radius:8px;"
+                                  controls
+                                  muted
+                                  autoplay
+                                  loop
+                                  playsinline
+                                  preload="metadata"
+                              >
+                                  브라우저가 video 태그를 지원하지 않습니다.
+                              </video>
+                          </c:when>
+                          <c:otherwise>
+                              <div class="search-here">동영상 준비 중</div>
+                          </c:otherwise>
+                      </c:choose>
+                  </div>
       						<!-- 경고 전송 버튼 -->
 							<!-- 버튼 클릭 시 운전자에게 해당 위험 단계에 맞는 경고 발송 -->
-      						<button type="button" class="alert-btn">
+      						<button type="button" 
+      						class="alert-btn ${b.eventColor}"  onclick="sendWarning('${b.driverIdx}', '${b.eventTypeKo}');"
+    							data-driver-idx="${b.driverIdx}">
     							<div class="div23">
       								<div class="alert-triangle">
       									<!-- 경고 아이콘 -->
@@ -297,7 +316,7 @@
       								
       								<!-- 운전자 이름, 운전자 ID : DB에서 driverName, driverIdx값 가져오기! -->
       								<div class="s101-wrapper">
-       									<div class="b">${b.driverName}(${b.driverIdx})</div>
+       									<div class="b">${b.driverName}(${b.displayDriverIdx})</div>
       								</div>
       								
       								<!-- 차량번호 : DB에서 carNumber값 가져오기! -->

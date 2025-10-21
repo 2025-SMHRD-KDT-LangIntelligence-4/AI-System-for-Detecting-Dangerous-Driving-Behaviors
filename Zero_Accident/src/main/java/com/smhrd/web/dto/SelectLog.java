@@ -9,9 +9,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Data
 @AllArgsConstructor
@@ -25,11 +23,29 @@ import lombok.Setter;
 	private String eventColor; // 위험 등급 (빨강, 주황)
 	private String eventTypeKo; // 이벤트 타입 한글로(휴대폰 조작, 폭행 등)
 	private String regDate; // 날짜 [12:39:48] 표시
-	private String logIdx;
-	private String driverIdx;
+	
+	// 서브페이지 - 블랙박스에 필요
+	private int logIdx;
+	private int driverIdx;
 	private String driverName;
 	private String displayAddr;
 	private String eventVideo;
+	
+	// logidx값 -> 문자열
+	public int getLogidx() {
+	    return logIdx;
+	}
+	public void setLogidx(int logidx) {
+	    this.logIdx = logidx;
+	}
+	public String getDisplayLogidx() {
+	    return String.format("L%09d", logIdx); 
+	}
+	
+	// driveridx 값 숫자 -> 문자열
+	public String getDisplayDriverIdx() {
+        return String.format("S%03d", driverIdx); 
+    }
 	
 	}
 
