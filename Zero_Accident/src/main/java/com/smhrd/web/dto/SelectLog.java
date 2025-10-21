@@ -46,6 +46,8 @@ import lombok.NoArgsConstructor;
 	public String getDisplayDriverIdx() {
         return String.format("S%03d", driverIdx); 
     }
+	// 블랙박스 알림 버튼 색깔
+	private String eventColor2;
 	
 	}
 

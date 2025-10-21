@@ -103,6 +103,19 @@ public class Controller유선{
 		    for (SelectLog j : blackboxList) {
 		        	j.setRegDate(j.getCreatedAt().format(formatter));
 		    }
+		    // 유선 : 블랙박스 알림버튼 색 바꾸기
+		    for (SelectLog blackbox : blackboxList) {
+				 if ("1".equals(blackbox.getEventLevel())){
+					 blackbox.setEventColor2("div51");
+				 }if ("2".equals(blackbox.getEventLevel())){
+					 blackbox.setEventColor2("div23_2");
+				 }if ("3".equals(blackbox.getEventLevel())){
+					 blackbox.setEventColor2("div23");
+			 }
+		 }
+		    
+		    
+		    
 		     
 		model.addAttribute("selectBlackbox", blackboxList);
 		return "/ButtonAdmin4유선";

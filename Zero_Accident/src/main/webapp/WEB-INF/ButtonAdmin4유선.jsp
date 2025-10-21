@@ -295,9 +295,8 @@
       						<!-- 경고 전송 버튼 -->
 							<!-- 버튼 클릭 시 운전자에게 해당 위험 단계에 맞는 경고 발송 -->
       						<button type="button" 
-      						class="alert-btn ${b.eventColor}"  onclick="sendWarning('${b.driverIdx}', '${b.eventTypeKo}');"
-    							data-driver-idx="${b.driverIdx}">
-    							<div class="div23">
+      						class="alert-btn">
+    							<div class="${b.eventColor2 }">
       								<div class="alert-triangle">
       									<!-- 경고 아이콘 -->
       									<img class="icon5" src="/image/Danger.svg">      									

@@ -508,6 +508,18 @@ button.alert-btn {
   	padding: 12.4px;
   	box-sizing: border-box;
 }
+.div23_2 {
+  	width: 57.5px;
+  	height: 175px;
+  	border-radius: 12.97px;
+  	background-color:  #fcb859;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 12.4px;
+  	box-sizing: border-box;
+}
 .alert-triangle {
   	width: 25.7px;
   	height: 25.7px;
