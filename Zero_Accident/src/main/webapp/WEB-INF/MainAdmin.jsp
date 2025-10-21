@@ -582,7 +582,7 @@
 	    
 	 	// 커스텀 마커 이미지 설정
 	    const markerImage = new kakao.maps.MarkerImage(
-	      '/image/mapPinR.svg',       // 이미지 경로 (예: /static/image/marker.png)
+	      '/image/MapPinB.svg',       // 이미지 경로 (예: /static/image/marker.png)
 	      new kakao.maps.Size(36, 36), // 이미지 크기 (px)
 	      { offset: new kakao.maps.Point(18, 36) } // 기준점 (가운데 아래)
 	    );
