@@ -48,13 +48,29 @@
 		   		<!-- 구분선 -->
 		    	<div class="driver-waiting-line"></div>
 				
-				<!-- 선택한 운전자에게 메시지 보내기 버튼 -->
+				<!-- 우빈 : 선택 등록 버튼 -->
+				<div class="actionBtnWrap">
 				
-			    <button type="button" class="registerAllBtn">
-			    	<!-- 아이콘 -->
-			      	<img class="add-circle-icon" src="/image/addCircle2.svg">
-			      	<div class="driver-bulk-text">메시지 전송</div>
-			    </button>
+				  <!-- 기존 버튼 (그대로) -->
+				  <button type="button" class="registerAllBtn">
+				    <img class="add-circle-icon" src="/image/addCircle2.svg" />
+				    <div class="driver-bulk-text">메시지 보내기</div>
+				  </button>
+				
+				  <!-- ★추가: 새 버튼들 (원하는 개수만큼 복사) -->
+				  <button type="button" class="registerAllBtn registerAllBtn--danger">
+				    <img class="add-circle-icon" src="/image/addCircle2.svg" />
+				    <div class="driver-bulk-text">전화 연결</div>
+				  </button>
+				
+				<!--
+				  <button type="button" class="registerAllBtn registerAllBtn--accent">
+				    <img class="add-circle-icon" src="/image/addCircle2.svg" />
+				    <div class="driver-bulk-text">운전자 정보 수정</div>
+				  </button>
+				 -->
+				 
+				</div>
 			    
 		  </div>
 	  

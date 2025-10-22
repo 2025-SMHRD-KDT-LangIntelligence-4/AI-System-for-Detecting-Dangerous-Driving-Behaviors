@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 .driver-waiting-container {
   width: 100%;
   height: 554px;
@@ -368,5 +367,29 @@ button.registerBtn:hover {
   
 }
 
+/* 우빈 버튼 여러개 나열하는 css */
+
+/* ★추가: 상단 버튼 나열용 래퍼 */
+.driver-waiting-header .actionBtnWrap {
+  position: absolute;      /* 기존 위치 기준: 헤더 안에서 절대 좌표 */
+  top: 24px;
+  left: 0;
+  display: flex;           /* 가로로 나열 */
+  align-items: center;
+  gap: 12px;               /* 버튼 사이 간격 */
+  background: transparent; /* 헤더 배경과 분리 */
+}
+
+/* ★오버라이드: registerAllBtn을 한 줄에 여러 개 보이도록 */
+.driver-waiting-header .actionBtnWrap .registerAllBtn {
+  position: static !important;  /* 기존 absolute 무효화 */
+  display: inline-flex !important;
+  width: auto !important;       /* 100% 폭 방지 */
+  white-space: nowrap;          /* 라벨 줄바꿈 방지 */
+}
 
 
+/* (선택) hover 효과 통일 */
+.registerAllBtn:hover {
+  filter: brightness(1.07);
+}

@@ -48,13 +48,27 @@
 		   		<!-- 구분선 -->
 		    	<div class="driver-waiting-line"></div>
 				
-				<!-- 선택 등록 버튼 -->
-				<!-- 버튼 클릭 시 선택한 운전자 일괄 등록됨. -->
-			    <button type="button" class="registerAllBtn">
-			    	<!-- 아이콘 -->
-			      	<img class="add-circle-icon" src="/image/addCircle2.svg">
-			      	<div class="driver-bulk-text">운전자 등록</div>
-			    </button>
+				<!-- 우빈 : 선택 등록 버튼 -->
+				<div class="actionBtnWrap">
+				
+				  <!-- 기존 버튼 (그대로) -->
+				  <button type="button" class="registerAllBtn">
+				    <img class="add-circle-icon" src="/image/addCircle2.svg" />
+				    <div class="driver-bulk-text">운전자 등록</div>
+				  </button>
+				
+				  <!-- ★추가: 새 버튼들 (원하는 개수만큼 복사) -->
+				  <button type="button" class="registerAllBtn registerAllBtn--danger">
+				    <img class="add-circle-icon" src="/image/addCircle2.svg" />
+				    <div class="driver-bulk-text">운전자 삭제</div>
+				  </button>
+				
+				  <button type="button" class="registerAllBtn registerAllBtn--accent">
+				    <img class="add-circle-icon" src="/image/addCircle2.svg" />
+				    <div class="driver-bulk-text">운전자 정보 수정</div>
+				  </button>
+				
+				</div>
 			    
 		  </div>
 	  
