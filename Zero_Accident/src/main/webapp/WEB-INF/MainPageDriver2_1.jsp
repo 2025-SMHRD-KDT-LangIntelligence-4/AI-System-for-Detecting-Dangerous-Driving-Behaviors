@@ -20,11 +20,33 @@
 	<!-- 전체 컨테이너 -->
   	<div class="mainpagedriver2-1jsp">
   	
-  		<!-- 상단 바 + 로고 -->
+  		<!-- 상단 바 -->
 		<!-- DriverHeader.jsp 파일에서 작업하기 -->
 		<%@ include file="/WEB-INF/DriverHeader.jsp" %>
 		
-    		
+    	<div class="registerdriverjsp-div">
+    			<!-- 뒤로 가기 아이콘 -->
+    			<!-- 위험 운전 이력 페이지로 이동 -->
+      			<a class="chevron-left" href="/MainPageDriver2" aria-label="뒤로가기">
+  					<img class="icon" src="/image/Chevron-left.svg" alt="뒤로가기">
+				</a>
+      			
+      			<!-- 로고 -->
+    			<div class="small">
+      				<div class="registerdriverjsp-small">
+       					<div class="small-child">
+       					</div>
+        					<div class="z0a">
+          						<span>Z</span>
+          						<span class="span">0</span>
+          						<span class="a">A</span>
+        					</div>
+        					<img src="/image/Rectangle 212.svg" class="logo_deco_2">	
+        					<img src="/image/Rectangle 212.svg" class="logo_deco_3">       					
+      				</div>
+    			</div>
+    		</div>
+    			
  		<div class="div2">
  		
  			<!-- Zer0-Accident 텍스트 로고 -->	
@@ -38,6 +60,9 @@
    			</div>
    			
    			
+<!-- ================================== 메인 =================================== -->   			
+   			
+   			   			
    			<div class="parent">
    			
    					<!-- 타이틀 -->

@@ -1,0 +1,464 @@
+@charset "UTF-8";
+
+body {
+  display: flex;
+  justify-content: center;  /* 가로 가운데 정렬 */
+  align-items: center;      /* 세로 가운데 정렬 */
+  min-height: 100vh;        /* 브라우저 세로 전체 높이 사용 */
+  margin: 0;
+  background-color: #ffffff; /* 필요 시 배경색 */
+}
+
+.mainpagedriver2jsp {
+  	width: 440px;
+  	height: 956px;
+  	position: relative;
+  	border-radius: 50px;
+  	background-color: #44444e;
+  	overflow-y: hidden;
+  	text-align: left;
+  	font-size: 14px;
+  	color: #7f8caa;
+  	font-family: 'NanumSquare Neo OTF';
+}
+
+
+
+.border-icon {
+  	position: absolute;
+  	height: 100%;
+  	width: 87.5%;
+  	top: 0%;
+  	right: 12.5%;
+  	bottom: 0%;
+  	left: 0%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+  	opacity: 0.4;
+}
+.indicator {
+  	position: absolute;
+  	height: 66.67%;
+  	width: 70.83%;
+  	top: 16.67%;
+  	right: 20.83%;
+  	bottom: 16.67%;
+  	left: 8.33%;
+  	border-radius: 1px;
+  	background-color: #fff;
+}
+.cap-icon {
+  	position: absolute;
+  	height: 33.33%;
+  	width: 8.33%;
+  	top: 33.33%;
+  	right: 0%;
+  	bottom: 33.33%;
+  	left: 91.67%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+  	opacity: 0.4;
+}
+.mainpagedriver2jsp-div {
+  	position: absolute;
+  	top: 93px;
+  	left: 0px;
+  	border-radius: 0px 0px 50px 50px;
+  	background-color: #44444e;
+  	width: 440px;
+  	height: 863px;
+  	overflow-y: auto;
+  	font-size: 23px;
+}
+
+/* 스크롤 커스텀*/
+.mainpagedriver2jsp-div::-webkit-scrollbar {
+  width: 8px;
+}
+.mainpagedriver2jsp-div::-webkit-scrollbar-thumb {
+  background-color: #5f5f6e;
+  border-radius: 10px;
+}
+.mainpagedriver2jsp-div::-webkit-scrollbar-track {
+  background-color: #2e2e36;
+}
+
+.zer0-accident {
+  	align-self: stretch;
+  	height: 51px;
+  	position: relative;
+  	display: flex;
+  	justify-content: flex-end;
+}
+.mainpagedriver2jsp-zer0-accident {
+  	position: relative;
+  	top: 77%;
+  	left: -8.5%;
+  	letter-spacing: -0.06em;
+  	font-weight: 800;
+  	background: linear-gradient(90deg, #979c9c, #b8cfce 50%, #7f8caa);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+.zer0- {
+  	margin: 0;
+  	white-space: pre-wrap;
+}
+.accident {
+  	margin: 0;
+}
+.div3 {
+  	position: absolute;
+  	top: 128px;
+  	left: 40px;
+  	width: 360px;
+  	height: 25px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+.parent {
+  	position: absolute;
+  	top: 128px;
+  	left: 40px;
+  	width: 360px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	gap: 38px;
+}
+.div4 {
+  	align-self: stretch;
+  	position: relative;
+  	font-weight: 800;
+}
+.frame-parent {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	gap: 30px;
+  	font-size: 18.09px;
+  	color: #9b9a9f;
+}
+.group {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	gap: 23px;
+}
+.div5 {
+  	align-self: stretch;
+  	height: 35px;
+  	border-radius: 12.97px;
+  	background-color: #686363;
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-between;
+  	padding: 12.4px;
+  	box-sizing: border-box;
+  	gap: 20px;
+}
+.list {
+  	height: 20px;
+  	width: 20px;
+  	position: relative;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.listIcon {
+  	position: absolute;
+  	height: 100%;
+  	width: 100%;
+  	top: 0%;
+  	right: 0%;
+  	bottom: 0%;
+  	left: 0%;
+  	max-width: 100%;
+  	max-height: 100%;
+}
+.wrapper {
+  	display: flex;
+  	align-items: center;
+}
+.b {
+  	position: relative;
+  	font-weight: 300;
+}
+
+.listTitle {
+  	position: relative;
+  	font-weight: 500;
+}
+
+.regDate {
+  	position: relative;
+  	font-weight: 300;
+  	white-space: nowrap;
+}
+
+.eventType {
+  	position: relative;
+  	font-weight: 100;
+  	white-space: nowrap;
+}
+
+
+
+.div6 {
+  	align-self: stretch;
+  	height: 20px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-end;
+  	justify-content: flex-end;
+  	padding: 0px 12.4px;
+  	box-sizing: border-box;
+  	gap: 7.9px;
+  	text-align: right;
+  	font-size: 11.02px;
+  	color: rgba(255, 255, 255, 0.5);
+}
+.container {
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+.div7 {
+  	position: relative;
+  	letter-spacing: 0.35px;
+  	line-height: 10.38px;
+  	text-transform: uppercase;
+  	font-weight: 700;
+}
+.span {
+  	color: #eaefef;
+}
+.mainpagedriver2jsp-span {
+  	white-space: pre-wrap;
+  	margin-left: 1px;
+}
+
+.div88 {
+  	width: 111px;
+  	height: 3px;
+  	position: relative;
+  	border-radius: 1.45px;
+  	background-color: #686363;
+}
+
+.frame-group {
+  	align-self: stretch;
+  	height: autopx;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	gap: 14px;
+  	font-size: 10px;
+  	color: #eaefef;
+  	padding-bottom: 50px;
+}
+.frame-div {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	gap: 13px;
+}
+.div9 {
+  	align-self: stretch;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	gap: 7px;
+}
+.input {
+  	height: 78px;
+  	width: 27px;
+  	border-radius: 8.79px;
+  	background-color: #7f8caa;
+  	overflow: hidden;
+  	flex-shrink: 0;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 15px 0px;
+  	box-sizing: border-box;
+}
+.div10 {
+  	position: relative;
+  	font-weight: 800;
+}
+button.logBtn {
+	all: unset;
+	cursor: pointer;
+  	height: 78px;
+  	width: 319px;
+  	border-radius: 8.79px;
+  	background-color: #37353e;
+  	overflow: hidden;
+  	flex-shrink: 0;
+  	display: flex;
+  	align-items: center;
+  	justify-content: space-between;
+  	padding: 15px;
+  	box-sizing: border-box;
+  	gap: 20px;
+  	text-align: center;
+  	color: #fff;
+}
+.eventImage {
+  	height: 53px;
+  	width: 80px;
+  	border-radius: 8.79px;
+  	border: 2px solid #686363;
+  	box-sizing: border-box;
+  	overflow: hidden;
+  	flex-shrink: 0;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+.logInfo {
+  	height: 13px;
+  	display: flex;
+  	align-items: center;
+  	gap: 10px;
+  	text-align: left;
+  	font-size: 11px;
+  	color: #eaefef;
+}
+.frame-child {
+  	height: 14px;
+  	width: 1.1px;
+  	position: relative;
+  	border-right: 1.1px solid #686363;
+  	box-sizing: border-box;
+}
+.frame-inner {
+  	height: 14.7px;
+  	width: 14.7px;
+  	position: relative;
+  	border-radius: 50%;
+  	background-color: #fcb859;
+}
+.div14 {
+  	align-self: stretch;
+  	height: 2px;
+  	position: relative;
+  	border-radius: 1.84px;
+  	background-color: #9b9a9f;
+}
+
+.registerdriverjsp-div {
+  	position: absolute;
+  	top: 60px;
+  	left: 14px;
+  	display: flex;
+  	align-items: center;
+  	gap: 12px;
+  	text-align: center;
+  	font-size: 24.08px;
+  	
+}
+.chevron-left {
+  	width: 34px;
+  	position: relative;
+  	height: 33px;
+  	
+  	flex-shrink: 0;
+}
+.icon {
+  	position: absolute;
+  	height: 100%;
+  	width: 100%;
+  	top: 5%;
+  	right: 37.5%;
+  	bottom: 25%;
+  	left: 20%;
+  	max-width: 100%;
+  	
+  	max-height: 100%;
+}
+
+.small {
+  	width: 40px;
+  	background-color: #44444e;
+  	height: 33px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+}
+.registerdriverjsp-small {
+  	align-self: stretch;
+  	position: relative;
+  	top:2px;
+  	height: 27px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.small-child {
+  	position: absolute;
+  	top: 11.17px;
+  	left: 1.34px;
+  	background: linear-gradient(90deg, #8c8c8c, #b8cfce 50%, #7f8caa);
+  	width: 17px;
+  	height: 3.6px;
+}
+.z0a {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	letter-spacing: -0.29em;
+  	font-weight: 800;
+}
+.countLog {
+  	color: #EAEFEF;
+}
+.a {
+  	color: #ababab;
+}
+.logo_deco_2 {
+  	position: absolute;
+  	top: 9.31px;
+  	left: 32.5px;
+  	width: 2.4px;
+  	height: 2.5px;
+}
+.logo_deco_3 {
+  	position: absolute;
+  	top: 14.67px;
+  	left: 34.48px;
+  	width: 2.3px;
+  	height: 2.5px;
+}
+
+.circle-red {
+  	height: 14.7px;
+  	width: 14.7px;
+  	position: relative;
+  	border-radius: 50%;
+  	background-color: #d07b7b;
+}
+
+.circle-yellow {
+  	height: 14.7px;
+  	width: 14.7px;
+  	position: relative;
+  	border-radius: 50%;
+  	background-color: #fcb859;
+}
+
+
+
+.circle-blue {
+  	height: 14.7px;
+  	width: 14.7px;
+  	position: relative;
+  	border-radius: 50%;
+  	background-color: #7f8caa;
+}
