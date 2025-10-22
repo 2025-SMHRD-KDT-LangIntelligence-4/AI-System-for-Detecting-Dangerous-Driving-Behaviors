@@ -85,7 +85,7 @@ public class MainController{
 	    model.addAttribute("totalCount", totalCount); // JSP에 전달
 	    
 	  	// 우빈 : 운전자 현재 위치 마커불러오기
-	    List<Driver> drivers = mapService.getAllWithCoords();
+	    List<DriverInfo> drivers = mapService.getAllWithCoords();
 	    model.addAttribute("drivers", drivers);
 	    
         // 우빈 : 블랙박스 4개 영상 위험도 순으로 가져오기

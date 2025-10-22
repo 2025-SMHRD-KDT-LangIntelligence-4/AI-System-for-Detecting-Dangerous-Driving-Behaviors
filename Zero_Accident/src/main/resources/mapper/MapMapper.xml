@@ -3,15 +3,27 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.web.mapper.MapMapper">
 
-    <select id="findAllWithCoords">
-        SELECT
-            driver_idx, driver_id, driver_pwd, driver_name, driver_region,
-            driver_contact, driver_birthdate, driver_gender, created_at,
-            driver_lat, driver_lon, display_addr, admin_idx
-        FROM tb_driver
-        WHERE driver_lat IS NOT NULL
-          AND driver_lon IS NOT NULL
-        ORDER BY COALESCE(created_at, '1970-01-01') DESC
+    <select id="findAllWithCoords" resultType="com.smhrd.web.dto.DriverInfo">
+    SELECT
+        d.driver_idx,
+        d.driver_id,
+        d.driver_pwd,
+        d.driver_name,
+        d.driver_region,
+        d.driver_contact,
+        d.driver_birthdate,
+        d.driver_gender,
+        d.created_at,
+        d.driver_lat,
+        d.driver_lon,
+        d.display_addr,
+        d.admin_idx,
+        c.car_number
+    FROM tb_driver d
+    LEFT JOIN tb_car c 
+        ON d.driver_idx = c.driver_idx
+    WHERE d.driver_lat IS NOT NULL
+      AND d.driver_lon IS NOT NULL
     </select>
 
     <select id="findByIdx" parameterType="int">

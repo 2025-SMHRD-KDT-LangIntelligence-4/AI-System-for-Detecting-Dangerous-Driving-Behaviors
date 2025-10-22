@@ -568,13 +568,14 @@
 	    // 지도 중심 (기본 서울시청)
 	    const center = new kakao.maps.LatLng(37.5665, 126.9780);
 	    const map = new kakao.maps.Map(container, { center: center, level: 7 });
-	
-	    // 서버에서 받아온 운전자 데이터 (컨트롤러에서 model.addAttribute("drivers", drivers))
+		
+	    // ✅ carNumber 필드 추가
 	    const drivers = [
 	      <c:forEach var="d" items="${drivers}" varStatus="s">
 	        {
 	          name: "${d.driverName}",
 	          contact: "${d.driverContact}",
+	          carNumber: "${d.carNumber}",   // ← 추가
 	          lat: Number("${d.driverLat}"),
 	          lng: Number("${d.driverLon}")
 	        }<c:if test="${!s.last}">,</c:if>
@@ -582,7 +583,7 @@
 	    ];
 	
 	    const bounds = new kakao.maps.LatLngBounds();
-	    const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+	    // const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 	    
 	 	// 커스텀 마커 이미지 설정
 	    const markerImage = new kakao.maps.MarkerImage(
@@ -603,8 +604,8 @@
 	      
 	      const content = `
 	        <div style="padding:8px; min-width:180px">
-	          <b>${d.name || '운전자'}</b><br>
-	          ${d.contact || '-'}
+	          <b>${d.driverName || '운전자'}</b><br>
+	          ${d.carNumber || '-'}
 	        </div>`;
 	      kakao.maps.event.addListener(marker, 'click', function() {
 	        infowindow.setContent(content);
