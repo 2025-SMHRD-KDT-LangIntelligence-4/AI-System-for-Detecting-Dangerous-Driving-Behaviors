@@ -108,6 +108,7 @@ body {
 }
 .accident {
   	margin: 0;
+  	font-size: 120%;
 }
 .div3 {
   	position: absolute;
@@ -148,7 +149,7 @@ body {
   	display: flex;
   	flex-direction: column;
   	align-items: flex-start;
-  	gap: 23px;
+  	gap: 30px;
 }
 .div5 {
   	align-self: stretch;
@@ -194,18 +195,9 @@ body {
   	font-weight: 500;
 }
 
-.regDate {
-  	position: relative;
-  	font-weight: 300;
-  	white-space: nowrap;
-  	font-size: 110%;
-}
 
-.eventType {
-  	position: relative;
-  	font-weight: 100;
-  	white-space: nowrap;
-}
+
+
 
 
 
@@ -257,7 +249,7 @@ body {
   	display: flex;
   	flex-direction: column;
   	align-items: flex-start;
-  	gap: 14px;
+  	gap: 20px;
   	font-size: 10px;
   	color: #eaefef;
   	padding-bottom: 50px;
@@ -326,20 +318,15 @@ button.logBtn {
 .logInfo {
   	height: 13px;
   	display: flex;
-  	align-items: center;
+  	align-items: flex-end;
+  	justify-content: center;
   	gap: 10px;
-  	text-align: left;
+  	text-align: right;
   	font-size: 11px;
   	color: #eaefef;
-  	
+  	flex-direction: column;
 }
-.frame-child {
-  	height: 14px;
-  	width: 1.1px;
-  	position: relative;
-  	border-right: 1.1px solid #686363;
-  	box-sizing: border-box;
-}
+
 .frame-inner {
   	height: 14.7px;
   	width: 14.7px;
@@ -438,6 +425,59 @@ button.logBtn {
   	width: 2.3px;
   	height: 2.5px;
 }
+
+.frame-parent {
+  	width: 100%;
+  	position: relative;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-end;
+  	gap: 25px;
+  	text-align: left;
+  	font-size: 14px;
+  	color: #eaefef;
+  	font-family: 'NanumSquare Neo OTF';
+}
+.regDateDiv {
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+.eventType {
+  	position: relative;
+  	font-weight: 300;
+  	font-size: 15px;
+  	white-space: nowrap;
+}
+
+.regDate {
+	position: relative;
+	font-size: 15px;
+	font-family: 'NanumSquare Neo OTF';
+	color: #eaefef;
+	text-align: left;
+	font-weight: 300;
+	white-space: nowrap;
+}
+
+.line-parent {
+  	align-self: stretch;
+  	height: 13px;
+  	display: flex;
+  	align-items: center;
+  	gap: 10px;
+  	font-size: 13px;
+}
+.frame-child {
+  	height: 14px;
+  	width: 1.1px;
+  	position: relative;
+  	border-right: 3px solid #686363;
+  	box-sizing: border-box;
+}
+
+
+
 
 .circle-red {
   	height: 14.7px;
