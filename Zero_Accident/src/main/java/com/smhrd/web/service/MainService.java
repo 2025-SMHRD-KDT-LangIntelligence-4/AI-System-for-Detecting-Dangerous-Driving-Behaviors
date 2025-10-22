@@ -106,13 +106,15 @@ public class MainService {
         	}
         	// 동그라미 아이콘 색상 변경, 이벤트타입 글씨색 변경
             switch (v.getEventLevel()) {
-                case "1" -> {v.setEventColor("frame-item2"); v.setEventTypeColor("div54-1");}
-                case "2" -> {v.setEventColor("frame-child"); v.setEventTypeColor("div61");}
-                case "3" -> {v.setEventColor("frame-item"); v.setEventTypeColor("div54");}
+                case "1" -> {v.setEventColor("frame-item2"); v.setEventTypeColor("div54-1");
+                			 v.setEventButtonColor("div64"); v.setEventIcon("/image/Volume.svg");}
+                case "2" -> {v.setEventColor("frame-child"); v.setEventTypeColor("div61");
+                			 v.setEventButtonColor("div64"); v.setEventIcon("/image/Volume.svg");}
+                case "3" -> {v.setEventColor("frame-item"); v.setEventTypeColor("div54");
+                			 v.setEventButtonColor("div57"); v.setEventIcon("/image/Danger.svg");}
             }
             // driverIdx : '1' -> 'S001' 식으로 변경
             v.setDriverCode(String.format("S%03d", v.getDriverIdx()));
-            
         }
         return list;
     }
