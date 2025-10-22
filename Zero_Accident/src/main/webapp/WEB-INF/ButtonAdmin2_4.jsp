@@ -4,6 +4,64 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 
+	<!-- 웹 폰트 url(나눔 스퀘어 네오) -->
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+
+    <!-- ButtonAdmin2_2.css 파일의 스타일을 적용하겠다. -->
+	<link rel="stylesheet"  href="/css/ButtonAdmin2_3.css" />
+
+<!-- =================================== 운전자 등록 페이지 ==================================== -->
+  	
+  	
+  	
+  	<!-- 전체 프레임 -->
+	<div class="driver-waiting-container">
+	
+		  <!-- 등록 대기자 수 / 일괄등록 버튼 -->
+		  <div class="driver-waiting-header">
+				<!-- 우빈 : 선택 등록 버튼 -->
+				<div class="actionBtnWrap">
+				
+				  <!-- 기존 버튼 (그대로) -->
+				<button type="button" class="registerAllBtn"
+				        style="background-color:#686363; color:#eaefef; border:1px solid #686363;">
+				  <!-- <img class="add-circle-icon" src="/image/addCircle2.svg" />  -->
+				  <div class="driver-bulk-text">연간 통계</div>
+				</button>
+				  
+				  <!-- ★추가: 새 버튼들 (원하는 개수만큼 복사) -->
+				  <button type="button" class="registerAllBtn registerAllBtn--danger">
+				  <!-- <img class="add-circle-icon" src="/image/addCircle2.svg" />  -->
+				    <div class="driver-bulk-text">월간 통계</div>
+				  </button>
+				  
+				  <!-- ★추가: 새 버튼들 (원하는 개수만큼 복사) -->
+				  <button type="button" class="registerAllBtn registerAllBtn--danger">
+				  <!-- <img class="add-circle-icon" src="/image/addCircle2.svg" />  -->
+				    <div class="driver-bulk-text">지역별 통계</div>
+				  </button>
+				  
+				  <!-- ★추가: 새 버튼들 (원하는 개수만큼 복사) -->
+				  <button type="button" class="registerAllBtn registerAllBtn--danger">
+				  <!-- <img class="add-circle-icon" src="/image/addCircle2.svg" />  -->
+				    <div class="driver-bulk-text">위험 운전 유형 통계</div>
+				  </button>
+				  
+				</div>
+		  </div>
+	  
+	
+	  <!-- 운전자 등록 대기 리스트  -->
+	  <div class="driver-waiting-table-area">
+		  <!-- ✅ (이동) 가운데 정렬용 래퍼 -->
+		  <div id="riskChartCenter">
+		    <div id="riskChartWrap">
+		      <canvas id="riskChart"></canvas>
+		    </div>
+		  </div>
+	  </div> <!-- 운전자 등록 대기 리스트 끝  --> 
+	</div> <!-- 전체 프레임 끝 -->
+					
 <style>
   /* ✅ 차트 영역을 .div8 안에서 가로·세로 가운데 정렬 */
   #riskChartCenter {
@@ -33,12 +91,6 @@
   }
 </style>
 
-<!-- ✅ 가운데 정렬용 래퍼 추가 -->
-<div id="riskChartCenter">
-  <div id="riskChartWrap">
-    <canvas id="riskChart"></canvas>
-  </div>
-</div>
 
 <!-- 통계 그래프 -->
 <script>

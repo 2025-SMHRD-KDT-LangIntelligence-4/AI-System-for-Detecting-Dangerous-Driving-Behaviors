@@ -60,15 +60,10 @@
 				  <!-- ★추가: 새 버튼들 (원하는 개수만큼 복사) -->
 				  <button type="button" class="registerAllBtn registerAllBtn--danger">
 				    <img class="add-circle-icon" src="/image/addCircle2.svg" />
-				    <div class="driver-bulk-text">전화 연결</div>
+				    <div class="driver-bulk-text">전화 걸기</div>
 				  </button>
-				
-				<!--
-				  <button type="button" class="registerAllBtn registerAllBtn--accent">
-				    <img class="add-circle-icon" src="/image/addCircle2.svg" />
-				    <div class="driver-bulk-text">운전자 정보 수정</div>
-				  </button>
-				 -->
+				  
+
 				 
 				</div>
 			    

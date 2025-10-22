@@ -5,11 +5,6 @@
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 
 
-
-   				
-
-
-
 <!-- 등록된 전체 운전자 수 -->
 <div class="div9">
 	<div class="wrapper">
@@ -25,7 +20,6 @@
 	<!-- 구분선 -->
 	<div class="div11"></div>
 </div>
-
 
 
 <!-- =============== 운전자 리스트 ================ -->

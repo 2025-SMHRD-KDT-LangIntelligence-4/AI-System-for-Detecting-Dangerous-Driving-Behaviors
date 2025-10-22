@@ -63,10 +63,7 @@
 				    <div class="driver-bulk-text">운전자 삭제</div>
 				  </button>
 				
-				  <button type="button" class="registerAllBtn registerAllBtn--accent">
-				    <img class="add-circle-icon" src="/image/addCircle2.svg" />
-				    <div class="driver-bulk-text">운전자 정보 수정</div>
-				  </button>
+
 				
 				</div>
 			    

@@ -31,7 +31,7 @@ public class MainService {
 		// 우빈 : 2_1페이지 
     	// 포매팅 -> DB에서 가져온 정보를 보여줄 방식을 설정
     	List<DriverInfo> driverList = mapper.SelectAllDrivers();
-	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년MM월dd일");
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	    for (DriverInfo j : driverList) {
 	    	// createdAt yyyy-mm-dd 형식을 yyyy년mm월dd일로 바꾸기 + localdatetime -> localdate
 	        if (j.getCreatedAt() != null) {
@@ -60,7 +60,7 @@ public class MainService {
     // 우빈 : 2_2 페이지
 	public List<DriverWaiting> SelectWaitingDrivers() {
 		List<DriverWaiting> driverList = mapper.SelectWaitingDrivers();
-	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년MM월dd일");
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		for (DriverWaiting j : driverList) {
 	    	// createdAt yyyy-mm-dd 형식을 yyyy년mm월dd일로 바꾸기 + localdatetime -> localdate
 	        if (j.getCreatedAt() != null) {
