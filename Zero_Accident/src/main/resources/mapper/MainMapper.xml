@@ -30,11 +30,12 @@
 <select id="SelectWaitingDriverCount" resultType="int">	
 	SELECT COUNT(*) FROM tb_driver WHERE admin_idx IS NULL
 </select>
-
+<!-- 유선 : 메인페이지/ 현재 운행 버스 -->
 <select id="countDriverIdx">
 	SELECT COUNT(driver_idx) FROM tb_car
 </select>
 	 
+<!-- 유선 : 메인페이지/ 로그 4개 불러오기 -->
 <select id="selectLogList">
  	SELECT *
 	FROM tb_log 
@@ -107,6 +108,37 @@
   WHERE l.created_at >= DATE_SUB(CURDATE(), INTERVAL #{months} MONTH)
   GROUP BY ym, eventType
   ORDER BY ym ASC, eventType ASC
+</select>
+
+<!-- 유선 : 블랙박스페이지/ 실시간 모니터링 -->
+<select id="selectBlackbox" resultType="com.smhrd.web.dto.SelectLog">
+	 	SELECT 
+		    tl.*, 
+		    td.driver_name AS driverName, 
+		    td.driver_idx AS driverIdx
+		FROM 
+		    tb_log tl
+		INNER JOIN 
+		    tb_car tc ON tl.car_number = tc.car_number
+		INNER JOIN 
+		    tb_driver td ON tc.driver_idx = td.driver_idx
+		ORDER BY 
+		    tl.created_at DESC
+		LIMIT 9;
+</select>
+
+<!-- 유선 : 블랙박스페이지/ 실시간 통계 -->
+<select id="selectEventchart" resultType="com.smhrd.web.dto.SelectEvent">
+	 	SELECT
+        		SUM(CASE WHEN event_type = 'Phone' THEN 1 ELSE 0 END) AS totalP,
+        
+        		SUM(CASE WHEN event_type = 'Hand' THEN 1 ELSE 0 END) AS totalH,
+        
+        		SUM(CASE WHEN event_type = 'Drowsy' THEN 1 ELSE 0 END) AS totalD,
+        
+        		SUM(CASE WHEN event_type = 'Assault' THEN 1 ELSE 0 END) AS totalA
+    		FROM 
+    			tb_log;
 </select>
   
 </mapper>

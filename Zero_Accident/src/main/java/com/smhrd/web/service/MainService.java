@@ -14,6 +14,7 @@ import com.smhrd.web.dto.DriverInfo;
 import com.smhrd.web.dto.DriverWaiting;
 import com.smhrd.web.dto.MakeGraph;
 import com.smhrd.web.dto.MakeGraph2_4;
+import com.smhrd.web.dto.SelectEvent;
 import com.smhrd.web.dto.SelectLog;
 import com.smhrd.web.dto.SelectVideo;
 import com.smhrd.web.mapper.MainMapper;
@@ -274,6 +275,17 @@ public class MainService {
         }
         return list;
     }
+    
+    // 유선 : 블랙박스 페이지 실시간 통계
+	public SelectEvent selectEventchart() {
+		SelectEvent result = mapper.selectEventchart();
+		return result;
+	}
+	
+	// 유선: 블랙박스 페이지 실시간 모니터링
+	public List<SelectLog> selectBlackbox() {
+			return mapper.selectBlackbox();
+	}
     
     
     

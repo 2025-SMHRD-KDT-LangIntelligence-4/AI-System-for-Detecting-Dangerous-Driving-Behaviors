@@ -16,7 +16,7 @@
 	 	ORDER BY created_at DESC
 	 	LIMIT 4
 	 </select>
-	 
+	 <!-- 유선 : 블랙박스페이지/ 실시간 모니터링 -->
 	 <select id="selectBlackbox" resultType="com.smhrd.web.dto.SelectLog">
 	 	SELECT 
 		    tl.*, 
@@ -32,7 +32,7 @@
 		    tl.created_at DESC
 		LIMIT 9;
 	 </select>
-	 
+	 <!-- 유선 : 블랙박스페이지/ 실시간 통계 -->
 	 <select id="selectEventchart" resultType="com.smhrd.web.dto.SelectEvent">
 	 	SELECT
         		SUM(CASE WHEN event_type = 'Phone' THEN 1 ELSE 0 END) AS totalP,

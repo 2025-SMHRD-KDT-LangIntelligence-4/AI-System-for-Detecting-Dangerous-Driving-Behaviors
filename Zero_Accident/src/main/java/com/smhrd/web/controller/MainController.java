@@ -15,6 +15,7 @@ import com.smhrd.web.dto.DriverInfo;
 import com.smhrd.web.dto.DriverWaiting;
 import com.smhrd.web.dto.MakeGraph;
 import com.smhrd.web.dto.MakeGraph2_4;
+import com.smhrd.web.dto.SelectEvent;
 import com.smhrd.web.dto.SelectLog;
 import com.smhrd.web.dto.SelectVideo;
 import com.smhrd.web.entity.Admin;
@@ -207,10 +208,66 @@ public class MainController{
 			return "ButtonAdmin3";
 		}
 				
-	// 관리자 - 실시간 블랙박스 모니터링 페이지
+	// 유선 : 관리자 - 실시간 블랙박스 모니터링 페이지
 		@GetMapping("/ButtonAdmin4")
-		public String ButtonAdmin4() {
-			return "ButtonAdmin4";
+	    public String ButtonAdmin4(Model model) {
+			SelectEvent selectEventchart = service.selectEventchart();
+			model.addAttribute("selectEventchart", selectEventchart);
+			
+			// 블랙박스 영상(위험레벨, 자동차 번호, 이벤트 타입, 이벤트 시간, 운전자 이름, 주소)
+			 List<SelectLog> blackboxList = service.selectBlackbox();
+
+			 //이벤트 레벨에 따라 문자열을 바꾼다. 포매팅 (색깔에 관한문자열 frame-item :빨강, frame-child :주황
+			 for (SelectLog blackbox : blackboxList) {
+					 if ("1".equals(blackbox.getEventLevel())){
+						 blackbox.setEventColor("circle-blue");
+					 }if ("2".equals(blackbox.getEventLevel())){
+						 blackbox.setEventColor("circle-yellow");
+					 }if ("3".equals(blackbox.getEventLevel())){
+						 blackbox.setEventColor("circle-red");
+				 }
+			 }
+			// 영어 -> 한글로 바꾸기 (PHONE -> 휴대폰 조작, HAND -> 핸들미제어, DROWSY -> 졸음운전, ASSAULT -> 운전자폭행
+			 for (SelectLog blackbox : blackboxList) {
+				 if ("PHONE".equals(blackbox.getEventType())){
+					 blackbox.setEventTypeKo("휴대폰 조작");
+				 }if ("HAND".equals(blackbox.getEventType())){
+					 blackbox.setEventTypeKo("핸들 미제어");
+				 }if ("DROWSY".equals(blackbox.getEventType())){
+					 blackbox.setEventTypeKo("졸음 운전");
+				 }if ("ASSAULT".equals(blackbox.getEventType())){
+					 blackbox.setEventTypeKo("운전자 폭행");
+				 }
+			 }
+			// 로그 기록 시간 보기 쉽게 바꾸기 2025-10-20 13:44:08
+			 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd  hh:mm:ss");
+			    for (SelectLog j : blackboxList) {
+			        	j.setRegDate(j.getCreatedAt().format(formatter));
+			    }
+			    // 블랙박스 알림버튼 색 바꾸기
+			    for (SelectLog blackbox : blackboxList) {
+					 if ("1".equals(blackbox.getEventLevel())){
+						 blackbox.setEventColor2("div51");
+					 }if ("2".equals(blackbox.getEventLevel())){
+						 blackbox.setEventColor2("div51");
+					 }if ("3".equals(blackbox.getEventLevel())){
+						 blackbox.setEventColor2("div23");
+				 }
+				
+			 }
+			    // 블랙박스 알림아이콘 바꾸기
+			    for (SelectLog blackbox : blackboxList) {
+					 if ("1".equals(blackbox.getEventLevel())){
+						 blackbox.setIcon("/image/Volume.svg");
+					 }if ("2".equals(blackbox.getEventLevel())){
+						 blackbox.setIcon("/image/Volume.svg");
+					 }if ("3".equals(blackbox.getEventLevel())){
+						 blackbox.setIcon("/image/Danger.svg");
+				 }
+				
+			 }    
+			model.addAttribute("selectBlackbox", blackboxList);
+			return "/ButtonAdmin4";
 			}
 		
 	// 관리자 정보 관리 페이지
