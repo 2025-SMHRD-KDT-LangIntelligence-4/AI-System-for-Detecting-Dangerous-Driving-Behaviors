@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.smhrd.web.dto.DriverDetail;
 import com.smhrd.web.dto.SelectEvent;
 import com.smhrd.web.dto.SelectLog;
 import com.smhrd.web.entity.ExampleEntity;
@@ -18,28 +19,19 @@ import lombok.RequiredArgsConstructor;
 public class Service유선 {
 
     private final Mapper유선 mapper유선;
+    
+    // 유선 : 운전자 상세 페이지
+    public DriverDetail driverDetailLog(int logIdx) {
+        return mapper유선.driverDetailLog(logIdx);
+    }
+    
+    // 유선 : 운전자 위험 운전 이력
+    public List<DriverDetail> driverDetailLogList() {
+        // 목록 조회 시 페이징 처리(OFFSET, LIMIT 등) 로직이 추가될 수 있습니다.
+        return mapper유선.driverDetailLogList();
+    }
+    
 
-    // 메인페이지 - 현재 운행 차량
-    public int countDriverIdx() {
-        return mapper유선.countDriverIdx();
-    }
-    
-    // 메인 페이지 - 로그 불러오기
-    public List<SelectLog> selectLogList() {
-    		return mapper유선.selectLogList();
-    }
-    
-    // 서브페이지 - 블랙박스 - 일간 실시간 통계
-    	public SelectEvent selectEventchart() {
-    		SelectEvent result = mapper유선.selectEventchart();
-    		return result;
-    }
-    	
-    	// 서브페이지 - 블랙박스 실시간
-    public List<SelectLog> selectBlackbox() {
-    		return mapper유선.selectBlackbox();
-    }
-    
 }
 
 

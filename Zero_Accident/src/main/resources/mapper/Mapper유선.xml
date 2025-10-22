@@ -5,45 +5,24 @@
   
 
 <mapper namespace="com.smhrd.web.mapper.Mapper유선">
-	
-	<select id="countDriverIdx">
-		SELECT COUNT(driver_idx) FROM tb_car
-	</select>
-	 
-	 <select id="selectLogList">
-	 	SELECT *
-	 	FROM tb_log 
-	 	ORDER BY created_at DESC
-	 	LIMIT 4
-	 </select>
-	 <!-- 유선 : 블랙박스페이지/ 실시간 모니터링 -->
-	 <select id="selectBlackbox" resultType="com.smhrd.web.dto.SelectLog">
-	 	SELECT 
-		    tl.*, 
-		    td.driver_name AS driverName, 
-		    td.driver_idx AS driverIdx
-		FROM 
-		    tb_log tl
-		INNER JOIN 
-		    tb_car tc ON tl.car_number = tc.car_number
-		INNER JOIN 
-		    tb_driver td ON tc.driver_idx = td.driver_idx
-		ORDER BY 
-		    tl.created_at DESC
-		LIMIT 9;
-	 </select>
-	 <!-- 유선 : 블랙박스페이지/ 실시간 통계 -->
-	 <select id="selectEventchart" resultType="com.smhrd.web.dto.SelectEvent">
-	 	SELECT
-        		SUM(CASE WHEN event_type = 'Phone' THEN 1 ELSE 0 END) AS totalP,
-        
-        		SUM(CASE WHEN event_type = 'Hand' THEN 1 ELSE 0 END) AS totalH,
-        
-        		SUM(CASE WHEN event_type = 'Drowsy' THEN 1 ELSE 0 END) AS totalD,
-        
-        		SUM(CASE WHEN event_type = 'Assault' THEN 1 ELSE 0 END) AS totalA
-    		FROM 
-    			tb_log;
-	 </select>
-	 
+
+    <select id="driverDetailLog" resultType="com.smhrd.web.dto.DriverDetail">
+        SELECT
+			tl.log_idx,
+			tl.event_level,
+			tl.event_color,
+			tl.event_type,
+			tl.event_video,
+			tl.event_type_ko,
+			tl.created_at,
+			tl.reg_date,
+			tl.display_addr,
+			ta.admin_name as admin_name
+        FROM
+            tb_log tl  <!-- DRIVER_LOG 테이블에 DL 별칭 부여 -->
+        INNER JOIN
+            tb_admin ta on tl.admin_name = ta.name
+        WHERE
+            tl.log_idx = #{logIdx}
+    </select>
 </mapper>
