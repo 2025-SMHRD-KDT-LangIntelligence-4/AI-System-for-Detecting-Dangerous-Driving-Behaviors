@@ -40,7 +40,7 @@
  	SELECT *
 	FROM tb_log 
 	ORDER BY created_at DESC
-	LIMIT 4
+	LIMIT 6
 </select>
 
 <!-- 우빈 : 블랙박스 4개 위험도순 -->
@@ -49,7 +49,7 @@
     FROM tb_log l
     LEFT JOIN tb_car c ON l.car_number = c.car_number
     LEFT JOIN tb_driver d ON c.driver_idx = d.driver_idx
-    ORDER BY l.event_level DESC, l.created_at DESC
+    ORDER BY l.created_at DESC
     LIMIT 4
 </select>
 

@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -19,7 +18,6 @@ import com.smhrd.web.dto.SelectEvent;
 import com.smhrd.web.dto.SelectLog;
 import com.smhrd.web.dto.SelectVideo;
 import com.smhrd.web.entity.Admin;
-import com.smhrd.web.entity.Driver;
 import com.smhrd.web.service.LogService;
 import com.smhrd.web.service.MainService;
 import com.smhrd.web.service.MapService;
@@ -129,7 +127,7 @@ public class MainController{
 			 
 		 // 유선 : 로그 기록 시간 보기 쉽게 바꾸기 [13:44:08]
 		 // ofPattern에 내가 바꾸고 싶은 형식 지정 (hh:mm:ss 등)
-		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
+		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 		    for (SelectLog j : logList) {
 		        	j.setRegDate(j.getCreatedAt().format(formatter));
 		    }

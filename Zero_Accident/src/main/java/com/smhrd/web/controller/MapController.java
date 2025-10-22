@@ -25,10 +25,10 @@ public class MapController {
 //    }
 
     // 우빈 : 단일 운전자 마커
-    @GetMapping("/map/driver")
-    public String mapDriver(@RequestParam int driverIdx, Model model) {
-        Driver driver = service.getOne(driverIdx);
-        model.addAttribute("driver", driver);
-        return "MapDriver"; // /WEB-INF/MapDriver.jsp
-    }
+//    @GetMapping("/map/driver")
+//    public String mapDriver(@RequestParam int driverIdx, Model model) {
+//        Driver driver = service.getOne(driverIdx);
+//        model.addAttribute("driver", driver);
+//        return "MapDriver"; // /WEB-INF/MapDriver.jsp
+//    }
 }
