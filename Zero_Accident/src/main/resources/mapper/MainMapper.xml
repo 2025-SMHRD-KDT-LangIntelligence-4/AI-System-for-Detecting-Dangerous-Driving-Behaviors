@@ -40,7 +40,7 @@
  	SELECT *
 	FROM tb_log 
 	ORDER BY created_at DESC
-	LIMIT 6
+	LIMIT 5
 </select>
 
 <!-- 우빈 : 블랙박스 4개 위험도순 -->
