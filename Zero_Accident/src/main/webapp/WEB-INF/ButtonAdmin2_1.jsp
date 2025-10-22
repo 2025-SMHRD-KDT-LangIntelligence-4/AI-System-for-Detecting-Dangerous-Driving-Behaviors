@@ -81,7 +81,7 @@
 						<!-- 실제 운전자 세부 정보 -->
 						<div class="container">
 							<b class="b4">
-							<!-- 운전자 연락처 : DB에서 driverContact값 가져오기! -->
+								<!-- 운전자 연락처 : DB에서 driverContact값 가져오기! -->
 								<p class="p">${driver.driverContact}</p>
 								<!-- 운전자 생년월일 : DB에서 driverBirthdate값 가져오기! -->
 								<p class="p">${driver.fmtDriverBirthdate}</p>

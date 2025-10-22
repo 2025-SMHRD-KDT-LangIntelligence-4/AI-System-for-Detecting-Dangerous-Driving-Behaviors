@@ -25,8 +25,8 @@ body {
 .maindriverjsp-div {
   	position: absolute;
   	cursor: default;
-  	top: 33px;
-  	left: -336px;
+  	top: 93px;
+  	left: 0px;
   	border-radius: 0px 0px 50px 50px;
   	background-color: #44444e;
   	width: 440px;
@@ -65,7 +65,50 @@ body {
 }
 .accident {
   	margin: 0;
+  	font-weight: 500;
 }
+
+.driverName {
+  	margin: 0;
+  	font-weight: 700;
+}
+
+.driverContact {
+  	margin: 0;
+  	font-weight: 500;
+}
+
+.driverBirthdate {
+  	margin: 0;
+  	font-weight: 500;
+}
+
+.driverRegion {
+  	margin: 0;
+  	font-weight: 500;
+}
+
+.adminName {
+  	margin: 0;
+  	font-weight: 500;
+}
+
+.carNumber {
+  	margin: 0;
+  	font-weight: 500;
+}
+
+.createdAt {
+  	margin: 0;
+  	font-weight: 500;
+}
+
+.countLog {
+  	margin: 0;
+  	font-weight: 500;
+}
+
+
 .copyright-2025 {
   	position: absolute;
   	top: 837px;
@@ -89,23 +132,28 @@ body {
   	display: flex;
   	align-items: center;
 }
-.div4 {
+.eventType {
   	position: relative;
+  	display: flex;
+  	align-items: flex-end;
+  	gap: 2px;
+  	font-weight: 300;
 }
-.span {
+.driverName {
   	font-weight: 800;
 }
 .maindriverjsp-span {
   	font-size: 16px;
-  	font-weight: 800;
+  	font-weight: 700;
   	color: #eaefef;
+  	padding-bottom: 1px;
 }
 .frame-parent {
   	align-self: stretch;
   	display: flex;
   	flex-direction: column;
   	align-items: flex-start;
-  	gap: 23px;
+  	gap: 32px;
   	font-size: 18px;
   	color: #fff;
 }
@@ -144,7 +192,8 @@ body {
   	position: absolute;
   	top: 2px;
   	left: 0px;
-  	font-weight: 800;
+  	font-weight: 700;
+  	white-space: nowrap;
 }
 .div6 {
   	align-self: stretch;
@@ -169,24 +218,43 @@ body {
   	justify-content: space-between;
   	gap: 9.9px;
 }
-.avatar-icon {
+.driverImg {
   	width: 91.8px;
   	position: relative;
   	border-radius: 88.91px;
   	max-height: 100%;
   	object-fit: cover;
 }
-.s090 {
+
+.driverImgDiv {
+  	width: 100%;
+  	height: 91.8px;
+  	position: relative;
+  	border-radius: 88.91px;
+  	background-color: rgba(0, 0, 0, 0.2);
+  	border: 1.8px solid #eaefef;
+  	box-sizing: border-box;
+}
+
+
+.driveOn {
   	position: relative;
   	letter-spacing: 0.42px;
   	line-height: 18px;
   	text-transform: uppercase;
-  	font-weight: 800;
+  	font-weight: 700;
 }
-.maindriverjsp-s090 {
+.driverIdx {
   	margin: 0;
   	color: #b8cfce;
+  	font-weight: 800;
 }
+
+.s090 {
+	display: inline;
+	justify-content: center;	
+}
+
 .radio-button-unchecked-parent {
   	position: absolute;
   	top: 10.8px;
@@ -274,7 +342,7 @@ body {
   	display: flex;
   	flex-direction: column;
   	align-items: flex-start;
-  	gap: 24px;
+  	gap: 15px;
 }
 .input {
   	align-self: stretch;
@@ -294,15 +362,20 @@ body {
   	display: flex;
   	flex-direction: column;
   	align-items: flex-start;
+  	justify-content: flex-end;
   	gap: 19px;
 }
-.frame-parent3 {
+button.addBtn {
+	all:unset;
+	cursor: pointer;
   	align-self: stretch;
   	height: 16px;
   	display: flex;
   	align-items: center;
   	justify-content: flex-end;
   	gap: 3.8px;
+  	width: 65px;
+  	margin-left: 250px;
 }
 .frame-inner {
   	height: 18.1px;
@@ -323,7 +396,7 @@ body {
 }
 .b2 {
   	position: absolute;
-  	top: 1.51px;
+  	top: 1.3px;
   	left: 0px;
 }
 .div10 {
@@ -340,13 +413,28 @@ body {
   	box-sizing: border-box;
   	font-size: 15.25px;
   	color: #eaefef;
+  	gap: 13px;
 }
-.wrapper3 {
+button.logBtn {
+	all: unset;
+	cursor: pointer;
   	align-self: stretch;
   	display: flex;
   	flex-direction: column;
-  	align-items: flex-start;
+  	align-items: flex-start; 	  	
 }
+
+/* 버튼 클릭 효과 */
+button.logBtn:active {
+  transform: scale(0.99);              /* 살짝 작아지며 눌리는 느낌 */
+  box-shadow: inset 0 2px 2px rgba(0,0,0,0.2); /* 안쪽 그림자 */
+}
+
+/* 버튼 hover 효과 */
+.div11:hover {
+  background-color: #7F8CAA;              
+}
+
 .div11 {
   	align-self: stretch;
   	height: 35px;
@@ -379,21 +467,16 @@ body {
   	align-items: center;
   	gap: 9px;
 }
-.ellipse-div {
-  	height: 14.7px;
-  	width: 14.7px;
-  	position: relative;
-  	border-radius: 50%;
-  	background-color: #fcb859;
-}
+
 .wrapper4 {
   	display: flex;
   	align-items: center;
   	justify-content: center;
 }
-.div13 {
+.regDate {
   	position: relative;
   	font-size: 11px;
+  	font-weight: 300;
 }
 .div14 {
   	position: absolute;
@@ -472,5 +555,29 @@ button.logOut {
   	justify-content: center;
   	width: 64px;
   	height: 33px;
+}
+
+.circle-red {
+  	height: 14.7px;
+  	width: 14.7px;
+  	position: relative;
+  	border-radius: 50%;
+  	background-color: #d07b7b;
+}
+
+.circle-yellow {
+  	height: 14.7px;
+  	width: 14.7px;
+  	position: relative;
+  	border-radius: 50%;
+  	background-color: #fcb859;
+}
+
+.circle-blue {
+  	height: 14.7px;
+  	width: 14.7px;
+  	position: relative;
+  	border-radius: 50%;
+  	background-color: #7f8caa;
 }
 

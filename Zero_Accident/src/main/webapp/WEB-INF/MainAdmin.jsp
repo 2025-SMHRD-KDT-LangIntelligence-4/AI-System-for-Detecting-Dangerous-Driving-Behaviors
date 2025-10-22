@@ -458,9 +458,9 @@
  					<img class="icon4" src="/image/log.svg">
  					
    					<!-- 타이틀 -->
-   					<div class="log">
+   					<button type="button" class="log" onclick="location.href='/ButtonAdmin3'">
    						<div class="mainadminjsp-log">LOG</div>
-   					</div>
+   					</button>
    					
    					<!-- 로그 리스트 -->
    					<!-- 최신 로그 발생 시 자동 업데이트 -->

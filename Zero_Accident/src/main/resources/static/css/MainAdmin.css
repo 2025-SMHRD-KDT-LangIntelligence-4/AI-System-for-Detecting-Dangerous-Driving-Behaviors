@@ -386,7 +386,9 @@ button.div5 {
   	width: 8%;
   	height: 8%;
 }
-.log {
+button.log {
+	all: unset;
+	cursor: pointer;
   	position: absolute;
   	top: 19.61px;
   	left: 107.36px;
@@ -727,7 +729,8 @@ button.alert-btn {
 }
 
 /* 경고 버튼 scale 조정 애니메이션 효과 */
-.div57 {
+.div57,
+.div64 {
   /* pulse-icon 애니메이션 효과를 1.2초 간격으로 무한 반복하겠다. */
   animation: pulse-icon 1.2s ease-in-out infinite;
 }
@@ -743,7 +746,8 @@ button.alert-btn {
 }
 
 /* 경고 버튼에 마우스를 올렸을 때 */
-.div57:hover {
+.div57:hover,
+.div64:hover {
 	/* 마우스 올리면 애니메이션 멈춤 */
 	animation-play-state: paused;
 	/* 크기 1.05배 */ 
@@ -1406,12 +1410,28 @@ button.videoclip {
   	background-color: #44444e;
   	width: 408.9px;
   	height: 619px;
+  	overflow-y: auto;
+  	overflow-x: hidden;
 }
+
+/* 스크롤 커스텀*/
+.search-content::-webkit-scrollbar {
+  width: 8px;
+}
+.search-content::-webkit-scrollbar-thumb {
+  background-color: #5f5f6e;
+  border-radius: 10px;
+}
+.search-content::-webkit-scrollbar-track {
+  background-color: #2e2e36;
+}
+
 .div666 {
-  	position: absolute;
-  	top: 14px;
-  	left: 14px;
+  	margin-top: 14px;
+  	margin-left: 14px;
   	width: 380.9px;
+  	height: auto;
+  	padding-bottom: 25px;
   	display: flex;
   	flex-direction: column;
   	align-items: flex-start;

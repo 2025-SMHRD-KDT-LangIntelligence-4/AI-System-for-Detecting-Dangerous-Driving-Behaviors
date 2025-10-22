@@ -217,7 +217,7 @@ margin: 0;
   	box-sizing: border-box;
   	gap: 7.9px;
   	text-align: right;
-  	font-size: 11.02px;
+  	font-size: 14.02px;
   	color: rgba(255, 255, 255, 0.5);
 }
 .container {
@@ -266,6 +266,8 @@ margin: 0;
   	align-items: flex-start;
   	gap: 13px;
 }
+
+
 .div9 {
   	align-self: stretch;
   	display: flex;
@@ -307,7 +309,27 @@ button.logBtn {
   	gap: 20px;
   	text-align: center;
   	color: #fff;
+  	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
+/* 버튼 클릭 효과 */
+button.logBtn:active {
+  transform: scale(0.999);              /* 살짝 작아지며 눌리는 느낌 */
+  box-shadow: inset 0 2px 2px rgba(0,0,0,0.2); /* 안쪽 그림자 */
+}
+
+/* 버튼 클릭 효과 */
+.logBtn:hover {
+  background-color: #EAEFEF;
+  color: #37353E;
+}
+
+/* 내부 글씨 색 변경 */
+.logBtn:hover * {
+  color: #37353E; 
+  font-weight: 500;
+}
+
 .eventImage {
   	height: 53px;
   	width: 80px;
@@ -437,7 +459,7 @@ button.logBtn {
   	display: flex;
   	flex-direction: column;
   	align-items: flex-end;
-  	gap: 30px;
+  	gap: 40px;
   	text-align: left;
   	font-size: 14px;
   	color: #eaefef;
