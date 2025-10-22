@@ -12,8 +12,8 @@
 <title>Insert title here</title>
 	<!-- 웹 폰트 url(나눔 스퀘어 네오) -->
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
-    <!-- MainPageDriver2_1.css 파일의 스타일을 적용하겠다. -->
-	<link rel="stylesheet"  href="/css/MainPageDriver2_1.css" />
+    <!-- MainDriver2_1.css 파일의 스타일을 적용하겠다. -->
+	<link rel="stylesheet"  href="/css/MainDriver2_1.css" />
 </head>
 <body>
 	
@@ -27,7 +27,7 @@
     	<div class="registerdriverjsp-div">
     			<!-- 뒤로 가기 아이콘 -->
     			<!-- 위험 운전 이력 페이지로 이동 -->
-      			<a class="chevron-left" href="/MainPageDriver2" aria-label="뒤로가기">
+      			<a class="chevron-left" href="/MainDriver2" aria-label="뒤로가기">
   					<img class="icon" src="/image/Chevron-left.svg" alt="뒤로가기">
 				</a>
       			

@@ -198,6 +198,7 @@ body {
   	position: relative;
   	font-weight: 300;
   	white-space: nowrap;
+  	font-size: 110%;
 }
 
 .eventType {
@@ -330,6 +331,7 @@ button.logBtn {
   	text-align: left;
   	font-size: 11px;
   	color: #eaefef;
+  	
 }
 .frame-child {
   	height: 14px;

@@ -13,8 +13,8 @@
 
 	<!-- 웹 폰트 url(나눔 스퀘어 네오) -->
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
-    <!-- MainPageDriver2.css 파일의 스타일을 적용하겠다. -->
-	<link rel="stylesheet"  href="/css/MainPageDriver2.css" />
+    <!-- MainDriver2.css 파일의 스타일을 적용하겠다. -->
+	<link rel="stylesheet"  href="/css/MainDriver2.css" />
 	
 </head>
 <body>
@@ -31,7 +31,7 @@
     	<div class="registerdriverjsp-div">
     			<!-- 뒤로 가기 아이콘 -->
     			<!-- 메인 페이지로 이동(MainPageDriver.jsp) -->
-      			<a class="chevron-left" href="/MainPageDriver" aria-label="뒤로가기">
+      			<a class="chevron-left" href="/MainDriver" aria-label="뒤로가기">
   					<img class="icon" src="/image/Chevron-left.svg" alt="뒤로가기">
 				</a>
       			
@@ -122,8 +122,8 @@
            									<div class="div10">${i}</div>
          								</div>
          								
-         								<!-- 클릭 시 MainPageDriver2_1.jsp로 이동 -->
-         								<button type="button" class="logBtn" onclick="location.href='/MainPageDriver2_1'"">
+         								<!-- 클릭 시 MainDriver2_1.jsp로 이동 -->
+         								<button type="button" class="logBtn" onclick="location.href='/MainDriver2_1'"">
          									
          									<!-- 블랙박스 클립 썸네일 이미지 -->
            									<div class="eventImage">
@@ -139,6 +139,7 @@
            									
            										<!-- 위험 행위 발생 일자 -->
            										<div class="regDate">2025-10-29</div>
+           										
            										
            										<!-- 구분선 -->
            										<div class="frame-child">

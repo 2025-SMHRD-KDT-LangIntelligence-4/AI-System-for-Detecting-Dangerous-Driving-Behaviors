@@ -13,5 +13,7 @@
 <body>
 	<h1>로그인 성공!</h1>
 	<h1>운전자용 메인페이지 이동됨</h1>
+	
+	<button type="button" onclick="location.href='/MainDriver2'">위험 운전 이력 보기</button>
 </body>
 </html>
