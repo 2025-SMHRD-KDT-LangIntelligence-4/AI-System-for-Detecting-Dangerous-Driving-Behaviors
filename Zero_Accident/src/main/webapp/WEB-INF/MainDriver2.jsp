@@ -59,7 +59,7 @@
     				<div class="zer0-accident">
       					<div class="mainpagedriver2jsp-zer0-accident">
       						<p class="zer0-">         Zer0-</p>
-      						<p class="accident">Accident</p>
+      						<p class="accident2">Accident</p>
       					</div>
     				</div>
       			</div>
@@ -180,7 +180,10 @@
           					
         				</div>
       			</div>
+      			
+      			
     		</div>
+    		
     		
     		
   	</div> <!-- 전체 컨테이너 끝 -->
