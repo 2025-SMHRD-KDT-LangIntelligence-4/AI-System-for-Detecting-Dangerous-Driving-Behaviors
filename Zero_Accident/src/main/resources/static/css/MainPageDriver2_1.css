@@ -1,9 +1,12 @@
 @charset "UTF-8";
 
 body {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  justify-content: center;  /* 가로 가운데 정렬 */
+  align-items: center;      /* 세로 가운데 정렬 */
+  min-height: 100vh;        /* 브라우저 세로 전체 높이 사용 */
+  margin: 0;
+  background-color: #ffffff; /* 필요 시 배경색 */
 }
 
 
@@ -13,11 +16,12 @@ body {
   	position: relative;
   	border-radius: 50px;
   	background-color: #44444e;
-  	overflow-y: auto;
+  	overflow-y: hidden;
   	text-align: left;
   	font-size: 14px;
   	color: #7f8caa;
   	font-family: 'NanumSquare Neo OTF';
+  	
 }
 .status-barios {
   	position: absolute;
@@ -229,8 +233,7 @@ body {
 .small {
   	height: 27px;
   	width: 40px;
-  	position: relative;
-  	
+  	position: relative; 	
   	flex-shrink: 0;
 }
 .small-child {
@@ -270,13 +273,12 @@ body {
 }
 .div2 {
   	position: absolute;
-  	top: 82px;
+  	top: 93px;
   	left: 0px;
   	border-radius: 0px 0px 50px 50px;
   	background-color: #44444e;
   	width: 440px;
   	height: 874px;
-  	overflow-y: auto;
   	font-size: 23px;
 }
 .div3 {
@@ -467,7 +469,7 @@ body {
 }
 .copyright-2025 {
   	position: absolute;
-  	top: 849px;
+  	top: 838px;
   	left: calc(50% - 93px);
   	font-size: 8px;
   	color: #b8cfce;
@@ -482,7 +484,6 @@ button.downloadButton {
   	background-color: #eaefef;
   	width: 360px;
   	height: 41px;
-  	overflow: hidden;
   	display: flex;
   	align-items: center;
   	justify-content: center;
@@ -508,7 +509,6 @@ button.downloadButton:hover {
   	height: 22px;
   	width: 22px;
   	position: relative;
-  	overflow: hidden;
   	flex-shrink: 0;
 }
 .icon {
@@ -520,6 +520,90 @@ button.downloadButton:hover {
   	bottom: 0%;
   	left: 0%;
   	max-width: 100%;
+  	max-height: 100%;
+}
+
+.small {
+  	width: 40px;
+  	background-color: #44444e;
+  	height: 33px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+}
+.registerdriverjsp-small {
+  	align-self: stretch;
+  	position: relative;
+  	top:2px;
+  	height: 27px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.small-child {
+  	position: absolute;
+  	top: 11.17px;
+  	left: 1.34px;
+  	background: linear-gradient(90deg, #8c8c8c, #b8cfce 50%, #7f8caa);
+  	width: 17px;
+  	height: 3.6px;
+}
+.z0a {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	letter-spacing: -0.29em;
+  	font-weight: 800;
+}
+.span {
+  	color: #b8cfce;
+}
+.a {
+  	color: #ababab;
+}
+.logo_deco_2 {
+  	position: absolute;
+  	top: 9.31px;
+  	left: 32.5px;
+  	width: 2.4px;
+  	height: 2.5px;
+}
+.logo_deco_3 {
+  	position: absolute;
+  	top: 14.67px;
+  	left: 34.48px;
+  	width: 2.3px;
+  	height: 2.5px;
+}
+
+.registerdriverjsp-div {
+  	position: absolute;
+  	top: 60px;
+  	left: 14px;
+  	display: flex;
+  	align-items: center;
+  	gap: 12px;
+  	text-align: center;
+  	font-size: 24.08px;
+  	
+}
+.chevron-left {
+  	width: 34px;
+  	position: relative;
+  	height: 33px;
+  	
+  	flex-shrink: 0;
+}
+.icon {
+  	position: absolute;
+  	height: 100%;
+  	width: 100%;
+  	top: 5%;
+  	right: 37.5%;
+  	bottom: 25%;
+  	left: 20%;
+  	max-width: 100%;
+  	
   	max-height: 100%;
 }
 

@@ -4,30 +4,74 @@ import java.sql.Timestamp;
 
 public class LogDTO {
     
-    // DB에서 조회하는 필드
-    private int logIdx;          // 순번 (log_idx)
-    private Timestamp createdAt; // 발생일시 (created_at)
-    private String carNumber;    // 차량번호 (car_number)
-    private String driverName;   // 운전자 (현재 쿼리에서 제외되어 null로 채워짐)
-    private String eventType;    // 위험 행위 종류 (event_type)
-    private String eventLevel;   // 위험 등급 (event_level)
+    // DB에서 조회하는 필드 (Mapper와 LogDTO의 필드 이름이 카멜 케이스로 일치해야 합니다.)
+    private int logIdx;          // Log DTO에 이미 존재
+    private Timestamp createdAt; // Log DTO에 이미 존재
+    private String carNumber;    // Log DTO에 이미 존재
+    private String driverName;   // Log DTO에 이미 존재
+    private String eventType;    // Log DTO에 이미 존재
+    private String eventLevel;   // Log DTO에 이미 존재
+    private String status;       // Log DTO에 이미 존재
     
-    // JSP에 표시할 상태 (고정값)
-    private String actionMethod; 
-    private int actionCount;
-    private String actionStatus;
+    // 추가적인 필드 (쿼리에 따라 필요)
+    private String formattedLogId;
+    private String formattedDriverId;
+    private int driverIdx;
 
-    // 기본 생성자
-    public LogDTO() {
-        // '상태' 필드 고정값 설정
-        this.actionMethod = "경고 발송";
-        this.actionCount = 1;
-        this.actionStatus = "조치중";
-    }
+    // 상세 조회에 필요한 필드를 미리 추가했습니다.
+    private String location; 
+    private String admin;
+    
+    
+    // ================== Getter/Setter ==================
 
-    // =========================================================
-    // ⚠️ 누락된 Getter/Setter 메서드 
-    // =========================================================
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(String admin) {
+		this.admin = admin;
+	}
+    
+	public String getFormattedLogId() {
+		return formattedLogId;
+	}
+
+	public void setFormattedLogId(String formattedLogId) {
+		this.formattedLogId = formattedLogId;
+	}
+
+	public String getFormattedDriverId() {
+		return formattedDriverId;
+	}
+
+	public void setFormattedDriverId(String formattedDriverId) {
+		this.formattedDriverId = formattedLogId; // setFormattedDriverId 오류 수정
+	}
+
+	public int getDriverIdx() {
+		return driverIdx;
+	}
+
+	public void setDriverIdx(int driverIdx) {
+		this.driverIdx = driverIdx;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
     public int getLogIdx() {
         return logIdx;
@@ -36,8 +80,7 @@ public class LogDTO {
     public void setLogIdx(int logIdx) {
         this.logIdx = logIdx;
     }
-
-    // 🚨 JSP 오류의 원인이었던 createdAt의 Getter/Setter
+    
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -76,30 +119,5 @@ public class LogDTO {
 
     public void setEventLevel(String eventLevel) {
         this.eventLevel = eventLevel;
-    }
-
-    public String getActionMethod() {
-        return actionMethod;
-    }
-    
-    // setActionMethod는 고정값이므로 생략 가능하나, 완전성을 위해 추가합니다.
-    public void setActionMethod(String actionMethod) {
-        this.actionMethod = actionMethod;
-    }
-
-    public int getActionCount() {
-        return actionCount;
-    }
-
-    public void setActionCount(int actionCount) {
-        this.actionCount = actionCount;
-    }
-
-    public String getActionStatus() {
-        return actionStatus;
-    }
-
-    public void setActionStatus(String actionStatus) {
-        this.actionStatus = actionStatus;
     }
 }

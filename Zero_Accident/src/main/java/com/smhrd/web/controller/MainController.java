@@ -285,9 +285,16 @@ public class MainController{
 			return "ButtonAdmin5";
 			}
 		
-	// 운전자 위험운전상세페이지
+	// 우희 : 운전자 위험운전상세페이지
 	@GetMapping("/MainPageDriver2_1")
 	public String MainPageDriver2_1() {
 		return "MainPageDriver2_1";
 	}
+	
+	// 우희 : 운전자 위험운전상세페이지
+	@GetMapping("/MainPageDriver2")
+	public String MainPageDriver2() {
+		return "MainPageDriver2";
+	}
+	
 }

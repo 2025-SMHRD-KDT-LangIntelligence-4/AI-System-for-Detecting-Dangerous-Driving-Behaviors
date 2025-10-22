@@ -50,20 +50,7 @@
       		</div>
     	</div>
 
-		<!-- 로고 -->
-    	<div class="logo_1">
-      		<div class="small">
-        		<div class="logo_deco_1">
-        		</div>
-        		<div class="logo-text">
-          			<span>Z</span>
-          			<span class="span">0</span>
-          			<span class="a">A</span>
-        		</div>
-        		<img src="/image/Rectangle 212.svg" class="logo_deco_2">	
-        		<img src="/image/Rectangle 212.svg" class="logo_deco_3">	
-      		</div>
-    	</div>
+		
 	
 </body>
 </html>

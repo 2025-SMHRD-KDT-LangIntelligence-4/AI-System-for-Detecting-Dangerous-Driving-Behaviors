@@ -33,7 +33,7 @@
   	<!-- 전체 컨테이너 -->
   	<div class="container">
 		
-		<!-- 상단 바 + 로고 -->
+		<!-- 상단 바 -->
 		<!-- DriverHeader.jsp 파일에서 작업하기 -->
 		<%@ include file="/WEB-INF/DriverHeader.jsp" %>
 		
