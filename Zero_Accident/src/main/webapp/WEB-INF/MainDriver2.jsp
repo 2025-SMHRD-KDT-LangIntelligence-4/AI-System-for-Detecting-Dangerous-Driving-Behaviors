@@ -59,7 +59,7 @@
     				<div class="zer0-accident">
       					<div class="mainpagedriver2jsp-zer0-accident">
       						<p class="zer0-">         Zer0-</p>
-      						<p class="accident">Accident</p>
+      						<p class="accident2">Accident</p>
       					</div>
     				</div>
       			</div>
@@ -136,26 +136,33 @@
            									
            									<!-- 위험 행위 이력 정보 -->
            									<div class="logInfo">
-           									
+           										
            										<!-- 위험 행위 발생 일자 -->
-           										<div class="regDate">2025-10-29</div>
+           										<div class="regDateDiv">
+												<div class="regDate">2025-10-29</div>
+												</div>
+												
+												
+												<div class="line-parent">
+												
+													<!-- 구분선 -->
+													<div class="frame-child">
+													</div>
+													
+													<!-- 위험 행위 종류 -->
+													<div class="eventType">운전대 미제어</div>
+													
+													<!-- 구분선 -->
+													<div class="frame-child">
+													</div>
+													
+													<!-- 위험 등급 표시 아이콘 -->
+													<!-- eventLevel에 따라 색상 변경되어야 함 --> 
+													<div class="circle-yellow">
+													</div>
+												
+												</div>
            										
-           										
-           										<!-- 구분선 -->
-           										<div class="frame-child">
-           										</div>
-           										
-           										<!-- 위험 행위 종류 -->
-           										<div class="eventType">운전대 미제어</div>
-           										
-           										<!-- 구분선 -->
-           										<div class="frame-child">
-           										</div>
-           										
-           										<!-- 위험 등급 표시 아이콘 -->
-												<!-- eventLevel에 따라 색상 변경되어야 함 --> 
-           										<div class="circle-yellow">
-           										</div>
            									</div>
            									
          								</button>
@@ -173,7 +180,10 @@
           					
         				</div>
       			</div>
+      			
+      			
     		</div>
+    		
     		
     		
   	</div> <!-- 전체 컨테이너 끝 -->
