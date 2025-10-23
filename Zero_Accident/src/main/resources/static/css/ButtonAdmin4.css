@@ -359,7 +359,10 @@ div.b {
   	height: 588.2px;
   	font-size: 18.09px;
   	overflow: hidden; /* 넘친 콘텐츠 숨기기 */
-  	overflow-y:auto;	
+  	overflow-y:auto;
+  	display: flex;
+  	justify-content: center;
+  		
 }
 
 /* 스크롤 커스텀*/
@@ -374,21 +377,43 @@ div.b {
   background-color: #2e2e36;
 }
 
-
 .div17 {
-  	
-  	margin-top: 50.13px;
-  	left: calc(50% - 616.72px);
-  	width: 1234px;
-  	height: auto;
-  	display: flex;
-  	align-items: flex-start;
-  	justify-content: center;
-  	flex-wrap: wrap;
-  	align-content: flex-start;
-  	gap: 40px;
-  	padding-bottom:50px;
+  margin-top: 50.13px;
+  margin-left: -175.72px;
+  width: 1000px;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 90px;
+  row-gap: 5px;
+  justify-items: center;
+  align-items: start;
+  position: relative; /* 필수 */
 }
+
+.div17::after {
+  content: "";
+  display: block;
+  height: 60px; /* 스크롤 끝에 보이는 여백 높이 */
+}
+
+
+
+
+.div45 {
+  width: calc((1234px - (40px * 3)) / 4); /* 카드 4개 맞춤 계산식 */
+  max-width: 200px;                       /* 혹시 모를 overflow 방지 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transform: scale(0.75);
+}
+
+
+
+
+
+
 .div18 {
   	height: 364.9px;
   	width: 350px;
@@ -571,10 +596,7 @@ button.alert-btn {
   	justify-content: center;
   	font-size: 17.9px;
 }
-.div45 {
-  	display: flex;
-  	align-items: flex-start;
-}
+
 .div46 {
   	width: 350px;
   	display: flex;
