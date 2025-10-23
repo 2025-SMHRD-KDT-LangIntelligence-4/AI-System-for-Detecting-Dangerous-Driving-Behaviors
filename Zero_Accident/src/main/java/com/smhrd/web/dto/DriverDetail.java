@@ -24,7 +24,6 @@ import lombok.NoArgsConstructor;
 	private LocalDateTime createdAt; // 날짜 regdate 필요
 	private String regDate;     // 발생 일자
 	private String displayAddr; // 발생 위치
-	private String adminName;   // 관리자 이름
 
 	}
 

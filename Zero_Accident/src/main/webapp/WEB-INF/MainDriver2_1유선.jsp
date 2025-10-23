@@ -94,7 +94,7 @@
        								</div>
        								
        								<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
-       								<div class="eventType">졸음 운전</div>
+       								<div class="${detail.eventType}">졸음 운전</div>
       							</div>
     						</div>
     						
