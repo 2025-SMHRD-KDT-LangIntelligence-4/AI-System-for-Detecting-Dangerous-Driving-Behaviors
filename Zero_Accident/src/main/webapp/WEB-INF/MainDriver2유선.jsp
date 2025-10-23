@@ -123,7 +123,7 @@
          								</div>
          								
          								<!-- 클릭 시 MainDriver2_1.jsp로 이동 -->
-         								<button type="button" class="logBtn" onclick="location.href='/MainDriver2_1유선?logIdx=${log.logIdx}'">
+         								<button type="button" class="logBtn" onclick="location.href='/MainDriver2_1유선/${log.logIdx}'">
 
 
          									
