@@ -17,6 +17,6 @@ public interface Mapper유선 {
 	DriverDetail driverDetailLog(int logIdx);
 	
 	// 유선 : 운전자 위험 운전 이력
-	List<DriverDetail> driverDetailLogList();
+	List<DriverDetail> driverLogList();
 
 }

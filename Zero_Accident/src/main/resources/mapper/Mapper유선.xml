@@ -5,24 +5,30 @@
   
 
 <mapper namespace="com.smhrd.web.mapper.Mapper유선">
-
+	<!-- 운전자 상세페이지 -->
     <select id="driverDetailLog" resultType="com.smhrd.web.dto.DriverDetail">
-        SELECT
-			tl.log_idx,
-			tl.event_level,
-			tl.event_color,
-			tl.event_type,
-			tl.event_video,
-			tl.event_type_ko,
-			tl.created_at,
-			tl.reg_date,
-			tl.display_addr,
-			ta.admin_name as admin_name
-        FROM
-            tb_log tl  <!-- DRIVER_LOG 테이블에 DL 별칭 부여 -->
-        INNER JOIN
-            tb_admin ta on tl.admin_name = ta.name
-        WHERE
-            tl.log_idx = #{logIdx}
+    SELECT
+        log_idx,
+        event_level,
+        event_type,
+        event_video,
+        created_at,
+        display_addr
+    FROM tb_log
+    WHERE log_idx = #{logIdx}
     </select>
+    
+    <!-- 운전자 위험 운전 이력 -->
+    <select id="driverLogList" resultType="com.smhrd.web.dto.DriverDetail">
+    SELECT 
+    		 log_idx,
+    		 event_type,
+         event_level,
+         event_img1,
+         created_at
+    FROM tb_log
+    ORDER BY created_at DESC
+    LIMIT 10
+    </select>
+    
 </mapper>

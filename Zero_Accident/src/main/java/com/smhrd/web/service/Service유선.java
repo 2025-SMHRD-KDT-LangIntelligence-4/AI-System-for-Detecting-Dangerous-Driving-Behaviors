@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mysql.cj.log.Log;
 import com.smhrd.web.dto.DriverDetail;
 import com.smhrd.web.dto.SelectEvent;
 import com.smhrd.web.dto.SelectLog;
@@ -26,10 +27,15 @@ public class Service유선 {
     }
     
     // 유선 : 운전자 위험 운전 이력
-    public List<DriverDetail> driverDetailLogList() {
-        // 목록 조회 시 페이징 처리(OFFSET, LIMIT 등) 로직이 추가될 수 있습니다.
-        return mapper유선.driverDetailLogList();
+    public List<DriverDetail> driverLogList() {
+        return mapper유선.driverLogList();
     }
+
+    // 유선 : 운전자 위험 운전 로그 클릭 -> 상세페이지 이동에 필요함
+	public Log getLogIdx(Integer logIdx) {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 
 }
