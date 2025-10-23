@@ -27,11 +27,4 @@
     WHERE driver_id = #{driverId}
 </select>
 
-<select id="selectTotalLogCount" parameterType="int" resultType="int">
-	SELECT COUNT(*) 
-	FROM tb_log l
-	INNER JOIN tb_car c ON l.car_number = c.car_number
-	WHERE c.driver_idx = #{driverIdx}
-</select>
-
 </mapper>

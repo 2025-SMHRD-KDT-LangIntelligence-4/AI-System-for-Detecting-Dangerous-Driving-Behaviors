@@ -10,7 +10,5 @@ public interface LoginMapper {
     Admin findByAdminId(String adminId);
     
     DriverInfo findByDriverId(String driverId);
-    
-    int selectTotalLogCount(int driverIdx);
 }
 

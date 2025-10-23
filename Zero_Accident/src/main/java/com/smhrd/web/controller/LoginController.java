@@ -53,8 +53,6 @@ public class LoginController{
 		
 		DriverInfo loginDriver = service.login(driver);
 		
-		int totalCount = service.selectTotalLogCount(loginDriver.getDriverIdx());
-		
 		if (loginDriver == null) {
 			// 아이디 없음
 			rttr.addFlashAttribute("msg", "존재하지 않는 아이디입니다.");
@@ -71,7 +69,6 @@ public class LoginController{
 		
 		// 로그인 성공
 		session.setAttribute("loginDriver", loginDriver);
-		session.setAttribute("totalCount", totalCount);
 		rttr.addFlashAttribute("msg", "로그인 성공!");
 		return "redirect:/MainDriver";
 	}
