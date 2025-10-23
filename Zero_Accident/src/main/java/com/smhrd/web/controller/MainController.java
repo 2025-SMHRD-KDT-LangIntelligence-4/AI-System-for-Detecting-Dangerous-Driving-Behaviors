@@ -143,11 +143,6 @@ public class MainController{
         return service.selectEventTypeCountByPeriod(period);
     }
 	
-	// 운전자 메인 화면
-	@GetMapping("/MainDriver")
-	public String MainDriver() {
-		return "MainDriver";
-	}
 	// 관리자 - 운전자 관리 페이지 기본틀
 	@GetMapping("ButtonAdmin2_0")
 	public String ButtonAdmin2_0() {
@@ -282,17 +277,5 @@ public class MainController{
 	    	model.addAttribute("driverList", driverList);
 			return "ButtonAdmin5";
 			}
-		
-	// 우희 : 운전자 위험운전상세페이지
-	@GetMapping("/MainDriver2_1")
-	public String MainDriver2_1() {
-		return "MainDriver2_1";
-	}
-	
-	// 우희 : 운전자 위험운전상세페이지
-	@GetMapping("/MainDriver2")
-	public String MainDriver2() {
-		return "MainDriver2";
-	}
 	
 }

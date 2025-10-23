@@ -45,7 +45,7 @@
     	
     	<!-- 로그아웃 버튼 -->
     	<!-- 로그아웃 시 StartPage.jsp로 이동 -->	
-    	<form method="post" action="#">
+    	<form method="post" action="logout">
 	    	<button type="submit" class="logOut">로그아웃</button>
     	</form>	
     		
