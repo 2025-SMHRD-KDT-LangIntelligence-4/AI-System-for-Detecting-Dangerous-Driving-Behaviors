@@ -1,5 +1,6 @@
 package com.smhrd.web.dto;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -19,15 +20,21 @@ import lombok.NoArgsConstructor;
 	
     // Driver 관련
 	private int driverIdx;
+	private String driverId;
+	private String driverPwd;
 	private String driverName;
+	private String driverRegion;
     private String driverContact;
     private LocalDate driverBirthdate;
     private String driverGender;
-    private String driverRegion;
     private String driverImg;
     private LocalDateTime createdAt;
+	//@Column(precision = 17, scale = 14, nullable = false)
     private String driverLon;
+	//@Column(precision = 17, scale = 14, nullable = false)
     private String driverLat;
+    // 총 위험행위 건수
+    private int totalCount;
     
     // Admin 관련
     private String adminName;

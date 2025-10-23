@@ -4,8 +4,10 @@ package com.smhrd.web.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.smhrd.web.dto.DriverInfo;
 import com.smhrd.web.service.MainService2;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -16,7 +18,8 @@ public class MainController2{
 	
 	// 우빈 : 운전자 메인페이지
 	@GetMapping("/MainDriver")
-	public String MainDriver() {
+	public String MainDriver(HttpSession session) {
+	    DriverInfo loginDriver = (DriverInfo) session.getAttribute("loginDriver");
 		return ("/MainDriver");
 	}
 	

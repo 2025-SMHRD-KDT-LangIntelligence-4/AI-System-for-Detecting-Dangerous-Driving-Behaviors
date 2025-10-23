@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smhrd.web.dto.DriverInfo;
 import com.smhrd.web.entity.Admin;
-import com.smhrd.web.entity.Driver;
 import com.smhrd.web.mapper.LoginMapper;
 
 import lombok.RequiredArgsConstructor;
@@ -48,9 +47,9 @@ public class LoginService {
 	    return findAdmin;
 	}
 	
-	public Driver login(Driver driver) {
+	public DriverInfo login(DriverInfo driver) {
 	    // 1. 아이디 존재 여부 확인
-		Driver findDriver = mapper.findByDriverId(driver.getDriverId());
+		DriverInfo findDriver = mapper.findByDriverId(driver.getDriverId());
 	    if (findDriver == null) {
 	        // 아이디 없음
 	        return null;  // 컨트롤러에서 "아이디 없음" 처리
@@ -63,9 +62,24 @@ public class LoginService {
 	        findDriver.setDriverPwd(null);  
 	        return findDriver;
 	    }
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년MM월dd일");
+	    // 3. created_at 날짜 포매팅
+	    if (findDriver.getCreatedAt() != null) {
+	    	findDriver.setFmtCreatedAt(findDriver.getCreatedAt().toLocalDate().format(formatter));
+	    }
+        // 4. birthdate(LocalDate) → 날짜포매팅
+        if (findDriver.getDriverBirthdate() != null) {
+        	findDriver.setFmtDriverBirthdate(findDriver.getDriverBirthdate().format(formatter));
+        }	    
+	    // 5. driver_idx → S001 형식으로
+        findDriver.setDriverCode(String.format("S%03d", findDriver.getDriverIdx()));
 
-	    // 3. 로그인 성공
+	    // 9. 로그인 성공
 	    return findDriver;
+	}
+	
+	public int selectTotalLogCount(int driverIdx) {
+		return mapper.selectTotalLogCount(driverIdx);
 	}
 
 

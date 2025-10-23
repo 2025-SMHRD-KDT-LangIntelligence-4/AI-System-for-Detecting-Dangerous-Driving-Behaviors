@@ -19,10 +19,19 @@
     WHERE admin_id = #{adminId}
 </select>
 
-<select id="findByDriverId" parameterType="string" resultType="com.smhrd.web.entity.Driver">
-    SELECT *
-    FROM tb_driver
+<select id="findByDriverId" parameterType="string" resultType="com.smhrd.web.dto.DriverInfo">
+    SELECT d.*, a.admin_name, c.car_number
+    FROM tb_driver d
+    LEFT JOIN tb_admin a ON d.admin_idx = a.admin_idx
+    LEFT JOIN tb_car c ON d.driver_idx = c.driver_idx 
     WHERE driver_id = #{driverId}
 </select>
-	
+
+<select id="selectTotalLogCount" parameterType="int" resultType="int">
+	SELECT COUNT(*) 
+	FROM tb_log l
+	INNER JOIN tb_car c ON l.car_number = c.car_number
+	WHERE c.driver_idx = #{driverIdx}
+</select>
+
 </mapper>

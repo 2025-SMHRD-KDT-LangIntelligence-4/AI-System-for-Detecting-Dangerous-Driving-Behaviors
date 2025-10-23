@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.smhrd.web.dto.DriverInfo;
 import com.smhrd.web.entity.Admin;
-import com.smhrd.web.entity.Driver;
 import com.smhrd.web.service.LoginService;
 
 import jakarta.servlet.http.HttpSession;
@@ -49,11 +49,11 @@ public class LoginController{
 	}
 
 	@PostMapping("/LoginDriver")
-	public String loginDriver(Driver driver,
-			HttpSession session,
-			RedirectAttributes rttr) {
+	public String loginDriver(DriverInfo driver, HttpSession session, RedirectAttributes rttr) {
 		
-		Driver loginDriver = service.login(driver);
+		DriverInfo loginDriver = service.login(driver);
+		
+		int totalCount = service.selectTotalLogCount(loginDriver.getDriverIdx());
 		
 		if (loginDriver == null) {
 			// 아이디 없음
@@ -71,6 +71,7 @@ public class LoginController{
 		
 		// 로그인 성공
 		session.setAttribute("loginDriver", loginDriver);
+		session.setAttribute("totalCount", totalCount);
 		rttr.addFlashAttribute("msg", "로그인 성공!");
 		return "redirect:/MainDriver";
 	}

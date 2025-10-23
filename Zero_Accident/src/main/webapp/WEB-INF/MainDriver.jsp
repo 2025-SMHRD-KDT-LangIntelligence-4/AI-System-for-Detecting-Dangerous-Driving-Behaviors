@@ -73,7 +73,7 @@
    					<div class="div4">
    					
    						<!-- 운전자 이름 -->
-   						<span class="driverName">강우빈 운전자</span><span 
+   						<span class="driverName">${sessionScope.loginDriver.driverName }운전자</span><span 
    						class="maindriverjsp-span">님</span>
    					</div>
  				</div>
@@ -114,16 +114,16 @@
    								<div class="driverImgDiv">
    								
    									<!-- image 삽입 공간 : DB에서 이미지 url 가져오기! -->
- 									<img class="driverImg" src="">
+ 									<img class="driverImg" src="${sessionScope.loginDriver.driverImg}">
  								</div>
  								
  								<div class="s090">
  								
  									<!-- 운전자 이름 : DB에서 driverName값 가져오기! -->
-   									<p class="driverName">강우빈</p>
+   									<p class="driverName">${sessionScope.loginDriver.driverName}</p>
    									
    									<!-- 운전자 고유 ID : DB에서 driverIdx값 가져오기! -->
-   									<p class="driverIdx">(S090)</p>
+   									<p class="driverIdx">(${sessionScope.loginDriver.driverCode})</p>
  								</div>
    							</div>					
    							
@@ -151,25 +151,26 @@
  												<span class="txt">
  												
  													<!-- 운전자 연락처 : DB에서 driverContact값 가져오기! -->
-   													<p class="driverContact">010-9452-3190</p>
+   													<p class="driverContact">${sessionScope.loginDriver.driverContact}</p>
    													
    													<!-- 운전자 생년월일 : DB에서 driverBirthdate값 가져오기! -->
-   													<p class="driverBirthdate">1985-06-30</p>
+   													<p class="driverBirthdate">
+   													${sessionScope.loginDriver.fmtDriverBirthdate}</p>
    													
    													<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
-   													<p class="driverRegion">전남 순천</p>
+   													<p class="driverRegion">순천시 조례동</p>
    													
    													<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
-   													<p class="adminName">강우희</p>
+   													<p class="adminName">${sessionScope.loginDriver.adminName}</p>
    													
    													<!-- 운전자 차량번호 : DB에서 carNumber값 가져오기! -->
-   													<p class="carNumber">23아 4708</p>
+   													<p class="carNumber">${sessionScope.loginDriver.carNumber}</p>
    													
    													<!-- 등록 일자 : DB에서 createdAt값 가져오기! -->
-   													<p class="createdAt">2023-11-30</p>
+   													<p class="createdAt">${sessionScope.loginDriver.fmtCreatedAt}</p>
    													
    													<!-- 총 위험 행위 건수 : DB에서 조회하기! -->
-   													<p class="countLog">2건</p>
+   													<p class="countLog">${sessionScope.totalCount}건</p>
    													
    													
  												</span>
@@ -218,7 +219,7 @@
  								<!-- 최근 위험 운전 기록 리스트 -->
 	 							<div class="div10">
  									<!-- 반복문으로 동일한 기록 출력 -->
-	 								<c:forEach var="1" begin="1" end="4">
+	 								<c:forEach var="log" items="${logList}">
 	 								
 	 									<!-- 클릭 시 해당 기록 상세페이지로 이동 -->
 	   									<button type="button" class="logBtn" onclick="location.href='/MainDriver2_1'">
