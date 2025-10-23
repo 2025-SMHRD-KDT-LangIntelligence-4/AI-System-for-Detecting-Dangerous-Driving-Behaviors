@@ -11,5 +11,16 @@
     JOIN tb_car c ON l.car_number = c.car_number
     WHERE c.driver_idx = #{driverIdx}
 </select>
-	
+
+<select id="selectLogListByDriverIdx" parameterType="int" resultType="com.smhrd.web.dto.SelectVideo">
+    SELECT 
+        l.event_type,
+        l.created_at,
+        l.event_level
+    FROM tb_log AS l
+    JOIN tb_car AS c ON l.car_number = c.car_number
+    JOIN tb_driver AS d ON c.driver_idx = d.driver_idx
+    WHERE d.driver_idx = #{driverIdx}
+    ORDER BY l.created_at DESC
+</select>
 </mapper>

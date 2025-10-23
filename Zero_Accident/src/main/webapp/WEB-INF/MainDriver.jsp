@@ -151,26 +151,26 @@
  												<span class="txt">
  												
  													<!-- 운전자 연락처 : DB에서 driverContact값 가져오기! -->
-   													<p class="driverContact">${sessionScope.loginDriver.driverContact}</p>
+   													<p class="driverContact">${loginDriver.driverContact}</p>
    													
    													<!-- 운전자 생년월일 : DB에서 driverBirthdate값 가져오기! -->
    													<p class="driverBirthdate">
-   													${sessionScope.loginDriver.fmtDriverBirthdate}</p>
+   													${loginDriver.fmtDriverBirthdate}</p>
    													
    													<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
    													<p class="driverRegion">순천시 조례동</p>
    													
    													<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
-   													<p class="adminName">${sessionScope.loginDriver.adminName}</p>
+   													<p class="adminName">${loginDriver.adminName}</p>
    													
    													<!-- 운전자 차량번호 : DB에서 carNumber값 가져오기! -->
-   													<p class="carNumber">${sessionScope.loginDriver.carNumber}</p>
+   													<p class="carNumber">${loginDriver.carNumber}</p>
    													
    													<!-- 등록 일자 : DB에서 createdAt값 가져오기! -->
-   													<p class="createdAt">${sessionScope.loginDriver.fmtCreatedAt}</p>
+   													<p class="createdAt">${loginDriver.fmtCreatedAt}</p>
    													
    													<!-- 총 위험 행위 건수 : DB에서 조회하기! -->
-   													<p class="countLog">${sessionScope.totalCount}건</p>
+   													<p class="countLog">${totalCount}건</p>
    													
    													
  												</span>
@@ -235,18 +235,18 @@
 	   												
 	   													<!-- 위험 등급 표시 아이콘 -->
 														<!-- eventLevel에 따라 색상 변경되어야 함 --> 
-	 													<div class="circle-yellow">
+	 													<div class="${log.eventColor }">
 	 													</div>
 	 													
 	 													<!-- 위험 행위 종류 -->
 	 													<div class="wrapper4">
-	   														<div class="eventType">운전대 미제어</div>
+	   														<div class="eventType">${log.eventType }</div>
 	 													</div>
 	   												</div>
 	   											</div>
 	   											
 	   											<!-- 위험 행위 발생 일자 -->
-	   											<div class="regDate">2025-10-19</div>
+	   											<div class="regDate">${log.createdAt }</div>
 	 										</div>
 	   									</button>
 	 								</c:forEach><!-- 기록 1개 끝 -->
