@@ -176,7 +176,20 @@
           grid: { color: 'rgba(88, 88, 100, 0.15)' }
         }
       },
-      layout: { padding: { left: 6, right: 6, top: 6, bottom: 6 } }
+      layout: { padding: { left: 6, right: 6, top: 6, bottom: 6 } },
+      
+   // ✅ 7️⃣ 애니메이션 설정 추가 (그래프 옵션 안)
+      animation: {
+        duration: 1200,
+        easing: 'easeOutQuart'
+      },
+      animations: {
+        y: {
+          from: 0,
+          // 각 막대 순차 딜레이 (데이터 인덱스 기준)
+          delay: (context) => context.dataIndex * 100
+        }
+      }
     }
   });
 })();
