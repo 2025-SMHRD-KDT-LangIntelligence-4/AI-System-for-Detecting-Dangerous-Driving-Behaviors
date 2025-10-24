@@ -24,6 +24,8 @@ import lombok.NoArgsConstructor;
 		private String carNumber;
 		private int driverIdx;
 		private String driverCode;
+		private String driverLat;
+		private String driverLon;
 		public String LogCode;
 		private String adminName;
 		private String eventImg1;

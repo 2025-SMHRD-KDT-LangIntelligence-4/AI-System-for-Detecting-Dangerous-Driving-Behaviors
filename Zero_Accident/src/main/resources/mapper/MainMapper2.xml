@@ -19,7 +19,9 @@
     	l.log_idx,
         l.event_type,
         l.created_at,
-        l.event_level
+        l.event_level,
+        d.driver_lat,
+        d.driver_lon
     FROM tb_log AS l
     JOIN tb_car AS c ON l.car_number = c.car_number
     JOIN tb_driver AS d ON c.driver_idx = d.driver_idx

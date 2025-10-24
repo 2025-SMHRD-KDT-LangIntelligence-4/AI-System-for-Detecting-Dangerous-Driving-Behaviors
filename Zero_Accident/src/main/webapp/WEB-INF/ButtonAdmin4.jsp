@@ -328,7 +328,8 @@
       								
       								<!-- 위험 행위 발생 위치 : DB에서 가져오기! -->
       								<div class="pm-wrapper">
-       									<div class="b"><span class="region-text" data-lat="${b.driverLat}"data-lng="${b.driverLon}" >지역 불러오는 중…</span></div>
+       									<div class="b"><span class="region-text" 
+       									data-lat="${b.driverLat}"data-lng="${b.driverLon}" >지역 불러오는 중…</span></div>
       								</div>
        								</div>
      							</div>
