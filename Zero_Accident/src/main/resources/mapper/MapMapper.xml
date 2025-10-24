@@ -35,5 +35,4 @@
         WHERE driver_idx = #{driverIdx}
         LIMIT 1
     </select>
-
 </mapper>

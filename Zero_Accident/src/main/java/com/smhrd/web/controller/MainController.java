@@ -2,6 +2,7 @@ package com.smhrd.web.controller;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.smhrd.web.dto.DriverInfo;
 import com.smhrd.web.dto.DriverWaiting;
+import com.smhrd.web.dto.LogDTO;
 import com.smhrd.web.dto.MakeGraph;
 import com.smhrd.web.dto.MakeGraph2_4;
 import com.smhrd.web.dto.SelectEvent;
@@ -203,12 +205,7 @@ public class MainController{
         model.addAttribute("graphValue", graphValue);
 		return "ButtonAdmin2_4";
 	}
-		
-	// 관리자 - 전체 로그 조회 페이지
-		@GetMapping("/ButtonAdmin3")
-		public String ButtonAdmin3() {
-			return "ButtonAdmin3";
-		}
+	
 				
 	// 유선 : 관리자 - 실시간 블랙박스 모니터링 페이지
 		@GetMapping("/ButtonAdmin4")
@@ -291,4 +288,18 @@ public class MainController{
 		public String Sound() {
 			return "/Sound";
 		}
+
+	    @GetMapping("/ButtonAdmin3")  // ✅ JSP 이름과 URL 일치
+	    public String showLogs(Model model) {
+	        List<LogDTO> logList = service.getAllLogs();
+	        model.addAttribute("logList", logList);
+	        return "ButtonAdmin3";  // ✅ JSP 파일명
+	    }
+
+	    @GetMapping("/getLogDetail")
+	    @ResponseBody
+	    public LogDTO getLogDetail(@RequestParam("logIdx") int logIdx) {
+	        return service.getLogDetail(logIdx);
+	    }
+
 }

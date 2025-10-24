@@ -142,5 +142,33 @@
     		FROM 
     			tb_log;
 </select>
-  
+ <!-- 로그 목록 조회 -->
+    <select id="getAllLogs" resultType="com.smhrd.web.dto.LogDTO">
+        SELECT
+            l.log_idx AS logIdx,
+            DATE_FORMAT(l.created_at, '%Y-%m-%d %H:%i:%s') AS createdAt,
+            l.car_number AS carNumber,
+            d.driver_name AS driverName,
+            l.event_type AS eventType,
+            l.event_level AS eventLevel
+        FROM tb_log l
+        LEFT JOIN tb_car c ON l.car_number = c.car_number
+        LEFT JOIN tb_driver d ON c.driver_idx = d.driver_idx
+        ORDER BY l.log_idx ASC
+    </select>
+
+    <!-- ✅ 로그 상세 조회 -->
+    <select id="getLogDetail" parameterType="int" resultType="com.smhrd.web.dto.LogDTO">
+        SELECT
+            l.log_idx AS logIdx,
+            DATE_FORMAT(l.created_at, '%Y-%m-%d %H:%i:%s') AS createdAt,
+            l.car_number AS carNumber,
+            d.driver_name AS driverName,
+            l.event_type AS eventType,
+            l.event_level AS eventLevel
+        FROM tb_log l
+        LEFT JOIN tb_car c ON l.car_number = c.car_number
+        LEFT JOIN tb_driver d ON c.driver_idx = d.driver_idx
+        WHERE l.log_idx = #{logIdx}
+    </select>
 </mapper>

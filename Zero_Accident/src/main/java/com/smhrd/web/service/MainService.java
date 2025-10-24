@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smhrd.web.dto.DriverInfo;
 import com.smhrd.web.dto.DriverWaiting;
+import com.smhrd.web.dto.LogDTO;
 import com.smhrd.web.dto.MakeGraph;
 import com.smhrd.web.dto.MakeGraph2_4;
 import com.smhrd.web.dto.SelectEvent;
@@ -288,6 +289,14 @@ public class MainService {
 	public List<SelectLog> selectBlackbox() {
 			return mapper.selectBlackbox();
 	}
+	
+    public List<LogDTO> getAllLogs() {
+        return mapper.getAllLogs();
+    }
+
+    public LogDTO getLogDetail(int logIdx) {
+        return mapper.getLogDetail(logIdx);
+    }
     
     
     
