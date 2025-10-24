@@ -62,7 +62,7 @@
    			
 <!-- ================================== 메인 =================================== -->   			
    			
-   			   			
+   			<c:forEach var="v" items="${videoList}">	
    			<div class="parent">
    			
    					<!-- 타이틀 -->
@@ -80,28 +80,49 @@
     						
     							<!-- 위험 등급 표시 아이콘(하) -->
 								<!-- eventLevel에 따라 색상 변경되어야 함 -->
-      							<div class="circle-blue">
+      							<div class="${v.eventColor}">
       							</div>
       							
       							
       							<div class="logNum-parent">
       								
       								<!-- 로그 ID : DB에서 logIdx값 가져오기 -->
-       								<div class="logNum">L00000209</div>
+       								<div class="logNum">${v.logCode}</div>
        								
        								<!-- 구분선 -->
        								<div class="frame-child">
        								</div>
        								
        								<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
-       								<div class="eventType">졸음 운전</div>
+       								<div class="eventType">${v.eventType}</div>
       							</div>
     						</div>
     						
     						<!-- 블랙박스 영상 클립 -->
     						<div class="div9">
     							<!-- 영상 삽입 후 삭제-->
-      							<div class="l00000209">블랙박스 영상</div>
+      							<div class="l00000209">
+	      						<c:choose>
+		      						<c:when test="${not empty v.eventVideo}">
+		                              <video
+		                                  src="${cpath}${v.eventVideo}"
+		                                  class="blackbox-video"
+		                                  style="width:100%; height:100%; object-fit:cover; border-radius:8px;"
+		                                  controls
+		                                  muted
+		                                  autoplay
+		                                  loop
+		                                  playsinline
+		                                  preload="metadata"
+		                              >
+		                                  브라우저가 video 태그를 지원하지 않습니다.
+		                              </video>
+		                          </c:when>
+		                          <c:otherwise>
+		                              <div class="search-here">동영상 준비 중</div>
+		                          </c:otherwise>
+		                      </c:choose>
+      							</div>
     						</div>
        					</div>
        					
@@ -125,26 +146,26 @@
      								<div class="logInfo_1">
      									
      									<!-- 파일명 : logIdx.jpg -->
-       									<p class="logIdx">L00000212.jpg</p>
+       									<p class="logIdx">${v.logCode}.jpg</p>
        									
        									<!-- 발생 일시 -->
-       									<p class="regDate">2025-10-29 15:01:33</p>
+       									<p class="regDate">${v.createdAt}</p>
        									
        									<!-- 위험 행위 종류 : DB에서 eventType값 가져오기! -->
-       									<p class="eventType_1">졸음운전</p>
+       									<p class="eventType_1">${v.eventType}</p>
        									
        									<!-- 발생 위치 -->
        									<p class="displayAddr">전라남도 순천시 서면 선평리 1045</p>
        									
-       									<!-- 담당 관리자 : DB에서 adminIdx값 가져오기! -->
-       									<p class="adminIdx">강우희 </p>
+       									<!-- 담당 관리자 : DB에서 adminName값 가져오기! -->
+       									<p class="adminIdx">${adminName}</p>
      								</div>
        							</div> 							
      						</div>
        					</div>
      				</div>
    			</div>
-   			
+   			</c:forEach>
    			
    			<!-- 파일 다운로드 버튼 -->
    			<!-- 버튼 클릭 시 파일 다운로드 -->

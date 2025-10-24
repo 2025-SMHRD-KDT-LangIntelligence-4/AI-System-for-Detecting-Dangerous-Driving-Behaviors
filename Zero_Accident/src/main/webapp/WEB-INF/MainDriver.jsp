@@ -14,7 +14,12 @@
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
     <!-- MainDriver.css 파일의 스타일을 적용하겠다. -->
 	<link rel="stylesheet"  href="/css/MainDriver.css" />
-
+	
+<c:if test="${not empty alertMsg}">
+    <script>
+        alert("${alertMsg}");
+    </script>
+</c:if>
 </head>
 <body>
 	

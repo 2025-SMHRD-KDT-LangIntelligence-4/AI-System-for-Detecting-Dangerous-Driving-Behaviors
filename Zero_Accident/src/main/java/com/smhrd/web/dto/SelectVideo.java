@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 	public class SelectVideo {
-		private String logIdx;
+		private int logIdx;
 		private String eventType;
 		private String eventTypeColor;
 		private String eventButtonColor;
@@ -24,5 +24,7 @@ import lombok.NoArgsConstructor;
 		private String carNumber;
 		private int driverIdx;
 		private String driverCode;
+		public String LogCode;
+		private String adminName;
 	}
 

@@ -62,4 +62,30 @@ public class MainService2 {
         return mapper.driverLogList(driverIdx);
     }
 
+	public List<SelectVideo> selectLogDetailByLogIdx(int logIdx) {
+		List<SelectVideo> list = mapper.selectLogDetailByLogIdx(logIdx);
+		
+        for (SelectVideo v : list) {
+        	// 이벤트타입 영어 -> 한글 변환
+        	switch (v.getEventType()) {
+        	case "ASSAULT" -> v.setEventType("운전자 폭행");
+        	case "DROWSY"  -> v.setEventType("졸음 운전");
+        	case "PHONE"   -> v.setEventType("휴대폰 조작");
+        	case "HAND"    -> v.setEventType("운전대 미제어");
+        	}
+        	// 동그라미 아이콘 색상 변경, 이벤트타입 글씨색 변경
+            switch (v.getEventLevel()) {
+                case "1" -> {v.setEventColor("circle-blue"); v.setEventTypeColor("circle-blue");
+                			 v.setEventButtonColor("div64"); v.setEventIcon("/image/Volume.svg");}
+                case "2" -> {v.setEventColor("circle-yellow"); v.setEventTypeColor("circle-yellow");
+                			 v.setEventButtonColor("div64"); v.setEventIcon("/image/Volume.svg");}
+                case "3" -> {v.setEventColor("circle-red"); v.setEventTypeColor("circle-red");
+                			 v.setEventButtonColor("div57"); v.setEventIcon("/image/Danger.svg");}
+            }
+            // logIdx : '1' -> 'L00000001' 식으로 변경
+            v.setLogCode(String.format("L%08d", v.getLogIdx()));
+        }
+		return list;
+	}
+
 }

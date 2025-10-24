@@ -15,7 +15,8 @@
 
 <!-- 우빈 -->
 <select id="selectLogListByDriverIdx" parameterType="int" resultType="com.smhrd.web.dto.SelectVideo">
-    SELECT 
+    SELECT
+    	l.log_idx,
         l.event_type,
         l.created_at,
         l.event_level
@@ -35,4 +36,10 @@
 	WHERE d.driver_idx = #{driverIdx};
 </select>
 
+<!-- 우빈 : 운전자 상세페이지 조회 -->
+<select id="selectLogDetailByLogIdx" parameterType="int" resultType="com.smhrd.web.dto.SelectVideo">
+	SELECT *
+	FROM tb_log
+	WHERE log_idx = #{logIdx}
+</select>
 </mapper>
