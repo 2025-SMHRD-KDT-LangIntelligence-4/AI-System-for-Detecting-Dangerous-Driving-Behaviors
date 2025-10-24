@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.smhrd.web.dto.DriverDetail;
 import com.smhrd.web.dto.DriverInfo;
 import com.smhrd.web.dto.SelectLog;
 import com.smhrd.web.dto.SelectVideo;
@@ -55,5 +56,10 @@ public class MainService2 {
         }
     	return list;
     }
-    
+
+    // 유선 : 운전자 위험 운전 이력
+    public List<DriverDetail> driverLogList() {
+        return mapper.driverLogList();
+    }
+
 }

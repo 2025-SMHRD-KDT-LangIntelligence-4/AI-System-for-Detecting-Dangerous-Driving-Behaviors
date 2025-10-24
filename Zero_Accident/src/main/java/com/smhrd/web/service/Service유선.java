@@ -21,10 +21,6 @@ public class Service유선 {
 
     private final Mapper유선 mapper유선;
     
-    // 유선 : 운전자 상세 페이지
-    public DriverDetail driverDetailLog(int logIdx) {
-        return mapper유선.driverDetailLog(logIdx);
-    }
     
 
 

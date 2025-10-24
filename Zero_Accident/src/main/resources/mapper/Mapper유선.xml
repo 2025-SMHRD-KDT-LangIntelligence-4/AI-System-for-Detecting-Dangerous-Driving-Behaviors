@@ -5,18 +5,6 @@
   
 
 <mapper namespace="com.smhrd.web.mapper.Mapper유선">
-	<!-- 운전자 상세페이지 -->
-    <select id="driverDetailLog" resultType="com.smhrd.web.dto.DriverDetail">
-    SELECT
-        log_idx,
-        event_level,
-        event_type,
-        event_video,
-        created_at,
-        display_addr
-    FROM tb_log
-    WHERE log_idx = #{logIdx}
-    </select>
     
 
     
