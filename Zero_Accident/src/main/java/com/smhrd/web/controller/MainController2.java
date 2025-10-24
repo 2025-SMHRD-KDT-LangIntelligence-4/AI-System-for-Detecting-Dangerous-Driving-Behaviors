@@ -56,9 +56,15 @@ public String MainDriver(HttpSession session, RedirectAttributes ra, Model model
 	
 // 우희 : 운전자 위험운전상세페이지
    @GetMapping("/MainDriver2")
-   public String MainDriver2(Model model) {
+   public String MainDriver2(Model model, HttpSession session) {
       // 유선 : 운전자 위험 운전 이력
-         List<DriverDetail> driverLog = service.driverLogList();
+	     // 유선 : 로그인 할 때, 입력받은 정보가 세션에 DriverInfo형태로 들어있다. 그걸 불러옴
+	   	 DriverInfo loginDriver = (DriverInfo) session.getAttribute("loginDriver");
+	   	 
+	   	 // 유선 : DriverInfo 형태로 들어있는 것 중에서 int driverIdx만 꺼내겠다
+	   	 int driverIdx = loginDriver.getDriverIdx();
+	   	
+         List<DriverDetail> driverLog = service.driverLogList(driverIdx);
          
           // 유선 : 이벤트 레벨에 따라 문자열을 바꾼다. 
           // 포매팅 (색깔에 관한 문자열 frame-item :빨강, frame-child :노랑 frame-item2 : 파랑

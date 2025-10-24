@@ -27,16 +27,12 @@
 </select>
 
 <!-- 유선 : 운전자 위험 운전 이력 -->
-<select id="driverLogList" resultType="com.smhrd.web.dto.DriverDetail">
-SELECT 
-       log_idx,
-       event_type,
-     event_level,
-     event_img1,
-     created_at
-FROM tb_log
-ORDER BY created_at DESC
-LIMIT 10
+<select id="driverLogList" parameterType="int" resultType="com.smhrd.web.dto.DriverDetail">
+	SELECT l.log_idx, l.event_type, l.event_level, l.event_img1, l.created_at
+	FROM tb_driver d
+	JOIN tb_car c ON d.driver_idx = c.driver_idx
+	JOIN tb_log l ON c.car_number = l.car_number
+	WHERE d.driver_idx = #{driverIdx};
 </select>
 
 </mapper>

@@ -21,5 +21,5 @@ public interface MainMapper2 {
 	List<SelectVideo> selectLogListByDriverIdx(int driverIdx);
 	
 	// 유선 : 운전자 위험 운전 이력
-	List<DriverDetail> driverLogList();
+	List<DriverDetail> driverLogList(int driverIdx);
 }

@@ -58,8 +58,8 @@ public class MainService2 {
     }
 
     // 유선 : 운전자 위험 운전 이력
-    public List<DriverDetail> driverLogList() {
-        return mapper.driverLogList();
+    public List<DriverDetail> driverLogList(int driverIdx) {
+        return mapper.driverLogList(driverIdx);
     }
 
 }
