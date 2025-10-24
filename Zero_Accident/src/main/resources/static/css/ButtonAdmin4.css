@@ -349,20 +349,33 @@ div.b {
   	color: #eaefef;
   	
 }
+
 .div16 {
-  	position: absolute;
-  	top: 212.86px;
-  	left: 329.56px;
-  	border-radius: 9.9px;
-  	background-color: #44444e;
-  	width: 1234.2px;
-  	height: 588.2px;
-  	font-size: 18.09px;
-  	overflow: hidden; /* 넘친 콘텐츠 숨기기 */
-  	overflow-y:auto;
-  	display: flex;
-  	justify-content: center;
-  		
+  position: absolute;
+  top: 212.86px;
+  left: 329.56px;
+  border-radius: 9.9px;
+  background-color: #44444e;
+  width: 1234.2px;
+  height: 588.2px;
+  font-size: 18.09px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.div17 {
+  margin-top: 32px;
+  margin-left: -15.72px;
+  width: 1150px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+  row-gap: 30px;
+  justify-items: center;
+  align-items: start;
+  position: relative;
+  box-sizing: content-box;
+  padding-bottom: 50px;
 }
 
 /* 스크롤 커스텀*/
@@ -377,20 +390,7 @@ div.b {
   background-color: #2e2e36;
 }
 
-.div17 {
-  margin-top: 50.13px;
-  margin-left: -115.72px;
-  width: 1150px;
-  height: auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 20px;
-  row-gap: 30px;
-  justify-items: center;
-  align-items: start;
-  position: relative; 
-  padding-bottom: 50px;
-}
+
 
 
 
