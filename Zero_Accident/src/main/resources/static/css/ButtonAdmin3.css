@@ -251,20 +251,28 @@ button.div3 {
   	font-size: 13.07px;
 }
 .div15 {
-  	position: absolute;
-  	top: 28.01px;
-  	left: 28.01px;
-  	border-radius: 15.01px;
-  	background-color: #37353e;
-  	width: 467.7px;
-  	height: 249.3px;
-  	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	padding: 113px 136.3px;
-  	box-sizing: border-box;
-  	text-align: left;
-  	font-size: 20.93px;
+  position: absolute;
+  top: 28.01px;
+  left: 28.01px;
+  width: 467.7px;
+  height: 250px;             /* 적당한 높이로 고정 */
+  font-size: 25px;
+  background-color: #37353e;
+  border-radius: 15.01px;
+  overflow: hidden;          /* 영상이 튀어나오지 않게 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;                /* ✅ 내부 여백 제거 */
+  box-sizing: border-box;
+}
+
+.div15 video {
+  width: 105%;
+  height: 105%;
+  border-radius: 15.01px;
+  object-fit: contain;        /* ✅ 비율 유지 + 넘치지 않게 */
+  display: block;
 }
 .log-title {
   	position: absolute;
@@ -875,6 +883,8 @@ input.div51 {
   appearance: none;
 }
 
+
+
 .date-input {
   font-family: 'NanumSquare Neo OTF', sans-serif; /* ✅ 폰트 지정 */
   font-size: 9.3px;                               /* ✅ 글씨 크기 */
@@ -888,3 +898,7 @@ input.div51 {
   border: 2px solid #000000 !important;
   transition: all 0.15s ease-in-out;
 }
+
+
+
+

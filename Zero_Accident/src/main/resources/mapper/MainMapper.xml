@@ -165,7 +165,8 @@
             l.car_number AS carNumber,
             d.driver_name AS driverName,
             l.event_type AS eventType,
-            l.event_level AS eventLevel
+            l.event_level AS eventLevel,
+            l.event_video AS eventVideo
         FROM tb_log l
         LEFT JOIN tb_car c ON l.car_number = c.car_number
         LEFT JOIN tb_driver d ON c.driver_idx = d.driver_idx

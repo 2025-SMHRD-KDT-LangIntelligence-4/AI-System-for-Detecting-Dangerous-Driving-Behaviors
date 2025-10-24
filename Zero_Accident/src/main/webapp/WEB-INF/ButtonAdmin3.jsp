@@ -549,7 +549,34 @@
 		            (data.driverName || "-") + (driverIdFormatted ? "(" + driverIdFormatted + ")" : "");
 		          detailValues[4].textContent = eventTypeKor;                    // 위험 행위 종류
 		        }
-		
+		        
+		     // 우빈 : ===== 블랙박스 영상 표시 =====
+		        const videoContainer = document.querySelector(".div15");
+		        if (videoContainer) {
+		          // 기존 내용 제거 후 제목 유지
+		          videoContainer.innerHTML = "";
+
+		          if (data.eventVideo) {
+		            const video = document.createElement("video");
+		            video.src = data.eventVideo.startsWith("/") 
+		                        ? data.eventVideo 
+		                        : ("/" + data.eventVideo);
+		            video.controls = true;
+		            video.autoplay = true;
+		            video.loop = true;
+		            video.muted = true;
+		            video.style.width = "100%";
+		            video.style.borderRadius = "10px";
+		            videoContainer.appendChild(video);
+		          } else {
+		            const msg = document.createElement("div");
+		            msg.textContent = "동영상이 없습니다.";
+		            msg.style.color = "#aaa";
+		            msg.style.marginTop = "10px";
+		            videoContainer.appendChild(msg);
+		          }
+		        }
+
 		        // ===== 위험등급 원 (이미지 src만 교체, 클릭 전엔 '-' 표시) =====
 		        var levelContainer = document.getElementById("detail-event-level");
 		        if (!levelContainer) return;

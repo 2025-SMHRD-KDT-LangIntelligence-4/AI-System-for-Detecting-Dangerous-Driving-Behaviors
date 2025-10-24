@@ -15,5 +15,6 @@ public class LogDTO {
     private String driverIdx;  // 추가
     private String eventType;
     private String eventLevel;
+    private String eventVideo;
 }
 
