@@ -18,18 +18,7 @@
     WHERE log_idx = #{logIdx}
     </select>
     
-    <!-- 운전자 위험 운전 이력 -->
-    <select id="driverLogList" resultType="com.smhrd.web.dto.DriverDetail">
-    SELECT 
-    		 log_idx,
-    		 event_type,
-         event_level,
-         event_img1,
-         created_at
-    FROM tb_log
-    ORDER BY created_at DESC
-    LIMIT 10
-    </select>
+
     
     
 </mapper>

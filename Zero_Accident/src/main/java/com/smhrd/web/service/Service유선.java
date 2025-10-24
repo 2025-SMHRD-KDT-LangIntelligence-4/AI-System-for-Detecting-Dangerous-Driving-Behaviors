@@ -26,17 +26,7 @@ public class Service유선 {
         return mapper유선.driverDetailLog(logIdx);
     }
     
-    // 유선 : 운전자 위험 운전 이력
-    public List<DriverDetail> driverLogList() {
-        return mapper유선.driverLogList();
-    }
 
-    // 유선 : 운전자 위험 운전 로그 클릭 -> 상세페이지 이동에 필요함
-	public Log getLogIdx(Integer logIdx) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-    
 
 }
 
