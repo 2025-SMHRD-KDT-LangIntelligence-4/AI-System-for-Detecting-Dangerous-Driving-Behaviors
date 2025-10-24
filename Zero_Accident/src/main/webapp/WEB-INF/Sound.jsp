@@ -14,14 +14,7 @@
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
     <!-- MainDriver.css 파일의 스타일을 적용하겠다. -->
 	<link rel="stylesheet"  href="/css/MainDriver.css" />
-	<!-- 우빈 : 카카오 지도 SDK -->
-	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b1fc2610a3c9415f64affd1fc92ced5b&libraries=services"></script>
 	
-<c:if test="${not empty alertMsg}">
-    <script>
-        alert("${alertMsg}");
-    </script>
-</c:if>
 
 </head>
 <body>
@@ -50,12 +43,6 @@
   				</div>
 			</div>
     	</div>
-    	
-    	<!-- 로그아웃 버튼 -->
-    	<!-- 로그아웃 시 StartPage.jsp로 이동 -->	
-    	<form method="post" action="logout">
-	    	<button type="submit" class="logOut">로그아웃</button>
-    	</form>	
     		
     			
  		<div class="maindriverjsp-div">
@@ -76,210 +63,45 @@
    			
    			<div class="parent">
    			
-   				<!-- 운전자 이름 -->
+   				<!-- 타이틀 -->
  				<div class="div3">
    					<div class="div4">
    					
    						<!-- 운전자 이름 -->
-   						<span class="driverName">${sessionScope.loginDriver.driverName }운전자</span><span 
-   						class="maindriverjsp-span">님</span>
+   						<span class="driverName">위험 운전 경고 알림</span>
    					</div>
  				</div>
+     			
+     			<!-- 메시지 창 전체 컨테이너-->	
+     			<div class="alert-card">
+				    <img class="alert-icon" src="/image/alert.png">
+				
+				    <div class="alert-content">
+				    
+				        <div class="alert-inner">
+				            <div class="alert-text-group">
+				            
+				                <div class="alert-title-wrapper">
+				                    <b class="alert-title">[경고 알림]</b>
+				                </div>
+				                
+				                <div class="alert-message-wrapper">
+				                    <b class="alert-line">
+				                    	
+				                    	
+				                    	<!-- 메시지 content -->
+				                        <p class="alert-message">졸음 운전이 감지되었습니다. 
+				                        창문을 열거나 근처 졸음쉼터에서 잠시 휴식을 취하세요.</p>
+				                    </b>
+				                </div>
+				            </div>
+				        </div>
+				
+				        <img class="alert-bg" src="/image/messagePop.svg">
+				    </div>
+				</div>
      				
-     				
- 				<div class="frame-parent">
- 					
- 					<!-- 프로필 전체 컨테이너 -->
-   					<div class="frame-group">
-   					
-   						<!-- 프로필 title -->
- 						<div class="frame-container">
- 							<!-- 북마크 아이콘 -->
-   							<img class="frame-child" src="/image/bookMarkGreen.svg">
-   							
-   							<div class="frame-wrapper">
- 								<div class="wrapper">
-   									<div class="div5">프로필</div>
- 								</div>
-   							</div>
- 						</div>
- 						
- 						<!-- 프로필 -->
- 						<div class="div6">
- 							
- 							<!-- 운행 유무 표시 -->
-							<!-- 운행 시 '운행'으로 표시 -->
-							<!-- 미운행 시 '미운행'으로 표시 -->
- 							<div class="radio-button-unchecked-parent">
-   								<img class="radio-button-unchecked-icon" src="/image/radioButtonUnchecked.svg">								
-   								<div class="driveOn">운행</div>
-   							</div>
- 							
- 							<!-- 운전자 사진 / 이름 / 고유 ID -->				
-   							<div class="avatar-parent">
-   								
-   								<!-- 운전자 증명사진 -->
-   								<div class="driverImgDiv">
-   								
-   									<!-- image 삽입 공간 : DB에서 이미지 url 가져오기! -->
- 									<img class="driverImg" src="${loginDriver.driverImg}">
- 								</div>
- 								
- 								<div class="s090">
- 								
- 									<!-- 운전자 이름 : DB에서 driverName값 가져오기! -->
-   									<p class="driverName">${loginDriver.driverName}</p>
-   									
-   									<!-- 운전자 고유 ID : DB에서 driverIdx값 가져오기! -->
-   									<p class="driverIdx">(${loginDriver.driverCode})</p>
- 								</div>
-   							</div>					
-   							
-   							<!-- 세부 정보 -->
-   							<div class="container">
- 								<div class="div8">
-   									<div class="title-parent">
-   									
-   										<!-- 카테고리 -->
- 										<div class="title">
-   											<b class="b">
-   												<p class="accident">연락처</p>
-   												<p class="accident">생년 월일</p>
-   												<p class="accident">근무 지역</p>
-   												<p class="accident">관리자</p>
-   												<p class="accident">차량 번호 </p>
-   												<p class="accident">등록 일자 </p>
-   												<p class="accident">총 위험 행위 건수</p>
-   											</b>
- 										</div>
- 										
- 										<!-- 실제 운전자 정보 -->
- 										<div class="frame">
-   											<b class="maindriverjsp-b">
- 												<span class="txt">
- 												
- 													<!-- 운전자 연락처 : DB에서 driverContact값 가져오기! -->
-   													<p class="driverContact">${loginDriver.driverContact}</p>
-   													
-   													<!-- 운전자 생년월일 : DB에서 driverBirthdate값 가져오기! -->
-   													<p class="driverBirthdate">
-   													${loginDriver.fmtDriverBirthdate}</p>
-   													
-   													<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
-   													<p class="driverRegion">
-													<span class="region-text" data-lat="${loginDriver.driverLat}"
-													data-lng="${loginDriver.driverLon}" >지역 불러오는 중…</span>
-													</p>
-   													
-   													<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
-   													<p class="adminName">${loginDriver.adminName}</p>
-   													
-   													<!-- 운전자 차량번호 : DB에서 carNumber값 가져오기! -->
-   													<p class="carNumber">${loginDriver.carNumber}</p>
-   													
-   													<!-- 등록 일자 : DB에서 createdAt값 가져오기! -->
-   													<p class="createdAt">${loginDriver.fmtCreatedAt}</p>
-   													
-   													<!-- 총 위험 행위 건수 : DB에서 조회하기! -->
-   													<p class="countLog">${totalCount}건</p>
-   													
-   													
- 												</span>
-   											</b>
- 										</div>
-   									</div>
- 								</div>
-   							</div>
- 						</div>
-   					</div> <!-- 프로필 전체 컨테이너 끝 -->
-   					
-   					
-   					
-   					<!-- 최근 위험 운전 기록 컨테이너 -->
-   					<div class="frame-div">
-   					
-   						<!-- 최근 위험 운전 기록 title -->
- 						<div class="frame-container">
- 							<!-- 북마크 아이콘 -->
-   							<img class="frame-child" src="/image/bookMarkGreen.svg">
-   							<!-- title -->
-   							<div class="frame-wrapper">
- 								<div class="wrapper">
-   									<div class="div5">최근 위험 운전 기록</div>
- 								</div>
-   							</div>
- 						</div>
- 						
- 						
- 						<div class="input">
-   							<div class="frame-parent2">
-   							
-   								<!-- 더보기 -->
-   								
-   								<!-- 클릭 시 위험운전기록화면으로 이동됨(MainDriver2.jsp) -->
- 								<button type="button" class="addBtn" onclick="location.href='/MainDriver2'">
- 								
- 									<!-- 더보기 아이콘 -->
-   									<img class="frame-inner" src="/image/addCircleBlue.svg">
-   									
-   									<div class="frame-wrapper2">
- 										<div class="wrapper2">
-   											<b class="b2">더보기</b>
- 										</div>
-   									</div>
- 								</button>
- 								
- 								<!-- 최근 위험 운전 기록 리스트 -->
-	 							<div class="div10">
-	 							
-								<!-- foam태그 이용 post방식으로 제출 -->
-								<form id="logForm" method="POST" action="/MainDriver2_1" style="display:none;">
-								  <input type="hidden" name="logIdx" id="logIdxInput">
-								</form>
-										
- 									<!-- 반복문으로 동일한 기록 출력 -->
-	 								<c:forEach var="log" items="${logList}">
-								
-										<!-- 클릭 시 해당 기록 상세페이지로 이동 (POST 전송으로 변경) -->
-										<button type="button" class="logBtn" onclick="viewLog('${log.logIdx}')">
-										
-	 										<div class="div11">
-	 										
-	 											<!-- 아이콘 -->
-	   											<div class="chevron-forward-wrapper">
-	   												<img class="chevron-forward-icon" src="/image/chevronBlue.svg">								
-	   											</div>
-	   											
-	   											<div class="inner">
-	   												<div class="ellipse-parent">
-	   												
-	   													<!-- 위험 등급 표시 아이콘 -->
-														<!-- eventLevel에 따라 색상 변경되어야 함 --> 
-	 													<div class="${log.eventColor }">
-	 													</div>
-	 													
-	 													<!-- 위험 행위 종류 -->
-	 													<div class="wrapper4">
-	   														<div class="eventType">${log.eventType }</div>
-	 													</div>
-	   												</div>
-	   											</div>
-	   											
-	   											<!-- 위험 행위 발생 일자 -->
-	   											<div class="regDate">${log.createdAt }</div>
-	 										</div>
-	   									</button>
-	 								</c:forEach><!-- 기록 1개 끝 -->
-	 								
-	 							</div><!-- 기록 리스트 끝 -->
- 								
- 								
-   							</div>
- 						</div>
-   					</div> <!-- 최근 위험 운전 기록 컨테이너 끝 -->
-   					
-   					
- 				</div>
+ 				
    			</div>
    			
    			<!-- 저작권 -->

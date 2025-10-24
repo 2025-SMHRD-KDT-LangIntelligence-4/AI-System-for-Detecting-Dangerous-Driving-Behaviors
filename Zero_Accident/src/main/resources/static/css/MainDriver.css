@@ -616,3 +616,97 @@ button.logOut:hover {
   	background-color: #7f8caa;
 }
 
+.alert-card {
+    width: 100%;
+    height: 606px;
+    position: relative;
+    border-radius: 12.97px;
+    background-color: #37353e;
+    text-align: left;
+    font-size: 14px;
+    color: #d07b7b;
+    font-family: 'NanumSquare Neo OTF';
+}
+
+.alert-icon {
+    position: absolute;
+    top: 39px;
+    left: 24px;
+    width: 47px;
+    height: 47px;
+}
+
+.alert-content {
+    position: absolute;
+    top: 51px;
+    left: 77px;
+    width: 217px;
+    height: 82px;
+}
+
+.alert-inner {
+    position: absolute;
+    top: 9px;
+    left: 6px;
+    border-radius: 13.89px;
+    background-color: #eaefef;
+    width: 238px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+    box-sizing: border-box;
+}
+
+.alert-text-group {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.alert-title-wrapper {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding: 0px 4px;
+}
+
+.alert-title {
+    position: relative;
+}
+
+.alert-message-wrapper {
+    align-self: stretch;
+    border-radius: 13.89px;
+    background-color: #9b9a9f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 13px;
+    color: #44444e;
+}
+
+.alert-line {
+    width: 181px;
+    position: relative;
+    line-height: 120%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.alert-message {
+    margin: 0;
+}
+
+.alert-bg {
+    position: absolute;
+    top: 9px;
+    left: 0px;
+    border-radius: 1px;
+    width: 27px;
+    height: 27.9px;
+    object-fit: contain;
+}
+
