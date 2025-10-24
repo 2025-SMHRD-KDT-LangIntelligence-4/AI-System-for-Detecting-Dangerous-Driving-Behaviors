@@ -125,7 +125,7 @@ public String MainDriver2_1(@RequestParam("logIdx") int logIdx, Model model, Htt
         ra.addFlashAttribute("alertMsg", "로그아웃 세션이 만료되었습니다."); // 1회성 메시지
     	return "redirect:/LoginDriver";
     }
-  	 
+
   	String adminName = loginDriver.getAdminName();
   	
     // logIdx 값이 비었을 경우
