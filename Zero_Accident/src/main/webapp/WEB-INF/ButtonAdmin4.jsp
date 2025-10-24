@@ -389,6 +389,30 @@
 	    });
 	  }
 	  document.addEventListener("DOMContentLoaded", fillRegionsInDiv8);
-	</script>	
+	</script>
+	
+	<!-- ✅ 추가 시작 -->
+	<!-- 1. 경고 사운드 파일 미리 로드 -->
+	<audio id="alertSound" src="${cpath}/sound/alert.mp3" preload="auto"></audio>
+
+	<!-- 2. alert-btn 클릭 시 이동 + 사운드 재생 플래그 저장 -->
+	<script>
+	document.addEventListener("DOMContentLoaded", () => {
+	  const buttons = document.querySelectorAll(".alert-btn");
+
+	  buttons.forEach((btn) => {
+	    btn.addEventListener("click", () => {
+	      console.log("🚨 alert-btn 클릭됨"); // 디버그용
+
+	      // 이동 후 소리 나게 플래그 저장
+	      localStorage.setItem("playSound", "true");
+
+	      // 페이지 이동
+	      window.location.href = "${cpath}/Sound"; 
+	    });
+	  });
+	});
+	</script>
+
 </body>
 </html>

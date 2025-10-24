@@ -286,5 +286,9 @@ public class MainController{
 	    	model.addAttribute("driverList", driverList);
 			return "ButtonAdmin5";
 			}
-	
+	// 우빈 : 소리재생
+		@GetMapping("/Sound")
+		public String Sound() {
+			return "/Sound";
+		}
 }
