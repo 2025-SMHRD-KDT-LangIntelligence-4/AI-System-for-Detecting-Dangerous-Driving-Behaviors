@@ -1,62 +1,53 @@
 package com.smhrd.web.mapper;
 
-import com.smhrd.web.dto.LogDTO;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import java.util.List;
+
+import com.smhrd.web.dto.LogDTO;
 
 @Mapper
 public interface Mapper솔민 {
 
-    /**
-     * 2단계 JOIN, 검색, 필터링 조건 (날짜, 위험 행위 종류, 위험 등급) 통합 쿼리
-     */
+    // 1) 로그 리스트 (초기 화면)
     @Select("""
-        <script>
         SELECT 
-            L.log_idx, 
-            L.created_at, 
-            L.car_number, 
-            D.driver_name, 
-            L.event_type, 
-            L.event_level 
-            FROM 
-            tb_log L 
-        JOIN 
-            tb_car C ON L.car_number = C.car_number 
-        JOIN 
-            tb_driver D ON C.driver_idx = D.driver_idx
-        
-        <where>
-            <if test="searchQuery != null and searchQuery != ''">
-                (
-                    L.car_number LIKE CONCAT('%', #{searchQuery}, '%')
-                    OR 
-                    D.driver_name LIKE CONCAT('%', #{searchQuery}, '%')
-                )
-            </if>
-            
-            <if test="filterDate != null and filterDate != ''">
-                AND DATE(L.created_at) = #{filterDate}
-            </if>
-            
-            <if test="filterEvent != null and filterEvent != ''">
-                AND L.event_type = #{filterEvent}
-            </if>
-            
-            <if test="filterLevel != null and filterLevel != ''">
-                AND L.event_level = #{filterLevel}
-            </if>
-            
-            </where>
-        
-        ORDER BY 
-            L.log_idx DESC
-        </script>
-        """)
-    List<LogDTO> getLogList(@Param("searchQuery") String searchQuery, 
-                            @Param("filterDate") String filterDate, 
-                            @Param("filterEvent") String filterEvent, 
-                            @Param("filterLevel") String filterLevel); 
-                            }
+            l.log_idx AS logIdx,
+            DATE_FORMAT(l.created_at, '%Y-%m-%d %H:%i:%s') AS createdAt,
+            l.car_number AS carNumber,
+            d.driver_name AS driverName,
+            l.event_type AS eventType,
+            l.event_level AS eventLevel
+        FROM tb_log l
+        LEFT JOIN tb_car c ON l.car_number = c.car_number
+        LEFT JOIN tb_driver d ON c.driver_idx = d.driver_idx
+        ORDER BY l.log_idx ASC
+    """)
+    List<Map<String, Object>> getRecentLogs();
+
+
+
+    // 2) 상세 조회 (div60 클릭 시 호출됨)
+    @Select("""
+        SELECT 
+            l.log_idx AS logIdx,
+            DATE_FORMAT(l.created_at, '%Y-%m-%d %H:%i:%s') AS createdAt,
+            l.car_number AS carNumber,
+            d.driver_name AS driverName,
+            d.driver_idx AS driverIdx,
+            l.event_type AS eventType,
+            l.event_level AS eventLevel
+        FROM tb_log l
+        LEFT JOIN tb_car c ON l.car_number = c.car_number
+        LEFT JOIN tb_driver d ON c.driver_idx = d.driver_idx
+        WHERE l.log_idx = #{logIdx}
+    """)
+    LogDTO getLogDetail(@Param("logIdx") int logIdx);
+
+
+
+    
+}

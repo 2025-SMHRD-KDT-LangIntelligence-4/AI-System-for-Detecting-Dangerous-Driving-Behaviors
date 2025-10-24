@@ -1,18 +1,27 @@
 package com.smhrd.web.service;
 
-import com.smhrd.web.dto.LogDTO;
 import java.util.List;
+import java.util.Map;
 
-// Service솔민 인터페이스 수정
-public interface Service솔민 {
+import org.springframework.stereotype.Service;
+
+import com.smhrd.web.mapper.Mapper솔민;
+import com.smhrd.web.dto.LogDTO;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class Service솔민 {
+
+    private final Mapper솔민 mapper;
+
+    public List<Map<String, Object>> getRecentLogs() {
+        return mapper.getRecentLogs();
+    }
+
+    public LogDTO getLogDetail(int logIdx) {
+        return mapper.getLogDetail(logIdx);
+    }
     
-    /**
-     * 로그 리스트를 검색어, 날짜, 이벤트 종류, 이벤트 레벨 필터와 함께 조회합니다.
-     */
-    List<LogDTO> getLogList(
-        String searchQuery,
-        String filterDate, 
-        String filterEvent, 
-        String filterLevel // 🚨 Mapper와 동일하게 4개의 파라미터로 수정
-    );
 }
