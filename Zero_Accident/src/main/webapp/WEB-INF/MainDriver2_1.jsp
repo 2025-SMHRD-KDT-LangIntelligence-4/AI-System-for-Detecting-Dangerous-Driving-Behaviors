@@ -148,7 +148,7 @@
      								<div class="logInfo_1">
      									
      									<!-- 파일명 : logIdx.jpg -->
-       									<p class="logIdx">${v.logCode}.jpg</p>
+       									<p class="logIdx">${v.logCode}.mp4</p>
        									
        									<!-- 발생 일시 -->
        									<p class="regDate">${v.createdAt}</p>
@@ -169,17 +169,18 @@
        					</div>
      				</div>
    			</div>
-   			</c:forEach>
    			
    			<!-- 파일 다운로드 버튼 -->
-   			<!-- 버튼 클릭 시 파일 다운로드 -->
-   			<button type="button" class="downloadButton">
- 				<div class="div5">파일 다운로드</div>
- 				<!-- 다운로드 아이콘 -->
- 				<div class="download">
-   					<img class="icon" src="/image/Download.svg">  					
- 				</div>
-   			</button>
+			<button type="button" class="downloadButton" 
+			        data-logidx="${v.logIdx}" 
+			        data-logcode="${v.logCode}">
+			  <div class="div5">파일 다운로드</div>
+			  <div class="download">
+			    <img class="icon" src="/image/Download.svg">
+			  </div>
+			</button>
+   			
+   			</c:forEach>
    			
    			<!-- 저작권 -->
    			<div class="copyright-2025">Copyright ⓒ 2025 Zo-A Co. All rights reserved.</div>
@@ -225,6 +226,32 @@
 	    });
 	  }
 	  document.addEventListener("DOMContentLoaded", fillRegionsInDiv8);
-	</script>	
+	</script>
+	
+	<!-- 파일다운로드 -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".downloadButton").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const logIdx = btn.dataset.logidx;
+      const logCode = btn.dataset.logcode;
+
+      console.log("🟢 logIdx:", logIdx);
+      console.log("🟢 logCode:", logCode);
+
+      // ✅ EL은 문자열 안에서 + 연산으로 연결
+      const filePath = "${cpath}/video/driver" + logIdx + ".mp4";
+      console.log("🟢 예상 파일 경로:", filePath);
+
+      const link = document.createElement("a");
+      link.href = filePath;
+      link.download = logCode + ".mp4";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  });
+});
+</script>
 </body>
 </html>
