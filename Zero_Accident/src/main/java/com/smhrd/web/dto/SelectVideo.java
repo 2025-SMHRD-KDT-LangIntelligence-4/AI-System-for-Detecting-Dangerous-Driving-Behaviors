@@ -26,5 +26,6 @@ import lombok.NoArgsConstructor;
 		private String driverCode;
 		public String LogCode;
 		private String adminName;
+		private String eventImg1;
 	}
 
