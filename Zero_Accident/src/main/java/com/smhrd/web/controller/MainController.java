@@ -77,7 +77,16 @@ public class MainController{
 	}
 	
     @GetMapping("/MainAdmin")
-    public String MainAdmin(Model model) {
+    public String MainAdmin(Model model, HttpSession session, RedirectAttributes ra) {
+    	
+        // 유선 : 로그인 할 때, 입력받은 정보가 세션에 DriverInfo형태로 들어있다. 그걸 불러옴
+      	 Admin loginAdmin = (Admin) session.getAttribute("loginAdmin");
+        // 로그인 안 된 경우 로그인 페이지로 돌려보내기
+        if (loginAdmin == null) {
+            ra.addFlashAttribute("alertMsg", "로그아웃 세션이 만료되었습니다."); // 1회성 메시지
+        	return "redirect:/LoginAdmin";
+        }
+        
 	    // 솔민 : tb_log의 log_idx 총 개수 조회
 	    int totalCount = logService.getTotalLogCount();
 	    model.addAttribute("totalCount", totalCount); // JSP에 전달
