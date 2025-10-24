@@ -391,6 +391,13 @@ button.addBtn {
   	width: 65px;
   	margin-left: 250px;
 }
+
+
+button.addBtn:active {
+	transform: scale(0.95);
+}
+
+
 .frame-inner {
   	height: 18.1px;
   	width: 18.1px;
