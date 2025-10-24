@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.smhrd.web.entity.ExampleEntity;
-import com.smhrd.web.service.복사용Service;
 import com.smhrd.web.service.설명용Service;
 
 import lombok.RequiredArgsConstructor;
