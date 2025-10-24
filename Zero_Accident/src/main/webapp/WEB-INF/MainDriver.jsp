@@ -204,8 +204,10 @@
    							<div class="frame-parent2">
    							
    								<!-- 더보기 -->
+   								
    								<!-- 클릭 시 위험운전기록화면으로 이동됨(MainDriver2.jsp) -->
  								<button type="button" class="addBtn" onclick="location.href='/MainDriver2'">
+ 								
  									<!-- 더보기 아이콘 -->
    									<img class="frame-inner" src="/image/addCircleBlue.svg">
    									
@@ -218,11 +220,18 @@
  								
  								<!-- 최근 위험 운전 기록 리스트 -->
 	 							<div class="div10">
+	 							
+								<!-- foam태그 이용 post방식으로 제출 -->
+								<form id="logForm" method="POST" action="/MainDriver2_1" style="display:none;">
+								  <input type="hidden" name="logIdx" id="logIdxInput">
+								</form>
+										
  									<!-- 반복문으로 동일한 기록 출력 -->
 	 								<c:forEach var="log" items="${logList}">
-	 								
-	 									<!-- 클릭 시 해당 기록 상세페이지로 이동 -->
-	   									<button type="button" class="logBtn" onclick="location.href='/MainDriver2_1'">
+								
+										<!-- 클릭 시 해당 기록 상세페이지로 이동 (POST 전송으로 변경) -->
+										<button type="button" class="logBtn" onclick="viewLog('${log.logIdx}')">
+										
 	 										<div class="div11">
 	 										
 	 											<!-- 아이콘 -->
@@ -268,6 +277,13 @@
     		
   	</div> <!-- 전체 컨테이너 -->
   		
-	
+<!-- ✅ JS: log_idx를 폼에 넣고 POST 전송 -->
+<script>
+function viewLog(logIdx) {
+  document.getElementById("logIdxInput").value = logIdx; // 값 주입
+  document.getElementById("logForm").submit();           // POST 전송
+}
+</script>
+
 </body>
 </html>
