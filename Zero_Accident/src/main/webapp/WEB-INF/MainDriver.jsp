@@ -57,7 +57,7 @@
 				<div class="zer0-accident">
   					<div class="maindriverjsp-zer0-accident">
   						<p class="zer0-">         Zer0-</p>
-  						<p class="accident">Accident</p>
+  						<p class="accidentTitle">Accident</p>
   					</div>
 				</div>
    			</div>

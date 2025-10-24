@@ -68,9 +68,16 @@ body {
   	font-weight: 500;
 }
 
+.accidentTitle {
+  	margin: 0;
+  	font-weight: 800;
+}
+
+
 .driverName {
   	margin: 0;
   	font-weight: 700;
+  	
 }
 
 .driverContact {
@@ -218,23 +225,29 @@ body {
   	justify-content: space-between;
   	gap: 9.9px;
 }
-.driverImg {
-  	width: 91.8px;
-  	position: relative;
-  	border-radius: 88.91px;
-  	max-height: 100%;
-  	object-fit: cover;
-}
 
 .driverImgDiv {
-  	width: 100%;
-  	height: 91.8px;
-  	position: relative;
-  	border-radius: 88.91px;
-  	background-color: rgba(0, 0, 0, 0.2);
-  	border: 1.8px solid #eaefef;
-  	box-sizing: border-box;
+  width: 100%;
+  height: 91.8px;
+  position: relative;
+  border-radius: 88.91px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1.8px solid #eaefef;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* 수평 중앙 */
+  align-items: center;     /* 수직 중앙 */
 }
+
+.driverImg {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  object-position: center bottom; /* 아래쪽을 중심으로 보여줌 */
+}
+
+
 
 
 .driveOn {
@@ -252,7 +265,8 @@ body {
 
 .s090 {
 	display: inline;
-	justify-content: center;	
+	justify-content: center;
+	margin-right: 3px;	
 }
 
 .radio-button-unchecked-parent {
@@ -432,7 +446,7 @@ button.logBtn:active {
 
 /* 버튼 hover 효과 */
 .div11:hover {
-  background-color: #7F8CAA;              
+  background-color: #686363;              
 }
 
 .div11 {
@@ -547,7 +561,6 @@ button.logOut {
   	top: 60px;
   	left: 336px;
   	font-size: 16px;
-  	text-decoration: underline;
   	display: flex;
   	color: #cc8889;
   	text-align: center;
@@ -555,6 +568,11 @@ button.logOut {
   	justify-content: center;
   	width: 64px;
   	height: 33px;
+}
+
+button.logOut:hover {
+	text-decoration: underline;
+	text-underline-offset: 3.2px;
 }
 
 .circle-red {

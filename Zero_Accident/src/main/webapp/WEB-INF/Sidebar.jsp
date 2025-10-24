@@ -102,7 +102,7 @@
   				
   				<div class="tooltip-wrapper">
 	  				<!-- 클릭 시 ButtonAdmin6.jsp로 이동(시스템 알림 페이지) -->
-	 				<button type="button" class="noti sidebar-btn" onclick="location.href='/ButtonAdmin6'">
+	 				<button type="button" class="noti sidebar-btn" onclick="location.href='#'">
 	 					<img class="icon33" src="/image/notifications.svg">
 	 				</button>
 	 				<span class="tooltip">알림/공지</span>
@@ -110,7 +110,7 @@
  				
  				<div class="tooltip-wrapper">
 	 				<!-- 클릭 시 ButtonAdmin7.jsp로 이동(환경설정 페이지) -->
-	 				<button type="button" class="settings sidebar-btn" onclick="location.href='/ButtonAdmin7'">
+	 				<button type="button" class="settings sidebar-btn" onclick="location.href='#'">
 	 					<img class="icon22" src="/image/SettingButton.svg">
 	 				</button>
 	 				<span class="tooltip">설정</span> 

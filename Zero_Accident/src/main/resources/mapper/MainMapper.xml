@@ -124,7 +124,7 @@
 		    tb_driver td ON tc.driver_idx = td.driver_idx
 		ORDER BY 
 		    tl.created_at DESC
-		LIMIT 24;
+		LIMIT 12;
 </select>
 
 <!-- 유선 : 블랙박스페이지/ 실시간 통계 -->

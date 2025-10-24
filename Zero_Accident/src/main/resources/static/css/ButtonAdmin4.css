@@ -363,6 +363,8 @@ div.b {
   overflow-x: hidden;
 }
 
+/* display: flex 제거 */
+/* 여백 */
 .div17 {
   margin-top: 32px;
   margin-left: -15.72px;
@@ -375,6 +377,7 @@ div.b {
   align-items: start;
   position: relative;
   box-sizing: content-box;
+  /* 스크롤 아래 여백 */
   padding-bottom: 50px;
 }
 
