@@ -338,6 +338,12 @@ button.logBtn:active {
   	align-items: center;
   	justify-content: center;
 }
+
+.eventImage2 {
+	transform: scale(0.08);
+}
+
+
 .logInfo {
   	height: 13px;
   	display: flex;

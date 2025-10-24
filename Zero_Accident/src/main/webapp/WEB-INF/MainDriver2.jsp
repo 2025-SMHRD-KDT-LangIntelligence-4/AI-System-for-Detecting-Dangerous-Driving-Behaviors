@@ -133,9 +133,8 @@
          									
          									<!-- 블랙박스 클립 썸네일 이미지 -->
            									<div class="eventImage">
-         										<!-- 이미지 삽입 후 삭제 -->
          										<div class="b">
-           											<img src='${log.eventImg1}' alt="썸네일 이미지" />
+           											<img src='${log.eventImg1}' alt="썸네일 이미지" class="eventImage2" />
          										</div>
            									</div>
            									
