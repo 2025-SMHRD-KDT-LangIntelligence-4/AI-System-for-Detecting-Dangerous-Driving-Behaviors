@@ -28,6 +28,10 @@ import lombok.NoArgsConstructor;
 	private int logIdx;
 	private int driverIdx;
 	private String driverName;
+	//@Column(precision = 17, scale = 14, nullable = false)
+    private String driverLon;
+	//@Column(precision = 17, scale = 14, nullable = false)
+    private String driverLat;
 	private String displayAddr;
 	private String eventVideo;
 	

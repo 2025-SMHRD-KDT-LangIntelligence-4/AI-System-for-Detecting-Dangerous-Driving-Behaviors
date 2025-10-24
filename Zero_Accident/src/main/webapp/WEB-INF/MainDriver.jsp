@@ -14,12 +14,15 @@
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
     <!-- MainDriver.css 파일의 스타일을 적용하겠다. -->
 	<link rel="stylesheet"  href="/css/MainDriver.css" />
+	<!-- 우빈 : 카카오 지도 SDK -->
+	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b1fc2610a3c9415f64affd1fc92ced5b&libraries=services"></script>
 	
 <c:if test="${not empty alertMsg}">
     <script>
         alert("${alertMsg}");
     </script>
 </c:if>
+
 </head>
 <body>
 	
@@ -119,16 +122,16 @@
    								<div class="driverImgDiv">
    								
    									<!-- image 삽입 공간 : DB에서 이미지 url 가져오기! -->
- 									<img class="driverImg" src="${sessionScope.loginDriver.driverImg}">
+ 									<img class="driverImg" src="${loginDriver.driverImg}">
  								</div>
  								
  								<div class="s090">
  								
  									<!-- 운전자 이름 : DB에서 driverName값 가져오기! -->
-   									<p class="driverName">${sessionScope.loginDriver.driverName}</p>
+   									<p class="driverName">${loginDriver.driverName}</p>
    									
    									<!-- 운전자 고유 ID : DB에서 driverIdx값 가져오기! -->
-   									<p class="driverIdx">(${sessionScope.loginDriver.driverCode})</p>
+   									<p class="driverIdx">(${loginDriver.driverCode})</p>
  								</div>
    							</div>					
    							
@@ -163,7 +166,10 @@
    													${loginDriver.fmtDriverBirthdate}</p>
    													
    													<!-- 운전자 근무 지역 : DB에서 driverRegion값 가져오기! -->
-   													<p class="driverRegion">순천시 조례동</p>
+   													<p class="driverRegion">
+													<span class="region-text" data-lat="${loginDriver.driverLat}"
+													data-lng="${loginDriver.driverLon}" >지역 불러오는 중…</span>
+													</p>
    													
    													<!-- 담당 관리자 이름 : DB에서 adminName값 가져오기! -->
    													<p class="adminName">${loginDriver.adminName}</p>
@@ -289,6 +295,44 @@ function viewLog(logIdx) {
   document.getElementById("logForm").submit();           // POST 전송
 }
 </script>
-
+	<!-- 우빈 역지오코딩 (위도경도를 지역명으로) -->
+	<script>
+	  // (그대로 사용) 조각 JSP가 들어간 뒤 .region-text들을 행정동명으로 치환
+	  function fillRegionsInDiv8() {
+	    if (!window.kakao || !kakao.maps || !kakao.maps.services) return;
+	    const geocoder = new kakao.maps.services.Geocoder();
+	    const cache = new Map();
+	
+	    document.querySelectorAll('.region-text').forEach(function(el) {
+	      const lat = parseFloat(el.dataset.lat);
+	      const lng = parseFloat(el.dataset.lng);
+	
+	      if (!Number.isFinite(lat) || !Number.isFinite(lng)) {
+	        el.textContent = '(좌표 없음)';
+	        return;
+	      }
+	
+	      const key = lat.toFixed(6) + ',' + lng.toFixed(6);
+	      const setText = (txt) => el.textContent = txt || '(지역정보 없음)';
+	
+	      if (cache.has(key)) {
+	        setText(cache.get(key));
+	        return;
+	      }
+	
+	      // Kakao: x=경도(lng), y=위도(lat)
+	      geocoder.coord2RegionCode(lng, lat, function(result, status) {
+	        if (status === kakao.maps.services.Status.OK && result && result.length) {
+	          const h = result.find(r => r.region_type === 'H') || result[0];
+	          cache.set(key, h.address_name);
+	          setText(h.address_name); // 예: "전남 순천시 조례동"
+	        } else {
+	          setText('(지역정보 없음)');
+	        }
+	      });
+	    });
+	  }
+	  document.addEventListener("DOMContentLoaded", fillRegionsInDiv8);
+	</script>	
 </body>
 </html>

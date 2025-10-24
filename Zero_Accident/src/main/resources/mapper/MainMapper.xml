@@ -113,17 +113,19 @@
 <!-- 유선 : 블랙박스페이지/ 실시간 모니터링 -->
 <select id="selectBlackbox" resultType="com.smhrd.web.dto.SelectLog">
 	 	SELECT 
-		    tl.*, 
-		    td.driver_name AS driverName, 
-		    td.driver_idx AS driverIdx
+		    l.*, 
+		    d.driver_name,
+		    d.driver_idx,
+		    d.driver_lat,
+		    d.driver_lon
 		FROM 
-		    tb_log tl
+		    tb_log l
 		INNER JOIN 
-		    tb_car tc ON tl.car_number = tc.car_number
+		    tb_car c ON l.car_number = c.car_number
 		INNER JOIN 
-		    tb_driver td ON tc.driver_idx = td.driver_idx
+		    tb_driver d ON c.driver_idx = d.driver_idx
 		ORDER BY 
-		    tl.created_at DESC
+		    l.created_at DESC
 		LIMIT 12;
 </select>
 
