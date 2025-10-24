@@ -94,7 +94,7 @@
            									<span>TOTAL </span>
            									
            									<!-- 총 위험 행위 건수 -->
-           									<span class="countLog">153</span><span 
+           									<span class="countLog">${totalCount}</span><span 
            									class="mainpagedriver2jsp-span">건</span>
          								</div>
            							</div>
@@ -111,6 +111,11 @@
          					
           					<div class="frame-group">
           					
+							<!-- foam태그 이용 post방식으로 제출 -->
+							<form id="logForm" method="POST" action="/MainDriver2_1" style="display:none;">
+							  <input type="hidden" name="logIdx" id="logIdxInput">
+							</form>          					
+							
           					<!-- 10개의 동일한 위험 행위 이력 출력됨-->
           					<c:forEach var="log" items="${driverLog}" varStatus="status">
          						<div class="frame-div">
@@ -122,9 +127,8 @@
            									<div class="div10">${status.index + 1}</div>
          								</div>
          								
-         								<!-- 클릭 시 MainDriver2_1.jsp로 이동 -->
-         								<button type="button" class="logBtn" onclick="location.href='/MainDriver2_1유선/${log.logIdx}'">
-
+										<!-- 클릭 시 해당 기록 상세페이지로 이동 (POST 전송으로 변경) -->
+										<button type="button" class="logBtn" onclick="viewLog('${log.logIdx}')">
 
          									
          									<!-- 블랙박스 클립 썸네일 이미지 -->
@@ -189,11 +193,13 @@
     		
   	</div> <!-- 전체 컨테이너 끝 -->
   	
-  	
-  	
-
-	
-	
+<!-- 우빈 : logIdx가지고 로그 상세 조회 -->
+<script>
+function viewLog(logIdx) {
+  document.getElementById("logIdxInput").value = logIdx; // 값 주입
+  document.getElementById("logForm").submit();           // POST 전송
+}
+</script>  	
 	
 </body>
 </html>

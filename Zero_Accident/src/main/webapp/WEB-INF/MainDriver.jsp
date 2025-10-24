@@ -277,7 +277,7 @@
     		
   	</div> <!-- 전체 컨테이너 -->
   		
-<!-- ✅ JS: log_idx를 폼에 넣고 POST 전송 -->
+<!-- 우빈 : logIdx가지고 로그 상세 조회 -->
 <script>
 function viewLog(logIdx) {
   document.getElementById("logIdxInput").value = logIdx; // 값 주입

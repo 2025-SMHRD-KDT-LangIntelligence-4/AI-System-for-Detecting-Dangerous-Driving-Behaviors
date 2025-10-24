@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.smhrd.web.dto.DriverDetail;
@@ -30,7 +31,7 @@ public String MainDriver(HttpSession session, RedirectAttributes ra, Model model
 	// 세션에서 로그인 정보 가져오기
     DriverInfo loginDriver = (DriverInfo) session.getAttribute("loginDriver");
     
-    // 로그인 안 된 경우
+    // 로그인 안 된 경우 로그인 페이지로 돌려보내기
     if (loginDriver == null) {
         ra.addFlashAttribute("alertMsg", "로그아웃 세션이 만료되었습니다."); // 1회성 메시지
     	return "redirect:/LoginDriver";
@@ -56,10 +57,16 @@ public String MainDriver(HttpSession session, RedirectAttributes ra, Model model
 	
 // 우희 : 운전자 위험운전상세페이지
    @GetMapping("/MainDriver2")
-   public String MainDriver2(Model model, HttpSession session) {
+   public String MainDriver2(Model model, HttpSession session, RedirectAttributes ra) {
       // 유선 : 운전자 위험 운전 이력
 	     // 유선 : 로그인 할 때, 입력받은 정보가 세션에 DriverInfo형태로 들어있다. 그걸 불러옴
 	   	 DriverInfo loginDriver = (DriverInfo) session.getAttribute("loginDriver");
+	   	 
+	     // 로그인 안 된 경우 로그인 페이지로 돌려보내기
+	     if (loginDriver == null) {
+	         ra.addFlashAttribute("alertMsg", "로그아웃 세션이 만료되었습니다."); // 1회성 메시지
+	     	return "redirect:/LoginDriver";
+	     }
 	   	 
 	   	 // 유선 : DriverInfo 형태로 들어있는 것 중에서 int driverIdx만 꺼내겠다
 	   	 int driverIdx = loginDriver.getDriverIdx();
@@ -97,14 +104,17 @@ public String MainDriver(HttpSession session, RedirectAttributes ra, Model model
              for (DriverDetail j : driverLog) {
                     j.setRegDate(j.getCreatedAt().format(formatter));
              }
-             
+         // 우빈 : driverIdx로 운전자별전체 사건 수 조회
+     	 int totalCount = service.selectTotalLogCount(driverIdx);
+     	 
              model.addAttribute("driverLog", driverLog);
-         
+             model.addAttribute("totalCount", totalCount);
+             
              return "MainDriver2";
       }
 	
 	// 우희 : 운전자 위험운전상세페이지
-	@GetMapping("/MainDriver2_1")
+	@PostMapping("/MainDriver2_1")
 	public String MainDriver2_1() {
 		return "MainDriver2_1";
 	}
