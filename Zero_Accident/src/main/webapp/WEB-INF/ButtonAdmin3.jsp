@@ -66,7 +66,7 @@
 				<div class="frame-container">
 					<!-- 날짜 필터 -->
 					<div class="parent7">
-						<div class="div41">날짜</div>
+						<div class="div411">날짜</div>
 						<div class="div42">
 							<!-- 날짜 선택 결과 나타남 -->
 							<div class="pm-wrapper">
@@ -120,7 +120,7 @@
 							<div class="frame-parent2 iconChange">
 								<!-- 체크 박스 -->
 								<!-- 클릭 시 아이콘 변경됨 -->
-								<img class="frame-item checkBox" src="/image/checkBox.svg">
+								<img class="check-box-outline-blank-icon checkBox" src="/image/checkBox.svg">
 								<div class="wrapper7">
 									<b class="b14">상</b>
 								</div>
@@ -131,7 +131,7 @@
 							<div class="frame-parent2 iconChange">
 								<!-- 체크 박스 -->
 								<!-- 클릭 시 아이콘 변경됨 -->
-								<img class="frame-item checkBox" src="/image/checkBox.svg">
+								<img class="check-box-outline-blank-icon checkBox" src="/image/checkBox.svg">
 								<div class="wrapper7">
 									<b class="b14">중</b>
 								</div>
@@ -142,7 +142,7 @@
 							<div class="frame-parent2 iconChange">
 								<!-- 체크 박스 -->
 								<!-- 클릭 시 아이콘 변경됨 -->
-								<img class="frame-item checkBox" src="/image/checkBox.svg">
+								<img class="check-box-outline-blank-icon checkBox" src="/image/checkBox.svg">
 								<div class="wrapper7">
 									<b class="b14">하</b>
 								</div>
@@ -161,7 +161,7 @@
 							<div class="frame-parent2 iconChange">
 								<!-- 체크 박스 -->
 								<!-- 클릭 시 아이콘 변경됨 -->
-								<img class="frame-item checkBox" src="/image/checkBox.svg">
+								<img class="check-box-outline-blank-icon checkBox" src="/image/checkBox.svg">
 								<div class="wrapper10">
 									<b class="b14">조치 완료</b>
 								</div>
@@ -170,7 +170,7 @@
 							<div class="frame-parent2 iconChange">
 								<!-- 체크 박스 -->
 								<!-- 클릭 시 아이콘 변경됨 -->
-								<img class="frame-item checkBox" src="/image/checkBox.svg">
+								<img class="check-box-outline-blank-icon checkBox" src="/image/checkBox.svg">
 								<div class="wrapper10">
 									<b class="b14">조치 중</b>
 								</div>
@@ -179,7 +179,7 @@
 							<div class="frame-parent2 iconChange">
 								<!-- 체크 박스 -->
 								<!-- 클릭 시 아이콘 변경됨 -->
-								<img class="frame-item checkBox" src="/image/checkBox.svg">
+								<img class="check-box-outline-blank-icon checkBox" src="/image/checkBox.svg">
 								<div class="wrapper10">
 									<b class="b14">미조치</b>
 								</div>
@@ -198,6 +198,8 @@
 			<div class="div5">
 				<div class="child"></div>
 				<div class="div6"></div>
+				
+				<div class="header">
 				<div class="wrapper">
 					<div class="div7">순번</div>
 				</div>
@@ -219,6 +221,11 @@
 				<div class="wrapper3">
 					<div class="b">	상태</div>
 				</div>
+				</div>
+				<!-- 구분선 -->
+				<div class="headerLine">
+				</div>
+				
 				<!-- ============== 로그 리스트 ================ -->
 				<div class="div5999">
 				    <c:forEach var="log" items="${logList}" varStatus="status">
@@ -267,13 +274,13 @@
 								    <div class="b">
 								        <c:choose>
 								            <c:when test="${log.eventLevel == 1}">
-								                <img src="/image/BlueCircle.svg" alt="하" width="24" height="24">
+								                <img src="/image/BlueCircle.svg" alt="하" width="16" height="16">
 								            </c:when>
 								            <c:when test="${log.eventLevel == 2}">
-								                <img src="/image/YellowCircle.svg" alt="중" width="24" height="24">
+								                <img src="/image/YellowCircle.svg" alt="중" width="16" height="16">
 								            </c:when>
 								            <c:when test="${log.eventLevel == 3}">
-								                <img src="/image/RedCircle.svg" alt="상" width="24" height="24">
+								                <img src="/image/RedCircle.svg" alt="상" width="16" height="16">
 								            </c:when>
 								            <c:otherwise>
 								                <span>-</span>
@@ -315,7 +322,7 @@
   						<b class="id">위험 등급</b>
 				</div>
 			</div>
-		<!-- 실제 로그 정보 -->
+				<!-- 실제 로그 정보 -->
  				<div class="log-contents">
  				
  					<!-- 로그 ID -->	
@@ -374,10 +381,10 @@
    					</div>
    					
    					<!-- 위험 등급 표시 아이콘 -->
-<div id="detail-event-level">
-  <span id="level-placeholder">-</span> <!-- 기본 상태 -->
-  <img src="" alt="위험등급" width="20" height="20" style="display:none;">
-</div>
+					<div id="detail-event-level">
+					  <span id="level-placeholder">-</span> <!-- 기본 상태 -->
+					  <img src="" alt="위험등급" width="17" height="17" style="display:none;">
+					</div>
 
 					   					
    					<!-- 구분선 -->
@@ -390,8 +397,8 @@
    			</div>  			  			
  		</div>
 			<!-- 저작권 -->
-			<div class="copyright">
-   			<div class="b">Copyright ⓒ 2025 Zo-A Co. All rights reserved.</div>
+			<div class="copyrightDiv">
+   			<div class="copyright">Copyright ⓒ 2025 Zo-A Co. All rights reserved.</div>
     	</div>
 		<script>
 	    function updateTime() {

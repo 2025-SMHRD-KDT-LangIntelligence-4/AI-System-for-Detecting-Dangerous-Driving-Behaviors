@@ -22,9 +22,9 @@ html, body {
   	color: #fff;
   	font-family: 'NanumSquare Neo OTF';
 }
-.copyright {
+.copyrightDiv {
   	position: absolute;
-  	bottom: 28.01px;
+  	bottom: 24.01px;
   	left: calc(50% - 162.47px);
   	width: 324px;
   	display: flex;
@@ -32,6 +32,14 @@ html, body {
   	justify-content: center;
   	color: #b8cfce;
 }
+
+.copyright {
+	white-space: nowrap;
+	font-size: 88%;
+	font-family: 'NanumSquare Neo OTF';
+	font-weight: 300;
+}
+
 .div {
   	position: absolute;
   	top: calc(50% - 421.98px);
@@ -93,6 +101,7 @@ button.div3 {
   	position: relative;
   	font-weight: 300;
   	z-index: 100;
+  	white-space: nowrap;
 }
 .div4 {
   	position: absolute;
@@ -252,7 +261,7 @@ button.div3 {
 }
 .div15 {
   position: absolute;
-  top: 28.01px;
+  top: 40.01px;
   left: 28.01px;
   width: 467.7px;
   height: 250px;             /* 적당한 높이로 고정 */
@@ -276,12 +285,12 @@ button.div3 {
 }
 .log-title {
   	position: absolute;
-  	top: 305.29px;
+  	top: 320.29px;
   	left: 28.01px;
   	border-radius: 15.01px;
   	background-color: #7f8caa;
   	width: 186.7px;
-  	height: 254.9px;
+  	height: 224.9px;
   	display: flex;
   	flex-direction: column;
   	align-items: flex-end;
@@ -293,17 +302,19 @@ button.div3 {
   	display: flex;
   	flex-direction: column;
   	align-items: flex-end;
-  	gap: 15.9px;
+  	gap: 19.9px;
 }
 .id {
   	position: relative;
   	letter-spacing: 0.44px;
   	line-height: 10.27px;
   	text-transform: uppercase;
+  	font-weight: 500;
+  	font-size: 110%;
 }
 .log-contents {
   	position: absolute;
-  	top: 320.22px;
+  	top: 347.29px;
   	left: 243.67px;
   	width: 252.1px;
   	display: flex;
@@ -311,7 +322,7 @@ button.div3 {
   	align-items: flex-end;
   	padding: 0.9px 0px;
   	box-sizing: border-box;
-  	gap: 3.7px;
+  	gap: 6px;
 }
 .l00000212-parent {
   	align-self: stretch;
@@ -323,10 +334,12 @@ button.div3 {
 .l00000212 {
   	align-self: stretch;
   	position: relative;
+  	font-weight: 300;
+  	font-size: 105%;
 }
 .div17 {
   	align-self: stretch;
-  	height: 1.9px;
+  	height: 2.5px;
   	position: relative;
   	border-radius: 1.84px;
   	background-color: #686363;
@@ -510,7 +523,19 @@ button.div3 {
   	line-height: 13.18px;
   	text-transform: uppercase;
   	font-weight: 800;
+  	white-space: nowrap;
+  	left: 7px;
 }
+
+.div411 {
+  	position: relative;
+  	letter-spacing: 0.44px;
+  	line-height: 13.18px;
+  	text-transform: uppercase;
+  	font-weight: 800;
+  	white-space: nowrap;
+}
+
 .div42 {
   	height: 23.3px;
   	width: 165.2px;
@@ -531,7 +556,7 @@ button.calendar {
   	height: 13.1px;
   	width: 13.1px;
   	position: relative;
-  	overflow: hidden;
+  	
   	flex-shrink: 0;
 }
 .buttonadmin3jsp-icon {
@@ -793,6 +818,7 @@ input.div51 {
   	padding: 14px 20.5px;
   	box-sizing: border-box;
   	font-size: 14.87px;
+  	cursor: pointer;
 }
 
 /* 스크롤 커스텀*/
@@ -806,22 +832,41 @@ input.div51 {
 .div60::-webkit-scrollbar-track {
   background-color: #2e2e36;
 }
+
+.div60:active {
+	transform: scale(0.992);
+}
+
 .frame-parent9 {
-  	flex: 1;
-  	display: flex;
-  	align-items: center;
-  	justify-content: space-between;
-  	gap: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    scale: 97%;
 }
+
+/* 모든 열 스타일 공통 */
+.pm-wrapper, .wrapper15 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* column width 설정 (열 순서 기준) */
+.pm-wrapper:nth-child(1) { width: 40px; }   /* 순번 */
+.pm-wrapper:nth-child(2) { width: 145px; }  /* 발생일시 */
+.wrapper15:nth-child(3)  { width: 100px; }  /* 차량번호 */
+.pm-wrapper:nth-child(4) { width: 80px; }   /* 운전자 */
+.pm-wrapper:nth-child(5) { width: 110px; }  /* 위험 행위 종류 */
+.pm-wrapper:nth-child(6) { width: 75px; }   /* 위험 등급 */
+.pm-wrapper:nth-child(7) { width: 120px; }  /* 상태 */
+
+/* 날짜 & 상태 text 정리 */
 .p {
-  	margin: 0;
+    margin: 2px 0;
+    white-space: nowrap;
 }
-.wrapper15 {
-  	width: 65.3px;
-  	display: flex;
-  	align-items: center;
-  	justify-content: center;
-}
+
 .span4 {
   	color: #fff;
 }
@@ -867,6 +912,7 @@ input.div51 {
   font-size: 14px;
   cursor: pointer;
   width: 100%;
+  white-space: nowrap;
 }
 
 .calendar {
@@ -886,19 +932,70 @@ input.div51 {
 
 
 .date-input {
-  font-family: 'NanumSquare Neo OTF', sans-serif; /* ✅ 폰트 지정 */
-  font-size: 9.3px;                               /* ✅ 글씨 크기 */
-  color: #EAEFEF;                                /* ✅ 텍스트 색상 */
-  margin-left: -5px;
+  font-family: 'NanumSquare Neo OTF', sans-serif; /*  폰트 지정 */
+  font-size: 9.3px;                               /*  글씨 크기 */
+  color: #EAEFEF;                                /*  텍스트 색상 */
+  margin-left: 25px;
   margin-top: -1px;
   font-weight: 700;
+  width: 80px;
 }
 .div60.active {
-  background-color: #000000 !important;
-  border: 2px solid #000000 !important;
+  background-color: #686363 !important;
   transition: all 0.15s ease-in-out;
 }
 
+#detail-event-level {
+	padding: 0px;
+	height: 15px;
+}
 
+.headerLine {
+	width: 653px;
+	height: 0px;
+	position: relative;
+	border: 2.7px solid #686363;
+	border-radius: 9.34px;
+	background-color: #686363;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0px 12.1px 0px 10.3px;
+	box-sizing: border-box;
+	z-index: 100;
+	top: 63px;
+	left: 20px;
+}
 
+/* 헤더 행 컨테이너 */
+.header {
+    display: flex;
+    align-items: center;
+}
+
+/* 공통 스타일 적용 */
+.header > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* 열(column) 폭 — 로그와 동일하게 설정 */
+.header .wrapper { width: 20px; }               /* 순번 */
+.header .container { width: 50px; }            /* 발생일시 */
+.header .frame { width: 90px; }                /* 차량번호 */
+.header .frame-div { width: 70px; }             /* 운전자 */
+.header .buttonadmin3jsp-wrapper { width: 90px; } /* 위험 행위 종류 */
+.header .wrapper2 { width: 20px; }              /* 위험 등급 */
+.header .wrapper3 { width: 1px; }             /* 상태 */
+
+/* 텍스트 렌더링 안정화 */
+.header .b,
+.header .div7,
+.header .div10 {
+    white-space: nowrap;
+    margin: 0;
+    font-weight: 500;
+}
 
