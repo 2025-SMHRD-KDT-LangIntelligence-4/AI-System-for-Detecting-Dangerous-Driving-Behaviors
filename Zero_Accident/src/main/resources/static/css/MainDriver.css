@@ -31,7 +31,7 @@ body {
   	background-color: #44444e;
   	width: 440px;
   	height: 863px;
-  	overflow-y: auto;
+  	overflow-y: hidden;
   	font-size: 23px;
   	color: #b8cfce;
 }
@@ -696,17 +696,177 @@ button.logOut:hover {
     flex-shrink: 0;
 }
 
-.alert-message {
+.alertMsg1 {
     margin: 0;
+    font-weight: 500;
 }
 
 .alert-bg {
     position: absolute;
-    top: 9px;
+    top: 8px;
     left: 0px;
     border-radius: 1px;
     width: 27px;
     height: 27.9px;
     object-fit: contain;
 }
+
+.driverMsg-text {
+  	width: 100%;
+  	height: 65px;
+  	position: relative;
+  	transform: rotate(180deg);
+  	transform-origin: 0 0;
+  	text-align: left;
+  	font-size: 14px;
+  	color: #44444e;
+  	font-family: 'NanumSquare Neo OTF';
+  	left: 340px;
+  	top: -360px;
+}
+
+.driverMsg-inner {
+  	position: absolute;
+  	top: 9px;
+  	left: 6px;
+  	border-radius: 13.89px;
+  	background-color: #eaefef;
+  	width: 171px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	padding: 8px;
+  	box-sizing: border-box;
+  	z-index: 100;
+}
+
+.driverMsg-frameWrapper {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+}
+
+.driverMsg-textWrapper {
+  	align-self: stretch;
+  	border-radius: 13.89px;
+  	background-color: #9b9a9f;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 8px 13px;
+}
+
+.driverMsg {
+  	width: 117px;
+  	position: relative;
+  	line-height: 120%;
+  	display: inline-block;
+  	flex-shrink: 0;
+  	transform: rotate(180deg);
+  	font-weight: 500;
+}
+
+.driverMsg-icon {
+  	position: absolute;
+  	top: 29px;
+  	left: -1px;
+  	border-radius: 1px;
+  	width: 27px;
+  	height: 27.9px;
+  	object-fit: contain;
+  	transform: rotate(-180deg);
+}
+
+.alertMsg {
+  	width: 100%;
+  	height: 152px;
+  	position: relative;
+  	text-align: left;
+  	font-size: 14px;
+  	color: #d07b7b;
+  	font-family: 'NanumSquare Neo OTF';
+  	top: -450px;
+  	left: 23px;
+}
+
+.alertMsg-icon {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 47px;
+  	height: 47px;
+}
+
+.alertMsg-box {
+  	position: absolute;
+  	top: 12px;
+  	left: 53px;
+  	width: 250px;
+  	height: 140px;
+}
+
+.alertMsg-inner {
+  	position: absolute;
+  	top: 9px;
+  	left: 6px;
+  	border-radius: 13.89px;
+  	background-color: #eaefef;
+  	width: 238px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	padding: 10px 15px;
+  	box-sizing: border-box;
+}
+
+.alertMsg-frameParent {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	gap: 8px;
+}
+
+.alertMsg-titleWrapper {
+  	align-self: stretch;
+  	display: flex;
+  	align-items: center;
+  	padding: 0px 4px;
+}
+
+.alertMsg-title {
+  	position: relative;
+}
+
+.alertMsg-textWrapper {
+  	align-self: stretch;
+  	border-radius: 13.89px;
+  	background-color: #9b9a9f;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 14px 13px;
+  	color: #44444e;
+}
+
+.alertMsg2 {
+  	width: 181px;
+  	position: relative;
+  	line-height: 120%;
+  	display: inline-block;
+  	flex-shrink: 0;
+  	font-weight: 500;
+}
+
+.alertMsg-rightIcon {
+  	position: absolute;
+  	top: 9px;
+  	left: -1px;
+  	border-radius: 1px;
+  	width: 27px;
+  	height: 27.9px;
+  	object-fit: contain;
+}
+
 

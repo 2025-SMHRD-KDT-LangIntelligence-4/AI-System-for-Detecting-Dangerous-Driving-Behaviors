@@ -67,13 +67,15 @@
  				<div class="div3">
    					<div class="div4">
    					
-   						<!-- 운전자 이름 -->
+   						<!-- title -->
    						<span class="driverName">위험 운전 경고 알림</span>
    					</div>
  				</div>
      			
      			<!-- 메시지 창 전체 컨테이너-->	
      			<div class="alert-card">
+     			
+     				<!-- 위험 운전 알림1 -->
 				    <img class="alert-icon" src="/image/alert.png">
 				
 				    <div class="alert-content">
@@ -86,11 +88,10 @@
 				                </div>
 				                
 				                <div class="alert-message-wrapper">
-				                    <b class="alert-line">
+				                    <b class="alert-line">			              	
 				                    	
-				                    	
-				                    	<!-- 메시지 content -->
-				                        <p class="alert-message">졸음 운전이 감지되었습니다. 
+				                    	<!-- 메시지 내용 -->
+				                        <p class="alertMsg1">졸음 운전이 감지되었습니다. 
 				                        창문을 열거나 근처 졸음쉼터에서 잠시 휴식을 취하세요.</p>
 				                    </b>
 				                </div>
@@ -100,6 +101,50 @@
 				        <img class="alert-bg" src="/image/messagePop.svg">
 				    </div>
 				</div>
+				
+				
+				<!-- 운전자 메시지 -->
+				<div class="driverMsg-text">
+					  <div class="driverMsg-inner">
+					    <div class="driverMsg-frameWrapper">
+					      <div class="driverMsg-textWrapper">
+					      
+					      	<!-- 메시지 내용 -->
+					        <b class="driverMsg">네, 주의하겠습니다.</b>
+					      </div>
+					    </div>
+					  </div>
+					  <img class="driverMsg-icon" src="/image/Polygon2.svg">
+				</div>
+				
+				
+				<!-- 위험 운전 알림2 -->
+				<div class="alertMsg">
+					  <img class="alertMsg-icon" src="/image/alert.png">
+					  
+					  <div class="alertMsg-box">
+					    <div class="alertMsg-inner">
+					      <div class="alertMsg-frameParent">
+					
+					        <div class="alertMsg-titleWrapper">
+					          <b class="alertMsg-title">[경고 알림]</b>
+					        </div>
+					
+					        <div class="alertMsg-textWrapper">
+					        
+					          <!-- 메시지 내용 -->
+					          <b class="alertMsg2">
+					            위험 운전 행위가 감지되었습니다. 안전을 위해 운전에 집중해 주세요.
+					          </b>
+					        </div>
+					
+					      </div>
+					    </div>
+					
+					    <img class="alertMsg-rightIcon" src="/image/messagePop.svg">
+					  </div>
+				</div>
+				
      				
  				
    			</div>
