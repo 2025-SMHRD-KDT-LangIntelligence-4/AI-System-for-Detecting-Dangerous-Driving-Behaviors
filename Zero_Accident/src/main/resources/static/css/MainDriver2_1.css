@@ -414,7 +414,7 @@ body {
   	display: flex;
   	align-items: center;
   	justify-content: center;
-  	padding: 12.4px;
+  	padding: 12.4px 15px;
   	box-sizing: border-box;
   	font-size: 18.09px;
   	color: #fff;
@@ -433,7 +433,7 @@ body {
   	display: flex;
   	align-items: center;
   	justify-content: center;
-  	gap: 23px;
+  	gap: 95px;
 }
 .title {
   	border-radius: 14.65px;
