@@ -428,13 +428,20 @@ body {
   	justify-content: center;
   	padding: 13.8px;
   	font-size: 13px;
+  	height: 130px;
 }
 .title-parent {
-  	display: flex;
-  	align-items: center;
-  	justify-content: center;
-  	gap: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 340px;          /* 고정 */
+    max-width: 340px;      /* 절대 초과 불가 */
+    flex-shrink: 0;        /* 줄어드는 것 방지 */
+    overflow: hidden;      /* 넘치는 텍스트 숨김 */
+    white-space: nowrap;   /* 줄바꿈 방지 */
+    text-overflow: ellipsis; /* 말줄임표 적용 */
 }
+
 .title {
   	border-radius: 14.65px;
   	background-color: #7f8caa;
@@ -445,6 +452,8 @@ body {
   	padding: 13.8px;
   	white-space: nowrap;
   	font-weight: 300;
+  	position: absolute;
+  	right: 232px;
 }
 .b {
   	position: relative;
@@ -458,14 +467,17 @@ body {
   	align-items: flex-end;
   	justify-content: center;
   	text-align: right;
+  	position: absolute;
+  	left: 340px;
 }
 .logInfo_1 {
-  	position: relative;
+  	position: absolute;
   	letter-spacing: 0.41px;
   	line-height: 21px;
   	text-transform: uppercase;
   	font-weight: 300;
   	white-space: nowrap;
+  	
 }
 .copyright-2025 {
   	position: absolute;
