@@ -740,34 +740,35 @@ button.logOut:hover {
 .alert-message-wrapper {
     align-self: stretch;
     border-radius: 13.89px;
-    background-color: #EAEFEF;
+    background-color: #9b9a9f;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 14px 13px;
-    color: #44444e;
+    color: #ffffff;
 }
 /* 2번째메세지, 우빈 : 원래색#9b9a9f */
 .driverMsg-textWrapper {
   	align-self: stretch;
   	border-radius: 13.89px;
-  	background-color: #EAEFEF;
+  	background-color: #9b9a9f;
   	display: flex;
   	align-items: center;
   	justify-content: center;
   	padding: 8px 13px;
+  	color: #ffffff;
 }
 
 /* 3번째메세지, 우빈 : 원래색#9b9a9f */
 .alertMsg-textWrapper {
   	align-self: stretch;
   	border-radius: 13.89px;
-  	background-color: #EAEFEF;
+  	background-color: #9b9a9f;
   	display: flex;
   	align-items: center;
   	justify-content: center;
   	padding: 14px 13px;
-  	color: #44444e;
+  	color: #ffffff;
 }
 
 .driverMsg {
