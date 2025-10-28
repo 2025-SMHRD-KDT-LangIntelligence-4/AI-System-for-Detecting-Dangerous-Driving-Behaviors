@@ -205,7 +205,7 @@ function viewLog(logIdx) {
 	
 	
 <!-- 소리 재생 -->	
-<audio id="alertSound" src="${cpath}/sound/alert.mp3" preload="auto"></audio>
+<audio id="alertSound" src="${cpath}/sound/alarm.mp3" preload="auto"></audio>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
