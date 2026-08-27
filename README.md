@@ -114,11 +114,9 @@ MySQL
 ### ERD
 
 
-```text
-
 <img width="1865" height="715" alt="ER다이어그램" src="https://github.com/user-attachments/assets/26541d82-3527-4a7b-b142-826f8181acd9" />
 
-```
+
 
 ---
 
